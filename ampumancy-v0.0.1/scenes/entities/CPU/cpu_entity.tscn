@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://db65r7afq1xv5"]
-
-[ext_resource type="PackedScene" uid="uid://cpq67fnp87fis" path="res://scenes/entities/entity.tscn" id="1_3letj"]
-[ext_resource type="Script" path="res://scenes/entities/CPU/cpu_entity.gd" id="2_h4bd7"]
-
-[node name="CPUEntity" instance=ExtResource("1_3letj")]
-script = ExtResource("2_h4bd7")
