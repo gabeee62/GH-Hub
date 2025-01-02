@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq0bn4l8qic00"]
+
+[ext_resource type="PackedScene" uid="uid://cpq67fnp87fis" path="res://scenes/entities/entity.tscn" id="1_eawhh"]
+[ext_resource type="Script" path="res://scenes/entities/controllable/controllable_entity.gd" id="2_52gb0"]
+
+[node name="ControllableEntity" instance=ExtResource("1_eawhh")]
+script = ExtResource("2_52gb0")
