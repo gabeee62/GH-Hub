@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://483ui15guf60"]
+
+[ext_resource type="Script" path="res://scenes/entities/stats.gd" id="1_031kg"]
+
+[resource]
+script = ExtResource("1_031kg")
+health = 100
+constitution = 1
+strength = 0
+dexterity = 0
+force = 0
+technique = 0
+magic = 0
+light = 0
+dark = 0
+voyd = 0
