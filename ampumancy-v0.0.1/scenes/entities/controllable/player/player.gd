@@ -1,0 +1,2 @@
+extends Controllable
+class_name Player
