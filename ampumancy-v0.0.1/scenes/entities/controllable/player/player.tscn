@@ -2,7 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cq0bn4l8qic00" path="res://scenes/entities/controllable/controllable_entity.tscn" id="1_iqppj"]
 [ext_resource type="Script" path="res://scenes/entities/controllable/player/player.gd" id="2_173f2"]
-[ext_resource type="Resource" uid="uid://483ui15guf60" path="res://scenes/entities/stats.tres" id="3_gi37g"]
+<<<<<<< Updated upstream
+[ext_resource type="Resource" uid="uid://483ui15guf60" path="res://scenes/entities/entitydata/stats.tres" id="3_gi37g"]
+=======
+[ext_resource type="Resource" path="res://scenes/entities/entitydata/stats.tres" id="3_gi37g"]
+>>>>>>> Stashed changes
 
 [node name="Player" instance=ExtResource("1_iqppj")]
 script = ExtResource("2_173f2")
