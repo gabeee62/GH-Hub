@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=2 format=3 uid="uid://c5rqoltrolt5g"]
+
+[ext_resource type="Script" path="res://scenes/entities/entitydata/inventory.gd" id="2_ji8aa"]
+
+[resource]
+script = ExtResource("2_ji8aa")
+equippables = Array[Object]([])
