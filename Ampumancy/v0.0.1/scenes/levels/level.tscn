@@ -39,6 +39,7 @@ tile_set = SubResource("TileSet_gipqv")
 
 [node name="Player" parent="." instance=ExtResource("2_tuiag")]
 position = Vector2(1, 16)
+collision_mask = 14
 
 [node name="PlayerCam" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
