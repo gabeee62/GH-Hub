@@ -2,9 +2,9 @@ extends Controllable
 class_name Player
 
 # JUMP CALCULATIONS
-var jump_velocity: float = -1 * ((2.0 * jump_height) / time_to_peak)
-var jump_gravity: float = -1 * ((-2.0 * jump_height) / (time_to_peak * time_to_peak))
-var fall_gravity: float = -1 * ((-2.0 * jump_height) / (time_to_fall * time_to_fall))
+@onready var jump_velocity: float = -1 * ((2.0 * jump_height) / time_to_peak)
+@onready var jump_gravity: float = -1 * ((-2.0 * jump_height) / (time_to_peak * time_to_peak))
+@onready var fall_gravity: float = -1 * ((-2.0 * jump_height) / (time_to_fall * time_to_fall))
 
 @export var jump_height: float
 @export var time_to_peak: float
@@ -14,13 +14,17 @@ var fall_gravity: float = -1 * ((-2.0 * jump_height) / (time_to_fall * time_to_f
 @export var stats: Stats
 
 
-func _process(_delta: float) -> void:
-	velocity.y = get_grav()
+func _process(delta: float) -> void:
+	velocity.y += get_grav() * delta
 	
 	if Input.is_action_pressed("left"):
 		velocity.x = -1 * stats.movespeed
+		$Sprite2D.flip_h = true
 	if Input.is_action_pressed("right"):
 		velocity.x = stats.movespeed
+		$Sprite2D.flip_h = false
+	if not Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
+		velocity.x = 0
 	
 	if Input.is_action_pressed("jump") and is_on_floor():
 		jump()
