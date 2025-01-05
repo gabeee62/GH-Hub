@@ -34,14 +34,14 @@ sources/3 = SubResource("TileSetAtlasSource_taymx")
 [node name="Level" type="Node2D"]
 script = ExtResource("1_irr2j")
 
+[node name="Background" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_gipqv")
+
 [node name="Player" parent="." instance=ExtResource("2_tuiag")]
 position = Vector2(1, 16)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="PlayerCam" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
-
-[node name="Background" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_gipqv")
 
 [node name="Foreground" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD//wIAAwACAAEAAAAAAAIAAwACAAEAAAABAAIAAwACAAEAAAACAAIAAwACAAEAAAD+/wIAAwACAAEAAAD9/wIAAwACAAEAAAD8/wIAAwACAAEAAAD7/wIAAwABAAEAAAADAAIAAwADAAEAAAA=")
