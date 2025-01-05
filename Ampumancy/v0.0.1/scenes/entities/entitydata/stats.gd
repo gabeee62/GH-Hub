@@ -1,6 +1,8 @@
 extends Resource
 class_name Stats
 
+@export var movespeed: int
+
 @export var health: int = 100
 @export var constitution: int = 1
 

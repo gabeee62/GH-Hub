@@ -12,6 +12,9 @@ height = 24.0
 [node name="Player" instance=ExtResource("1_8bmfx")]
 scale = Vector2(5, 5)
 script = ExtResource("2_c0g4o")
+jump_height = 100.0
+time_to_peak = 0.5
+time_to_fall = 0.4
 stats = ExtResource("3_xmml8")
 
 [node name="CollisionShape2D" parent="." index="0"]
