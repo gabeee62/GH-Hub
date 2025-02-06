@@ -1,33 +1,87 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbeoqwg7vnkit"]
+[gd_scene load_steps=10 format=3 uid="uid://dbeoqwg7vnkit"]
 
 [ext_resource type="PackedScene" uid="uid://cq0bn4l8qic00" path="res://scenes/entities/controllable/controllable_entity.tscn" id="1_8bmfx"]
 [ext_resource type="Script" path="res://scenes/entities/controllable/player/player.gd" id="2_c0g4o"]
 [ext_resource type="Texture2D" uid="uid://dxtywsb4ybx2y" path="res://media/graphics/entities/player.png" id="3_vugj1"]
 [ext_resource type="Resource" uid="uid://483ui15guf60" path="res://scenes/entities/entitydata/stats.tres" id="3_xmml8"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3h03t"]
-polygon = PackedVector2Array(7, -2, 6.8, -4.2, 6, -6, 5, -7.4, 3.4, -8.6, 1.8, -9.2, 0, -9.4, -1.8, -9.2, -3.6, -8.4, -5, -7.4, -6, -6, -6.8, -4.2, -7, -2.6, -7, 6.2, -6.8, 7.8, -6, 9.6, -5, 11, -3.6, 12, -1.8, 12.8, 0, 13, 1.8, 12.8, 3.6, 12, 5, 11, 6, 9.6, 6.8, 7.8, 7, 6, 7, -2)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_exk5u"]
 radius = 7.0
 height = 22.4
 
+[sub_resource type="Animation" id="Animation_5jsmg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tprgr"]
+resource_name = "idle"
+length = 1.06667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_tmpr4"]
+resource_name = "walk"
+length = 0.400003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ugvf"]
+_data = {
+"RESET": SubResource("Animation_5jsmg"),
+"idle": SubResource("Animation_tprgr"),
+"walk": SubResource("Animation_tmpr4")
+}
+
 [node name="Player" instance=ExtResource("1_8bmfx")]
 scale = Vector2(5, 5)
 script = ExtResource("2_c0g4o")
-jump_height = 50.0
-time_to_peak = 0.3
-time_to_fall = 0.2
+jump_height = 60.0
+seconds_to_peak = 0.0
+seconds_to_fall = 0.0
 stats = ExtResource("3_xmml8")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="0"]
-scale = Vector2(1, 1)
-occluder = SubResource("OccluderPolygon2D_3h03t")
-
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 1.8)
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.2, 1.8)
 shape = SubResource("CapsuleShape2D_exk5u")
 
-[node name="Sprite2D" parent="." index="2"]
-position = Vector2(0, -3)
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(-0.4, 2)
 texture = ExtResource("3_vugj1")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_1ugvf")
+}

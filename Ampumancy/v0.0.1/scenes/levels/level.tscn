@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://bn86r56nrk4kw"]
+[gd_scene load_steps=11 format=4 uid="uid://bn86r56nrk4kw"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_irr2j"]
 [ext_resource type="PackedScene" uid="uid://dbeoqwg7vnkit" path="res://scenes/entities/controllable/player/player.tscn" id="2_tuiag"]
 [ext_resource type="Texture2D" uid="uid://cxj12vinh8rv2" path="res://media/graphics/tilemaps/ground2.png" id="2_xvgsk"]
 [ext_resource type="PackedScene" uid="uid://bbkmau5kmkd6c" path="res://scenes/ui/menus/in_game_menu.tscn" id="4_vvl4y"]
+[ext_resource type="PackedScene" uid="uid://c0o7obqprehu6" path="res://scenes/ui/hud/heads_up_display.tscn" id="5_10l3x"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d04m5"]
 
@@ -102,4 +103,9 @@ color = Color(1, 0.54902, 0.105882, 0.054902)
 energy = 1.14
 shadow_enabled = true
 
-[node name="InGameMenu" parent="." instance=ExtResource("4_vvl4y")]
+[node name="Menus" type="CanvasLayer" parent="."]
+
+[node name="InGameMenu" parent="Menus" instance=ExtResource("4_vvl4y")]
+visible = false
+
+[node name="HeadsUpDisplay" parent="Menus" instance=ExtResource("5_10l3x")]
