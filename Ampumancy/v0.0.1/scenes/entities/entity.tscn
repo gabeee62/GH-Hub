@@ -5,6 +5,6 @@
 [node name="Entity" type="CharacterBody2D"]
 script = ExtResource("1_p7tio")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HitBox" type="CollisionShape2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]

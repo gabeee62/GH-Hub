@@ -1,13 +1,26 @@
-extends Controllable
+extends CharacterBody2D
 class_name Player
 
+# ADD FLIP H ON MOUSE MOVEMENT
+# ADD ARMS
+
+signal spell(spell: Node2D)
+
+var godmode: bool = false
+
+var last_direction: int = 1
+
+# SPELLS
+var fireball_scene: PackedScene = preload("res://scenes/spells/fireball.tscn")
+
+# GAME COORDINATES
 var xcoord: int
 var ycoord: int
 
 # JUMP CALCULATIONS
-@onready var jump_velocity: float = -1 * ((2.0 * jump_height) / seconds_to_peak)
-@onready var jump_gravity: float = -1 * ((-2.0 * jump_height) / (seconds_to_peak * seconds_to_peak))
-@onready var fall_gravity: float = -1 * ((-2.0 * jump_height) / (seconds_to_fall * seconds_to_fall))
+@onready var jump_velocity: float = ((-2.0 * jump_height) / seconds_to_peak)
+@onready var jump_gravity:  float = ((2.0 * jump_height) / (seconds_to_peak * seconds_to_peak))
+@onready var fall_gravity:  float = ((2.0 * jump_height) / (seconds_to_fall * seconds_to_fall))
 
 # JUMP VARIABLES (CHANGE IN INSPECTOR)
 @export var jump_height: float
@@ -25,26 +38,65 @@ func _process(delta: float) -> void:
 	# GRAVITY
 	velocity.y += get_grav() * delta
 	
-	# MOVEMENT
+	# GOD MODE (REMOVE BEFORE RELEASE)
+	if Input.is_action_just_pressed("god_toggle"):
+		godmode = not godmode
+		
+	# BASIC SPELL FUNCTIONALITY
+	if Input.is_action_just_pressed("primary"):
+		var fireball: Area2D = fireball_scene.instantiate()
+		fireball.direction = last_direction
+		fireball.position = $SpellEmission.global_position
+		spell.emit(fireball)
+		
+	
+	movement()
+
+
+func movement() -> void:
+	# WALK LEFT
 	if Input.is_action_pressed("left"):
 		velocity.x = -1 * stats.movespeed
-		$Sprite2D.flip_h = true
+		last_direction = -1
+		for i in $Sprite.get_children():
+			i.flip_h = true
 		if is_on_floor():
-			$AnimationPlayer.play("walk")
+			$AnimationPlayer.play("walk_l")
 		else:
-			$AnimationPlayer.play("walk")
+			$AnimationPlayer.play("walk_l")
+	# WALK RIGHT
 	if Input.is_action_pressed("right"):
 		velocity.x = stats.movespeed
-		$Sprite2D.flip_h = false
+		last_direction = 1
+		for i in $Sprite.get_children():
+			i.flip_h = false
 		if is_on_floor():
-			$AnimationPlayer.play("walk")
+			$AnimationPlayer.play("walk_r")
 		else:
-			$AnimationPlayer.play("walk")
+			$AnimationPlayer.play("walk_r")
+	# STOP AND IDLE
 	if not Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
 		velocity.x = 0
-		$AnimationPlayer.play("idle")
-	if Input.is_action_pressed("jump") and is_on_floor():
-		jump()
+		if last_direction == 1:
+			$AnimationPlayer.play("idle_r")
+		else:
+			$AnimationPlayer.play("idle_l")
+	# JUMP
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			stats.current_extra_jumps = stats.max_extra_jumps
+			jump()
+		elif stats.current_extra_jumps > 0:
+			jump()
+			stats.current_extra_jumps -= 1
+	# GODMODE
+	if godmode:
+		if Input.is_action_pressed("up"):
+			velocity.y = -stats.movespeed
+		if Input.is_action_pressed("down"):
+			velocity.y = stats.movespeed
+		if not Input.is_action_pressed("up") and not Input.is_action_pressed("down"):
+			velocity.y = 0
 	
 	move_and_slide()
 
@@ -54,7 +106,10 @@ func jump() -> void:
 
 
 func get_grav() -> float:
-	if velocity.y < 0:
-		return jump_gravity
+	if not godmode:
+		if velocity.y < 0:
+			return jump_gravity
+		else:
+			return fall_gravity
 	else:
-		return fall_gravity
+		return 0

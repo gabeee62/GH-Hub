@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_031kg")
 movespeed = 175
+max_extra_jumps = 5
+current_extra_jumps = 0
 health = 100
 constitution = 1
 strength = 0

@@ -1,8 +1,19 @@
 extends Resource
 class_name Stats
 
-@export var movespeed: int
+# OUTFITS
+@export var hat_color: int
+@export var head_color: int
+@export var eye_color: int
+@export var cloak_color: int
+@export var body_color: int
 
+# MOVEMENT VARIABLES
+@export var movespeed: int
+@export var max_extra_jumps: int
+@export var current_extra_jumps: int
+
+# GAME STATS
 @export var health: int = 100
 @export var constitution: int = 1
 
