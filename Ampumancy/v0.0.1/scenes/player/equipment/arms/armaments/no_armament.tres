@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Armament" load_steps=2 format=3 uid="uid://ubnbmxwavur3"]
+
+[ext_resource type="Script" path="res://scenes/player/equipment/arms/armaments/armament.gd" id="1_ovndp"]
+
+[resource]
+script = ExtResource("1_ovndp")
+name = "None"
+type = 0
+base_effect = ""
+imbuement = 0

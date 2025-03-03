@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Arm" load_steps=3 format=3 uid="uid://c5bd1fu3dijf6"]
+
+[ext_resource type="Script" path="res://scenes/player/equipment/arms/arm.gd" id="1_n1u85"]
+[ext_resource type="Texture2D" uid="uid://dbeu5syupqwgg" path="res://media/graphics/entities/player/arms/firelob_arm.png" id="2_x1r43"]
+
+[resource]
+script = ExtResource("1_n1u85")
+name = "Firelob Arm"
+texture = ExtResource("2_x1r43")
+spell = 1

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=4 format=3 uid="uid://cj67qgn2hm0gk"]
+
+[ext_resource type="Script" path="res://scenes/items/item.gd" id="1_potvp"]
+[ext_resource type="Script" path="res://scenes/player/inventory/inventory.gd" id="1_s54if"]
+
+[sub_resource type="Resource" id="Resource_ql4dt"]
+script = ExtResource("1_potvp")
+name = "None"
+type = 0
+
+[resource]
+script = ExtResource("1_s54if")
+inv_row = Array[ExtResource("1_potvp")]([SubResource("Resource_ql4dt"), null, null, null, null, null, null, null])

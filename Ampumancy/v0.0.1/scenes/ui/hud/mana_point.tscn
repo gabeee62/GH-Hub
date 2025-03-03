@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc6ttdji7fr5b"]
+
+[ext_resource type="Texture2D" uid="uid://kplurtmaak0i" path="res://media/graphics/ui/hud/mana/mana_point.png" id="1_752rb"]
+[ext_resource type="Script" path="res://scenes/ui/hud/mana_point.gd" id="2_nc4f1"]
+
+[node name="ManaPoint" type="TextureRect"]
+offset_right = 14.0
+offset_bottom = 14.0
+texture = ExtResource("1_752rb")
+script = ExtResource("2_nc4f1")

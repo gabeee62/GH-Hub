@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm7p64hdhkaee"]
+
+[ext_resource type="Texture2D" uid="uid://nx6tavny71lc" path="res://media/graphics/ui/hud/mana/mana_pip.png" id="1_hsw7g"]
+
+[node name="ManaPip" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_hsw7g")

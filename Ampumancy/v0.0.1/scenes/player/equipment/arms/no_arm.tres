@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Arm" load_steps=2 format=3 uid="uid://dvb5o4t3g78j"]
+
+[ext_resource type="Script" path="res://scenes/player/equipment/arms/arm.gd" id="1_xlhgq"]
+
+[resource]
+script = ExtResource("1_xlhgq")
+name = "None"
+spell = 0

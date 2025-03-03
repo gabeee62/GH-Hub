@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0igdfx1thy7u"]
+
+[ext_resource type="Script" path="res://scenes/entities/drone.gd" id="1_p1adb"]
+[ext_resource type="Texture2D" uid="uid://t0bp02l5llfn" path="res://media/graphics/enemies/drone.png" id="2_x4wrd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f17px"]
+radius = 453.319
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_unutr"]
+radius = 71.0634
+
+[node name="Drone" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_p1adb")
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource("CircleShape2D_f17px")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.62316
+texture = ExtResource("2_x4wrd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_unutr")
+
+[node name="WanderTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
+[connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]

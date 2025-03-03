@@ -1,0 +1,30 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="GH-Framework"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Refs="*res://globals/References.gd"
+Util="*res://globals/Utility.gd"
+SignalBus="*res://globals/SignalBus.gd"
+SaveHandler="*res://globals/SaveHandler.gd"
+SceneChanger="*res://globals/SceneChanger.gd"
+GameEngine="*res://globals/Engine.gd"
+Global="*res://globals/Global.gd"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

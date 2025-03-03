@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bs3wi1dt0jpnb"]
+
+[ext_resource type="Texture2D" uid="uid://c2yy7n25e16jo" path="res://media/graphics/spells/golemstone_boulder.png" id="1_5d5uj"]
+[ext_resource type="Script" path="res://scenes/spells/golemstone_boulder.gd" id="1_f0qbf"]
+[ext_resource type="Texture2D" uid="uid://cs0gb882nqgya" path="res://media/graphics/spells/stone_particle_1.png" id="3_awt6t"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fcbvu"]
+friction = 50.0
+bounce = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e2sn1"]
+radius = 35.0571
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4at0s"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 12.19
+angle_min = -84.7
+angle_max = 284.9
+spread = 180.0
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
+
+[node name="GolemstoneBoulder" type="Node2D"]
+script = ExtResource("1_f0qbf")
+
+[node name="Boulder" type="RigidBody2D" parent="."]
+collision_layer = 16
+collision_mask = 31
+physics_material_override = SubResource("PhysicsMaterial_fcbvu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boulder"]
+scale = Vector2(5, 5)
+texture = ExtResource("1_5d5uj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boulder"]
+shape = SubResource("CircleShape2D_e2sn1")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Boulder"]
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_4at0s")
+texture = ExtResource("3_awt6t")
+lifetime = 0.5
+one_shot = true
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 2.0

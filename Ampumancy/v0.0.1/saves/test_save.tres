@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SaveData" load_steps=6 format=3 uid="uid://cctitvlp0f48d"]
 
-[ext_resource type="Script" path="res://scenes/entities/entitydata/inventory.gd" id="1_3qbsp"]
+[ext_resource type="Script" path="res://scenes/player/inventory/inventory.gd" id="1_3qbsp"]
 [ext_resource type="Script" path="res://saves/save_data.gd" id="1_ms83e"]
-[ext_resource type="Script" path="res://scenes/entities/entitydata/stats.gd" id="2_vwbhl"]
+[ext_resource type="Script" path="res://scenes/player/stats/stats.gd" id="2_vwbhl"]
 
 [sub_resource type="Resource" id="Resource_mk2lc"]
 script = ExtResource("1_3qbsp")

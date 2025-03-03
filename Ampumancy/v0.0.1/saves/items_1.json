@@ -1,0 +1,17 @@
+{"items":[
+	{"name":"item", "type":0, "max_stack":99},
+	{"consumables":[
+		
+	]},
+	{"equippables":[
+		{"arms":[
+			
+		]},
+		{"accessories":[
+			
+		]},
+		{"mystic_gems":[
+			
+		]}
+	]}
+]}

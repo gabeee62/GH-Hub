@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Arm" load_steps=3 format=3 uid="uid://vh2vi6xh8crj"]
+
+[ext_resource type="Script" path="res://scenes/player/equipment/arms/arm.gd" id="1_y2ifc"]
+[ext_resource type="Texture2D" uid="uid://chcihagqtonsy" path="res://media/graphics/entities/player/arms/chillfrost_arm.png" id="2_vnl4g"]
+
+[resource]
+script = ExtResource("1_y2ifc")
+name = "Chillfrost Arm"
+texture = ExtResource("2_vnl4g")
+spell = 2

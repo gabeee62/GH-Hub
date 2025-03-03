@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Hand" load_steps=2 format=3 uid="uid://dci2rwcgosc22"]
+
+[ext_resource type="Script" path="res://scenes/player/equipment/hands/hand.gd" id="1_s0r2y"]
+
+[resource]
+script = ExtResource("1_s0r2y")
+name = "None"
+attunement = 0

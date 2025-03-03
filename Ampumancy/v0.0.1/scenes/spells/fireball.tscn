@@ -1,25 +1,113 @@
-[gd_scene load_steps=4 format=3 uid="uid://chylu6qi0v3wq"]
+[gd_scene load_steps=11 format=3 uid="uid://dsnfpc6el3b0b"]
 
-[ext_resource type="Script" path="res://scenes/spells/fireball.gd" id="1_i4ja2"]
-[ext_resource type="Texture2D" uid="uid://os0bel8wwuq7" path="res://media/graphics/fireball.png" id="1_wi8xg"]
+[ext_resource type="Script" path="res://scenes/spells/fireball.gd" id="1_hhbqw"]
+[ext_resource type="Texture2D" uid="uid://dxdf5jyrj0wee" path="res://media/graphics/lighting/point_light_1.tres" id="2_24fy1"]
+[ext_resource type="Texture2D" uid="uid://bmbaon66iurcv" path="res://media/graphics/spells/fireball.png" id="2_mchau"]
+[ext_resource type="Texture2D" uid="uid://cpydro5ju43oa" path="res://media/graphics/spells/fire_particle.png" id="3_k4to1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jojf3"]
-radius = 8.8
+[sub_resource type="CircleShape2D" id="CircleShape2D_8aflj"]
+radius = 3.4
 
-[node name="Fireball" type="Area2D"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ydlev"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.0
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 0.0
+flatness = 1.0
+initial_velocity_min = 10.75
+initial_velocity_max = 10.75
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_4d1w0"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_5cqj7"]
+resource_name = "fireball_spin_left"
+length = 0.333337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_a6pqn"]
+resource_name = "fireball_spin_right"
+length = 0.333337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4qn2e"]
+_data = {
+"RESET": SubResource("Animation_4d1w0"),
+"fireball_spin_left": SubResource("Animation_5cqj7"),
+"fireball_spin_right": SubResource("Animation_a6pqn")
+}
+
+[node name="Fireball" type="Node2D"]
+process_mode = 1
+light_mask = 16
+visibility_layer = 16
 scale = Vector2(5, 5)
-collision_mask = 14
-script = ExtResource("1_i4ja2")
+script = ExtResource("1_hhbqw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_jojf3")
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_wi8xg")
+[node name="HitBox" type="CollisionShape2D" parent="Area2D"]
+light_mask = 16
+visibility_layer = 16
+shape = SubResource("CircleShape2D_8aflj")
 
-[node name="LifeTimer" type="Timer" parent="."]
-one_shot = true
-autostart = true
+[node name="TrailParticles" type="GPUParticles2D" parent="Area2D"]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(-4.76837e-07, 4.47035e-08)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_ydlev")
+texture = ExtResource("3_k4to1")
+lifetime = 0.2
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(-7.45058e-08, 7.45058e-08)
+texture = ExtResource("2_mchau")
+
+[node name="PointLight2D" type="PointLight2D" parent="Area2D"]
+light_mask = 15
+visibility_layer = 16
+position = Vector2(5.96046e-08, 0)
+scale = Vector2(0.148633, 0.148633)
+color = Color(0.631373, 0.247059, 0.0941176, 1)
+energy = 10.0
+range_item_cull_mask = 15
+texture = ExtResource("2_24fy1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_4qn2e")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

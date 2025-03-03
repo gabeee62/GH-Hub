@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Arm" load_steps=3 format=3 uid="uid://gdsqvmqkgod2"]
+
+[ext_resource type="Script" path="res://scenes/player/equipment/arms/arm.gd" id="1_2d1kn"]
+[ext_resource type="Texture2D" uid="uid://b6676j00ebds1" path="res://media/graphics/entities/player/arms/golemstone_arm.png" id="1_vajgh"]
+
+[resource]
+script = ExtResource("1_2d1kn")
+name = "Golemstone Arm"
+texture = ExtResource("1_vajgh")
+spell = 3

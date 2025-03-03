@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bka0bmfhsmgcb"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_flltw"]
+[ext_resource type="PackedScene" uid="uid://41prijdqcef2" path="res://scenes/player/player.tscn" id="2_6a6sk"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_flltw")
+
+[node name="Decorations" type="Node2D" parent="."]
+
+[node name="UnderObjects" type="Node2D" parent="."]
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_6a6sk")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+
+[node name="OverObjects" type="Node2D" parent="."]
+
+[connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
