@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="SaveData" load_steps=8 format=3 uid="uid://dbxjv4uw0ynqp"]
+
+[ext_resource type="Script" uid="uid://byq87mevbx3tg" path="res://data/player/PlayerData.gd" id="1_81hoj"]
+[ext_resource type="Script" uid="uid://dfk2p3x50g1bd" path="res://data/player/stats/PlayerStats.gd" id="2_20qc3"]
+[ext_resource type="Script" uid="uid://c7jidkgcvmc1a" path="res://data/saves/SaveData.gd" id="3_wwbh8"]
+[ext_resource type="Script" uid="uid://dmnpxqogdo3ik" path="res://data/settings/SettingsData.gd" id="4_6relg"]
+
+[sub_resource type="Resource" id="Resource_6hotb"]
+script = ExtResource("2_20qc3")
+
+[sub_resource type="Resource" id="Resource_jgaii"]
+script = ExtResource("1_81hoj")
+name = "Player"
+stats = SubResource("Resource_6hotb")
+WALKSPEED = 150.0
+RUNSPEED = 200.0
+AIRSPEED = 175.0
+ACCELERATION = 40.0
+DECELERATION = 30.0
+AIR_ACCELERATION = 50.0
+AIR_DECELERATION = 40.0
+MAX_EXTRA_JUMPS = 1
+JUMP_HEIGHT = 50.0
+TIME_TO_PEAK = 0.2
+TIME_TO_LAND = 0.3
+TDWALKSPEED = 200.0
+TDACCEL = 40.0
+TDDECEL = 30.0
+
+[sub_resource type="Resource" id="Resource_7e23h"]
+script = ExtResource("4_6relg")
+difficulty = 1
+
+[resource]
+script = ExtResource("3_wwbh8")
+filename = "default"
+player_data = SubResource("Resource_jgaii")
+settings_data = SubResource("Resource_7e23h")
+current_level_path = "res://scenes/levels/level_1/level_1.tscn"

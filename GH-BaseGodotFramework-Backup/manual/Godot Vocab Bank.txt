@@ -1,0 +1,43 @@
+Godot Vocab Bank
+
+FileSystem:
+- File
+	- .tscn
+	- .gd
+	- .json
+	- .tres
+	- .txt
+	- .png
+- Directory
+	- res://
+
+Tree:
+- Scene
+	- Node
+		- Root node
+	- Script
+		- Function
+			- _process()
+				- Process tick
+				- delta
+			- _ready()
+			- return
+			- return hint
+			- built-in
+		- Variable
+			- Data Type
+				- Type hint
+				- String
+				- int
+				- float
+				- Array
+				- Dictionary
+				- Class
+					- Custom classes
+					- Resource
+			- @export
+			- @onready
+		- Signal
+			- connect()
+
+

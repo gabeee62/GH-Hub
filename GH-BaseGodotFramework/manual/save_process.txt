@@ -1,0 +1,24 @@
+1. Title Screen
+	- Buttons:
+		- New Game
+			- Step 2
+		- Continue
+			- Step 3
+
+2. Create New Save
+	- User enters name for the save
+	- SaveHandler copies all directories and files of default save to the new save location
+	- SceneChanger changes the scene to the new save's current_level_path
+	- GAME START
+
+3. Choose Save
+	- User chooses a save from the list of saved games
+	- SaveHandler loads save
+	- SceneChanger changes the scene to the chosen save's current_level_path (i.e. resuming from the saved level)
+	- GAME START
+
+4. Save Active Game
+
+5. Level Change
+
+6. Game Exit
