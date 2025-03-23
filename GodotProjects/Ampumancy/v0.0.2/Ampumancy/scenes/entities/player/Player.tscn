@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://ciea73rmrwk5d"]
+
+[ext_resource type="Script" uid="uid://cb1083jescjm6" path="res://scenes/entities/player/Player.gd" id="1_tlaso"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tlaso"]
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_tlaso"]
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_afppm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n1xdv"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_30dhn"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rqwkw"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_afppm"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace1D_tlaso")
+states/Idle/position = Vector2(333, 57)
+states/Walk/node = SubResource("AnimationNodeBlendSpace1D_afppm")
+states/Walk/position = Vector2(333, 150)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_n1xdv"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_30dhn"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_rqwkw")]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_tlaso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_tlaso")
+
+[node name="Sprite" type="CanvasGroup" parent="."]
+scale = Vector2(5, 5)
+
+[node name="Hat" type="Sprite2D" parent="Sprite"]
+
+[node name="Head" type="Sprite2D" parent="Sprite"]
+
+[node name="Eyes" type="Sprite2D" parent="Sprite"]
+
+[node name="RCloak" type="Sprite2D" parent="Sprite"]
+
+[node name="RArms" type="Node2D" parent="Sprite"]
+
+[node name="RArm1" type="Sprite2D" parent="Sprite/RArms"]
+
+[node name="RArm2" type="Sprite2D" parent="Sprite/RArms"]
+
+[node name="Body" type="Sprite2D" parent="Sprite"]
+
+[node name="LArms" type="Node2D" parent="Sprite"]
+
+[node name="LArm2" type="Sprite2D" parent="Sprite/LArms"]
+
+[node name="LArm1" type="Sprite2D" parent="Sprite/LArms"]
+
+[node name="LCloak" type="Sprite2D" parent="Sprite"]
+
+[node name="ArmMarkers" type="Node2D" parent="."]
+scale = Vector2(5, 5)
+
+[node name="ArmsR" type="Node2D" parent="ArmMarkers"]
+
+[node name="LArm1" type="Marker2D" parent="ArmMarkers/ArmsR"]
+rotation = 1.0472
+gizmo_extents = 1.0
+
+[node name="LArm2" type="Marker2D" parent="ArmMarkers/ArmsR"]
+rotation = 1.0472
+gizmo_extents = 1.0
+
+[node name="RArm1" type="Marker2D" parent="ArmMarkers/ArmsR"]
+rotation = 1.0472
+gizmo_extents = 1.0
+
+[node name="RArm2" type="Marker2D" parent="ArmMarkers/ArmsR"]
+rotation = 1.0472
+gizmo_extents = 1.0
+
+[node name="ArmsL" type="Node2D" parent="ArmMarkers"]
+
+[node name="LArm1" type="Marker2D" parent="ArmMarkers/ArmsL"]
+rotation = 2.0944
+gizmo_extents = 1.0
+
+[node name="LArm2" type="Marker2D" parent="ArmMarkers/ArmsL"]
+rotation = 2.0944
+gizmo_extents = 1.0
+
+[node name="RArm1" type="Marker2D" parent="ArmMarkers/ArmsL"]
+rotation = 2.0944
+gizmo_extents = 1.0
+
+[node name="RArm2" type="Marker2D" parent="ArmMarkers/ArmsL"]
+rotation = 2.0944
+gizmo_extents = 1.0
+
+[node name="AnimationHandlers" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationHandlers"]
+
+[node name="AnimationTree" type="AnimationTree" parent="AnimationHandlers"]
+tree_root = SubResource("AnimationNodeStateMachine_afppm")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/idle = true
+parameters/conditions/walk = false
+parameters/Idle/blend_position = 0
+parameters/Walk/blend_position = 0
