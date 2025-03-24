@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm0gxa31vhyw6"]
+
+[ext_resource type="Script" uid="uid://gwcniw64uuf8" path="res://scenes/levels/template/Level.gd" id="1_mn00y"]
+[ext_resource type="TileSet" uid="uid://cytgnmfs1qgnf" path="res://media/graphics/tilemaps/tilesets/main_tileset.tres" id="2_k3rtj"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_mn00y")
+
+[node name="Background" type="TileMapLayer" parent="."]
+scale = Vector2(5, 5)
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Spells" type="Node2D" parent="."]
+
+[node name="Terrain" type="TileMapLayer" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("2_k3rtj")
+
+[node name="Foreground" type="TileMapLayer" parent="."]
+scale = Vector2(5, 5)

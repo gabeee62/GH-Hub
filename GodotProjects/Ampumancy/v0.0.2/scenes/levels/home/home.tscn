@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=4 uid="uid://drit1esclme0c"]
+
+[ext_resource type="PackedScene" uid="uid://cm0gxa31vhyw6" path="res://scenes/levels/template/Level.tscn" id="1_ikf4c"]
+[ext_resource type="Script" uid="uid://dtosrnlwjprdt" path="res://scenes/levels/home/home.gd" id="2_d1b6h"]
+[ext_resource type="TileSet" uid="uid://cl58rywayp1ic" path="res://media/graphics/tilemaps/tilesets/non_terrain.tres" id="2_q28r8"]
+
+[node name="Home" instance=ExtResource("1_ikf4c")]
+script = ExtResource("2_d1b6h")
+
+[node name="Background" parent="." index="0"]
+modulate = Color(0.646029, 0.646029, 0.646029, 1)
+tile_map_data = PackedByteArray("AAD9/wAAAAADAAEAAAA=")
+tile_set = ExtResource("2_q28r8")
+
+[node name="Terrain" parent="." index="3"]
+tile_map_data = PackedByteArray("AAD//wAAAAADAAEAAAAAAAAAAAADAAEAAAABAAAAAAADAAEAAAD+/wAAAAADAAEAAAD9/wAAAAADAAEAAAACAAAAAAADAAEAAAADAAAAAAAEAAEAAAD8/wAAAAACAAEAAAD8/wEAAAABAAQAAAADAAEAAAAFAAQAAAD9/wEAAAADAAUAAAD+/wEAAAADAAUAAAD//wEAAAADAAUAAAAAAAEAAAADAAUAAAABAAEAAAADAAUAAAACAAEAAAADAAUAAAA=")
+
+[node name="Foreground" parent="." index="4"]
+tile_set = ExtResource("2_q28r8")

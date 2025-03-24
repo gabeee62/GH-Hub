@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ArmData" load_steps=3 format=3 uid="uid://bn1wi7ef1tdjl"]
+
+[ext_resource type="Script" uid="uid://6xe24amar8vr" path="res://data/player/equipment/arms/ArmData.gd" id="1_l8tnx"]
+[ext_resource type="Texture2D" uid="uid://b6676j00ebds1" path="res://media/graphics/entities/player/arms/golemstone_arm.png" id="2_dmuf1"]
+
+[resource]
+script = ExtResource("1_l8tnx")
+name = "Golemstone Arm"
+texture = ExtResource("2_dmuf1")
+spell = 3
+metadata/_custom_type_script = "uid://6xe24amar8vr"
