@@ -58,21 +58,22 @@ func _ready() -> void:
 	
 	update_arm_sprites()
 	update_outfit()
+	SignalBus.player_ready.emit()
 
 
 func _process(delta: float) -> void:
 	var input_vector: Vector2 = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
 	controls(delta, input_vector)
-	update_look_dir()
 	update_sprite()
 
 
 func controls(delta: float, input_vector: Vector2) -> void:
 	zoom()
-	walk(input_vector)
-	# cast_spell() -- WIP
-	switch_active_arms()
 	jump()
+	update_look_dir()
+	walk(input_vector)
+	switch_active_arms()
+	# cast_spell() -- WIP
 	
 	if is_on_floor():
 		Globals.SAVE.CURRENT_POS = global_position

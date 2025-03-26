@@ -6,6 +6,10 @@ var fireball_scene: PackedScene = preload("res://scenes/spells/fireball/fireball
 var ice_field_scene: PackedScene = preload("res://scenes/spells/ice_field/ice_field.tscn")
 
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+
 func cast_spell(id: SPELL_IDS) -> PackedScene:
 	match id:
 		SPELL_IDS.FRBL:

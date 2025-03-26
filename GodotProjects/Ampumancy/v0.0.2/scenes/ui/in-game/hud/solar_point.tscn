@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsajal6erkltg"]
+
+[ext_resource type="Texture2D" uid="uid://chkp7dyq1ewg1" path="res://media/graphics/ui/hud/mana/solar_point.png" id="1_vf7nw"]
+
+[node name="SolarPoint" type="TextureRect"]
+texture = ExtResource("1_vf7nw")

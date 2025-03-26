@@ -1,6 +1,8 @@
 extends Resource
 class_name PlayerData
 
+@export var NAME: String
+
 @export_group("Game Data")
 @export var STATS: PlayerStats
 @export var INVENTORY: InvData

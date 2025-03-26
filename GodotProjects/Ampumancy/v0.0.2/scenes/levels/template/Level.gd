@@ -3,6 +3,8 @@ class_name Level
 
 var player_scene: PackedScene = preload("res://scenes/entities/player/Player.tscn")
 
+@export var data_path: String
+
 var DATA: LevelData
 
 

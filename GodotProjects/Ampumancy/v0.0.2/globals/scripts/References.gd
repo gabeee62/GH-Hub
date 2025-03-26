@@ -7,3 +7,7 @@ extends Node
 @export var Cloak: Array[Texture2D]
 @export var Body: Array[Texture2D]
 @export_group("", "")
+
+
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS

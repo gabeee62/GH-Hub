@@ -19,8 +19,20 @@ var DJUMPS: int
 @export_group("", "")
 
 @export_group("Game Stats")
+@export_subgroup("Health")
 @export var MAX_HEALTH: int
 @export var HEALTH: int
+@export var MAX_GOLD_HEALTH: int
+@export var GOLD_HEALTH: int
+@export_subgroup("Mana")
+var MANA_LIMIT: int = 16
+@export var MAX_MANA: int
+@export var MANA: int
+var MYSTIC_LIMIT: int = 16
+@export var MAX_MYSTIC: int
+@export var MYSTIC: int
+var SOLAR_LIMIT: int = 16
+@export var SOLAR: int
 @export_subgroup("Attributes")
 @export var CON: int
 @export_group("", "")
