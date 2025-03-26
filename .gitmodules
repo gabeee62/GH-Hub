@@ -1,3 +1,6 @@
 [submodule "2DFramework"]
 	path = 2DFramework
 	url = https://github.com/gabeee62/Godot2DFramework.git
+[submodule "GodotProjects/2DFramework"]
+	path = GodotProjects/2DFramework
+	url = https://github.com/gabeee62/Godot2DFramework.git
