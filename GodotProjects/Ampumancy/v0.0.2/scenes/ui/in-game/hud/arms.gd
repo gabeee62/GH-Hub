@@ -21,24 +21,16 @@ func _process(_delta: float) -> void:
 
 func update_active_arms_ui() -> void:
 	if Globals.PLAYER.DATA.EQUIPMENT.ActiveLArm.name == Globals.PLAYER.DATA.EQUIPMENT.LArm1.name:
-		$HBoxContainer/LArms/LArm1/ArmTexture.scale = Vector2(0.9, 0.9)
 		$HBoxContainer/LArms/LArm1.texture = active_frame
-		$HBoxContainer/LArms/LArm2/ArmTexture.scale = Vector2(0.7, 0.7)
 		$HBoxContainer/LArms/LArm2.texture = inactive_frame
 	else:
-		$HBoxContainer/LArms/LArm1/ArmTexture.scale = Vector2(0.7, 0.7)
 		$HBoxContainer/LArms/LArm1.texture = inactive_frame
-		$HBoxContainer/LArms/LArm2/ArmTexture.scale = Vector2(0.9, 0.9)
 		$HBoxContainer/LArms/LArm2.texture = active_frame
 	if Globals.PLAYER.DATA.EQUIPMENT.ActiveRArm.name == Globals.PLAYER.DATA.EQUIPMENT.RArm1.name:
-		$HBoxContainer/RArms/RArm1/ArmTexture.scale = Vector2(0.9, 0.9)
 		$HBoxContainer/RArms/RArm1.texture = active_frame
-		$HBoxContainer/RArms/RArm2/ArmTexture.scale = Vector2(0.7, 0.7)
 		$HBoxContainer/RArms/RArm2.texture = inactive_frame
 	else:
-		$HBoxContainer/RArms/RArm1/ArmTexture.scale = Vector2(0.7, 0.7)
 		$HBoxContainer/RArms/RArm1.texture = inactive_frame
-		$HBoxContainer/RArms/RArm2/ArmTexture.scale = Vector2(0.9, 0.9)
 		$HBoxContainer/RArms/RArm2.texture = active_frame
 
 

@@ -3,7 +3,7 @@ extends Control
 
 func reset() -> void:
 	$Buttons.show()
-	$Video.hide()
-	$Audio.hide()
-	$Controls.hide()
+	$Video.reset()
+	$Audio.reset()
+	$Controls.reset()
 	hide()

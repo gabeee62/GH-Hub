@@ -6,6 +6,10 @@ signal spell_cast(spell: Spell)
 enum PRIMARY_STATES {IDLE, CAST, HIT, }
 enum EFFECT_STATES {NONE, PSN, BRN, SHK, FRZ, LYT, VYD}
 
+@onready var JUMP_VEL: float
+@onready var JUMP_GRAV: float
+@onready var FALL_GRAV: float
+
 @onready var marker_dict: Dictionary = {
 	-1.0: [
 		$ArmMarkers/ArmsL/LArm1,
@@ -23,14 +27,10 @@ enum EFFECT_STATES {NONE, PSN, BRN, SHK, FRZ, LYT, VYD}
 @onready var LArm2: Sprite2D = $Sprite/LArms/LArm2
 @onready var RArm1: Sprite2D = $Sprite/RArms/RArm1
 @onready var RArm2: Sprite2D = $Sprite/RArms/RArm2
-var Arms: Array[Sprite2D]
 
+var Arms: Array[Sprite2D]
 var ActiveLArm: Sprite2D
 var ActiveRArm: Sprite2D
-
-@onready var JUMP_VEL: float
-@onready var JUMP_GRAV: float
-@onready var FALL_GRAV: float
 
 var look_dir: float = 1.0
 var last_look: float = 1.0

@@ -1294,18 +1294,16 @@ hframes = 4
 [node name="Head" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("3_ppr6r")
 hframes = 4
-frame = 3
 
 [node name="Eyes" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("4_rx1o7")
 hframes = 4
-frame = 3
 
 [node name="RCloak" type="Sprite2D" parent="Sprite"]
 position = Vector2(12, 0)
 texture = ExtResource("5_rqk8h")
 hframes = 8
-frame = 7
+frame = 1
 
 [node name="RArms" type="Node2D" parent="Sprite"]
 
@@ -1330,7 +1328,6 @@ gizmo_extents = 1.0
 [node name="Body" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("6_20ow7")
 hframes = 4
-frame = 3
 
 [node name="LArms" type="Node2D" parent="Sprite"]
 
@@ -1356,7 +1353,6 @@ gizmo_extents = 1.0
 position = Vector2(-12, 0)
 texture = ExtResource("5_rqk8h")
 hframes = 8
-frame = 6
 
 [node name="ArmMarkers" type="Node2D" parent="."]
 visible = false

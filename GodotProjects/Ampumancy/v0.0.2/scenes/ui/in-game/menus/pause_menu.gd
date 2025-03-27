@@ -50,3 +50,33 @@ func _on_save_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_video_pressed() -> void:
+	$Settings/Video.show()
+	$Settings/Buttons.hide()
+
+
+func _on_video_back_pressed() -> void:
+	$Settings/Video.reset()
+	$Settings/Buttons.show()
+
+
+func _on_audio_pressed() -> void:
+	$Settings/Audio.show()
+	$Settings/Buttons.hide()
+
+
+func _on_controls_pressed() -> void:
+	$Settings/Controls.show()
+	$Settings/Buttons.hide()
+
+
+func _on_audio_back_pressed() -> void:
+	$Settings/Audio.reset()
+	$Settings/Buttons.show()
+
+
+func _on_controls_back_pressed() -> void:
+	$Settings/Controls.reset()
+	$Settings/Buttons.show()
