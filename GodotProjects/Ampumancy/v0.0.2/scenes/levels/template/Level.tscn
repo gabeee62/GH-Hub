@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cm0gxa31vhyw6"]
+[gd_scene load_steps=16 format=3 uid="uid://cm0gxa31vhyw6"]
 
 [ext_resource type="Script" uid="uid://gwcniw64uuf8" path="res://scenes/levels/template/Level.gd" id="1_mn00y"]
 [ext_resource type="TileSet" uid="uid://cytgnmfs1qgnf" path="res://media/graphics/tilemaps/tilesets/main_tileset.tres" id="2_k3rtj"]
@@ -10,9 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://btwnjqaho6i7q" path="res://media/graphics/ui/hud/health/gold_health_fill.png" id="8_ovqv4"]
 [ext_resource type="Script" uid="uid://bqdx28qu1hpqr" path="res://scenes/ui/in-game/hud/mana.gd" id="9_qg4yb"]
 [ext_resource type="Script" uid="uid://bufyvbgk3i5l1" path="res://scenes/ui/in-game/hud/arms.gd" id="10_65ace"]
-[ext_resource type="Texture2D" uid="uid://bvjaylvuhc732" path="res://media/graphics/ui/hud/arms/active_arm_frame.png" id="11_fu8b4"]
-[ext_resource type="Texture2D" uid="uid://o684l1etno1k" path="res://media/graphics/ui/hud/arms/inactive_arm_frame.png" id="12_ovqv4"]
-[ext_resource type="Script" uid="uid://wvxqvmlos7j7" path="res://scenes/ui/in-game/menus/pause.gd" id="13_ovqv4"]
+[ext_resource type="Texture2D" uid="uid://bvjaylvuhc732" path="res://media/graphics/ui/hud/arms/frames/active_arm_frame.png" id="11_fu8b4"]
+[ext_resource type="Texture2D" uid="uid://o684l1etno1k" path="res://media/graphics/ui/hud/arms/frames/inactive_arm_frame.png" id="12_ovqv4"]
 [ext_resource type="Script" uid="uid://conbc1owpuu67" path="res://scenes/ui/in-game/menus/pause_menu.gd" id="13_qg4yb"]
 [ext_resource type="Script" uid="uid://bkvc3otwygonu" path="res://scenes/ui/in-game/menus/settings.gd" id="15_rspto"]
 [ext_resource type="Script" uid="uid://7j4cqwxb0eo1" path="res://scenes/ui/in-game/menus/outfit.gd" id="16_r466j"]
@@ -247,6 +246,7 @@ layer = 98
 
 [node name="PauseMenu" type="Control" parent="CanvasLayers/MenuCanvas"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -264,17 +264,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.537255)
 
-[node name="Pause" type="Control" parent="CanvasLayers/MenuCanvas/PauseMenu"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("13_ovqv4")
-
-[node name="Buttons" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Pause"]
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -288,27 +278,27 @@ offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Pause/Buttons"]
+[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons"]
 layout_mode = 2
 text = "Back"
 
-[node name="Settings" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Pause/Buttons"]
+[node name="Settings" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons"]
 layout_mode = 2
 text = "Settings"
 
-[node name="Outfits" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Pause/Buttons"]
+[node name="Outfits" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons"]
 layout_mode = 2
 text = "Outfit"
 
-[node name="Save" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Pause/Buttons"]
+[node name="Save" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons"]
 layout_mode = 2
 text = "Save Game"
 
-[node name="Quit" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Pause/Buttons"]
+[node name="Quit" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons"]
 layout_mode = 2
 text = "Quit"
 
-[node name="Settings" type="Control" parent="CanvasLayers/MenuCanvas/PauseMenu/Pause"]
+[node name="Settings" type="Control" parent="CanvasLayers/MenuCanvas/PauseMenu"]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -319,26 +309,51 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("15_rspto")
 
-[node name="Buttons" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Pause/Settings"]
-layout_mode = 2
-offset_right = 94.0
-offset_bottom = 171.0
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -68.0
+offset_right = 37.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Video" type="PanelContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Pause/Settings"]
+[node name="Video" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons"]
+layout_mode = 2
+text = "Video"
+
+[node name="Audio" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Controls" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons"]
+layout_mode = 2
+text = "Controls"
+
+[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons"]
+layout_mode = 2
+text = "Back"
+
+[node name="Video" type="PanelContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings"]
 visible = false
 layout_mode = 2
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Audio" type="PanelContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Pause/Settings"]
+[node name="Audio" type="PanelContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings"]
 visible = false
 layout_mode = 2
 
-[node name="Controls" type="PanelContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Pause/Settings"]
+[node name="Controls" type="PanelContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings"]
 visible = false
 layout_mode = 2
 
-[node name="Outfit" type="Control" parent="CanvasLayers/MenuCanvas/PauseMenu/Pause"]
+[node name="Outfit" type="Control" parent="CanvasLayers/MenuCanvas/PauseMenu"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -348,8 +363,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_r466j")
 
-[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Pause/Buttons/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_back_pressed"]
-[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Pause/Buttons/Settings" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_settings_pressed"]
-[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Pause/Buttons/Outfits" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_outfits_pressed"]
-[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Pause/Buttons/Save" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_save_pressed"]
-[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Pause/Buttons/Quit" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_quit_pressed"]
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -20.0
+offset_right = 22.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/Buttons"]
+layout_mode = 2
+text = "Back"
+
+[node name="Outfit" type="PanelContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Settings" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Outfits" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_outfits_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Save" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_save_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Quit" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_settings_back_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Outfit/Buttons/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_outfit_back_pressed"]

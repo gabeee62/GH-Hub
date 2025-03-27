@@ -40,6 +40,14 @@ MAX_DJUMPS = 1
 JUMP_HEIGHT = 75.0
 TIME_TO_PEAK = 0.2
 TIME_TO_FALL = 0.2
+PAGES = 0
+CHAPTERS = 0
+R2_TIER1 = 0
+R2_TIER2 = 0
+R2_TIER3 = 0
+COPPER = 0
+SILVER = 0
+GOLD = 0
 MAX_HEALTH = 100
 HEALTH = 100
 MAX_GOLD_HEALTH = 75
@@ -59,6 +67,7 @@ metadata/_custom_type_script = "uid://comtd4213y07f"
 
 [sub_resource type="Resource" id="Resource_used3"]
 script = ExtResource("4_7veuw")
+NAME = ""
 STATS = SubResource("Resource_bqiqo")
 INVENTORY = SubResource("Resource_mk7m8")
 EQUIPMENT = SubResource("Resource_oogw8")

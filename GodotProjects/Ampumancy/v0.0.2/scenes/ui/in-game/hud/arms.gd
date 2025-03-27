@@ -1,7 +1,7 @@
 extends PanelContainer
 
-var active_frame: Texture2D = preload("res://media/graphics/ui/hud/arms/active_arm_frame.png")
-var inactive_frame: Texture2D = preload("res://media/graphics/ui/hud/arms/inactive_arm_frame.png")
+var active_frame: Texture2D = preload("res://media/graphics/ui/hud/arms/frames/active_arm_frame.png")
+var inactive_frame: Texture2D = preload("res://media/graphics/ui/hud/arms/frames/inactive_arm_frame.png")
 
 var player_ready: bool = false
 

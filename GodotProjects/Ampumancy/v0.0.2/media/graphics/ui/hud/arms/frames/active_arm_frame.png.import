@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvjaylvuhc732"
-path="res://.godot/imported/active_arm_frame.png-6afad8619cd5394335e4155e548d4e63.ctex"
+path="res://.godot/imported/active_arm_frame.png-73c0436880987c2e4b53e2798262b017.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://media/graphics/ui/hud/arms/active_arm_frame.png"
-dest_files=["res://.godot/imported/active_arm_frame.png-6afad8619cd5394335e4155e548d4e63.ctex"]
+source_file="res://media/graphics/ui/hud/arms/frames/active_arm_frame.png"
+dest_files=["res://.godot/imported/active_arm_frame.png-73c0436880987c2e4b53e2798262b017.ctex"]
 
 [params]
 

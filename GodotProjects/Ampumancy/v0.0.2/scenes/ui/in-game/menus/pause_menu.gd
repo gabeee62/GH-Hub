@@ -7,6 +7,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("PAUSE"):
+		reset()
 		pause_game()
 
 
@@ -15,18 +16,32 @@ func pause_game() -> void:
 	visible = not visible
 
 
+func reset() -> void:
+	$Buttons.show()
+	$Settings.reset()
+	$Outfit.reset()
+
+
 func _on_back_pressed() -> void:
 	pause_game()
 
 
 func _on_settings_pressed() -> void:
-	$Pause/Buttons.hide()
+	$Buttons.hide()
 	$Settings.show()
 
 
+func _on_settings_back_pressed() -> void:
+	reset()
+
+
 func _on_outfits_pressed() -> void:
-	$Pause/Buttons.hide()
+	$Buttons.hide()
 	$Outfit.show()
+
+
+func _on_outfit_back_pressed() -> void:
+	reset()
 
 
 func _on_save_pressed() -> void:
@@ -34,4 +49,4 @@ func _on_save_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
-	pass
+	get_tree().quit()

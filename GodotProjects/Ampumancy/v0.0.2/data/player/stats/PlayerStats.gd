@@ -19,6 +19,17 @@ var DJUMPS: int
 @export_group("", "")
 
 @export_group("Game Stats")
+@export_subgroup("Currency/Regions/Scholar's Association")
+@export var PAGES: int
+@export var CHAPTERS: int
+@export_subgroup("Currency/Regions/Region 2")
+@export var R2_TIER1: int
+@export var R2_TIER2: int
+@export var R2_TIER3: int
+@export_subgroup("Currency/Regionless")
+@export var COPPER: int
+@export var SILVER: int
+@export var GOLD: int
 @export_subgroup("Health")
 @export var MAX_HEALTH: int
 @export var HEALTH: int
