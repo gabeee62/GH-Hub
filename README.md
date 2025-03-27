@@ -1,2 +1,2 @@
 # GH-Hub
-A database containing all of my solo personal projects/portfolio work.
+A database containing all of my personal projects/portfolio work.

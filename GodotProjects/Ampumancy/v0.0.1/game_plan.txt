@@ -1,0 +1,5 @@
+Game Plan:
+
+- World Env:
+	- Create more tilemaps
+	- Add WorldEnv

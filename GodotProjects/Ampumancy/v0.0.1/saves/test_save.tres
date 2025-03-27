@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="SaveData" load_steps=6 format=3 uid="uid://cctitvlp0f48d"]
+
+[ext_resource type="Script" path="res://scenes/player/inventory/inventory.gd" id="1_3qbsp"]
+[ext_resource type="Script" path="res://saves/save_data.gd" id="1_ms83e"]
+[ext_resource type="Script" path="res://scenes/player/stats/stats.gd" id="2_vwbhl"]
+
+[sub_resource type="Resource" id="Resource_mk2lc"]
+script = ExtResource("1_3qbsp")
+
+[sub_resource type="Resource" id="Resource_vbcsb"]
+script = ExtResource("2_vwbhl")
+movespeed = 0
+health = 100
+constitution = 1
+strength = 0
+dexterity = 0
+force = 0
+technique = 0
+magic = 0
+light = 0
+dark = 0
+voyd = 0
+
+[resource]
+script = ExtResource("1_ms83e")
+player_stats = SubResource("Resource_vbcsb")
+player_inv = SubResource("Resource_mk2lc")

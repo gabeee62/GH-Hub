@@ -1,0 +1,22 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://cr02bhe1x4bog"]
+
+[sub_resource type="Curve" id="Curve_j20tb"]
+_data = [Vector2(0.28, 0.054945), 0.0, 0.0, 0, 0, Vector2(0.9, 0.043956), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qq7je"]
+curve = SubResource("Curve_j20tb")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 38.77
+initial_velocity_max = 38.77
+radial_velocity_curve = SubResource("CurveTexture_qq7je")
+gravity = Vector3(0, 0, 0)

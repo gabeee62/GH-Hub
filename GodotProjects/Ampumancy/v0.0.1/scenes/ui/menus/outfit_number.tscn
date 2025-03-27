@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtnng53864b4y"]
+
+[ext_resource type="FontFile" uid="uid://bx5qkhc245xqf" path="res://media/fonts/HealthFont.ttf" id="1_5k4yu"]
+[ext_resource type="Script" path="res://scenes/ui/menus/outfit_number.gd" id="2_0pioq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qvisv"]
+font = ExtResource("1_5k4yu")
+font_size = 27
+shadow_size = 17
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label"]
+custom_minimum_size = Vector2(184, 0)
+size_flags_vertical = 1
+text = "1"
+label_settings = SubResource("LabelSettings_qvisv")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_0pioq")

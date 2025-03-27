@@ -1,0 +1,22 @@
+[gd_scene load_steps=13 format=3 uid="uid://buhl7r7sbfbb1"]
+
+[ext_resource type="Script" uid="uid://b8mfjs72k75e0" path="res://globals/scripts/References.gd" id="1_ivwgl"]
+[ext_resource type="Texture2D" uid="uid://b5kneaucpfkk1" path="res://media/graphics/entities/player/hat/hat.png" id="2_ujkkc"]
+[ext_resource type="Texture2D" uid="uid://buo420et08eto" path="res://media/graphics/entities/player/hat/hat_2.png" id="3_b4xi8"]
+[ext_resource type="Texture2D" uid="uid://brond8g8mvrnh" path="res://media/graphics/entities/player/head/head.png" id="4_tqiil"]
+[ext_resource type="Texture2D" uid="uid://blxbitqaca7an" path="res://media/graphics/entities/player/eyes/eyes.png" id="5_isjwn"]
+[ext_resource type="Texture2D" uid="uid://hoky6fsyiyem" path="res://media/graphics/entities/player/eyes/eyes_2.png" id="6_6h5j2"]
+[ext_resource type="Texture2D" uid="uid://dlw4q8qk03rqi" path="res://media/graphics/entities/player/eyes/eyes_3.png" id="7_dwc6c"]
+[ext_resource type="Texture2D" uid="uid://c84osu02nksj1" path="res://media/graphics/entities/player/eyes/eyes_4.png" id="8_yt0un"]
+[ext_resource type="Texture2D" uid="uid://pq38jb56igrk" path="res://media/graphics/entities/player/eyes/eyes_5.png" id="9_un7cr"]
+[ext_resource type="Texture2D" uid="uid://dim7yibfm2b4" path="res://media/graphics/entities/player/eyes/eyes_6.png" id="10_d8xfj"]
+[ext_resource type="Texture2D" uid="uid://cqxlgux7mtl4" path="res://media/graphics/entities/player/cloak/cloak.png" id="11_g54q6"]
+[ext_resource type="Texture2D" uid="uid://dmb17bc30d10v" path="res://media/graphics/entities/player/body/body.png" id="12_fmru7"]
+
+[node name="References" type="Node"]
+script = ExtResource("1_ivwgl")
+Hat = Array[Texture2D]([ExtResource("2_ujkkc"), ExtResource("3_b4xi8"), ExtResource("2_ujkkc"), ExtResource("2_ujkkc"), ExtResource("2_ujkkc"), ExtResource("2_ujkkc"), ExtResource("2_ujkkc"), ExtResource("2_ujkkc")])
+Head = Array[Texture2D]([ExtResource("4_tqiil"), ExtResource("4_tqiil"), ExtResource("4_tqiil"), ExtResource("4_tqiil"), ExtResource("4_tqiil"), ExtResource("4_tqiil"), ExtResource("4_tqiil"), ExtResource("4_tqiil")])
+Eyes = Array[Texture2D]([ExtResource("5_isjwn"), ExtResource("6_6h5j2"), ExtResource("7_dwc6c"), ExtResource("8_yt0un"), ExtResource("9_un7cr"), ExtResource("10_d8xfj"), ExtResource("5_isjwn"), ExtResource("5_isjwn")])
+Cloak = Array[Texture2D]([ExtResource("11_g54q6"), ExtResource("11_g54q6"), ExtResource("11_g54q6"), ExtResource("11_g54q6"), ExtResource("11_g54q6"), ExtResource("11_g54q6"), ExtResource("11_g54q6"), ExtResource("11_g54q6")])
+Body = Array[Texture2D]([ExtResource("12_fmru7"), ExtResource("12_fmru7"), ExtResource("12_fmru7"), ExtResource("12_fmru7"), ExtResource("12_fmru7"), ExtResource("12_fmru7"), ExtResource("12_fmru7"), ExtResource("12_fmru7")])

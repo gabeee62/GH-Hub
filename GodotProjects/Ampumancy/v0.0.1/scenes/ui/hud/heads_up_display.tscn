@@ -1,0 +1,317 @@
+[gd_scene load_steps=13 format=3 uid="uid://c0o7obqprehu6"]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/heads_up_display.gd" id="1_wted4"]
+[ext_resource type="Texture2D" uid="uid://vce6g6albecp" path="res://media/graphics/ui/hud/health/bar_frame.png" id="2_8tbf2"]
+[ext_resource type="Texture2D" uid="uid://wwqqar7dao3c" path="res://media/graphics/ui/hud/health/bar_bg.png" id="2_yrifu"]
+[ext_resource type="Texture2D" uid="uid://8s5wkbxud6aw" path="res://media/graphics/ui/hud/health/health_fill.png" id="4_nkwb6"]
+[ext_resource type="Texture2D" uid="uid://btwnjqaho6i7q" path="res://media/graphics/ui/hud/health/gold_health_fill.png" id="5_x1io3"]
+[ext_resource type="PackedScene" uid="uid://bm7p64hdhkaee" path="res://scenes/ui/hud/mana_pip.tscn" id="6_e6s2m"]
+[ext_resource type="FontFile" uid="uid://bx5qkhc245xqf" path="res://media/fonts/HealthFont.ttf" id="6_gec64"]
+[ext_resource type="Texture2D" uid="uid://bvjaylvuhc732" path="res://media/graphics/ui/hud/arms/active_arm_frame.png" id="7_j6j1a"]
+[ext_resource type="Texture2D" uid="uid://o684l1etno1k" path="res://media/graphics/ui/hud/arms/inactive_arm_frame.png" id="8_j2mu3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ca8kn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iq8uj"]
+font = ExtResource("6_gec64")
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2sijq"]
+
+[node name="HeadsUpDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wted4")
+
+[node name="XYCoords" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.004
+anchor_top = 0.992
+anchor_right = 0.004
+anchor_bottom = 0.992
+offset_left = 0.392
+offset_top = -22.816
+offset_right = 40.392
+offset_bottom = 0.18396
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_ca8kn")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -375.0
+offset_right = -300.0
+offset_bottom = 14.0
+grow_horizontal = 0
+scale = Vector2(5, 5)
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 7
+stretch_margin_top = 6
+stretch_margin_right = 7
+stretch_margin_bottom = 6
+texture_under = ExtResource("2_yrifu")
+texture_over = ExtResource("2_8tbf2")
+texture_progress = ExtResource("4_nkwb6")
+
+[node name="GoldHealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -375.0
+offset_right = -300.0
+offset_bottom = 14.0
+grow_horizontal = 0
+scale = Vector2(5, 5)
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 9
+stretch_margin_top = 6
+stretch_margin_right = 9
+stretch_margin_bottom = 6
+texture_progress = ExtResource("5_x1io3")
+
+[node name="Label" type="Label" parent="GoldHealthBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -6.0
+offset_right = 328.5
+offset_bottom = 54.0
+scale = Vector2(0.2, 0.2)
+text = "/"
+label_settings = SubResource("LabelSettings_iq8uj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ManaPips" type="GridContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -336.0
+offset_top = 70.0
+offset_right = -271.0
+offset_bottom = 87.0
+grow_horizontal = 0
+scale = Vector2(5, 5)
+theme_override_constants/h_separation = -1
+theme_override_constants/v_separation = -1
+columns = 8
+
+[node name="ManaPip" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip2" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip3" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip4" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip5" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip6" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip7" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip8" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip9" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip10" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip11" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip12" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip13" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip14" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip15" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="ManaPip16" parent="ManaPips" instance=ExtResource("6_e6s2m")]
+layout_mode = 2
+
+[node name="EmptyPoints" type="GridContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -336.0
+offset_top = 70.0
+offset_right = -271.0
+offset_bottom = 87.0
+grow_horizontal = 0
+scale = Vector2(5, 5)
+theme_override_constants/h_separation = -1
+theme_override_constants/v_separation = -1
+columns = 8
+
+[node name="ManaPoints" type="GridContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -336.0
+offset_top = 70.0
+offset_right = -271.0
+offset_bottom = 87.0
+grow_horizontal = 0
+scale = Vector2(5, 5)
+theme_override_constants/h_separation = -1
+theme_override_constants/v_separation = -1
+columns = 8
+
+[node name="MysticPoints" type="GridContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -336.0
+offset_top = 70.0
+offset_right = -271.0
+offset_bottom = 87.0
+grow_horizontal = 0
+scale = Vector2(5, 5)
+theme_override_constants/h_separation = -1
+theme_override_constants/v_separation = -1
+columns = 8
+
+[node name="SolarPoints" type="GridContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -336.0
+offset_top = 70.0
+offset_right = -271.0
+offset_bottom = 87.0
+grow_horizontal = 0
+scale = Vector2(5, 5)
+theme_override_constants/h_separation = -1
+theme_override_constants/v_separation = -1
+columns = 8
+
+[node name="ArmsPanel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -165.0
+offset_top = -165.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SynergyBG" type="TextureRect" parent="ArmsPanel"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_2sijq")
+
+[node name="ArmsUI" type="HBoxContainer" parent="ArmsPanel"]
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(5, 5)
+theme_override_constants/separation = 0
+
+[node name="LArms" type="VBoxContainer" parent="ArmsPanel/ArmsUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="LArm1" type="PanelContainer" parent="ArmsPanel/ArmsUI/LArms"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FrameUI" type="TextureRect" parent="ArmsPanel/ArmsUI/LArms/LArm1"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("7_j6j1a")
+
+[node name="LArm2" type="PanelContainer" parent="ArmsPanel/ArmsUI/LArms"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FrameUI" type="TextureRect" parent="ArmsPanel/ArmsUI/LArms/LArm2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("8_j2mu3")
+
+[node name="RArms" type="VBoxContainer" parent="ArmsPanel/ArmsUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="RArm1" type="PanelContainer" parent="ArmsPanel/ArmsUI/RArms"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FrameUI" type="TextureRect" parent="ArmsPanel/ArmsUI/RArms/RArm1"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("7_j6j1a")
+
+[node name="RArm2" type="PanelContainer" parent="ArmsPanel/ArmsUI/RArms"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FrameUI" type="TextureRect" parent="ArmsPanel/ArmsUI/RArms/RArm2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("8_j2mu3")

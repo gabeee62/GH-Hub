@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://41prijdqcef2"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_eyirw"]
+[ext_resource type="Texture2D" uid="uid://bvca5cg26yfw6" path="res://media/graphics/player/player.png" id="2_ut6jl"]
+[ext_resource type="Texture2D" uid="uid://btwrqrwpjpayj" path="res://media/graphics/decals/white.png" id="3_mokvy"]
+[ext_resource type="Texture2D" uid="uid://bc33cuosqijtn" path="res://media/graphics/lights/textures/circle.png" id="4_r0jws"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_aghfo"]
+polygon = PackedVector2Array(127, 15, 129, 14, 131, 11, 133, 6, 134, -1, 133, -8, 129, -14, 122, -18, 111, -18, 109, -22, 104, -24, 97, -24, 91, -29, 88, -31, 81, -31, 80, -30, 75, -30, 71, -35, 64, -42, 59, -46, 53, -49, 48, -49, 45, -55, 44, -60, 34, -70, 31, -76, 24, -81, 16, -81, 11, -79, -5, -79, -12, -75, -13, -77, -19, -77, -29, -71, -29, -67, -38, -67, -46, -64, -54, -56, -55, -50, -60, -43, -61, -37, -61, -14, -57, -6, -53, -3, -54, 0, -54, 3, -50, 11, -45, 14, -44, 19, -38, 26, -38, 31, -32, 38, -25, 41, -6, 41, 14, 34, 23, 29, 29, 27, 36, 25, 41, 22, 61, 22, 57, 25, 57, 29, 60, 33, 67, 34, 93, 34, 96, 31, 96, 25, 100, 25, 108, 18, 123, 18, 124, 15)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a0dfv"]
+polygon = PackedVector2Array(101, -1, 101, 1, 128, 10, 100, 2, 100, -2, 128, -10)
+
+[sub_resource type="Gradient" id="Gradient_7orqx"]
+colors = PackedColorArray(0.156863, 0.811765, 0.878431, 0.635294, 1, 1, 1, 0.431373)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hewce"]
+gradient = SubResource("Gradient_7orqx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jcg43"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 16.0
+spread = 25.0
+initial_velocity_min = 200.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.35
+scale_max = 0.75
+color = Color(0.156206, 0.810074, 0.879665, 0.635294)
+color_ramp = SubResource("GradientTexture1D_hewce")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwc3f"]
+radius = 58.8558
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 31
+script = ExtResource("1_eyirw")
+movespeed = 450
+
+[node name="TorchLight" type="PointLight2D" parent="."]
+position = Vector2(106, 0)
+color = Color(1, 1, 1, 0.780392)
+energy = 6.18
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("4_r0jws")
+
+[node name="Occluders" type="Node2D" parent="."]
+
+[node name="BodyOccluder" type="LightOccluder2D" parent="Occluders"]
+position = Vector2(0.5, 0.5)
+occluder = SubResource("OccluderPolygon2D_aghfo")
+
+[node name="TorchOccluder" type="LightOccluder2D" parent="Occluders"]
+position = Vector2(3, 0)
+occluder = SubResource("OccluderPolygon2D_a0dfv")
+occluder_light_mask = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(134, 0)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_jcg43")
+texture = ExtResource("3_mokvy")
+lifetime = 0.2
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -22)
+shape = SubResource("CircleShape2D_uwc3f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(37, -18.5)
+rotation = 1.57135
+texture = ExtResource("2_ut6jl")
+
+[node name="BarrelMarker" type="Marker2D" parent="."]
+position = Vector2(134, 0)
+gizmo_extents = 0.0
+
+[node name="PrimaryCD" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="SecondaryCD" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="PrimaryCD" to="." method="_on_primary_cd_timeout"]
+[connection signal="timeout" from="SecondaryCD" to="." method="_on_secondary_cd_timeout"]

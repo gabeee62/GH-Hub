@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo8isvhst167n"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/laser.gd" id="1_e4sqf"]
+[ext_resource type="Texture2D" uid="uid://mmuh47yfpepv" path="res://media/graphics/projectiles/blue.png" id="2_ux1gi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wdhk3"]
+radius = 8.0
+height = 48.0
+
+[node name="Laser" type="Area2D"]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_e4sqf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wdhk3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-58, -1)
+rotation = 1.5708
+texture = ExtResource("2_ux1gi")
+
+[node name="LifeTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

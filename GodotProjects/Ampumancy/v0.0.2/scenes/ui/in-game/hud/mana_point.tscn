@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0kbwi4ucesqn"]
+
+[ext_resource type="Texture2D" uid="uid://kplurtmaak0i" path="res://media/graphics/ui/hud/mana/mana_point.png" id="1_avym1"]
+
+[node name="ManaPoint" type="TextureRect"]
+texture = ExtResource("1_avym1")

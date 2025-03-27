@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dei3wod3g00ul"]
+
+[ext_resource type="Script" path="res://scenes/spells/spell.gd" id="1_k25uj"]
+
+[node name="Spell" type="Node2D"]
+script = ExtResource("1_k25uj")

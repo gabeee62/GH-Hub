@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://2gaxoycw6jhh"]
+
+[ext_resource type="Texture2D" uid="uid://dhax5rr53owyt" path="res://media/graphics/ui/menus/menu_directional.png" id="1_w4flw"]
+[ext_resource type="Texture2D" uid="uid://bkq0p40e0vkam" path="res://media/graphics/ui/menus/menu_directional_pressed.png" id="2_6pt3m"]
+[ext_resource type="Texture2D" uid="uid://dhl0mw7nt6syv" path="res://media/graphics/ui/menus/menu_directional_hover.png" id="3_u0gei"]
+
+[node name="MenuRight" type="TextureButton"]
+custom_minimum_size = Vector2(72, 0)
+texture_normal = ExtResource("1_w4flw")
+texture_pressed = ExtResource("2_6pt3m")
+texture_hover = ExtResource("3_u0gei")
+ignore_texture_size = true
+stretch_mode = 4

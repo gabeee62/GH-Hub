@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckwj43msv6hpp"]
+
+[ext_resource type="Script" uid="uid://t1jd82fxyxmy" path="res://globals/scripts/SceneChanger.gd" id="1_10ygv"]
+
+[node name="SceneChanger" type="Node"]
+script = ExtResource("1_10ygv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 99
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]

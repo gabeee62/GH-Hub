@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://doubcy0dvpnw7"]
+
+[ext_resource type="Script" path="res://scenes/fighters/fighter.gd" id="1_idduh"]
+
+[sub_resource type="Animation" id="Animation_4sri7"]
+resource_name = "fall"
+
+[sub_resource type="Animation" id="Animation_h61e8"]
+resource_name = "jump"
+
+[sub_resource type="Animation" id="Animation_eb4b6"]
+resource_name = "run"
+
+[sub_resource type="Animation" id="Animation_siptk"]
+resource_name = "walk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1eh7"]
+_data = {
+"fall": SubResource("Animation_4sri7"),
+"jump": SubResource("Animation_h61e8"),
+"run": SubResource("Animation_eb4b6"),
+"walk": SubResource("Animation_siptk")
+}
+
+[node name="Fighter" type="CharacterBody2D"]
+script = ExtResource("1_idduh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f1eh7")
+}

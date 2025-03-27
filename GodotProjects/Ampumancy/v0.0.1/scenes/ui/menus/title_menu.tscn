@@ -1,0 +1,134 @@
+[gd_scene load_steps=2 format=3 uid="uid://chy4cb3xm4ieg"]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/title_menu.gd" id="1_ns472"]
+
+[node name="TitleMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ns472")
+
+[node name="TransparentBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.545098)
+
+[node name="TitleButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -68.0
+offset_right = 192.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewGame" type="Button" parent="TitleButtons"]
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="TitleButtons"]
+layout_mode = 2
+text = "Load Game"
+
+[node name="Options" type="Button" parent="TitleButtons"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="TitleButtons"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Options" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -68.0
+offset_right = 192.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Graphics" type="Button" parent="Options"]
+layout_mode = 2
+text = "Graphics"
+
+[node name="Audio" type="Button" parent="Options"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Settings" type="Button" parent="Options"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Back" type="Button" parent="Options"]
+layout_mode = 2
+text = "Back"
+
+[node name="Graphics" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Audio" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="TitleButtons/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="TitleButtons/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="TitleButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="TitleButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Options/Graphics" to="." method="_on_graphics_pressed"]
+[connection signal="pressed" from="Options/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Options/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]

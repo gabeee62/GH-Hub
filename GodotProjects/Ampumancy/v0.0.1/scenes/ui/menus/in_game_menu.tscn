@@ -1,0 +1,466 @@
+[gd_scene load_steps=14 format=3 uid="uid://bbkmau5kmkd6c"]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/in_game_menu.gd" id="1_801f1"]
+[ext_resource type="PackedScene" uid="uid://bqp4v8lua3suf" path="res://scenes/ui/menus/menu_left.tscn" id="2_6df10"]
+[ext_resource type="Script" path="res://scenes/ui/menus/preview_sprite.gd" id="3_2qat4"]
+[ext_resource type="PackedScene" uid="uid://dtnng53864b4y" path="res://scenes/ui/menus/outfit_number.tscn" id="3_40bxq"]
+[ext_resource type="PackedScene" uid="uid://2gaxoycw6jhh" path="res://scenes/ui/menus/menu_right.tscn" id="4_j3mc7"]
+[ext_resource type="FontFile" uid="uid://bx5qkhc245xqf" path="res://media/fonts/HealthFont.ttf" id="8_1gxld"]
+
+[sub_resource type="Theme" id="Theme_g21cd"]
+default_font = ExtResource("8_1gxld")
+default_font_size = 20
+
+[sub_resource type="Theme" id="Theme_mffb4"]
+default_font = ExtResource("8_1gxld")
+default_font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_1jqa7"]
+font = ExtResource("8_1gxld")
+font_size = 11
+shadow_size = 17
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbar8"]
+font = ExtResource("8_1gxld")
+font_size = 11
+shadow_size = 17
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_34vwq"]
+font = ExtResource("8_1gxld")
+font_size = 11
+shadow_size = 17
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qqj5y"]
+font = ExtResource("8_1gxld")
+font_size = 20
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_k4lpk"]
+default_font = ExtResource("8_1gxld")
+
+[node name="InGameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_801f1")
+
+[node name="TransparentBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.317647)
+
+[node name="MenuBGPanel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -157.0
+offset_right = 210.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuButtons" type="VBoxContainer" parent="MenuBGPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -127.0
+offset_right = 164.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Back" type="Button" parent="MenuBGPanel/MenuButtons"]
+process_mode = 2
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = SubResource("Theme_g21cd")
+text = "Back"
+
+[node name="Options" type="Button" parent="MenuBGPanel/MenuButtons"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = SubResource("Theme_g21cd")
+text = "Options"
+
+[node name="Outfits" type="Button" parent="MenuBGPanel/MenuButtons"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = SubResource("Theme_g21cd")
+text = "Outfits"
+
+[node name="Return to Title" type="Button" parent="MenuBGPanel/MenuButtons"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = SubResource("Theme_g21cd")
+text = "Return to Title"
+
+[node name="Quit" type="Button" parent="MenuBGPanel/MenuButtons"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = SubResource("Theme_g21cd")
+text = "Quit"
+
+[node name="OutfitBGPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.0
+offset_top = -191.0
+offset_right = 332.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Outfits" type="HBoxContainer" parent="OutfitBGPanel"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.5
+offset_top = -180.0
+offset_right = 319.5
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="OutfitPreview" type="VBoxContainer" parent="OutfitBGPanel/Outfits"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PreviewPanel" type="Panel" parent="OutfitBGPanel/Outfits/OutfitPreview"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+
+[node name="CanvasGroup" type="CanvasGroup" parent="OutfitBGPanel/Outfits/OutfitPreview/PreviewPanel"]
+
+[node name="HatSprite" type="Sprite2D" parent="OutfitBGPanel/Outfits/OutfitPreview/PreviewPanel/CanvasGroup"]
+position = Vector2(120, 120)
+scale = Vector2(5, 5)
+hframes = 4
+script = ExtResource("3_2qat4")
+
+[node name="HeadSprite" type="Sprite2D" parent="OutfitBGPanel/Outfits/OutfitPreview/PreviewPanel/CanvasGroup"]
+position = Vector2(120, 120)
+scale = Vector2(5, 5)
+hframes = 4
+script = ExtResource("3_2qat4")
+type = 1
+
+[node name="EyesSprite" type="Sprite2D" parent="OutfitBGPanel/Outfits/OutfitPreview/PreviewPanel/CanvasGroup"]
+position = Vector2(120, 120)
+scale = Vector2(5, 5)
+hframes = 4
+script = ExtResource("3_2qat4")
+type = 2
+
+[node name="CloakSprite" type="Sprite2D" parent="OutfitBGPanel/Outfits/OutfitPreview/PreviewPanel/CanvasGroup"]
+position = Vector2(120, 120)
+scale = Vector2(5, 5)
+hframes = 4
+script = ExtResource("3_2qat4")
+type = 3
+
+[node name="BodySprite" type="Sprite2D" parent="OutfitBGPanel/Outfits/OutfitPreview/PreviewPanel/CanvasGroup"]
+position = Vector2(120, 120)
+scale = Vector2(5, 5)
+hframes = 4
+script = ExtResource("3_2qat4")
+type = 4
+
+[node name="ConfirmPanel" type="Panel" parent="OutfitBGPanel/Outfits/OutfitPreview"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OutfitBGPanel/Outfits/OutfitPreview/ConfirmPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Confirm" type="Button" parent="OutfitBGPanel/Outfits/OutfitPreview/ConfirmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(240, 60)
+layout_mode = 2
+theme = SubResource("Theme_mffb4")
+theme_override_font_sizes/font_size = 30
+text = "CONFIRM"
+
+[node name="Back" type="Button" parent="OutfitBGPanel/Outfits/OutfitPreview/ConfirmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(240, 60)
+layout_mode = 2
+theme = SubResource("Theme_mffb4")
+text = "BACK"
+
+[node name="OutfitSelections" type="VBoxContainer" parent="OutfitBGPanel/Outfits"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HatPanel" type="Panel" parent="OutfitBGPanel/Outfits/OutfitSelections"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OutfitBGPanel/Outfits/OutfitSelections/HatPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="OutfitName" type="Label" parent="OutfitBGPanel/Outfits/OutfitSelections/HatPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Hat:"
+label_settings = SubResource("LabelSettings_1jqa7")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MenuLeft" parent="OutfitBGPanel/Outfits/OutfitSelections/HatPanel/HBoxContainer" instance=ExtResource("2_6df10")]
+layout_mode = 2
+
+[node name="Label" parent="OutfitBGPanel/Outfits/OutfitSelections/HatPanel/HBoxContainer" instance=ExtResource("3_40bxq")]
+layout_mode = 2
+
+[node name="MenuRight" parent="OutfitBGPanel/Outfits/OutfitSelections/HatPanel/HBoxContainer" instance=ExtResource("4_j3mc7")]
+layout_mode = 2
+
+[node name="HeadPanel" type="Panel" parent="OutfitBGPanel/Outfits/OutfitSelections"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OutfitBGPanel/Outfits/OutfitSelections/HeadPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="OutfitName" type="Label" parent="OutfitBGPanel/Outfits/OutfitSelections/HeadPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Head:"
+label_settings = SubResource("LabelSettings_kbar8")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MenuLeft" parent="OutfitBGPanel/Outfits/OutfitSelections/HeadPanel/HBoxContainer" instance=ExtResource("2_6df10")]
+layout_mode = 2
+
+[node name="Label" parent="OutfitBGPanel/Outfits/OutfitSelections/HeadPanel/HBoxContainer" instance=ExtResource("3_40bxq")]
+layout_mode = 2
+
+[node name="MenuRight" parent="OutfitBGPanel/Outfits/OutfitSelections/HeadPanel/HBoxContainer" instance=ExtResource("4_j3mc7")]
+layout_mode = 2
+
+[node name="EyesPanel" type="Panel" parent="OutfitBGPanel/Outfits/OutfitSelections"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OutfitBGPanel/Outfits/OutfitSelections/EyesPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="OutfitName" type="Label" parent="OutfitBGPanel/Outfits/OutfitSelections/EyesPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Eyes:"
+label_settings = SubResource("LabelSettings_1jqa7")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MenuLeft" parent="OutfitBGPanel/Outfits/OutfitSelections/EyesPanel/HBoxContainer" instance=ExtResource("2_6df10")]
+layout_mode = 2
+
+[node name="Label" parent="OutfitBGPanel/Outfits/OutfitSelections/EyesPanel/HBoxContainer" instance=ExtResource("3_40bxq")]
+layout_mode = 2
+
+[node name="MenuRight" parent="OutfitBGPanel/Outfits/OutfitSelections/EyesPanel/HBoxContainer" instance=ExtResource("4_j3mc7")]
+layout_mode = 2
+
+[node name="CloakPanel" type="Panel" parent="OutfitBGPanel/Outfits/OutfitSelections"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OutfitBGPanel/Outfits/OutfitSelections/CloakPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="OutfitName" type="Label" parent="OutfitBGPanel/Outfits/OutfitSelections/CloakPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Cloak:"
+label_settings = SubResource("LabelSettings_34vwq")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MenuLeft" parent="OutfitBGPanel/Outfits/OutfitSelections/CloakPanel/HBoxContainer" instance=ExtResource("2_6df10")]
+layout_mode = 2
+
+[node name="Label" parent="OutfitBGPanel/Outfits/OutfitSelections/CloakPanel/HBoxContainer" instance=ExtResource("3_40bxq")]
+layout_mode = 2
+
+[node name="MenuRight" parent="OutfitBGPanel/Outfits/OutfitSelections/CloakPanel/HBoxContainer" instance=ExtResource("4_j3mc7")]
+layout_mode = 2
+
+[node name="BodyPanel" type="Panel" parent="OutfitBGPanel/Outfits/OutfitSelections"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OutfitBGPanel/Outfits/OutfitSelections/BodyPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="OutfitName" type="Label" parent="OutfitBGPanel/Outfits/OutfitSelections/BodyPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Body:"
+label_settings = SubResource("LabelSettings_1jqa7")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MenuLeft" parent="OutfitBGPanel/Outfits/OutfitSelections/BodyPanel/HBoxContainer" instance=ExtResource("2_6df10")]
+layout_mode = 2
+
+[node name="Label" parent="OutfitBGPanel/Outfits/OutfitSelections/BodyPanel/HBoxContainer" instance=ExtResource("3_40bxq")]
+layout_mode = 2
+
+[node name="MenuRight" parent="OutfitBGPanel/Outfits/OutfitSelections/BodyPanel/HBoxContainer" instance=ExtResource("4_j3mc7")]
+layout_mode = 2
+
+[node name="QuitConfirm" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -173.0
+offset_right = 234.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="QuitConfirm"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.414
+anchor_right = 0.5
+anchor_bottom = 0.414
+offset_left = -180.0
+offset_top = -21.6
+offset_right = 180.0
+offset_bottom = 21.4
+grow_horizontal = 2
+text = "Are you sure you want to quit?"
+label_settings = SubResource("LabelSettings_qqj5y")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuitConfirm"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.552
+anchor_right = 0.5
+anchor_bottom = 0.552
+offset_left = -20.0
+offset_top = -19.8
+offset_right = 20.0
+offset_bottom = 20.2
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="QuitYES" type="Button" parent="QuitConfirm/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = SubResource("Theme_g21cd")
+text = "YES"
+
+[node name="QuitNO" type="Button" parent="QuitConfirm/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = SubResource("Theme_k4lpk")
+text = "NO"
+
+[connection signal="pressed" from="MenuBGPanel/MenuButtons/Back" to="." method="_on_menu_back_pressed"]
+[connection signal="pressed" from="MenuBGPanel/MenuButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MenuBGPanel/MenuButtons/Outfits" to="." method="_on_outfits_pressed"]
+[connection signal="pressed" from="MenuBGPanel/MenuButtons/Return to Title" to="." method="_on_return_to_title_pressed"]
+[connection signal="pressed" from="MenuBGPanel/MenuButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="OutfitBGPanel/Outfits/OutfitPreview/ConfirmPanel/VBoxContainer/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="OutfitBGPanel/Outfits/OutfitPreview/ConfirmPanel/VBoxContainer/Back" to="." method="_on_outfits_back_pressed"]
+[connection signal="pressed" from="OutfitBGPanel/Outfits/OutfitSelections/HatPanel/HBoxContainer/MenuLeft" to="OutfitBGPanel/Outfits/OutfitSelections/HatPanel/HBoxContainer/Label" method="_on_menu_left_pressed"]
+[connection signal="text_updated" from="OutfitBGPanel/Outfits/OutfitSelections/HatPanel/HBoxContainer/Label" to="OutfitBGPanel/Outfits/OutfitPreview/PreviewPanel/CanvasGroup/HatSprite" method="_on_label_text_updated"]
+[connection signal="pressed" from="OutfitBGPanel/Outfits/OutfitSelections/HatPanel/HBoxContainer/MenuRight" to="OutfitBGPanel/Outfits/OutfitSelections/HatPanel/HBoxContainer/Label" method="_on_menu_right_pressed"]
+[connection signal="pressed" from="OutfitBGPanel/Outfits/OutfitSelections/HeadPanel/HBoxContainer/MenuLeft" to="OutfitBGPanel/Outfits/OutfitSelections/HeadPanel/HBoxContainer/Label" method="_on_menu_left_pressed"]
+[connection signal="text_updated" from="OutfitBGPanel/Outfits/OutfitSelections/HeadPanel/HBoxContainer/Label" to="OutfitBGPanel/Outfits/OutfitPreview/PreviewPanel/CanvasGroup/HeadSprite" method="_on_label_text_updated"]
+[connection signal="pressed" from="OutfitBGPanel/Outfits/OutfitSelections/HeadPanel/HBoxContainer/MenuRight" to="OutfitBGPanel/Outfits/OutfitSelections/HeadPanel/HBoxContainer/Label" method="_on_menu_right_pressed"]
+[connection signal="pressed" from="OutfitBGPanel/Outfits/OutfitSelections/EyesPanel/HBoxContainer/MenuLeft" to="OutfitBGPanel/Outfits/OutfitSelections/EyesPanel/HBoxContainer/Label" method="_on_menu_left_pressed"]
+[connection signal="text_updated" from="OutfitBGPanel/Outfits/OutfitSelections/EyesPanel/HBoxContainer/Label" to="OutfitBGPanel/Outfits/OutfitPreview/PreviewPanel/CanvasGroup/EyesSprite" method="_on_label_text_updated"]
+[connection signal="pressed" from="OutfitBGPanel/Outfits/OutfitSelections/EyesPanel/HBoxContainer/MenuRight" to="OutfitBGPanel/Outfits/OutfitSelections/EyesPanel/HBoxContainer/Label" method="_on_menu_right_pressed"]
+[connection signal="pressed" from="OutfitBGPanel/Outfits/OutfitSelections/CloakPanel/HBoxContainer/MenuLeft" to="OutfitBGPanel/Outfits/OutfitSelections/CloakPanel/HBoxContainer/Label" method="_on_menu_left_pressed"]
+[connection signal="text_updated" from="OutfitBGPanel/Outfits/OutfitSelections/CloakPanel/HBoxContainer/Label" to="OutfitBGPanel/Outfits/OutfitPreview/PreviewPanel/CanvasGroup/CloakSprite" method="_on_label_text_updated"]
+[connection signal="pressed" from="OutfitBGPanel/Outfits/OutfitSelections/CloakPanel/HBoxContainer/MenuRight" to="OutfitBGPanel/Outfits/OutfitSelections/CloakPanel/HBoxContainer/Label" method="_on_menu_right_pressed"]
+[connection signal="pressed" from="OutfitBGPanel/Outfits/OutfitSelections/BodyPanel/HBoxContainer/MenuLeft" to="OutfitBGPanel/Outfits/OutfitSelections/BodyPanel/HBoxContainer/Label" method="_on_menu_left_pressed"]
+[connection signal="text_updated" from="OutfitBGPanel/Outfits/OutfitSelections/BodyPanel/HBoxContainer/Label" to="OutfitBGPanel/Outfits/OutfitPreview/PreviewPanel/CanvasGroup/BodySprite" method="_on_label_text_updated"]
+[connection signal="pressed" from="OutfitBGPanel/Outfits/OutfitSelections/BodyPanel/HBoxContainer/MenuRight" to="OutfitBGPanel/Outfits/OutfitSelections/BodyPanel/HBoxContainer/Label" method="_on_menu_right_pressed"]
+[connection signal="pressed" from="QuitConfirm/HBoxContainer/QuitYES" to="." method="_on_quit_yes_pressed"]
+[connection signal="pressed" from="QuitConfirm/HBoxContainer/QuitNO" to="." method="_on_quit_no_pressed"]

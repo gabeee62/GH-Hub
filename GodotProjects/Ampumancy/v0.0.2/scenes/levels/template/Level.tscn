@@ -1,0 +1,483 @@
+[gd_scene load_steps=19 format=3 uid="uid://cm0gxa31vhyw6"]
+
+[ext_resource type="Script" uid="uid://gwcniw64uuf8" path="res://scenes/levels/template/Level.gd" id="1_mn00y"]
+[ext_resource type="TileSet" uid="uid://cytgnmfs1qgnf" path="res://media/graphics/tilemaps/tilesets/main_tileset.tres" id="2_k3rtj"]
+[ext_resource type="Script" uid="uid://173yl3cwwlvr" path="res://scenes/ui/in-game/hud/hud.gd" id="3_h6lkw"]
+[ext_resource type="Script" uid="uid://bv3wb431uajnc" path="res://scenes/ui/in-game/hud/health_bar.gd" id="4_ce0pd"]
+[ext_resource type="Texture2D" uid="uid://wwqqar7dao3c" path="res://media/graphics/ui/hud/health/bar_bg.png" id="5_65ace"]
+[ext_resource type="Texture2D" uid="uid://8s5wkbxud6aw" path="res://media/graphics/ui/hud/health/health_fill.png" id="6_nauvb"]
+[ext_resource type="Texture2D" uid="uid://vce6g6albecp" path="res://media/graphics/ui/hud/health/bar_frame.png" id="7_fu8b4"]
+[ext_resource type="Texture2D" uid="uid://btwnjqaho6i7q" path="res://media/graphics/ui/hud/health/gold_health_fill.png" id="8_ovqv4"]
+[ext_resource type="Script" uid="uid://bqdx28qu1hpqr" path="res://scenes/ui/in-game/hud/mana.gd" id="9_qg4yb"]
+[ext_resource type="Script" uid="uid://bufyvbgk3i5l1" path="res://scenes/ui/in-game/hud/arms.gd" id="10_65ace"]
+[ext_resource type="Texture2D" uid="uid://bvjaylvuhc732" path="res://media/graphics/ui/hud/arms/frames/active_arm_frame.png" id="11_fu8b4"]
+[ext_resource type="Texture2D" uid="uid://o684l1etno1k" path="res://media/graphics/ui/hud/arms/frames/inactive_arm_frame.png" id="12_ovqv4"]
+[ext_resource type="Script" uid="uid://conbc1owpuu67" path="res://scenes/ui/in-game/menus/pause_menu.gd" id="13_qg4yb"]
+[ext_resource type="Script" uid="uid://bkvc3otwygonu" path="res://scenes/ui/in-game/menus/settings.gd" id="15_rspto"]
+[ext_resource type="Script" uid="uid://py51mnfm876x" path="res://scenes/ui/in-game/menus/video.gd" id="15_ydlwl"]
+[ext_resource type="Script" uid="uid://fyvq3pr4uawe" path="res://scenes/ui/in-game/menus/audio.gd" id="16_qmkgs"]
+[ext_resource type="Script" uid="uid://7j4cqwxb0eo1" path="res://scenes/ui/in-game/menus/outfit.gd" id="16_r466j"]
+[ext_resource type="Script" uid="uid://c11ir6lrk3kf0" path="res://scenes/ui/in-game/menus/controls.gd" id="17_o8n8e"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_mn00y")
+
+[node name="Background" type="TileMapLayer" parent="."]
+scale = Vector2(5, 5)
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Spells" type="Node2D" parent="."]
+
+[node name="Terrain" type="TileMapLayer" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("2_k3rtj")
+
+[node name="Foreground" type="TileMapLayer" parent="."]
+scale = Vector2(5, 5)
+
+[node name="CanvasLayers" type="Node" parent="."]
+
+[node name="HUDCanvas" type="CanvasLayer" parent="CanvasLayers"]
+layer = 96
+
+[node name="HUD" type="Control" parent="CanvasLayers/HUDCanvas"]
+process_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_h6lkw")
+
+[node name="HealthBar" type="PanelContainer" parent="CanvasLayers/HUDCanvas/HUD"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -380.0
+offset_top = 8.0
+offset_right = -306.0
+offset_bottom = 22.0
+grow_horizontal = 0
+scale = Vector2(5, 5)
+script = ExtResource("4_ce0pd")
+
+[node name="NormalHealth" type="TextureProgressBar" parent="CanvasLayers/HUDCanvas/HUD/HealthBar"]
+layout_mode = 2
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 6
+stretch_margin_top = 7
+stretch_margin_right = 6
+stretch_margin_bottom = 7
+texture_under = ExtResource("5_65ace")
+texture_progress = ExtResource("6_nauvb")
+
+[node name="GoldHealth" type="TextureProgressBar" parent="CanvasLayers/HUDCanvas/HUD/HealthBar"]
+layout_mode = 2
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 6
+stretch_margin_top = 7
+stretch_margin_right = 6
+stretch_margin_bottom = 7
+texture_over = ExtResource("7_fu8b4")
+texture_progress = ExtResource("8_ovqv4")
+
+[node name="Mana" type="PanelContainer" parent="CanvasLayers/HUDCanvas/HUD"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -375.0
+offset_top = 81.0
+offset_right = -303.0
+offset_bottom = 108.0
+grow_horizontal = 0
+scale = Vector2(5, 5)
+script = ExtResource("9_qg4yb")
+
+[node name="ManaPips" type="GridContainer" parent="CanvasLayers/HUDCanvas/HUD/Mana"]
+layout_direction = 3
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[node name="EmptyManaPoints" type="GridContainer" parent="CanvasLayers/HUDCanvas/HUD/Mana"]
+layout_direction = 3
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[node name="ManaPoints" type="GridContainer" parent="CanvasLayers/HUDCanvas/HUD/Mana"]
+layout_direction = 3
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[node name="MysticPoints" type="GridContainer" parent="CanvasLayers/HUDCanvas/HUD/Mana"]
+layout_direction = 3
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[node name="SolarPoints" type="GridContainer" parent="CanvasLayers/HUDCanvas/HUD/Mana"]
+layout_direction = 3
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[node name="Arms" type="PanelContainer" parent="CanvasLayers/HUDCanvas/HUD"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -168.0
+offset_right = -136.0
+offset_bottom = -136.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(5, 5)
+script = ExtResource("10_65ace")
+
+[node name="SynergyBG" type="ColorRect" parent="CanvasLayers/HUDCanvas/HUD/Arms"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 1, 0.403922, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayers/HUDCanvas/HUD/Arms"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LArms" type="VBoxContainer" parent="CanvasLayers/HUDCanvas/HUD/Arms/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="LArm1" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Arms/HBoxContainer/LArms"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+texture = ExtResource("11_fu8b4")
+
+[node name="ArmTexture" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Arms/HBoxContainer/LArms/LArm1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(7, 3)
+stretch_mode = 3
+
+[node name="LArm2" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Arms/HBoxContainer/LArms"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 2
+texture = ExtResource("12_ovqv4")
+
+[node name="ArmTexture" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Arms/HBoxContainer/LArms/LArm2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(7, 3)
+stretch_mode = 3
+
+[node name="RArms" type="VBoxContainer" parent="CanvasLayers/HUDCanvas/HUD/Arms/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="RArm1" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Arms/HBoxContainer/RArms"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+texture = ExtResource("11_fu8b4")
+
+[node name="ArmTexture" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Arms/HBoxContainer/RArms/RArm1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(7, 3)
+
+[node name="RArm2" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Arms/HBoxContainer/RArms"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+texture = ExtResource("12_ovqv4")
+
+[node name="ArmTexture" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Arms/HBoxContainer/RArms/RArm2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(7, 3)
+
+[node name="UICanvas" type="CanvasLayer" parent="CanvasLayers"]
+layer = 97
+
+[node name="MenuCanvas" type="CanvasLayer" parent="CanvasLayers"]
+layer = 98
+
+[node name="PauseMenu" type="Control" parent="CanvasLayers/MenuCanvas"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_qg4yb")
+
+[node name="PauseBG" type="ColorRect" parent="CanvasLayers/MenuCanvas/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.537255)
+
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -85.5
+offset_right = 47.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons"]
+layout_mode = 2
+text = "Back"
+
+[node name="Settings" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Outfits" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons"]
+layout_mode = 2
+text = "Outfit"
+
+[node name="Save" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons"]
+layout_mode = 2
+text = "Save Game"
+
+[node name="Quit" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Settings" type="Control" parent="CanvasLayers/MenuCanvas/PauseMenu"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_rspto")
+
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -68.0
+offset_right = 37.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Video" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons"]
+layout_mode = 2
+text = "Video"
+
+[node name="Audio" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Controls" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons"]
+layout_mode = 2
+text = "Controls"
+
+[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons"]
+layout_mode = 2
+text = "Back"
+
+[node name="Video" type="Control" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_ydlwl")
+
+[node name="Settings" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Video"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -20.0
+offset_right = 22.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Video/Settings"]
+layout_mode = 2
+text = "Back"
+
+[node name="Audio" type="Control" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_qmkgs")
+
+[node name="Settings" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -20.0
+offset_right = 22.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Audio/Settings"]
+layout_mode = 2
+text = "Back"
+
+[node name="Controls" type="Control" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_o8n8e")
+
+[node name="Settings" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -20.0
+offset_right = 22.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Controls/Settings"]
+layout_mode = 2
+text = "Back"
+
+[node name="Outfit" type="Control" parent="CanvasLayers/MenuCanvas/PauseMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_r466j")
+
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -20.0
+offset_right = 22.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/Buttons"]
+layout_mode = 2
+text = "Back"
+
+[node name="Outfit" type="PanelContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Settings" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Outfits" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_outfits_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Save" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_save_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Quit" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons/Video" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_video_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons/Audio" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_audio_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons/Controls" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_controls_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_settings_back_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Video/Settings/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_video_back_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Audio/Settings/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_audio_back_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Controls/Settings/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_controls_back_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Outfit/Buttons/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_outfit_back_pressed"]
