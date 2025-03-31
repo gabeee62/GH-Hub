@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://s888ayg4ovep"]
+
+[ext_resource type="Script" uid="uid://l837mdaskcl3" path="res://scenes/miscellaneous/player_detect.gd" id="1_28jlg"]
+
+[node name="PlayerDetect" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_28jlg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="SleepTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="SleepTimer" to="." method="_on_sleep_timer_timeout"]

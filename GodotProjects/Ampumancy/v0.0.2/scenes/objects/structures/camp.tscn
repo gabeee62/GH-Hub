@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dygpv7spigobe"]
+
+[ext_resource type="PackedScene" uid="uid://b6yvrj2r128a6" path="res://scenes/objects/structures/tent.tscn" id="1_7jwuc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jwuc"]
+size = Vector2(800, 400)
+
+[node name="Camp" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7jwuc")
+
+[node name="Tent" parent="." instance=ExtResource("1_7jwuc")]
+position = Vector2(-180, 115)

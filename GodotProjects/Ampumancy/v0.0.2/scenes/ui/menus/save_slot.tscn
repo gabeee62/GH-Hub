@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://trx6k7glctd"]
+
+[ext_resource type="Script" uid="uid://v7su64hvajcs" path="res://scenes/ui/menus/save_slot.gd" id="1_hvt8w"]
+[ext_resource type="FontFile" uid="uid://beqa5ltlcend0" path="res://media/graphics/fonts/HealthFont.ttf" id="1_jskob"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jskob"]
+font = ExtResource("1_jskob")
+font_color = Color(1, 1, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hvt8w"]
+font = ExtResource("1_jskob")
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1t3io"]
+font = ExtResource("1_jskob")
+font_size = 12
+font_color = Color(0.593134, 0.593134, 0.593134, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="SaveSlot" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(350, 48)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hvt8w")
+
+[node name="Clickable" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0.415686)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.617455, 0.617455, 0.617455, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(348, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(0.151276, 0.151276, 0.151276, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(340, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="SaveName" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+label_settings = SubResource("LabelSettings_jskob")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerName" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_hvt8w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Playtime" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+label_settings = SubResource("LabelSettings_1t3io")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Clickable" to="." method="_on_clickable_pressed"]

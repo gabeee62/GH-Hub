@@ -1,9 +1,9 @@
 extends Node2D
 class_name Level
 
-var player_scene: PackedScene = preload("res://scenes/entities/player/Player.tscn")
-
 @export var data_path: String
+
+var player_scene: PackedScene = preload("res://scenes/entities/player/Player.tscn")
 
 var DATA: LevelData
 
@@ -16,3 +16,5 @@ func _ready() -> void:
 	var player: Player = player_scene.instantiate()
 	player.position = Globals.SAVE.CURRENT_POS
 	$Entities.add_child(player)
+	
+	SignalBus.level_ready.emit()

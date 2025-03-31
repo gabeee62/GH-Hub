@@ -30,10 +30,10 @@ metadata/_custom_type_script = "uid://oer10mfwgvdd"
 
 [sub_resource type="Resource" id="Resource_bqiqo"]
 script = ExtResource("3_kahth")
-MOVESPEED = 150.0
+MOVESPEED = 200.0
 DECEL = 35.0
 ACCEL = 45.0
-AIRMOVESPEED = 125.0
+AIRMOVESPEED = 225.0
 AIRDECEL = 25.0
 AIRACCEL = 35.0
 MAX_DJUMPS = 1

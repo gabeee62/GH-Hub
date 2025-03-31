@@ -19,7 +19,7 @@ func pause_game() -> void:
 func reset() -> void:
 	$Buttons.show()
 	$Settings.reset()
-	$Outfit.reset()
+	$Outfit.hide()
 
 
 func _on_back_pressed() -> void:
@@ -45,7 +45,7 @@ func _on_outfit_back_pressed() -> void:
 
 
 func _on_save_pressed() -> void:
-	pass
+	SaveHandler.save_to_disk()
 
 
 func _on_quit_pressed() -> void:

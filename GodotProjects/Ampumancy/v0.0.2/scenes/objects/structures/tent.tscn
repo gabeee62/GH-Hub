@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6yvrj2r128a6"]
+
+[ext_resource type="Texture2D" uid="uid://vv4mf8gdxlrp" path="res://media/graphics/objects/structures/tent.png" id="1_mhpbe"]
+[ext_resource type="PackedScene" uid="uid://qcjjyo32vy7p" path="res://scenes/miscellaneous/call_on_detect.tscn" id="2_mhpbe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2eo0"]
+size = Vector2(36, 40)
+
+[node name="Tent" type="Sprite2D"]
+scale = Vector2(5, 5)
+texture = ExtResource("1_mhpbe")
+
+[node name="CallOnDetect" parent="." instance=ExtResource("2_mhpbe")]
+position = Vector2(14.2, -3)
+function_name = "save_game"
+shape = SubResource("RectangleShape2D_v2eo0")
+trigger = 1

@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://wow8j8nt5cgt"]
+[gd_scene load_steps=10 format=3 uid="uid://wow8j8nt5cgt"]
 
 [ext_resource type="Script" uid="uid://ckrodmepfn338" path="res://scenes/ui/menus/TitleScreen.gd" id="1_jm0uo"]
+[ext_resource type="Script" uid="uid://bkvc3otwygonu" path="res://scenes/ui/in-game/menus/settings.gd" id="2_bjhy7"]
+[ext_resource type="Script" uid="uid://c81eokcfmlq1y" path="res://scenes/ui/menus/new_save.gd" id="2_by5sb"]
+[ext_resource type="Script" uid="uid://5qf6fynq6bd6" path="res://scenes/ui/menus/continue.gd" id="3_0064l"]
+[ext_resource type="Script" uid="uid://py51mnfm876x" path="res://scenes/ui/in-game/menus/video.gd" id="3_by5sb"]
+[ext_resource type="Script" uid="uid://fyvq3pr4uawe" path="res://scenes/ui/in-game/menus/audio.gd" id="4_0064l"]
+[ext_resource type="FontFile" uid="uid://beqa5ltlcend0" path="res://media/graphics/fonts/HealthFont.ttf" id="4_rlol1"]
+[ext_resource type="Script" uid="uid://c11ir6lrk3kf0" path="res://scenes/ui/in-game/menus/controls.gd" id="5_rlol1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1fwhw"]
+font = ExtResource("4_rlol1")
+font_size = 24
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -10,3 +23,292 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jm0uo")
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -68.0
+offset_right = 67.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartNew" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Start New Game"
+
+[node name="Continue" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Settings" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Quit"
+
+[node name="NewSave" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_by5sb")
+
+[node name="Menu" type="VBoxContainer" parent="NewSave"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -15.5
+offset_right = 22.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveName" type="LineEdit" parent="NewSave/Menu"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+placeholder_text = "Enter a name for your save:"
+clear_button_enabled = true
+
+[node name="PlayerName" type="LineEdit" parent="NewSave/Menu"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+placeholder_text = "Enter a player name:"
+clear_button_enabled = true
+
+[node name="ConfirmStart" type="Button" parent="NewSave/Menu"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Confirm"
+
+[node name="Back" type="Button" parent="NewSave/Menu"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
+[node name="Continue" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_0064l")
+
+[node name="Menu" type="VBoxContainer" parent="Continue"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -20.0
+offset_right = 22.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveSlots" type="PanelContainer" parent="Continue/Menu"]
+custom_minimum_size = Vector2(350, 400)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Continue/Menu/SaveSlots"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Continue/Menu/SaveSlots/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "CHOOSE SAVE"
+label_settings = SubResource("LabelSettings_1fwhw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollMenu" type="ScrollContainer" parent="Continue/Menu/SaveSlots/VBoxContainer"]
+custom_minimum_size = Vector2(0, 336)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Continue/Menu/SaveSlots/VBoxContainer/ScrollMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="Back" type="Button" parent="Continue/Menu"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_bjhy7")
+
+[node name="Buttons" type="VBoxContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -68.0
+offset_right = 37.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Video" type="Button" parent="Settings/Buttons"]
+layout_mode = 2
+text = "Video"
+
+[node name="Audio" type="Button" parent="Settings/Buttons"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Controls" type="Button" parent="Settings/Buttons"]
+layout_mode = 2
+text = "Controls"
+
+[node name="Back" type="Button" parent="Settings/Buttons"]
+layout_mode = 2
+text = "Back"
+
+[node name="Video" type="Control" parent="Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_by5sb")
+
+[node name="Settings" type="VBoxContainer" parent="Settings/Video"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -20.0
+offset_right = 22.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="Settings/Video/Settings"]
+layout_mode = 2
+text = "Back"
+
+[node name="Audio" type="Control" parent="Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_0064l")
+
+[node name="Settings" type="VBoxContainer" parent="Settings/Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -20.0
+offset_right = 22.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="Settings/Audio/Settings"]
+layout_mode = 2
+text = "Back"
+
+[node name="Controls" type="Control" parent="Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_rlol1")
+
+[node name="Settings" type="VBoxContainer" parent="Settings/Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -20.0
+offset_right = 22.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="TabContainer" parent="Settings/Controls/Settings"]
+layout_mode = 2
+current_tab = 0
+
+[node name="General" type="PanelContainer" parent="Settings/Controls/Settings/Menu"]
+custom_minimum_size = Vector2(350, 400)
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Menus" type="PanelContainer" parent="Settings/Controls/Settings/Menu"]
+visible = false
+custom_minimum_size = Vector2(350, 400)
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Back" type="Button" parent="Settings/Controls/Settings"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="Buttons/StartNew" to="." method="_on_start_new_pressed"]
+[connection signal="pressed" from="Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="NewSave/Menu/ConfirmStart" to="NewSave" method="_on_confirm_start_pressed"]
+[connection signal="pressed" from="NewSave/Menu/Back" to="." method="_on_new_save_back_pressed"]
+[connection signal="pressed" from="Continue/Menu/Back" to="." method="_on_continue_back_pressed"]
+[connection signal="pressed" from="Settings/Buttons/Video" to="Settings" method="_on_video_pressed"]
+[connection signal="pressed" from="Settings/Buttons/Audio" to="Settings" method="_on_audio_pressed"]
+[connection signal="pressed" from="Settings/Buttons/Controls" to="Settings" method="_on_controls_pressed"]
+[connection signal="pressed" from="Settings/Buttons/Back" to="." method="_on_settings_back_pressed"]
+[connection signal="pressed" from="Settings/Video/Settings/Back" to="." method="_on_settings_child_back_pressed"]
+[connection signal="pressed" from="Settings/Audio/Settings/Back" to="." method="_on_settings_child_back_pressed"]
+[connection signal="pressed" from="Settings/Controls/Settings/Back" to="." method="_on_settings_child_back_pressed"]

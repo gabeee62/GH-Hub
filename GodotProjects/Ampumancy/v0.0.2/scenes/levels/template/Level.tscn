@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cm0gxa31vhyw6"]
+[gd_scene load_steps=26 format=3 uid="uid://cm0gxa31vhyw6"]
 
 [ext_resource type="Script" uid="uid://gwcniw64uuf8" path="res://scenes/levels/template/Level.gd" id="1_mn00y"]
 [ext_resource type="TileSet" uid="uid://cytgnmfs1qgnf" path="res://media/graphics/tilemaps/tilesets/main_tileset.tres" id="2_k3rtj"]
@@ -13,21 +13,39 @@
 [ext_resource type="Texture2D" uid="uid://bvjaylvuhc732" path="res://media/graphics/ui/hud/arms/frames/active_arm_frame.png" id="11_fu8b4"]
 [ext_resource type="Texture2D" uid="uid://o684l1etno1k" path="res://media/graphics/ui/hud/arms/frames/inactive_arm_frame.png" id="12_ovqv4"]
 [ext_resource type="Script" uid="uid://conbc1owpuu67" path="res://scenes/ui/in-game/menus/pause_menu.gd" id="13_qg4yb"]
+[ext_resource type="Script" uid="uid://bdgg2vqqj8rmi" path="res://scenes/ui/in-game/menus/player_info_ui.gd" id="13_qmkgs"]
 [ext_resource type="Script" uid="uid://bkvc3otwygonu" path="res://scenes/ui/in-game/menus/settings.gd" id="15_rspto"]
 [ext_resource type="Script" uid="uid://py51mnfm876x" path="res://scenes/ui/in-game/menus/video.gd" id="15_ydlwl"]
 [ext_resource type="Script" uid="uid://fyvq3pr4uawe" path="res://scenes/ui/in-game/menus/audio.gd" id="16_qmkgs"]
 [ext_resource type="Script" uid="uid://7j4cqwxb0eo1" path="res://scenes/ui/in-game/menus/outfit.gd" id="16_r466j"]
 [ext_resource type="Script" uid="uid://c11ir6lrk3kf0" path="res://scenes/ui/in-game/menus/controls.gd" id="17_o8n8e"]
+[ext_resource type="FontFile" uid="uid://beqa5ltlcend0" path="res://media/graphics/fonts/HealthFont.ttf" id="20_x722l"]
+[ext_resource type="Texture2D" uid="uid://dhax5rr53owyt" path="res://media/graphics/ui/menus/menu_directional.png" id="21_6s3uj"]
+[ext_resource type="Texture2D" uid="uid://bkq0p40e0vkam" path="res://media/graphics/ui/menus/menu_directional_pressed.png" id="22_6j3xu"]
+[ext_resource type="Texture2D" uid="uid://dhl0mw7nt6syv" path="res://media/graphics/ui/menus/menu_directional_hover.png" id="23_caip0"]
+[ext_resource type="LabelSettings" uid="uid://byylp3l60xu8" path="res://health_label_settings_large.tres" id="24_2hp3y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfu71"]
+font = ExtResource("20_x722l")
+font_size = 12
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_mn00y")
 
 [node name="Background" type="TileMapLayer" parent="."]
 scale = Vector2(5, 5)
+tile_set = ExtResource("2_k3rtj")
+collision_enabled = false
+
+[node name="Structures" type="Node2D" parent="."]
 
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Spells" type="Node2D" parent="."]
+
+[node name="Fields" type="Node2D" parent="."]
 
 [node name="Terrain" type="TileMapLayer" parent="."]
 scale = Vector2(5, 5)
@@ -35,6 +53,8 @@ tile_set = ExtResource("2_k3rtj")
 
 [node name="Foreground" type="TileMapLayer" parent="."]
 scale = Vector2(5, 5)
+tile_set = ExtResource("2_k3rtj")
+collision_enabled = false
 
 [node name="CanvasLayers" type="Node" parent="."]
 
@@ -57,12 +77,14 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -380.0
+offset_left = -493.0
 offset_top = 8.0
-offset_right = -306.0
+offset_right = -397.0
 offset_bottom = 22.0
 grow_horizontal = 0
 scale = Vector2(5, 5)
+size_flags_horizontal = 8
+size_flags_vertical = 0
 script = ExtResource("4_ce0pd")
 
 [node name="NormalHealth" type="TextureProgressBar" parent="CanvasLayers/HUDCanvas/HUD/HealthBar"]
@@ -252,6 +274,49 @@ pivot_offset = Vector2(7, 3)
 [node name="UICanvas" type="CanvasLayer" parent="CanvasLayers"]
 layer = 97
 
+[node name="PlayerInfoUI" type="Control" parent="CanvasLayers/UICanvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_qmkgs")
+
+[node name="Journal" type="TabContainer" parent="CanvasLayers/UICanvas/PlayerInfoUI"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Equipment" type="PanelContainer" parent="CanvasLayers/UICanvas/PlayerInfoUI/Journal"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Inventory" type="PanelContainer" parent="CanvasLayers/UICanvas/PlayerInfoUI/Journal"]
+visible = false
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Ampumancy" type="PanelContainer" parent="CanvasLayers/UICanvas/PlayerInfoUI/Journal"]
+visible = false
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+metadata/_tab_index = 2
+
 [node name="MenuCanvas" type="CanvasLayer" parent="CanvasLayers"]
 layer = 98
 
@@ -430,6 +495,21 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Menu" type="TabContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Controls/Settings"]
+layout_mode = 2
+current_tab = 0
+
+[node name="General" type="PanelContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Controls/Settings/Menu"]
+custom_minimum_size = Vector2(350, 400)
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Menus" type="PanelContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Controls/Settings/Menu"]
+visible = false
+custom_minimum_size = Vector2(350, 400)
+layout_mode = 2
+metadata/_tab_index = 1
+
 [node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Controls/Settings"]
 layout_mode = 2
 text = "Back"
@@ -444,29 +524,228 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_r466j")
 
-[node name="Buttons" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit"]
+[node name="OutfitMenu" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.5
-offset_top = -20.0
-offset_right = 22.5
-offset_bottom = 20.0
+offset_left = -308.0
+offset_top = -217.0
+offset_right = 308.0
+offset_bottom = 218.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/Buttons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu"]
 layout_mode = 2
-text = "Back"
 
-[node name="Outfit" type="PanelContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit"]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Preview" type="PanelContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OutfitNums" type="VBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Hat" type="HBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Hat"]
+custom_minimum_size = Vector2(82, 0)
+layout_mode = 2
+text = "Hat:"
+label_settings = SubResource("LabelSettings_bfu71")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectLeft" type="TextureButton" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Hat"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("21_6s3uj")
+texture_pressed = ExtResource("22_6j3xu")
+texture_hover = ExtResource("23_caip0")
+stretch_mode = 0
+flip_h = true
+
+[node name="Selection" type="Label" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Hat"]
+custom_minimum_size = Vector2(140, 80)
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("24_2hp3y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectRight" type="TextureButton" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Hat"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("21_6s3uj")
+texture_pressed = ExtResource("22_6j3xu")
+texture_hover = ExtResource("23_caip0")
+stretch_mode = 0
+
+[node name="Head" type="HBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Head"]
+custom_minimum_size = Vector2(82, 0)
+layout_mode = 2
+text = "Head:"
+label_settings = SubResource("LabelSettings_bfu71")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectLeft" type="TextureButton" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Head"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("21_6s3uj")
+texture_pressed = ExtResource("22_6j3xu")
+texture_hover = ExtResource("23_caip0")
+stretch_mode = 0
+flip_h = true
+
+[node name="Selection" type="Label" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Head"]
+custom_minimum_size = Vector2(140, 80)
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("24_2hp3y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectRight" type="TextureButton" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Head"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("21_6s3uj")
+texture_pressed = ExtResource("22_6j3xu")
+texture_hover = ExtResource("23_caip0")
+stretch_mode = 0
+
+[node name="Eyes" type="HBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Eyes"]
+custom_minimum_size = Vector2(82, 0)
+layout_mode = 2
+text = "Eyes:"
+label_settings = SubResource("LabelSettings_bfu71")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectLeft" type="TextureButton" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Eyes"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("21_6s3uj")
+texture_pressed = ExtResource("22_6j3xu")
+texture_hover = ExtResource("23_caip0")
+stretch_mode = 0
+flip_h = true
+
+[node name="Selection" type="Label" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Eyes"]
+custom_minimum_size = Vector2(140, 80)
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("24_2hp3y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectRight" type="TextureButton" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Eyes"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("21_6s3uj")
+texture_pressed = ExtResource("22_6j3xu")
+texture_hover = ExtResource("23_caip0")
+stretch_mode = 0
+
+[node name="Cloak" type="HBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Cloak"]
+custom_minimum_size = Vector2(82, 0)
+layout_mode = 2
+text = "Cloak:"
+label_settings = SubResource("LabelSettings_bfu71")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectLeft" type="TextureButton" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Cloak"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("21_6s3uj")
+texture_pressed = ExtResource("22_6j3xu")
+texture_hover = ExtResource("23_caip0")
+stretch_mode = 0
+flip_h = true
+
+[node name="Selection" type="Label" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Cloak"]
+custom_minimum_size = Vector2(140, 80)
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("24_2hp3y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectRight" type="TextureButton" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Cloak"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("21_6s3uj")
+texture_pressed = ExtResource("22_6j3xu")
+texture_hover = ExtResource("23_caip0")
+stretch_mode = 0
+
+[node name="Body" type="HBoxContainer" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Body"]
+custom_minimum_size = Vector2(82, 0)
+layout_mode = 2
+text = "Robes:"
+label_settings = SubResource("LabelSettings_bfu71")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectLeft" type="TextureButton" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Body"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("21_6s3uj")
+texture_pressed = ExtResource("22_6j3xu")
+texture_hover = ExtResource("23_caip0")
+stretch_mode = 0
+flip_h = true
+
+[node name="Selection" type="Label" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Body"]
+custom_minimum_size = Vector2(140, 80)
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("24_2hp3y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectRight" type="TextureButton" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Body"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("21_6s3uj")
+texture_pressed = ExtResource("22_6j3xu")
+texture_hover = ExtResource("23_caip0")
+stretch_mode = 0
+
+[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Back"
 
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_back_pressed"]
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Settings" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_settings_pressed"]
@@ -480,4 +759,9 @@ offset_bottom = 40.0
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Video/Settings/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_video_back_pressed"]
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Audio/Settings/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_audio_back_pressed"]
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Controls/Settings/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_controls_back_pressed"]
-[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Outfit/Buttons/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_outfit_back_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Hat/SelectLeft" to="CanvasLayers/MenuCanvas/PauseMenu/Outfit" method="_on_select_left_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Head/SelectLeft" to="CanvasLayers/MenuCanvas/PauseMenu/Outfit" method="_on_select_left_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Eyes/SelectLeft" to="CanvasLayers/MenuCanvas/PauseMenu/Outfit" method="_on_select_left_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Cloak/SelectLeft" to="CanvasLayers/MenuCanvas/PauseMenu/Outfit" method="_on_select_left_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/HBoxContainer/OutfitNums/Body/SelectLeft" to="CanvasLayers/MenuCanvas/PauseMenu/Outfit" method="_on_select_left_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Outfit/OutfitMenu/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_outfit_back_pressed"]

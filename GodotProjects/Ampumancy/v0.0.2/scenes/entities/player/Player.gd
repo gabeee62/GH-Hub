@@ -111,9 +111,11 @@ func jump() -> void:
 
 func zoom() -> void:
 	if Input.is_action_just_pressed("ZOOM+") and $PlayerCam.zoom.x < Globals.MAX_ZOOM:
-		$PlayerCam.zoom += Vector2(.1, .1)
+		get_tree().create_tween().tween_property($PlayerCam, "zoom", $PlayerCam.zoom + Vector2(0.2, 0.2), 0.2)
 	if Input.is_action_just_pressed("ZOOM-") and $PlayerCam.zoom.x > Globals.MIN_ZOOM:
-		$PlayerCam.zoom -= Vector2(.1, .1)
+		get_tree().create_tween().tween_property($PlayerCam, "zoom", $PlayerCam.zoom - Vector2(0.2, 0.2), 0.2)
+	if Input.is_action_just_pressed("ZOOMR"):
+		get_tree().create_tween().tween_property($PlayerCam, "zoom", Vector2(1.0, 1.0), 0.2)
 
 
 func cast_spell() -> void:
