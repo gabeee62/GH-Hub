@@ -6,9 +6,15 @@ var player_collided: bool = false
 var trigger_pulled: bool = false
 
 @export var shape: Shape2D
+@export var sleep_time: float = 1.0
 @export var oneshot: bool
 @export var button: String = "INTERACT"
 @export var trigger: Util.DETECT_TRIGGERS
+
+
+func _ready() -> void:
+	$SleepTimer.wait_time = sleep_time
+
 
 func _process(_delta: float) -> void:
 	$CollisionShape2D.shape = shape
@@ -16,26 +22,34 @@ func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
 		match trigger:
 			Util.DETECT_TRIGGERS.COLLIDE:
-				if player_collided:
-					trigger_pull()
+				collision()
 			Util.DETECT_TRIGGERS.BUTTON:
-				if Input.is_action_just_pressed(button) and player_collided:
-					trigger_pull()
+				button_pressed()
 			Util.DETECT_TRIGGERS.CONDITION:
-				pass
+				condition_met()
 
 
-func action_triggered():
+func trigger_action():
 	pass
 
 
-func trigger_pull():
-	if oneshot and not trigger_pulled:
+func collision():
+	if player_collided and not trigger_pulled:
+		if oneshot:
+			trigger_action()
+		else:
+			trigger_action()
+			$SleepTimer.start()
 		trigger_pulled = true
-		action_triggered()
-	elif not trigger_pulled:
-		trigger_pulled = true
-		$SleepTimer.start()
+
+
+func button_pressed():
+	if Input.is_action_just_pressed(button) and player_collided:
+		trigger_action()
+
+
+func condition_met():
+	pass
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -51,4 +65,4 @@ func _on_body_exited(_body: Node2D) -> void:
 
 
 func _on_sleep_timer_timeout() -> void:
-	action_triggered()
+	trigger_action()

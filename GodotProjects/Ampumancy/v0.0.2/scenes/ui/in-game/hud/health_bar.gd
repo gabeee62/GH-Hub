@@ -19,6 +19,7 @@ func _process(_delta: float) -> void:
 func update_all() -> void:
 	update_normal_health()
 	update_gold_health()
+	update_health_value()
 
 
 func update_normal_health() -> void:
@@ -29,3 +30,8 @@ func update_normal_health() -> void:
 func update_gold_health() -> void:
 	if $GoldHealth.value != Globals.PLAYER.DATA.STATS.GOLD_HEALTH:
 		get_tree().create_tween().tween_property($GoldHealth, "value", Globals.PLAYER.DATA.STATS.GOLD_HEALTH, 0.4)
+	# $GoldHealthFrame.value = Globals.PLAYER.DATA.STATS.MAX_GOLD_HEALTH
+
+
+func update_health_value() -> void:
+	$GoldHealth/HealthValue.text = str(Globals.PLAYER.DATA.STATS.HEALTH + Globals.PLAYER.DATA.STATS.GOLD_HEALTH) + " / " + str(Globals.PLAYER.DATA.STATS.MAX_HEALTH + Globals.PLAYER.DATA.STATS.MAX_GOLD_HEALTH)

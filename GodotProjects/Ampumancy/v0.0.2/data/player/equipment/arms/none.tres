@@ -4,5 +4,7 @@
 
 [resource]
 script = ExtResource("1_55sko")
-name = "Empty"
+name = "None"
+spell_id = 0
+mana_cost = 0
 metadata/_custom_type_script = "uid://6xe24amar8vr"

@@ -1,14 +1,23 @@
-[gd_scene load_steps=26 format=3 uid="uid://cm0gxa31vhyw6"]
+[gd_scene load_steps=42 format=3 uid="uid://cm0gxa31vhyw6"]
 
 [ext_resource type="Script" uid="uid://gwcniw64uuf8" path="res://scenes/levels/template/Level.gd" id="1_mn00y"]
 [ext_resource type="TileSet" uid="uid://cytgnmfs1qgnf" path="res://media/graphics/tilemaps/tilesets/main_tileset.tres" id="2_k3rtj"]
+[ext_resource type="Texture2D" uid="uid://dxdf5jyrj0wee" path="res://media/graphics/lighting/point_light_1.tres" id="3_6gw7h"]
+[ext_resource type="Script" uid="uid://8pp3fm3xi0eq" path="res://scenes/ui/in-game/background/parallax_background.gd" id="3_6j3xu"]
+[ext_resource type="Script" uid="uid://cblohhgsmt4am" path="res://scenes/ui/in-game/mouse_light.gd" id="3_epc65"]
 [ext_resource type="Script" uid="uid://173yl3cwwlvr" path="res://scenes/ui/in-game/hud/hud.gd" id="3_h6lkw"]
 [ext_resource type="Script" uid="uid://bv3wb431uajnc" path="res://scenes/ui/in-game/hud/health_bar.gd" id="4_ce0pd"]
+[ext_resource type="Texture2D" uid="uid://dktyd84iac7q7" path="res://media/graphics/backgrounds/Clouds/Clouds 8/1.png" id="4_ropdb"]
 [ext_resource type="Texture2D" uid="uid://wwqqar7dao3c" path="res://media/graphics/ui/hud/health/bar_bg.png" id="5_65ace"]
+[ext_resource type="Texture2D" uid="uid://dbc7g2pxn0fho" path="res://media/graphics/backgrounds/Clouds/Clouds 8/3.png" id="5_epc65"]
+[ext_resource type="Texture2D" uid="uid://u8403yhqphpw" path="res://media/graphics/backgrounds/Clouds/Clouds 8/4.png" id="6_6gw7h"]
 [ext_resource type="Texture2D" uid="uid://8s5wkbxud6aw" path="res://media/graphics/ui/hud/health/health_fill.png" id="6_nauvb"]
 [ext_resource type="Texture2D" uid="uid://vce6g6albecp" path="res://media/graphics/ui/hud/health/bar_frame.png" id="7_fu8b4"]
+[ext_resource type="Texture2D" uid="uid://lvsn30eq668r" path="res://media/graphics/backgrounds/Clouds/Clouds 8/5.png" id="7_xmx2i"]
+[ext_resource type="Texture2D" uid="uid://dcatw2j45c1f1" path="res://media/graphics/backgrounds/Clouds/Clouds 8/6.png" id="8_lnwog"]
 [ext_resource type="Texture2D" uid="uid://btwnjqaho6i7q" path="res://media/graphics/ui/hud/health/gold_health_fill.png" id="8_ovqv4"]
 [ext_resource type="Script" uid="uid://bqdx28qu1hpqr" path="res://scenes/ui/in-game/hud/mana.gd" id="9_qg4yb"]
+[ext_resource type="Texture2D" uid="uid://cwvv2m2xfn0m3" path="res://media/graphics/backgrounds/Clouds/Clouds 8/2.png" id="9_reywu"]
 [ext_resource type="Script" uid="uid://bufyvbgk3i5l1" path="res://scenes/ui/in-game/hud/arms.gd" id="10_65ace"]
 [ext_resource type="Texture2D" uid="uid://bvjaylvuhc732" path="res://media/graphics/ui/hud/arms/frames/active_arm_frame.png" id="11_fu8b4"]
 [ext_resource type="Texture2D" uid="uid://o684l1etno1k" path="res://media/graphics/ui/hud/arms/frames/inactive_arm_frame.png" id="12_ovqv4"]
@@ -23,7 +32,24 @@
 [ext_resource type="Texture2D" uid="uid://dhax5rr53owyt" path="res://media/graphics/ui/menus/menu_directional.png" id="21_6s3uj"]
 [ext_resource type="Texture2D" uid="uid://bkq0p40e0vkam" path="res://media/graphics/ui/menus/menu_directional_pressed.png" id="22_6j3xu"]
 [ext_resource type="Texture2D" uid="uid://dhl0mw7nt6syv" path="res://media/graphics/ui/menus/menu_directional_hover.png" id="23_caip0"]
-[ext_resource type="LabelSettings" uid="uid://byylp3l60xu8" path="res://health_label_settings_large.tres" id="24_2hp3y"]
+[ext_resource type="Script" uid="uid://ddgowqwkcm06t" path="res://scenes/ui/in-game/hud/hotbar.gd" id="23_lnwog"]
+[ext_resource type="Texture2D" uid="uid://hm1e218nfnxr" path="res://media/graphics/keys/e_key.png" id="23_xmx2i"]
+[ext_resource type="LabelSettings" uid="uid://byylp3l60xu8" path="res://media/graphics/fonts/settings/health_label_settings_large.tres" id="24_2hp3y"]
+[ext_resource type="Script" uid="uid://cfvc3v8i2srli" path="res://scenes/ui/in-game/hud/jump_boost.gd" id="25_qq6lv"]
+[ext_resource type="Texture2D" uid="uid://dqd4cy0vjifn5" path="res://media/graphics/ui/hud/boost/boost_frame.png" id="26_2323g"]
+[ext_resource type="Texture2D" uid="uid://cypmq6r0j4k41" path="res://media/graphics/ui/hud/boost/boost_fill.png" id="27_2323g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x722l"]
+font = ExtResource("20_x722l")
+font_size = 20
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lnwog"]
+font = ExtResource("20_x722l")
+font_size = 8
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bfu71"]
 font = ExtResource("20_x722l")
@@ -33,6 +59,9 @@ shadow_color = Color(0, 0, 0, 1)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_mn00y")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.462291, 0.462291, 0.462291, 1)
 
 [node name="Background" type="TileMapLayer" parent="."]
 scale = Vector2(5, 5)
@@ -56,7 +85,70 @@ scale = Vector2(5, 5)
 tile_set = ExtResource("2_k3rtj")
 collision_enabled = false
 
+[node name="MouseLight" type="PointLight2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("3_6gw7h")
+script = ExtResource("3_epc65")
+
 [node name="CanvasLayers" type="Node" parent="."]
+
+[node name="BGCanvas" type="ParallaxBackground" parent="CanvasLayers"]
+scroll_base_scale = Vector2(1, 0)
+scroll_ignore_camera_zoom = true
+script = ExtResource("3_6j3xu")
+
+[node name="1" type="ParallaxLayer" parent="CanvasLayers/BGCanvas"]
+motion_scale = Vector2(0, 0)
+
+[node name="TextureRect" type="Sprite2D" parent="CanvasLayers/BGCanvas/1"]
+scale = Vector2(3.334, 3.334)
+texture = ExtResource("4_ropdb")
+centered = false
+
+[node name="2" type="ParallaxLayer" parent="CanvasLayers/BGCanvas"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TextureRect" type="Sprite2D" parent="CanvasLayers/BGCanvas/2"]
+scale = Vector2(3.334, 3.334)
+texture = ExtResource("5_epc65")
+centered = false
+
+[node name="3" type="ParallaxLayer" parent="CanvasLayers/BGCanvas"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TextureRect" type="Sprite2D" parent="CanvasLayers/BGCanvas/3"]
+scale = Vector2(3.334, 3.334)
+texture = ExtResource("6_6gw7h")
+centered = false
+
+[node name="4" type="ParallaxLayer" parent="CanvasLayers/BGCanvas"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TextureRect" type="Sprite2D" parent="CanvasLayers/BGCanvas/4"]
+scale = Vector2(3.334, 3.334)
+texture = ExtResource("7_xmx2i")
+centered = false
+
+[node name="5" type="ParallaxLayer" parent="CanvasLayers/BGCanvas"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TextureRect" type="Sprite2D" parent="CanvasLayers/BGCanvas/5"]
+scale = Vector2(3.334, 3.334)
+texture = ExtResource("8_lnwog")
+centered = false
+
+[node name="6" type="ParallaxLayer" parent="CanvasLayers/BGCanvas"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TextureRect" type="Sprite2D" parent="CanvasLayers/BGCanvas/6"]
+scale = Vector2(3.334, 3.334)
+texture = ExtResource("9_reywu")
+centered = false
 
 [node name="HUDCanvas" type="CanvasLayer" parent="CanvasLayers"]
 layer = 96
@@ -69,18 +161,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("3_h6lkw")
 
 [node name="HealthBar" type="PanelContainer" parent="CanvasLayers/HUDCanvas/HUD"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -493.0
-offset_top = 8.0
-offset_right = -397.0
-offset_bottom = 22.0
+anchors_preset = -1
+anchor_left = 0.987
+anchor_top = 0.022
+anchor_right = 0.987
+anchor_bottom = 0.022
+offset_left = -380.36
+offset_top = -7.84
+offset_right = -302.36
+offset_bottom = 6.16
 grow_horizontal = 0
 scale = Vector2(5, 5)
 size_flags_horizontal = 8
@@ -109,16 +204,35 @@ stretch_margin_bottom = 7
 texture_over = ExtResource("7_fu8b4")
 texture_progress = ExtResource("8_ovqv4")
 
+[node name="HealthValue" type="Label" parent="CanvasLayers/HUDCanvas/HUD/HealthBar/GoldHealth"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -6.0
+offset_right = 342.0
+offset_bottom = 54.0
+scale = Vector2(0.2, 0.2)
+text = "/"
+label_settings = SubResource("LabelSettings_x722l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Mana" type="PanelContainer" parent="CanvasLayers/HUDCanvas/HUD"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -375.0
-offset_top = 81.0
-offset_right = -303.0
-offset_bottom = 108.0
+anchors_preset = -1
+anchor_left = 0.792
+anchor_top = 0.09
+anchor_right = 0.98
+anchor_bottom = 0.238
+offset_left = 9.35986
+offset_top = -8.2
+offset_right = -279.6
+offset_bottom = -136.04
 grow_horizontal = 0
 scale = Vector2(5, 5)
 script = ExtResource("9_qg4yb")
@@ -167,10 +281,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -168.0
-offset_top = -168.0
-offset_right = -136.0
-offset_bottom = -136.0
+offset_left = -176.0
+offset_top = -176.0
+offset_right = -144.0
+offset_bottom = -144.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(5, 5)
@@ -271,6 +385,244 @@ grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(7, 3)
 
+[node name="Hotbar" type="PanelContainer" parent="CanvasLayers/HUDCanvas/HUD"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -307.0
+offset_right = 48.0
+offset_bottom = -249.0
+grow_vertical = 0
+scale = Vector2(5, 5)
+script = ExtResource("23_lnwog")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayers/HUDCanvas/HUD/Hotbar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="IdleHotbarItem3" type="Panel" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+
+[node name="Frame" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/VBoxContainer/IdleHotbarItem3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ovqv4")
+
+[node name="ItemSprite" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/VBoxContainer/IdleHotbarItem3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IdleHotbarItem2" type="Panel" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+
+[node name="Frame" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/VBoxContainer/IdleHotbarItem2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ovqv4")
+
+[node name="ItemSprite" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/VBoxContainer/IdleHotbarItem2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IdleHotbarItem1" type="Panel" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+
+[node name="Frame" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/VBoxContainer/IdleHotbarItem1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ovqv4")
+
+[node name="ItemSprite" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/VBoxContainer/IdleHotbarItem1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActiveHotbarItem" type="Panel" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+
+[node name="Frame" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/VBoxContainer/ActiveHotbarItem"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_fu8b4")
+
+[node name="ItemSprite" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/VBoxContainer/ActiveHotbarItem"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UseHint" type="Panel" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(36, 16)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="KeyUI" type="TextureRect" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/UseHint"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.181
+anchor_top = 0.5
+anchor_right = 0.181
+anchor_bottom = 0.5
+offset_left = -4.516
+offset_top = -5.00002
+offset_right = 13.484
+offset_bottom = 15.0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_xmx2i")
+
+[node name="Label" type="Label" parent="CanvasLayers/HUDCanvas/HUD/Hotbar/HBoxContainer/UseHint"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.589
+anchor_top = 0.5
+anchor_right = 0.589
+anchor_bottom = 0.5
+offset_left = -7.20397
+offset_top = -2.60004
+offset_right = 16.796
+offset_bottom = 5.39996
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+text = "Use"
+label_settings = SubResource("LabelSettings_lnwog")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JumpBoost" type="PanelContainer" parent="CanvasLayers/HUDCanvas/HUD"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(12, 40)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.992
+anchor_top = 0.822
+anchor_right = 0.992
+anchor_bottom = 0.822
+offset_left = -60.6401
+offset_top = -199.76
+offset_right = -48.6401
+offset_bottom = -159.76
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(5, 5)
+script = ExtResource("25_qq6lv")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayers/HUDCanvas/HUD/JumpBoost"]
+layout_mode = 2
+size_flags_horizontal = 8
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 4
+stretch_margin_right = 5
+stretch_margin_bottom = 4
+texture_over = ExtResource("26_2323g")
+texture_progress = ExtResource("27_2323g")
+
 [node name="UICanvas" type="CanvasLayer" parent="CanvasLayers"]
 layer = 97
 
@@ -329,6 +681,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("13_qg4yb")
 
 [node name="PauseBG" type="ColorRect" parent="CanvasLayers/MenuCanvas/PauseMenu"]

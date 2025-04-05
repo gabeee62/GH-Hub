@@ -11,8 +11,8 @@ class_name PlayerStats
 @export var AIRDECEL: float
 @export var AIRACCEL: float
 @export_subgroup("Jump")
-@export var MAX_DJUMPS: int
-var DJUMPS: int
+@export var MAX_JUMP_BOOST: int
+@export var JUMP_BOOST: int
 @export var JUMP_HEIGHT: float
 @export var TIME_TO_PEAK: float
 @export var TIME_TO_FALL: float
@@ -35,6 +35,8 @@ var DJUMPS: int
 @export var HEALTH: int
 @export var MAX_GOLD_HEALTH: int
 @export var GOLD_HEALTH: int
+var CUMULATIVE_HEALTH: int
+var CUMULATIVE_MAX_HEALTH: int
 @export_subgroup("Mana")
 var MANA_LIMIT: int = 16
 @export var MAX_MANA: int
@@ -44,6 +46,8 @@ var MYSTIC_LIMIT: int = 16
 @export var MYSTIC: int
 var SOLAR_LIMIT: int = 16
 @export var SOLAR: int
+var CUMULATIVE_MANA: int
+var CUMULATIVE_MAX_MANA: int
 @export_subgroup("Attributes")
 @export var CON: int
 @export_group("", "")

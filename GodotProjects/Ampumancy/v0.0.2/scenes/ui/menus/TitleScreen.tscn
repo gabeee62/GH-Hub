@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://wow8j8nt5cgt"]
+[gd_scene load_steps=12 format=3 uid="uid://wow8j8nt5cgt"]
 
 [ext_resource type="Script" uid="uid://ckrodmepfn338" path="res://scenes/ui/menus/TitleScreen.gd" id="1_jm0uo"]
+[ext_resource type="Texture2D" uid="uid://dg86ehnjde6pr" path="res://media/graphics/logos/ampumancy_logo_original.png" id="2_1fwhw"]
 [ext_resource type="Script" uid="uid://bkvc3otwygonu" path="res://scenes/ui/in-game/menus/settings.gd" id="2_bjhy7"]
 [ext_resource type="Script" uid="uid://c81eokcfmlq1y" path="res://scenes/ui/menus/new_save.gd" id="2_by5sb"]
 [ext_resource type="Script" uid="uid://5qf6fynq6bd6" path="res://scenes/ui/menus/continue.gd" id="3_0064l"]
@@ -8,6 +9,12 @@
 [ext_resource type="Script" uid="uid://fyvq3pr4uawe" path="res://scenes/ui/in-game/menus/audio.gd" id="4_0064l"]
 [ext_resource type="FontFile" uid="uid://beqa5ltlcend0" path="res://media/graphics/fonts/HealthFont.ttf" id="4_rlol1"]
 [ext_resource type="Script" uid="uid://c11ir6lrk3kf0" path="res://scenes/ui/in-game/menus/controls.gd" id="5_rlol1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g7r4r"]
+font = ExtResource("4_rlol1")
+font_size = 24
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1fwhw"]
 font = ExtResource("4_rlol1")
@@ -24,35 +31,124 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jm0uo")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_top = 64.0
+offset_right = -384.0
+offset_bottom = 128.0
+grow_horizontal = 2
+scale = Vector2(5, 5)
+texture = ExtResource("2_1fwhw")
+
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.639
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -67.5
-offset_top = -68.0
-offset_right = 67.5
-offset_bottom = 68.0
+anchor_bottom = 0.639
+offset_left = -180.0
+offset_top = -90.1201
+offset_right = 180.0
+offset_bottom = 89.8799
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="StartNew" type="Button" parent="Buttons"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(360, 42)
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Buttons/StartNew"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.429
+anchor_right = 0.5
+anchor_bottom = 0.429
+offset_left = -168.0
+offset_top = -12.018
+offset_right = 168.0
+offset_bottom = 11.982
+grow_horizontal = 2
+grow_vertical = 2
 text = "Start New Game"
+label_settings = SubResource("LabelSettings_g7r4r")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Continue" type="Button" parent="Buttons"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(360, 42)
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Buttons/Continue"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.429
+anchor_right = 0.5
+anchor_bottom = 0.429
+offset_left = -168.0
+offset_top = -12.018
+offset_right = 168.0
+offset_bottom = 11.982
+grow_horizontal = 2
+grow_vertical = 2
 text = "Continue"
+label_settings = SubResource("LabelSettings_g7r4r")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Settings" type="Button" parent="Buttons"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(360, 42)
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Buttons/Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.429
+anchor_right = 0.5
+anchor_bottom = 0.429
+offset_left = -168.0
+offset_top = -12.018
+offset_right = 168.0
+offset_bottom = 11.982
+grow_horizontal = 2
+grow_vertical = 2
 text = "Settings"
+label_settings = SubResource("LabelSettings_g7r4r")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Quit" type="Button" parent="Buttons"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(360, 42)
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Buttons/Quit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.429
+anchor_right = 0.5
+anchor_bottom = 0.429
+offset_left = -168.0
+offset_top = -12.018
+offset_right = 168.0
+offset_bottom = 11.982
+grow_horizontal = 2
+grow_vertical = 2
 text = "Quit"
+label_settings = SubResource("LabelSettings_g7r4r")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="NewSave" type="Control" parent="."]
 visible = false

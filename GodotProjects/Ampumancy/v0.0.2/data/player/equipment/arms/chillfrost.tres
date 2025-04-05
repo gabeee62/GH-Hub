@@ -9,5 +9,6 @@ script = ExtResource("1_gfyri")
 name = "Chillfrost Arm"
 texture = ExtResource("2_g1ov6")
 ui_texture = ExtResource("3_v4hvb")
-spell = 2
+spell_id = 2
+mana_cost = 3
 metadata/_custom_type_script = "uid://6xe24amar8vr"

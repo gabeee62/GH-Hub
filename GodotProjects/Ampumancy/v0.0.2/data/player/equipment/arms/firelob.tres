@@ -9,5 +9,6 @@ script = ExtResource("1_ove1i")
 name = "Firelob Arm"
 texture = ExtResource("2_o473b")
 ui_texture = ExtResource("3_km6yr")
-spell = 1
+spell_id = 1
+mana_cost = 2
 metadata/_custom_type_script = "uid://6xe24amar8vr"

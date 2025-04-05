@@ -8,17 +8,32 @@
 
 config_version=5
 
+[addons]
+
+resources_spreadsheet_view/array_color_tint=100.0
+resources_spreadsheet_view/color_rows=true
+resources_spreadsheet_view/array_min_width=128.0
+resources_spreadsheet_view/resource_preview_size=32.0
+resources_spreadsheet_view/clip_headers=false
+resources_spreadsheet_view/dupe_arrays=true
+resources_spreadsheet_view/context_menu_on_leftclick=false
+resources_spreadsheet_view/fold_docks=true
+resources_spreadsheet_view/resource_cell_label_mode=1
+resources_spreadsheet_view/freeze_first_column=true
+
 [application]
 
 config/name="Ampumancy"
 run/main_scene="uid://wow8j8nt5cgt"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/image="uid://csjr6m1s3xu05"
 config/icon="res://icon.svg"
 
 [autoload]
 
 Refs="*res://globals/scenes/References.tscn"
 SpellLib="*res://globals/scenes/SpellLibrary.tscn"
+StructFuncs="*res://globals/scripts/StructureFunctions.gd"
 SignalBus="*res://globals/scripts/SignalBus.gd"
 SceneChanger="*res://globals/scenes/SceneChanger.tscn"
 SaveHandler="*res://globals/scripts/SaveHandler.gd"
@@ -28,10 +43,16 @@ GameEngine="*res://globals/scripts/Engine.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=4
+window/size/resizable=false
 mouse_cursor/custom_image="uid://egs4cm6rmfes"
 mouse_cursor/custom_image_hotspot=Vector2(7, 7)
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")
 
 [input]
 

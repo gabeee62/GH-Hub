@@ -1,12 +1,13 @@
 extends CharacterBody2D
 class_name Player
 
-signal spell_cast(spell: Spell)
+signal spell_cast(spell: Node2D)
 
 enum PRIMARY_STATES {IDLE, CAST, HIT, }
 enum EFFECT_STATES {NONE, PSN, BRN, SHK, FRZ, LYT, VYD}
 
 @onready var JUMP_VEL: float
+@onready var BOOST_VEL: float = -250
 @onready var JUMP_GRAV: float
 @onready var FALL_GRAV: float
 
@@ -35,6 +36,11 @@ var ActiveRArm: Sprite2D
 var look_dir: float = 1.0
 var last_look: float = 1.0
 
+var mana_regen_timer_started: bool = false
+var health_regen_timer_started: bool = false
+
+var boost_tween: Tween
+
 var DATA: PlayerData
 
 
@@ -52,8 +58,8 @@ func _ready() -> void:
 	# PREPARE ARMS FOR PROCESS
 	ActiveLArm = LArm1
 	ActiveRArm = RArm1
-	DATA.EQUIPMENT.ActiveLArm = DATA.EQUIPMENT.LArm1
-	DATA.EQUIPMENT.ActiveRArm = DATA.EQUIPMENT.RArm1
+	DATA.EQUIPMENT.ActiveLArm = DATA.EQUIPMENT.LArm1.Arm
+	DATA.EQUIPMENT.ActiveRArm = DATA.EQUIPMENT.RArm1.Arm
 	Arms = [LArm1, LArm2, RArm1, RArm2]
 	
 	update_arm_sprites()
@@ -63,21 +69,38 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var input_vector: Vector2 = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
-	controls(delta, input_vector)
 	update_sprite()
+	update_camera()
+	update_cumulatives()
+	controls(delta, input_vector)
+
+
+func update_camera() -> void:
+	camera_mouse_follow()
+	update_camera_limits()
+	#zoom()
+
+
+func camera_mouse_follow() -> void:
+	var mouse_offset: Vector2 = get_viewport().get_mouse_position() - Vector2(get_viewport().size) / 2
+	$PlayerCam.position = lerp(Vector2(0, -200), mouse_offset.normalized() * 250, mouse_offset.length() / 1000)
+
+
+func update_camera_limits() -> void:
+	$PlayerCam.limit_left = global_position.x - (1200 / $PlayerCam.zoom.x)
+	$PlayerCam.limit_right = global_position.x + (1200 / $PlayerCam.zoom.x)
+	$PlayerCam.limit_bottom = global_position.y + 720
 
 
 func controls(delta: float, input_vector: Vector2) -> void:
-	zoom()
 	jump()
+	cast_spell()
+	on_landing()
+	regen_timers()
 	update_look_dir()
 	walk(input_vector)
 	switch_active_arms()
-	# cast_spell() -- WIP
-	
-	if is_on_floor():
-		Globals.SAVE.CURRENT_POS = global_position
-		DATA.STATS.DJUMPS = DATA.STATS.MAX_DJUMPS
+	camera_mouse_follow()
 	
 	gravity(delta)
 	move_and_slide()
@@ -101,12 +124,28 @@ func walk(input_vector: Vector2) -> void:
 
 
 func jump() -> void:
-	if Input.is_action_just_pressed("JUMP"):
-		if is_on_floor():
-			velocity.y = JUMP_VEL
-		elif DATA.STATS.DJUMPS > 0:
-			velocity.y = JUMP_VEL
-			DATA.STATS.DJUMPS -= 1
+	if Input.is_action_just_pressed("JUMP") and is_on_floor():
+		velocity.y = JUMP_VEL
+	if Input.is_action_pressed("JUMP"):
+		if not is_on_floor() and DATA.STATS.JUMP_BOOST > 0:
+			velocity.y = BOOST_VEL
+			if $Timers/JumpBoostConsume.is_stopped():
+				DATA.STATS.JUMP_BOOST -= 5
+				$Timers/JumpBoostConsume.start()
+	else:
+		$Timers/JumpBoostConsume.stop()
+
+
+func on_landing() -> void:
+	if is_on_floor():
+		Globals.SAVE.CURRENT_POS = global_position
+		if DATA.STATS.JUMP_BOOST < DATA.STATS.MAX_JUMP_BOOST:
+			if $Timers/JumpBoostRegen.is_stopped():
+				$Timers/JumpBoostRegen.start()
+	else:
+		$Timers/JumpBoostRegen.stop()
+		if boost_tween:
+			boost_tween.stop()
 
 
 func zoom() -> void:
@@ -116,17 +155,99 @@ func zoom() -> void:
 		get_tree().create_tween().tween_property($PlayerCam, "zoom", $PlayerCam.zoom - Vector2(0.2, 0.2), 0.2)
 	if Input.is_action_just_pressed("ZOOMR"):
 		get_tree().create_tween().tween_property($PlayerCam, "zoom", Vector2(1.0, 1.0), 0.2)
+	$PlayerCam.zoom = clamp($PlayerCam.zoom, Vector2(Globals.MIN_ZOOM, Globals.MIN_ZOOM), Vector2(Globals.MAX_ZOOM, Globals.MAX_ZOOM))
 
 
 func cast_spell() -> void:
-	if Input.is_action_just_pressed("CASTL") and DATA.EQUIPMENT.ActiveLArm.spell != SpellLib.SPELL_IDS.NONE:
-		var spell: Spell = SpellLib.cast_spell(DATA.EQUIPMENT.ActiveLArm.spell).instantiate()
-		spell.position = ActiveLArm.get_child(0).position
-		spell_cast.emit(spell)
-	if Input.is_action_just_pressed("CASTR") and DATA.EQUIPMENT.ActiveRArm.spell != SpellLib.SPELL_IDS.NONE:
-		var spell: Spell = SpellLib.cast_spell(DATA.EQUIPMENT.ActiveRArm.spell).instantiate()
-		spell.position = ActiveRArm.get_child(0).position
-		spell_cast.emit(spell)
+	if Input.is_action_just_pressed("CASTL") and DATA.EQUIPMENT.ActiveLArm.spell_id != 0:
+		if consume_mana(DATA.EQUIPMENT.ActiveLArm.mana_cost):
+			var spell: Node2D = SpellLib.cast_spell(DATA.EQUIPMENT.ActiveLArm.spell_id).instantiate()
+			spell.global_position = ActiveLArm.get_child(0).global_position
+			spell.TEAM = Util.TEAMS.PLAYER
+			spell_cast.emit(spell)
+		else:
+			pass # DO ON FAIL LOGIC
+	if Input.is_action_just_pressed("CASTR") and DATA.EQUIPMENT.ActiveRArm.spell_id != 0:
+		if consume_mana(DATA.EQUIPMENT.ActiveRArm.mana_cost):
+			var spell: Node2D = SpellLib.cast_spell(DATA.EQUIPMENT.ActiveRArm.spell_id).instantiate()
+			spell.global_position = ActiveRArm.get_child(0).global_position
+			spell.TEAM = Util.TEAMS.PLAYER
+			spell_cast.emit(spell)
+		else:
+			pass # DO ON FAIL LOGIC
+
+
+func update_cumulatives() -> void:
+	DATA.STATS.CUMULATIVE_HEALTH = DATA.STATS.HEALTH + DATA.STATS.GOLD_HEALTH
+	DATA.STATS.CUMULATIVE_MAX_HEALTH = DATA.STATS.MAX_HEALTH + DATA.STATS.MAX_GOLD_HEALTH
+	DATA.STATS.CUMULATIVE_MANA = DATA.STATS.MANA + DATA.STATS.MYSTIC + DATA.STATS.SOLAR
+	DATA.STATS.CUMULATIVE_MAX_MANA = DATA.STATS.MAX_MANA + DATA.STATS.MAX_MYSTIC + DATA.STATS.SOLAR_LIMIT
+
+
+func regen_timers() -> void:
+	if DATA.STATS.CUMULATIVE_HEALTH < DATA.STATS.CUMULATIVE_MAX_HEALTH and not health_regen_timer_started:
+		$Timers/HealthRegen.start()
+		health_regen_timer_started = true
+	if DATA.STATS.CUMULATIVE_MANA < DATA.STATS.CUMULATIVE_MAX_MANA and not mana_regen_timer_started:
+		$Timers/ManaRegen.start()
+		mana_regen_timer_started = true
+
+
+func regen_mana(value: int) -> void:
+	while value > 0:
+		if DATA.STATS.MANA + value <= DATA.STATS.MAX_MANA:
+			DATA.STATS.MANA += value
+			value = 0
+		elif DATA.STATS.MANA < DATA.STATS.MAX_MANA:
+			value -= DATA.STATS.MAX_MANA - DATA.STATS.MANA
+			DATA.STATS.MANA = DATA.STATS.MAX_MANA
+		else:
+			if DATA.STATS.MYSTIC + value <= DATA.STATS.MAX_MYSTIC:
+				DATA.STATS.MYSTIC += value
+				value = 0
+			elif DATA.STATS.MYSTIC < DATA.STATS.MAX_MYSTIC:
+				value -= DATA.STATS.MAX_MYSTIC - DATA.STATS.MYSTIC
+				DATA.STATS.MYSTIC = DATA.STATS.MAX_MYSTIC
+			else:
+				value = 0
+
+
+func regen_solar(value: int) -> void:
+	while value > 0:
+		if DATA.STATS.SOLAR + value <= DATA.STATS.SOLAR_LIMIT:
+			DATA.STATS.SOLAR += value
+			value = 0
+		elif DATA.STATS.SOLAR < DATA.STATS.SOLAR_LIMIT:
+			value -= DATA.STATS.SOLAR_LIMIT - DATA.STATS.SOLAR
+			DATA.STATS.SOLAR = DATA.STATS.SOLAR_LIMIT
+		else:
+			value = 0
+
+
+# This function both tests for whether the player has enough
+# mana to cast the chosen spell, and consumes the mana if so.
+func consume_mana(value: int) -> bool:
+	while value > 0:
+		if DATA.STATS.SOLAR >= value:
+			DATA.STATS.SOLAR -= value
+			value = 0
+		elif DATA.STATS.SOLAR > 0:
+			value -= DATA.STATS.SOLAR
+			DATA.STATS.SOLAR = 0
+		else:
+			if DATA.STATS.MYSTIC >= value:
+				DATA.STATS.MYSTIC -= value
+				value = 0
+			elif DATA.STATS.MYSTIC > 0:
+				value -= DATA.STATS.MYSTIC
+				DATA.STATS.MYSTIC = 0
+			else:
+				if DATA.STATS.MANA >= value:
+					DATA.STATS.MANA -= value
+					value = 0
+				else:
+					return false
+	return true
 
 
 func switch_active_arms() -> void:
@@ -141,10 +262,10 @@ func switch_active_larm() -> void:
 		arm.rotation = marker_dict[look_dir][Arms.find(arm)].rotation
 	if ActiveLArm.name.ends_with("1"):
 		ActiveLArm = LArm2
-		DATA.EQUIPMENT.ActiveLArm = DATA.EQUIPMENT.LArm2
+		DATA.EQUIPMENT.ActiveLArm = DATA.EQUIPMENT.LArm2.Arm
 	else:
 		ActiveLArm = LArm1
-		DATA.EQUIPMENT.ActiveLArm = DATA.EQUIPMENT.LArm1
+		DATA.EQUIPMENT.ActiveLArm = DATA.EQUIPMENT.LArm1.Arm
 
 
 func switch_active_rarm() -> void:
@@ -152,10 +273,10 @@ func switch_active_rarm() -> void:
 		arm.rotation = marker_dict[look_dir][Arms.find(arm)].rotation
 	if ActiveRArm.name.ends_with("1"):
 		ActiveRArm = RArm2
-		DATA.EQUIPMENT.ActiveRArm = DATA.EQUIPMENT.RArm2
+		DATA.EQUIPMENT.ActiveRArm = DATA.EQUIPMENT.RArm2.Arm
 	else:
 		ActiveRArm = RArm1
-		DATA.EQUIPMENT.ActiveRArm = DATA.EQUIPMENT.RArm1
+		DATA.EQUIPMENT.ActiveRArm = DATA.EQUIPMENT.RArm1.Arm
 
 
 func gravity(delta: float) -> void:
@@ -223,13 +344,55 @@ func update_arms() -> void:
 
 
 func update_arm_sprites() -> void:
-	LArm1.texture = DATA.EQUIPMENT.LArm1.texture
-	LArm2.texture = DATA.EQUIPMENT.LArm2.texture
-	RArm1.texture = DATA.EQUIPMENT.RArm1.texture
-	RArm2.texture = DATA.EQUIPMENT.RArm2.texture
+	LArm1.texture = DATA.EQUIPMENT.LArm1.Arm.texture
+	LArm2.texture = DATA.EQUIPMENT.LArm2.Arm.texture
+	RArm1.texture = DATA.EQUIPMENT.RArm1.Arm.texture
+	RArm2.texture = DATA.EQUIPMENT.RArm2.Arm.texture
 
 
 func update_anims() -> void:
 	# Updates the blend positions of all animations to reflect the current look direction
 	$AnimationHandlers/AnimationTree["parameters/Idle/blend_position"] = look_dir
 	$AnimationHandlers/AnimationTree["parameters/Walk/blend_position"] = look_dir
+
+
+func heal(value: int) -> void:
+	while value > 0:
+		if DATA.STATS.CUMULATIVE_HEALTH < DATA.STATS.CUMULATIVE_MAX_HEALTH:
+			if DATA.STATS.HEALTH + value <= DATA.STATS.MAX_HEALTH:
+				get_tree().create_tween().tween_property(DATA.STATS, "HEALTH", DATA.STATS.HEALTH + value, 0.2)
+				value = 0
+			else:
+				value -= DATA.STATS.MAX_HEALTH - DATA.STATS.HEALTH
+				get_tree().create_tween().tween_property(DATA.STATS, "HEALTH", DATA.STATS.MAX_HEALTH, 0.2)
+				if DATA.STATS.GOLD_HEALTH + value <= DATA.STATS.MAX_GOLD_HEALTH:
+					get_tree().create_tween().tween_property(DATA.STATS, "GOLD_HEALTH", DATA.STATS.GOLD_HEALTH + value, 0.2)
+					value = 0
+				else:
+					value -= DATA.STATS.MAX_GOLD_HEALTH - DATA.STATS.GOLD_HEALTH
+					get_tree().create_tween().tween_property(DATA.STATS, "GOLD_HEALTH", DATA.STATS.MAX_GOLD_HEALTH, 0.2)
+		else:
+			value = 0
+
+
+func damage(_value: int) -> void:
+	pass
+
+
+func _on_mana_regen_timeout() -> void:
+	regen_mana(1)
+	mana_regen_timer_started = false
+
+
+func _on_health_regen_timeout() -> void:
+	heal(5)
+	health_regen_timer_started = false
+
+
+func _on_jump_boost_regen_timeout() -> void:
+	boost_tween = get_tree().create_tween()
+	boost_tween.tween_property(DATA.STATS, "JUMP_BOOST", DATA.STATS.MAX_JUMP_BOOST, 1.5)
+
+
+func _on_jump_boost_consume_timeout() -> void:
+	DATA.STATS.JUMP_BOOST -= 5

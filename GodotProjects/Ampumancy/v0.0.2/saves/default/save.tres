@@ -1,15 +1,14 @@
-[gd_resource type="Resource" script_class="SaveData" load_steps=19 format=3 uid="uid://bd2m2bodxqsan"]
+[gd_resource type="Resource" script_class="SaveData" load_steps=18 format=3 uid="uid://bd2m2bodxqsan"]
 
-[ext_resource type="Resource" uid="uid://cu8yssijxehsh" path="res://data/player/equipment/arms/chillfrost.tres" id="1_7veuw"]
 [ext_resource type="Script" uid="uid://c0kscwr0u50vn" path="res://data/player/equipment/EquipData.gd" id="1_ntav1"]
 [ext_resource type="Texture2D" uid="uid://dmb17bc30d10v" path="res://media/graphics/entities/player/body/body.png" id="1_oogw8"]
 [ext_resource type="Script" uid="uid://bnnmj6lu7rvu3" path="res://data/saves/SaveData.gd" id="1_tf14p"]
 [ext_resource type="Script" uid="uid://oer10mfwgvdd" path="res://data/player/inventory/InvData.gd" id="2_bmbfm"]
 [ext_resource type="Texture2D" uid="uid://cqxlgux7mtl4" path="res://media/graphics/entities/player/cloak/cloak.png" id="2_fsc1a"]
-[ext_resource type="Resource" uid="uid://f47fwito8pm1" path="res://data/player/equipment/arms/firelob.tres" id="2_wdtmm"]
 [ext_resource type="Script" uid="uid://comtd4213y07f" path="res://data/player/stats/PlayerStats.gd" id="3_kahth"]
-[ext_resource type="Resource" uid="uid://bn1wi7ef1tdjl" path="res://data/player/equipment/arms/golemstone.tres" id="3_wy4td"]
 [ext_resource type="Script" uid="uid://we4331yqduc" path="res://data/player/PlayerData.gd" id="4_7veuw"]
+[ext_resource type="Resource" uid="uid://wmmoe5mbj8dc" path="res://data/items/none.tres" id="4_bqiqo"]
+[ext_resource type="Resource" uid="uid://3r8tbeodoiuq" path="res://data/items/equipment/arms/no_arm.tres" id="5_oogw8"]
 [ext_resource type="Texture2D" uid="uid://blxbitqaca7an" path="res://media/graphics/entities/player/eyes/eyes.png" id="7_bqiqo"]
 [ext_resource type="Texture2D" uid="uid://b5kneaucpfkk1" path="res://media/graphics/entities/player/hat/hat.png" id="8_used3"]
 [ext_resource type="Texture2D" uid="uid://brond8g8mvrnh" path="res://media/graphics/entities/player/head/head.png" id="9_mk7m8"]
@@ -17,15 +16,16 @@
 
 [sub_resource type="Resource" id="Resource_oogw8"]
 script = ExtResource("1_ntav1")
-LArm1 = ExtResource("1_7veuw")
-LArm2 = ExtResource("2_wdtmm")
-RArm1 = ExtResource("3_wy4td")
-RArm2 = ExtResource("1_7veuw")
+HotBar = Array[ExtResource("10_fsc1a")]([ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo")])
+LArm1 = ExtResource("5_oogw8")
+LArm2 = ExtResource("5_oogw8")
+RArm1 = ExtResource("5_oogw8")
+RArm2 = ExtResource("5_oogw8")
 metadata/_custom_type_script = "uid://c0kscwr0u50vn"
 
 [sub_resource type="Resource" id="Resource_mk7m8"]
 script = ExtResource("2_bmbfm")
-INV = Array[ExtResource("10_fsc1a")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+INV = Array[ExtResource("10_fsc1a")]([ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo"), ExtResource("4_bqiqo")])
 metadata/_custom_type_script = "uid://oer10mfwgvdd"
 
 [sub_resource type="Resource" id="Resource_bqiqo"]

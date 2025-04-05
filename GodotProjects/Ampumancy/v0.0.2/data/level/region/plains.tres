@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RegionData" load_steps=2 format=3 uid="uid://qo37n8f8geqd"]
+
+[ext_resource type="Script" uid="uid://djpvfatxk7pth" path="res://data/level/region/RegionData.gd" id="1_bujbc"]
+
+[resource]
+script = ExtResource("1_bujbc")
+name = &"Plains"
+background_index = 8
+metadata/_custom_type_script = "uid://djpvfatxk7pth"

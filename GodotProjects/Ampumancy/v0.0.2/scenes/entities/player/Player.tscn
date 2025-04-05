@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ciea73rmrwk5d"]
+[gd_scene load_steps=25 format=3 uid="uid://ciea73rmrwk5d"]
 
 [ext_resource type="Script" uid="uid://cb1083jescjm6" path="res://scenes/entities/player/Player.gd" id="1_tlaso"]
 [ext_resource type="Texture2D" uid="uid://b5kneaucpfkk1" path="res://media/graphics/entities/player/hat/hat.png" id="2_hgjck"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://blxbitqaca7an" path="res://media/graphics/entities/player/eyes/eyes.png" id="4_rx1o7"]
 [ext_resource type="Texture2D" uid="uid://cqxlgux7mtl4" path="res://media/graphics/entities/player/cloak/cloak.png" id="5_rqk8h"]
 [ext_resource type="Texture2D" uid="uid://dmb17bc30d10v" path="res://media/graphics/entities/player/body/body.png" id="6_20ow7"]
+[ext_resource type="Texture2D" uid="uid://dxdf5jyrj0wee" path="res://media/graphics/lighting/point_light_1.tres" id="7_ppr6r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tlaso"]
 radius = 32.5
@@ -1294,23 +1295,20 @@ hframes = 4
 [node name="Head" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("3_ppr6r")
 hframes = 4
-frame = 1
 
 [node name="Eyes" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("4_rx1o7")
 hframes = 4
-frame = 1
 
 [node name="RCloak" type="Sprite2D" parent="Sprite"]
 position = Vector2(12, 0)
 texture = ExtResource("5_rqk8h")
 hframes = 8
-frame = 3
+frame = 1
 
 [node name="RArms" type="Node2D" parent="Sprite"]
 
 [node name="RArm1" type="Sprite2D" parent="Sprite/RArms"]
-position = Vector2(1.5, -0.5)
 rotation = 1.0472
 
 [node name="SpellEmission" type="Marker2D" parent="Sprite/RArms/RArm1"]
@@ -1319,7 +1317,6 @@ position = Vector2(13, 0)
 gizmo_extents = 1.0
 
 [node name="RArm2" type="Sprite2D" parent="Sprite/RArms"]
-position = Vector2(1.1, 0.9)
 rotation = 1.0472
 
 [node name="SpellEmission" type="Marker2D" parent="Sprite/RArms/RArm2"]
@@ -1330,12 +1327,10 @@ gizmo_extents = 1.0
 [node name="Body" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("6_20ow7")
 hframes = 4
-frame = 1
 
 [node name="LArms" type="Node2D" parent="Sprite"]
 
 [node name="LArm2" type="Sprite2D" parent="Sprite/LArms"]
-position = Vector2(-3.9, 0.9)
 rotation = 1.0472
 
 [node name="SpellEmission" type="Marker2D" parent="Sprite/LArms/LArm2"]
@@ -1356,7 +1351,6 @@ gizmo_extents = 1.0
 position = Vector2(-12, 0)
 texture = ExtResource("5_rqk8h")
 hframes = 8
-frame = 2
 
 [node name="ArmMarkers" type="Node2D" parent="."]
 visible = false
@@ -1409,6 +1403,22 @@ position = Vector2(3.9, -0.1)
 rotation = 2.0944
 gizmo_extents = 1.0
 
+[node name="ParticleHandlers" type="Node2D" parent="."]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="ManaRegen" type="Timer" parent="Timers"]
+wait_time = 5.0
+
+[node name="HealthRegen" type="Timer" parent="Timers"]
+wait_time = 7.5
+
+[node name="JumpBoostRegen" type="Timer" parent="Timers"]
+wait_time = 1.5
+
+[node name="JumpBoostConsume" type="Timer" parent="Timers"]
+wait_time = 0.25
+
 [node name="AnimationHandlers" type="Node" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationHandlers"]
@@ -1421,8 +1431,18 @@ tree_root = SubResource("AnimationNodeStateMachine_afppm")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = true
 parameters/conditions/walk = false
-parameters/Idle/blend_position = 1.0
+parameters/Idle/blend_position = 0.00447762
 parameters/Walk/blend_position = 0.0166667
 
 [node name="PlayerCam" type="Camera2D" parent="."]
+position = Vector2(0, -200)
 position_smoothing_enabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(4.46875, 4.46875)
+texture = ExtResource("7_ppr6r")
+
+[connection signal="timeout" from="Timers/ManaRegen" to="." method="_on_mana_regen_timeout"]
+[connection signal="timeout" from="Timers/HealthRegen" to="." method="_on_health_regen_timeout"]
+[connection signal="timeout" from="Timers/JumpBoostRegen" to="." method="_on_jump_boost_regen_timeout"]
+[connection signal="timeout" from="Timers/JumpBoostConsume" to="." method="_on_jump_boost_consume_timeout"]

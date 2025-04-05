@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_ye855")
+DMG_MARK_MODE = 1
 metadata/_custom_type_script = "uid://pc4pbca3x12w"

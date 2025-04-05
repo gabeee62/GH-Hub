@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_dxmbj")
-NAME = ""
+NAME = "None"
 TYPE = 0
 stackable = false
 AMOUNT = 0

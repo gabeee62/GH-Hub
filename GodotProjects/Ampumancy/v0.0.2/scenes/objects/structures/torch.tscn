@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://d4iginb4ti4ja"]
+
+[ext_resource type="Texture2D" uid="uid://bptn2wv810vqp" path="res://media/graphics/objects/structures/torch/torch.png" id="1_kijyt"]
+[ext_resource type="Texture2D" uid="uid://dxdf5jyrj0wee" path="res://media/graphics/lighting/point_light_1.tres" id="2_ye1i5"]
+[ext_resource type="Texture2D" uid="uid://66vv0blcewmd" path="res://media/graphics/objects/structures/campfire/smoke_particle.png" id="3_pf6tq"]
+
+[sub_resource type="Gradient" id="Gradient_32bms"]
+colors = PackedColorArray(0, 0, 0, 1, 0.32549, 0.32549, 0.32549, 0.431373)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k8mld"]
+gradient = SubResource("Gradient_32bms")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jyj0a"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 2.0
+angle_min = -50.0
+angle_max = 50.0
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_k8mld")
+
+[sub_resource type="Animation" id="Animation_eu0ne"]
+resource_name = "torch_crackle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_kijyt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t204m"]
+_data = {
+&"RESET": SubResource("Animation_kijyt"),
+&"torch_crackle": SubResource("Animation_eu0ne")
+}
+
+[node name="Torch" type="Sprite2D"]
+scale = Vector2(5, 5)
+texture = ExtResource("1_kijyt")
+hframes = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -5)
+color = Color(1, 0.376471, 0.286275, 1)
+texture = ExtResource("2_ye1i5")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, -5.4)
+amount = 16
+texture = ExtResource("3_pf6tq")
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_jyj0a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t204m")
+}
+autoplay = "torch_crackle"

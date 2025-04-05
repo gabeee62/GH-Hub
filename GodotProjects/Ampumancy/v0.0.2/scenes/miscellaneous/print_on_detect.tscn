@@ -7,10 +7,3 @@
 scale = Vector2(5, 5)
 script = ExtResource("2_lges4")
 print_msg = "Player detected!"
-shape = null
-
-[node name="CollisionShape2D" parent="." index="0"]
-shape = null
-
-[node name="SleepTimer" parent="." index="1"]
-wait_time = 0.5
