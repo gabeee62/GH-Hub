@@ -1,5 +1,7 @@
 extends ParallaxBackground
 
+var current_bg_index: int = 0
+
 @onready var motion_array: Array[float] = [
 	layer1_motion,
 	layer2_motion,
@@ -24,7 +26,16 @@ func _process(delta: float) -> void:
 	$"6".motion_offset.x += layer6_motion * delta
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("REFRESHBG") and OS.is_debug_build():
+		var rand_int: int = current_bg_index
+		while rand_int == current_bg_index:
+			rand_int = randi_range(1, 8)
+		set_new_parallax_bg(rand_int)
+
+
 func set_new_parallax_bg(index: int) -> void:
+	current_bg_index = index
 	for p_layer: ParallaxLayer in get_children():
 		p_layer.get_child(0).texture = null
 		p_layer.visible = false

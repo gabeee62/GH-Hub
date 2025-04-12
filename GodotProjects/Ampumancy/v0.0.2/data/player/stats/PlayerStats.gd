@@ -11,11 +11,14 @@ class_name PlayerStats
 @export var AIRDECEL: float
 @export var AIRACCEL: float
 @export_subgroup("Jump")
-@export var MAX_JUMP_BOOST: int
-@export var JUMP_BOOST: int
 @export var JUMP_HEIGHT: float
 @export var TIME_TO_PEAK: float
 @export var TIME_TO_FALL: float
+@export_subgroup("Jump/Boost")
+@export var MAX_JUMP_BOOST: int
+@export var JUMP_BOOST: int
+var BOOST_VEL: float = -600
+var HOVER_VEL: float = 5
 @export_group("", "")
 
 @export_group("Game Stats")

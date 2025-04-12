@@ -17,4 +17,4 @@ func fade_in() -> void:
 
 
 func load_scene() -> void:
-	get_tree().change_scene_to_file(next_scene_path)
+	get_tree().change_scene_to_file.bind(next_scene_path).call_deferred()

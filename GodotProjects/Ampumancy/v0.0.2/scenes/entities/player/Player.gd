@@ -7,9 +7,9 @@ enum PRIMARY_STATES {IDLE, CAST, HIT, }
 enum EFFECT_STATES {NONE, PSN, BRN, SHK, FRZ, LYT, VYD}
 
 @onready var JUMP_VEL: float
-@onready var BOOST_VEL: float = -250
 @onready var JUMP_GRAV: float
 @onready var FALL_GRAV: float
+var GRAV_MOD: float = 1.0
 
 @onready var marker_dict: Dictionary = {
 	-1.0: [
@@ -29,25 +29,32 @@ enum EFFECT_STATES {NONE, PSN, BRN, SHK, FRZ, LYT, VYD}
 @onready var RArm1: Sprite2D = $Sprite/RArms/RArm1
 @onready var RArm2: Sprite2D = $Sprite/RArms/RArm2
 
-var Arms: Array[Sprite2D]
-var ActiveLArm: Sprite2D
-var ActiveRArm: Sprite2D
+var DATA: PlayerData
+var TILE: TileData
 
 var look_dir: float = 1.0
 var last_look: float = 1.0
 
-var mana_regen_timer_started: bool = false
-var health_regen_timer_started: bool = false
-
 var boost_tween: Tween
 
-var DATA: PlayerData
+var Arms: Array[Sprite2D]
+var ActiveLArm: Sprite2D
+var ActiveRArm: Sprite2D
+var LArmBusy: bool = false
+var RArmBusy: bool = false
+
+var mana_regen_timer_started: bool = false
+var health_regen_timer_started: bool = false
+var jump_timed_out: bool = false
+
 
 
 func _ready() -> void:
+	AutoSave.start()
 	name = "Player"
 	Globals.PLAYER = self
 	DATA = Globals.SAVE.PLAYER
+	Globals.PLAY_START = Time.get_ticks_msec()
 	global_position = Globals.SAVE.CURRENT_POS
 	
 	# SET JUMP AND GRAVITY VALUES
@@ -69,6 +76,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var input_vector: Vector2 = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
+	TILE = Globals.MAIN.current_tile
 	update_sprite()
 	update_camera()
 	update_cumulatives()
@@ -94,7 +102,7 @@ func update_camera_limits() -> void:
 
 func controls(delta: float, input_vector: Vector2) -> void:
 	jump()
-	cast_spell()
+	on_cast_pressed()
 	on_landing()
 	regen_timers()
 	update_look_dir()
@@ -118,27 +126,70 @@ func walk(input_vector: Vector2) -> void:
 		if is_on_floor():
 			$AnimationHandlers/AnimationTree["parameters/conditions/idle"] = false
 			$AnimationHandlers/AnimationTree["parameters/conditions/walk"] = true
-			velocity.x = velocity.move_toward(input_vector * DATA.STATS.MOVESPEED, DATA.STATS.ACCEL).x
+			if TILE:
+				velocity.x = velocity.move_toward(input_vector * DATA.STATS.MOVESPEED * (TILE.get_custom_data("speed_mod") + 1), DATA.STATS.ACCEL).x
+				$AnimationHandlers/AnimationPlayer.speed_scale *= TILE.get_custom_data("speed_mod") + 1
+			else:
+				velocity.x = velocity.move_toward(input_vector * DATA.STATS.MOVESPEED, DATA.STATS.ACCEL).x
 		else:
-			velocity.x = velocity.move_toward(input_vector * DATA.STATS.MOVESPEED, DATA.STATS.AIRACCEL).x
+			velocity.x = velocity.move_toward(input_vector * DATA.STATS.AIRMOVESPEED, DATA.STATS.AIRACCEL).x
 
 
 func jump() -> void:
+	$Timers/JumpBoostStart.wait_time = DATA.STATS.TIME_TO_PEAK
+	var MOD_JUMP: float = JUMP_VEL / GRAV_MOD
 	if Input.is_action_just_pressed("JUMP") and is_on_floor():
-		velocity.y = JUMP_VEL
-	if Input.is_action_pressed("JUMP"):
-		if not is_on_floor() and DATA.STATS.JUMP_BOOST > 0:
-			velocity.y = BOOST_VEL
+		if TILE:
+			velocity.y = MOD_JUMP * (TILE.get_custom_data("jump_mod") + 1)
+		else:
+			velocity.y = MOD_JUMP
+		$Timers/JumpBoostStart.start()
+	boost()
+
+
+func boost() -> void:
+	var bool_array: Array[bool] = boost_controls()
+	if not is_on_floor() and DATA.STATS.JUMP_BOOST > 0 and jump_timed_out:
+		if bool_array[0] or bool_array[1]:
+			$AnimationHandlers/AnimationTree["parameters/conditions/boost"] = true
+			$AnimationHandlers/AnimationTree["parameters/conditions/idle"] = false
+			$AnimationHandlers/AnimationTree["parameters/conditions/walk"] = false
+			$ParticleHandlers/BoostTrailParticles.emitting = true
+			if bool_array[0]:
+				velocity.y = DATA.STATS.BOOST_VEL / GRAV_MOD
+			elif bool_array[1]:
+				velocity.y = DATA.STATS.HOVER_VEL
 			if $Timers/JumpBoostConsume.is_stopped():
 				DATA.STATS.JUMP_BOOST -= 5
 				$Timers/JumpBoostConsume.start()
-	else:
+	if not bool_array[0] and not bool_array[1] or is_on_floor() or not DATA.STATS.JUMP_BOOST > 0 or not jump_timed_out:
+		$AnimationHandlers/AnimationTree["parameters/conditions/boost"] = false
+		$ParticleHandlers/BoostTrailParticles.emitting = false
 		$Timers/JumpBoostConsume.stop()
+
+
+func boost_dash() -> void:
+	pass
+
+
+func boost_controls() -> Array[bool]:
+	var bool_array: Array[bool] = [false, false]
+	if Input.is_action_pressed("UP"):
+		bool_array[1] = true
+	if Input.is_action_pressed("JUMP"):
+		bool_array[0] = true
+		bool_array[1] = false
+	return bool_array
+
+
+func regen_boost(value: int) -> void:
+	DATA.STATS.JUMP_BOOST = clampi(DATA.STATS.JUMP_BOOST + value, 0, DATA.STATS.MAX_JUMP_BOOST)
 
 
 func on_landing() -> void:
 	if is_on_floor():
 		Globals.SAVE.CURRENT_POS = global_position
+		jump_timed_out = false
 		if DATA.STATS.JUMP_BOOST < DATA.STATS.MAX_JUMP_BOOST:
 			if $Timers/JumpBoostRegen.is_stopped():
 				$Timers/JumpBoostRegen.start()
@@ -158,19 +209,22 @@ func zoom() -> void:
 	$PlayerCam.zoom = clamp($PlayerCam.zoom, Vector2(Globals.MIN_ZOOM, Globals.MIN_ZOOM), Vector2(Globals.MAX_ZOOM, Globals.MAX_ZOOM))
 
 
-func cast_spell() -> void:
+func on_cast_pressed() -> void:
 	if Input.is_action_just_pressed("CASTL") and DATA.EQUIPMENT.ActiveLArm.spell_id != 0:
-		if consume_mana(DATA.EQUIPMENT.ActiveLArm.mana_cost):
-			var spell: Node2D = SpellLib.cast_spell(DATA.EQUIPMENT.ActiveLArm.spell_id).instantiate()
-			spell.global_position = ActiveLArm.get_child(0).global_position
-			spell.TEAM = Util.TEAMS.PLAYER
-			spell_cast.emit(spell)
-		else:
-			pass # DO ON FAIL LOGIC
+		cast_spell(ActiveLArm, DATA.EQUIPMENT.ActiveLArm, LArmBusy)
 	if Input.is_action_just_pressed("CASTR") and DATA.EQUIPMENT.ActiveRArm.spell_id != 0:
-		if consume_mana(DATA.EQUIPMENT.ActiveRArm.mana_cost):
-			var spell: Node2D = SpellLib.cast_spell(DATA.EQUIPMENT.ActiveRArm.spell_id).instantiate()
-			spell.global_position = ActiveRArm.get_child(0).global_position
+		cast_spell(ActiveRArm, DATA.EQUIPMENT.ActiveRArm, RArmBusy)
+
+
+func cast_spell(arm: Sprite2D, arm_data: ArmData, busy: bool) -> void:
+	if not busy:
+		if consume_mana(arm_data.mana_cost):
+			if arm.name.begins_with("L"):
+				LArmBusy = true
+			elif arm.name.begins_with("R"):
+				RArmBusy = true
+			var spell: Spell = SpellLib.cast_spell(arm_data.spell_id).instantiate()
+			spell.ORIGIN = arm.get_child(0)
 			spell.TEAM = Util.TEAMS.PLAYER
 			spell_cast.emit(spell)
 		else:
@@ -247,6 +301,7 @@ func consume_mana(value: int) -> bool:
 					value = 0
 				else:
 					return false
+	$Timers/ManaRegen.start()
 	return true
 
 
@@ -282,9 +337,16 @@ func switch_active_rarm() -> void:
 func gravity(delta: float) -> void:
 	if not is_on_floor():
 		if velocity.y < 0:
-			velocity.y += JUMP_GRAV * delta
+			velocity.y += JUMP_GRAV * GRAV_MOD * delta
 		else:
-			velocity.y += FALL_GRAV * delta
+			velocity.y += FALL_GRAV * GRAV_MOD * delta
+	if GRAV_MOD < 0:
+		for child in $Sprite.get_children():
+			if child is Sprite2D:
+				child.flip_v = true
+			else:
+				for arm in child.get_children():
+					pass
 
 
 func update_look_dir() -> void:
@@ -299,12 +361,12 @@ func update_sprite() -> void:
 	# This code executes every process loop, regardless of
 	# whether or not the current look direction has changed
 	rotate_active_arms()
+	update_arms()
 	# Only executes sprite update code if the current look
 	# direction has changed since the last process loop
 	if last_look != look_dir:
 		last_look = look_dir
 		update_anims()
-		update_arms()
 		reorder_spritelets()
 
 
@@ -339,8 +401,13 @@ func update_arms() -> void:
 	# arms' rotations) to reflect the current look direction
 	for arm in Arms:
 		arm.position = marker_dict[look_dir][Arms.find(arm)].position
+		var vert_dir: float
+		if GRAV_MOD < 0:
+			vert_dir = -1.0
+		else:
+			vert_dir = 1.0
 		if arm.name != ActiveLArm.name and arm.name != ActiveRArm.name:
-			arm.rotation = marker_dict[look_dir][Arms.find(arm)].rotation
+			arm.rotation = marker_dict[look_dir][Arms.find(arm)].rotation * vert_dir
 
 
 func update_arm_sprites() -> void:
@@ -354,6 +421,7 @@ func update_anims() -> void:
 	# Updates the blend positions of all animations to reflect the current look direction
 	$AnimationHandlers/AnimationTree["parameters/Idle/blend_position"] = look_dir
 	$AnimationHandlers/AnimationTree["parameters/Walk/blend_position"] = look_dir
+	$AnimationHandlers/AnimationTree["parameters/Boost/blend_position"] = look_dir
 
 
 func heal(value: int) -> void:
@@ -390,9 +458,14 @@ func _on_health_regen_timeout() -> void:
 
 
 func _on_jump_boost_regen_timeout() -> void:
-	boost_tween = get_tree().create_tween()
-	boost_tween.tween_property(DATA.STATS, "JUMP_BOOST", DATA.STATS.MAX_JUMP_BOOST, 1.5)
+	pass
+	#boost_tween = get_tree().create_tween()
+	#boost_tween.tween_property(DATA.STATS, "JUMP_BOOST", DATA.STATS.MAX_JUMP_BOOST, 1.5)
 
 
 func _on_jump_boost_consume_timeout() -> void:
 	DATA.STATS.JUMP_BOOST -= 5
+
+
+func _on_jump_boost_start_timeout() -> void:
+	jump_timed_out = true

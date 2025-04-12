@@ -1,47 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjyuott658vf8"]
+[gd_scene load_steps=3 format=3 uid="uid://bjyuott658vf8"]
 
 [ext_resource type="Script" uid="uid://do3i2xcgi5r0t" path="res://scenes/entities/Entity.gd" id="1_3wvkl"]
 [ext_resource type="PackedScene" uid="uid://c1m7nog8sl6sy" path="res://scenes/entities/damage_marker.tscn" id="2_ows4w"]
 
-[sub_resource type="Animation" id="Animation_chd5h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_13qj0"]
-resource_name = "hit"
-length = 0.25
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [-0.174533, 0.174533, -0.174533, 0.174533, -0.174533, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_chd5h"]
-_data = {
-&"RESET": SubResource("Animation_chd5h"),
-&"hit": SubResource("Animation_13qj0")
-}
-
 [node name="Entity" type="CharacterBody2D"]
+rotation = -0.174533
 collision_mask = 14
 script = ExtResource("1_3wvkl")
 
@@ -50,13 +13,5 @@ script = ExtResource("1_3wvkl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="DamageMarker" parent="." instance=ExtResource("2_ows4w")]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 1.0
-offset_bottom = 24.0
+offset_right = 16.0
 horizontal_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_chd5h")
-}

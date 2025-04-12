@@ -12,14 +12,19 @@ func _process(_delta: float) -> void:
 
 
 func pause_game() -> void:
-	get_tree().paused = not get_tree().paused
+	if visible:
+		Globals.PLAY_START += Time.get_ticks_msec() - Globals.PAUSE_START
+	else:
+		Globals.PAUSE_START = Time.get_ticks_msec()
 	visible = not visible
+	get_tree().paused = not get_tree().paused
 
 
 func reset() -> void:
 	$Buttons.show()
 	$Settings.reset()
 	$Outfit.hide()
+	$QuitConfirm.hide()
 
 
 func _on_back_pressed() -> void:
@@ -35,7 +40,7 @@ func _on_settings_back_pressed() -> void:
 	reset()
 
 
-func _on_outfits_pressed() -> void:
+func _on_outfit_pressed() -> void:
 	$Buttons.hide()
 	$Outfit.show()
 
@@ -49,7 +54,12 @@ func _on_save_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	$QuitConfirm.show()
+	$Buttons.hide()
+
+
+func _on_quit_back_pressed() -> void:
+	reset()
 
 
 func _on_video_pressed() -> void:

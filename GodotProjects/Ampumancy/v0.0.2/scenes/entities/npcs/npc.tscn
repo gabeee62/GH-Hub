@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://jsgbjfg3fgap"]
+
+[ext_resource type="PackedScene" uid="uid://bjyuott658vf8" path="res://scenes/entities/Entity.tscn" id="1_ujkxw"]
+[ext_resource type="Script" uid="uid://b66i5ek0v2ijw" path="res://scenes/entities/npcs/npc.gd" id="2_0o1kd"]
+[ext_resource type="Script" uid="uid://cje6mr1b7fqyv" path="res://data/entity/EntityData.gd" id="3_ii721"]
+
+[sub_resource type="Resource" id="Resource_kcbfn"]
+script = ExtResource("3_ii721")
+NAME = "NPC"
+TEAM = 0
+MOTION_MODE = 0
+HEALTH = 0
+metadata/_custom_type_script = "uid://cje6mr1b7fqyv"
+
+[node name="NPC" instance=ExtResource("1_ujkxw")]
+script = ExtResource("2_0o1kd")
+DATA = SubResource("Resource_kcbfn")

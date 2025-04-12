@@ -15,6 +15,7 @@ script = ExtResource("2_mq0gm")
 [node name="CallOnDetect" parent="." instance=ExtResource("3_o1p0u")]
 visible = false
 position = Vector2(17, 5)
+collision_mask = 1
 function_name = "save_game"
 shape = SubResource("RectangleShape2D_v2eo0")
 oneshot = true

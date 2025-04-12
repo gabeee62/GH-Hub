@@ -1,6 +1,7 @@
 extends Node
 
 signal save_chosen(save_name: String)
+signal slot_freed(slot: PanelContainer)
 
 signal level_ready()
 signal player_ready()
@@ -13,3 +14,4 @@ func _ready() -> void:
 	save_chosen.get_name()
 	level_ready.get_name()
 	player_ready.get_name()
+	slot_freed.get_name()

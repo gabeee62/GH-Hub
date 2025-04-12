@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://ckui2f01ukvrd"]
-
-[ext_resource type="Resource" uid="uid://qo37n8f8geqd" path="res://data/level/region/plains.tres" id="1_01exu"]
-[ext_resource type="Script" uid="uid://f7ykfs28itu" path="res://data/level/LevelData.gd" id="1_2bu33"]
-
-[resource]
-script = ExtResource("1_2bu33")
-REGION = ExtResource("1_01exu")
-metadata/_custom_type_script = "uid://f7ykfs28itu"

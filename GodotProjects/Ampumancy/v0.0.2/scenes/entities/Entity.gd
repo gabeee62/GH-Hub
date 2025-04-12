@@ -4,7 +4,7 @@ class_name Entity
 @export var DATA: EntityData
 
 
-func on_hit(damage: int) -> void:
+func on_hit(_damage: int) -> void:
 	pass
 
 

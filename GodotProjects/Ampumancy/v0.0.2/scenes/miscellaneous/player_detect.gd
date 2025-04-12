@@ -12,13 +12,14 @@ var trigger_pulled: bool = false
 @export var trigger: Util.DETECT_TRIGGERS
 
 
-func _ready() -> void:
-	$SleepTimer.wait_time = sleep_time
+func custom_process() -> void:
+	pass
 
 
 func _process(_delta: float) -> void:
-	$CollisionShape2D.shape = shape
-	
+	if shape:
+		$CollisionShape2D.shape = shape
+	custom_process()
 	if not Engine.is_editor_hint():
 		match trigger:
 			Util.DETECT_TRIGGERS.COLLIDE:
@@ -39,7 +40,7 @@ func collision():
 			trigger_action()
 		else:
 			trigger_action()
-			$SleepTimer.start()
+			$SleepTimer.start(sleep_time)
 		trigger_pulled = true
 
 

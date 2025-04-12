@@ -24,16 +24,21 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="Ampumancy"
+config/version="0.0.2"
 run/main_scene="uid://wow8j8nt5cgt"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Ampumancy"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://csjr6m1s3xu05"
-config/icon="res://icon.svg"
+config/icon="uid://bgk8gbihp0m4m"
 
 [autoload]
 
 Refs="*res://globals/scenes/References.tscn"
 SpellLib="*res://globals/scenes/SpellLibrary.tscn"
+AutoSave="*res://globals/scenes/AutoSave.tscn"
 StructFuncs="*res://globals/scripts/StructureFunctions.gd"
+Debug="*res://globals/scripts/Debug.gd"
 SignalBus="*res://globals/scripts/SignalBus.gd"
 SceneChanger="*res://globals/scenes/SceneChanger.tscn"
 SaveHandler="*res://globals/scripts/SaveHandler.gd"
@@ -45,7 +50,7 @@ GameEngine="*res://globals/scripts/Engine.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=4
+window/size/mode=3
 window/size/resizable=false
 mouse_cursor/custom_image="uid://egs4cm6rmfes"
 mouse_cursor/custom_image_hotspot=Vector2(7, 7)
@@ -136,17 +141,52 @@ INTERACT={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
+SCREENSHOT={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194334,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+REFRESHBG={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194335,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+REFILLMANADB={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
+]
+}
+REFILLJUMPBOOSTDB={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":84,"key_label":0,"unicode":116,"location":0,"echo":false,"script":null)
+]
+}
+RMB={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(301, 7),"global_position":Vector2(310, 55),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+BOOSTDASH={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
+2d_render/layer_20="SpellParticleCollisions"
 2d_physics/layer_1="Entities"
 2d_physics/layer_2="Terrain"
 2d_physics/layer_3="Objects"
-2d_physics/layer_4="Spells"
+2d_physics/layer_4="MagiSpells"
 2d_physics/layer_5="Zones"
+2d_physics/layer_6="RigidBodies"
+2d_physics/layer_7="Player"
+2d_physics/layer_8="PhysSpells"
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+viewport/hdr_2d=true

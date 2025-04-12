@@ -122,6 +122,7 @@ _data = {
 
 [node name="DamageMarker" type="Label"]
 light_mask = 0
+visibility_layer = 2
 material = SubResource("CanvasItemMaterial_ajihr")
 offset_left = 15.0
 offset_top = -54.0

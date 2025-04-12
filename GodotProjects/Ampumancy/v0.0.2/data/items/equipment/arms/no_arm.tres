@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ArmItemData" load_steps=3 format=3 uid="uid://3r8tbeodoiuq"]
 
 [ext_resource type="Script" uid="uid://dvw48xshhvs4f" path="res://data/items/equipment/arms/ArmItemData.gd" id="1_v6f0n"]
-[ext_resource type="Resource" uid="uid://dlsu3iu0prlnx" path="res://data/player/equipment/arms/none.tres" id="1_ysjpg"]
+[ext_resource type="Resource" uid="uid://dlsu3iu0prlnx" path="res://data/player/equipment/arms/none/none.tres" id="1_ysjpg"]
 
 [resource]
 script = ExtResource("1_v6f0n")
