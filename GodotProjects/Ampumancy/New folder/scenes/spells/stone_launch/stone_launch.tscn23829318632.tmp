@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://7qrnxfcbxom1"]
+
+[ext_resource type="PackedScene" uid="uid://dkf7vr6kyqcjl" path="res://scenes/spells/Spell.tscn" id="1_rvo4s"]
+[ext_resource type="Script" uid="uid://cmh3743p3jbhv" path="res://scenes/spells/stone_launch/stone_launch.gd" id="2_bgx2b"]
+[ext_resource type="PackedScene" uid="uid://bdp4kwowb65r2" path="res://scenes/spells/stone_launch/subscenes/golemstone_boulder.tscn" id="3_r0raw"]
+
+[node name="StoneLaunch" instance=ExtResource("1_rvo4s")]
+script = ExtResource("2_bgx2b")
+DAMAGE = null
+MAKEBUSY = null
+ISBUSYCD = null
+
+[node name="GolemstoneBoulder" parent="TransformBuffer" index="0" instance=ExtResource("3_r0raw")]

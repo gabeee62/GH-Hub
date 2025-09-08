@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ArmItemData" load_steps=4 format=3 uid="uid://dloomotkx4tu1"]
+
+[ext_resource type="Resource" uid="uid://b4jskcymvo4r1" path="res://data/player/equipment/arms/classes/grapplevine/grapplevine.tres" id="1_e8m1d"]
+[ext_resource type="Script" uid="uid://dvw48xshhvs4f" path="res://data/items/equipment/arms/ArmItemData.gd" id="1_ls2sa"]
+[ext_resource type="Texture2D" uid="uid://2wov4ao18kmb" path="res://media/graphics/ui/hud/arms/grapplevine_arm_ui.png" id="2_g7s8k"]
+
+[resource]
+script = ExtResource("1_ls2sa")
+Arm = ExtResource("1_e8m1d")
+NAME = "Grapplevine Arm"
+TEXTURE = ExtResource("2_g7s8k")
+TYPE = 4
+stackable = false
+AMOUNT = 1
+metadata/_custom_type_script = "uid://dvw48xshhvs4f"

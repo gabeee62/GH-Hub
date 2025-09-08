@@ -1,0 +1,32 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://buny1fdjcda0k"]
+
+[ext_resource type="Texture2D" uid="uid://bpnyvfiqgh2rl" path="res://media/tiles/tiles_uncovered.png" id="1_elnhi"]
+[ext_resource type="Texture2D" uid="uid://b5hi3lsmkkhnb" path="res://media/tiles/tiles_covered.png" id="2_ssm15"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ssm15"]
+resource_name = "uncovered"
+texture = ExtResource("1_elnhi")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3qdp5"]
+texture = ExtResource("2_ssm15")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+
+[resource]
+tile_size = Vector2i(64, 64)
+custom_data_layer_0/name = ""
+custom_data_layer_0/type = 0
+sources/0 = SubResource("TileSetAtlasSource_ssm15")
+sources/1 = SubResource("TileSetAtlasSource_3qdp5")

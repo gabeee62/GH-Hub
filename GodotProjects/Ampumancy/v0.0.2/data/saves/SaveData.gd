@@ -9,4 +9,4 @@ class_name SaveData
 @export var CURRENT_POS: Vector2
 @export var CURRENT_LVL: String
 
-@export var PLAYER: PlayerData
+@export var PLAYER: PlayerData = PlayerData.new()

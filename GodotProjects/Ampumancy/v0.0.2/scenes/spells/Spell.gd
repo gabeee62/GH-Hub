@@ -6,6 +6,8 @@ var ORIGIN: Marker2D
 
 enum ISCD {DISABLED = 4, ENABLED = 0}
 
+@export var HOLDTOCAST: bool
+var wants_to_keep_casting: bool = true
 # This boolean should be enabled if the spell should make the arm
 # that cast it busy (unable to cast again) while it is being cast.
 @export var MAKEBUSY: bool
@@ -16,25 +18,43 @@ enum ISCD {DISABLED = 4, ENABLED = 0}
 
 
 func _ready() -> void:
-	visible = true
-	$Timers/CooldownTimer.process_mode = int(ISBUSYCD)
+	$Timers/CooldownTimer.process_mode = ISBUSYCD as ProcessMode
 	if not MAKEBUSY:
 		make_not_busy()
+	
 	custom_spell_ready()
+	
+	visible = true
 
 
 func custom_spell_ready() -> void:
 	pass
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	global_position = Globals.PLAYER.global_position
 	
-	custom_spell_process()
+	hold_to_cast()
+	
+	custom_spell_process(delta)
 
 
-func custom_spell_process() -> void:
+func custom_spell_process(delta: float) -> void:
 	pass
+
+
+func hold_to_cast() -> void:
+	if HOLDTOCAST:
+		if ORIGIN.get_parent().name.begins_with("R"):
+			if Input.is_action_pressed("CASTR"):
+				wants_to_keep_casting = true
+			else:
+				wants_to_keep_casting = false
+		if ORIGIN.get_parent().name.begins_with("L"):
+			if Input.is_action_pressed("CASTL"):
+				wants_to_keep_casting = true
+			else:
+				wants_to_keep_casting = false
 
 
 func make_busy() -> void:

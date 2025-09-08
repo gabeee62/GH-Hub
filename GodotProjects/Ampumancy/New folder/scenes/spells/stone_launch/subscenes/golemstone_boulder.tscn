@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdp4kwowb65r2"]
+
+[ext_resource type="Texture2D" uid="uid://c2yy7n25e16jo" path="res://media/graphics/spells/boulder/golemstone_boulder.png" id="1_og64h"]
+[ext_resource type="Script" uid="uid://ba3lrjuyv16n2" path="res://scenes/spells/stone_launch/subscenes/golemstone_boulder.gd" id="1_vm4cq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vm4cq"]
+bounce = 0.2
+absorbent = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5a70a"]
+radius = 35.0
+
+[node name="GolemstoneBoulder" type="RigidBody2D"]
+collision_layer = 160
+collision_mask = 35
+mass = 15.0
+physics_material_override = SubResource("PhysicsMaterial_vm4cq")
+angular_velocity = 1.5708
+script = ExtResource("1_vm4cq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5a70a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_og64h")

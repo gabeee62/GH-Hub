@@ -1,7 +1,7 @@
 extends Node2D
 class_name Level
 
-var player_scene: PackedScene = preload("res://scenes/entities/player/Player.tscn")
+var player_scene: PackedScene = preload("res://scenes/entities/entities/Player/Player.tscn")
 @onready var DATA: LevelData = load("user://saves/" + Globals.SAVE.SAVENAME + "/level_data/" + name.to_lower() + ".tres")
 
 var current_tile: TileData

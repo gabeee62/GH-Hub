@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c65mhvrujr8w2"]
+
+[ext_resource type="PackedScene" uid="uid://dkf7vr6kyqcjl" path="res://scenes/spells/Spell.tscn" id="1_mvvv1"]
+[ext_resource type="Script" uid="uid://b6neurol1trv5" path="res://scenes/spells/vine_latch/vine_latch.gd" id="2_wxwgl"]
+[ext_resource type="Texture2D" uid="uid://dcc87fvta021v" path="res://media/graphics/spells/vine_latch/vine.png" id="3_qxsl4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvvv1"]
+radius = 1.0
+
+[node name="Vinelatch" instance=ExtResource("1_mvvv1")]
+visible = true
+script = ExtResource("2_wxwgl")
+MOVESPEED = 600.0
+HOLDTOCAST = true
+MAKEBUSY = true
+
+[node name="VineSprite" type="Sprite2D" parent="TransformBuffer" index="0"]
+texture_repeat = 2
+scale = Vector2(5, 5)
+texture = ExtResource("3_qxsl4")
+offset = Vector2(11, 0)
+region_enabled = true
+region_rect = Rect2(0, 0, 22, 6)
+
+[node name="TerrainDetect" type="Area2D" parent="TransformBuffer" index="1"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransformBuffer/TerrainDetect" index="0"]
+shape = SubResource("CircleShape2D_mvvv1")
+
+[node name="FreeTimer" type="Timer" parent="Timers" index="1"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="TransformBuffer/TerrainDetect" to="." method="_on_terrain_detect_body_entered"]
+[connection signal="timeout" from="Timers/FreeTimer" to="." method="_on_free_timer_timeout"]

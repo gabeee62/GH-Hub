@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ArmData" load_steps=5 format=3 uid="uid://cu8yssijxehsh"]
+
+[ext_resource type="Script" uid="uid://6xe24amar8vr" path="res://data/player/equipment/arms/ArmData.gd" id="1_gfyri"]
+[ext_resource type="Resource" uid="uid://bvrg04q3ui8tp" path="res://data/player/equipment/arms/classes/chillfrost/mods/grid.tres" id="1_ri4tv"]
+[ext_resource type="Texture2D" uid="uid://chcihagqtonsy" path="res://media/graphics/entities/player/arms/chillfrost_arm.png" id="2_g1ov6"]
+[ext_resource type="Texture2D" uid="uid://d0w3bwn2rc0v0" path="res://media/graphics/ui/hud/arms/chillfrost_arm_ui.png" id="3_v4hvb"]
+
+[resource]
+script = ExtResource("1_gfyri")
+name = "Chillfrost Arm"
+texture = ExtResource("2_g1ov6")
+ui_texture = ExtResource("3_v4hvb")
+spell_id = 2
+mana_cost = 3
+MOD_GRID = ExtResource("1_ri4tv")
+metadata/_custom_type_script = "uid://6xe24amar8vr"

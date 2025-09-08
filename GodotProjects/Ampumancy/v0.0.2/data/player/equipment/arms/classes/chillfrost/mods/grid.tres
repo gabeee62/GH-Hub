@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ModGrid" load_steps=4 format=3 uid="uid://bvrg04q3ui8tp"]
+
+[ext_resource type="Script" uid="uid://ccsayua5hckwb" path="res://data/player/equipment/arms/mods/ArmMod.gd" id="1_j827n"]
+[ext_resource type="Script" uid="uid://14qsyt1bdbxv" path="res://data/player/equipment/arms/mods/ModGrid.gd" id="2_1my3b"]
+[ext_resource type="Resource" uid="uid://dpit8hjogcn03" path="res://data/player/equipment/arms/mods/none.tres" id="2_pwkh4"]
+
+[resource]
+script = ExtResource("2_1my3b")
+row1 = Array[ExtResource("1_j827n")]([ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4")])
+row2 = Array[ExtResource("1_j827n")]([ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4")])
+row3 = Array[ExtResource("1_j827n")]([ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4")])
+row4 = Array[ExtResource("1_j827n")]([ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4")])
+row5 = Array[ExtResource("1_j827n")]([ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4"), ExtResource("2_pwkh4")])
+metadata/_custom_type_script = "uid://14qsyt1bdbxv"

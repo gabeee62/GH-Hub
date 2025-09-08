@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ArmData" load_steps=2 format=3 uid="uid://dlsu3iu0prlnx"]
+
+[ext_resource type="Script" uid="uid://6xe24amar8vr" path="res://data/player/equipment/arms/ArmData.gd" id="1_55sko"]
+
+[resource]
+script = ExtResource("1_55sko")
+name = "None"
+spell_id = 0
+mana_cost = 0
+metadata/_custom_type_script = "uid://6xe24amar8vr"

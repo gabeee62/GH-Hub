@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ArmData" load_steps=3 format=3 uid="uid://c78074gio3iy7"]
+
+[ext_resource type="Script" uid="uid://bl7ofckd8n3t6" path="res://data/items/equipment/arms/ArmData.gd" id="1_iiryu"]
+[ext_resource type="Texture2D" uid="uid://chcihagqtonsy" path="res://graphics/entities/player/arms/chillfrost_arm.png" id="1_xcrk6"]
+
+[resource]
+script = ExtResource("1_iiryu")
+arm_texture = ExtResource("1_xcrk6")
+spell_id = 1
+name = "Chillfrost Arm"
+amount = 1
+max_amount = 1
+metadata/_custom_type_script = "uid://bl7ofckd8n3t6"

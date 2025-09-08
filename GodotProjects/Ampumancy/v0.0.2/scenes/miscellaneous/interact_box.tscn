@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8hwddx6g6niy"]
+
+[ext_resource type="PackedScene" uid="uid://s888ayg4ovep" path="res://scenes/miscellaneous/player_detect.tscn" id="1_umxqt"]
+[ext_resource type="Script" uid="uid://c1uirj2sjt77p" path="res://scenes/miscellaneous/interact_box.gd" id="2_5i7g6"]
+
+[node name="InteractBox" instance=ExtResource("1_umxqt")]
+script = ExtResource("2_5i7g6")
+oneshot = true
+trigger = 1

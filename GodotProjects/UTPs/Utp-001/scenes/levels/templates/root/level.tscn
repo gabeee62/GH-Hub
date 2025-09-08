@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://f0cen4wngqbu"]
+
+[ext_resource type="Script" uid="uid://bd47keawyq5dr" path="res://scenes/levels/templates/root/level.gd" id="1_cdwo4"]
+[ext_resource type="TileSet" uid="uid://ca7eno38unda3" path="res://scenes/lost-tomb.tres" id="2_4yx4i"]
+
+[node name="Level" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_cdwo4")
+
+[node name="Handlers" type="Node" parent="."]
+
+[node name="Tilemaps" type="Node2D" parent="."]
+
+[node name="Floors" type="TileMapLayer" parent="Tilemaps"]
+tile_set = ExtResource("2_4yx4i")
+
+[node name="Walls" type="TileMapLayer" parent="Tilemaps"]
+tile_set = ExtResource("2_4yx4i")

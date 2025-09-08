@@ -17,7 +17,7 @@ func _ready() -> void:
 		
 		if $Menu/SaveSlots/ScrollMenu.custom_minimum_size.y < 300:
 			$Menu/SaveSlots/ScrollMenu.custom_minimum_size.y += 50
-	
+		
 		$Menu/SaveSlots/ScrollMenu/VBoxContainer.add_child(new_slot)
 
 

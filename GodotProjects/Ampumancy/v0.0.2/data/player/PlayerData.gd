@@ -4,9 +4,10 @@ class_name PlayerData
 @export var NAME: String
 
 @export_group("Game Data")
-@export var STATS: PlayerStats
-@export var INVENTORY: InvData
-@export var EQUIPMENT: EquipData
+@export var STATS: PlayerStats = PlayerStats.new()
+@export var INVENTORY: InvData = InvData.new()
+@export var EQUIPMENT: EquipData = EquipData.new()
+@export var STATES: PlayerStates = PlayerStates.new()
 @export_group("", "")
 
 @export_group("Outfit")

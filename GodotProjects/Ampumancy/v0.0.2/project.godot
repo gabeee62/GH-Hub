@@ -29,6 +29,8 @@ run/main_scene="uid://wow8j8nt5cgt"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Ampumancy"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 boot_splash/image="uid://csjr6m1s3xu05"
 config/icon="uid://bgk8gbihp0m4m"
 
@@ -36,10 +38,10 @@ config/icon="uid://bgk8gbihp0m4m"
 
 Refs="*res://globals/scenes/References.tscn"
 SpellLib="*res://globals/scenes/SpellLibrary.tscn"
-AutoSave="*res://globals/scenes/AutoSave.tscn"
 StructFuncs="*res://globals/scripts/StructureFunctions.gd"
 Debug="*res://globals/scripts/Debug.gd"
 SignalBus="*res://globals/scripts/SignalBus.gd"
+AutoSave="*res://globals/scenes/AutoSave.tscn"
 SceneChanger="*res://globals/scenes/SceneChanger.tscn"
 SaveHandler="*res://globals/scripts/SaveHandler.gd"
 Util="*res://globals/scripts/Utility.gd"
@@ -57,7 +59,7 @@ mouse_cursor/custom_image_hotspot=Vector2(7, 7)
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")
+enabled=PackedStringArray("res://addons/nine_patch_sprite_2d/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
 
 [input]
 

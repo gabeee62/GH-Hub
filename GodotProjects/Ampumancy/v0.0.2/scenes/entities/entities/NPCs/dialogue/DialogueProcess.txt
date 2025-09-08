@@ -1,0 +1,6 @@
+1. Player enters WanderDialogueBox (WDB)
+	- If there is wander dialogue, it fades in so it is visible
+2. Player enters InteractBox
+	- If the NPC is interactable, they will be highlighted and the Player can press the interact button to open their UI.
+3. Player presses interact
+	- 

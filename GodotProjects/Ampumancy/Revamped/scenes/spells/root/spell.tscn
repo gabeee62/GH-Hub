@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bji7dftr7ln6k"]
+
+[ext_resource type="Script" uid="uid://dvvyuv87uynnk" path="res://scenes/spells/root/spell.gd" id="1_wy001"]
+
+[node name="Spell" type="Node2D"]
+script = ExtResource("1_wy001")
+
+[node name="TransformBuffer" type="Node" parent="."]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="CDTimer" type="Timer" parent="Timers"]
+
+[connection signal="timeout" from="Timers/CDTimer" to="." method="_on_cd_timer_timeout"]

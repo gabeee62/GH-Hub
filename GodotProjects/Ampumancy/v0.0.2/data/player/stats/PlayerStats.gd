@@ -57,11 +57,11 @@ var CUMULATIVE_MAX_MANA: int
 
 @export_group("Modifiers")
 @export_subgroup("Control Modifiers/Movespeed/Ground")
-@export var MOD_SPEED: float
+@export var MOD_SPEED: float = 1.0
 @export_subgroup("Control Modifiers/Movespeed/Air")
-@export var MOD_AIRSPEED: float
+@export var MOD_AIRSPEED: float = 1.0
 @export_subgroup("Control Modifiers/Jump")
-@export var MOD_HEIGHT: float
+@export var MOD_HEIGHT: float = 1.0
 @export_subgroup("Game Modifiers")
 @export var MOD_MAX_HEALTH: int
 @export_subgroup("Game Modifiers/Attributes")

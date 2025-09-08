@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ckrodmepfn338" path="res://scenes/ui/menus/TitleScreen.gd" id="1_jm0uo"]
 [ext_resource type="Script" uid="uid://bkvc3otwygonu" path="res://scenes/ui/in-game/menus/settings.gd" id="2_bjhy7"]
 [ext_resource type="Script" uid="uid://c81eokcfmlq1y" path="res://scenes/ui/menus/new_save.gd" id="2_by5sb"]
-[ext_resource type="Script" uid="uid://d1bwosi20qe3a" path="res://scenes/entities/player/player_cam.gd" id="2_uml7d"]
+[ext_resource type="Script" uid="uid://d1bwosi20qe3a" path="res://scenes/entities/entities/Player/player_cam.gd" id="2_uml7d"]
 [ext_resource type="Script" uid="uid://5qf6fynq6bd6" path="res://scenes/ui/menus/continue.gd" id="3_0064l"]
 [ext_resource type="PackedScene" uid="uid://bmsy3811wqpun" path="res://scenes/levels/background/sky_canvas.tscn" id="3_bcu0x"]
 [ext_resource type="Script" uid="uid://py51mnfm876x" path="res://scenes/ui/in-game/menus/video.gd" id="3_by5sb"]
@@ -1214,8 +1214,8 @@ offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.261799
-pivot_offset = Vector2(168, 12)
-text = "Don't kys!"
+pivot_offset = Vector2(228, 12)
+text = "Noita is also good!"
 label_settings = SubResource("LabelSettings_say8j")
 horizontal_alignment = 1
 vertical_alignment = 1

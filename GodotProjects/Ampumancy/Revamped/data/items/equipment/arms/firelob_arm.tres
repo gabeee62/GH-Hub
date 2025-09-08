@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ArmData" load_steps=3 format=3 uid="uid://bikq3tf8xgmpl"]
+
+[ext_resource type="Script" uid="uid://bl7ofckd8n3t6" path="res://data/items/equipment/arms/ArmData.gd" id="1_bpqw1"]
+[ext_resource type="Texture2D" uid="uid://dbeu5syupqwgg" path="res://graphics/entities/player/arms/firelob_arm.png" id="2_p0bvw"]
+
+[resource]
+script = ExtResource("1_bpqw1")
+arm_texture = ExtResource("2_p0bvw")
+spell_id = 0
+name = "Firelob Arm"
+amount = 1
+max_amount = 1
+metadata/_custom_type_script = "uid://bl7ofckd8n3t6"

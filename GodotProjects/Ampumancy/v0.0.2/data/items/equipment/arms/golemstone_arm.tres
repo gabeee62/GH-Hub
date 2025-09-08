@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ArmItemData" load_steps=4 format=3 uid="uid://bofhyfngf31g1"]
 
 [ext_resource type="Texture2D" uid="uid://ba3j5n7gqy584" path="res://media/graphics/ui/hud/arms/golemstone_arm_ui.png" id="1_8e8px"]
-[ext_resource type="Resource" uid="uid://bn1wi7ef1tdjl" path="res://data/player/equipment/arms/golemstone/golemstone.tres" id="1_c8m5x"]
+[ext_resource type="Resource" uid="uid://bn1wi7ef1tdjl" path="res://data/player/equipment/arms/classes/golemstone/golemstone.tres" id="1_c8m5x"]
 [ext_resource type="Script" uid="uid://dvw48xshhvs4f" path="res://data/items/equipment/arms/ArmItemData.gd" id="3_fgbxy"]
 
 [resource]

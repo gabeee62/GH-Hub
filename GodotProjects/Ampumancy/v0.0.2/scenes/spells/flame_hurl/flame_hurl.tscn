@@ -6,11 +6,8 @@
 
 [node name="FlameHurl" instance=ExtResource("1_ypqn6")]
 script = ExtResource("2_p8p2g")
-DAMAGE = 30
-EXPLODE_DAMAGE = 50
-MOVESPEED = 1300.0
 MAKEBUSY = true
-ISBUSYCD = 1
+ISBUSYCD = 0
 
 [node name="Fireball" parent="TransformBuffer" index="0" instance=ExtResource("2_mtdmb")]
 

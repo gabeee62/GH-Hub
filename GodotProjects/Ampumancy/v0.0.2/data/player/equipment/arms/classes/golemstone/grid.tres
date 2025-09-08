@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ModGrid" load_steps=4 format=3 uid="uid://55rl5y82ycbr"]
+
+[ext_resource type="Script" uid="uid://ccsayua5hckwb" path="res://data/player/equipment/arms/mods/ArmMod.gd" id="1_3m37y"]
+[ext_resource type="Resource" uid="uid://dpit8hjogcn03" path="res://data/player/equipment/arms/mods/none.tres" id="2_ox5cy"]
+[ext_resource type="Script" uid="uid://14qsyt1bdbxv" path="res://data/player/equipment/arms/mods/ModGrid.gd" id="3_5bvpi"]
+
+[resource]
+script = ExtResource("3_5bvpi")
+row1 = Array[ExtResource("1_3m37y")]([ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy")])
+row2 = Array[ExtResource("1_3m37y")]([ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy")])
+row3 = Array[ExtResource("1_3m37y")]([ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy")])
+row4 = Array[ExtResource("1_3m37y")]([ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy")])
+row5 = Array[ExtResource("1_3m37y")]([ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy"), ExtResource("2_ox5cy")])
+metadata/_custom_type_script = "uid://14qsyt1bdbxv"

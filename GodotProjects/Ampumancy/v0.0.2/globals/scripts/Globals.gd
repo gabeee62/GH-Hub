@@ -10,7 +10,7 @@ var SCREENSHOT_PATH: String = "res://media/graphics/screenshots/"
 
 var MAIN: Level
 var PLAYER: Player
-var DEFAULT_SAVE: SaveData = preload("res://data/saves/default/save.tres")
+var DEFAULT_SAVE: SaveData = preload("res://data/saves/templates/default/save.tres")
 var SAVE: SaveData
 var SETTINGS: SettingsData = preload("user://settings/Settings.tres")
 

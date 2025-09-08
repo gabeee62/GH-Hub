@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MaterialItemData" load_steps=3 format=3 uid="uid://d4nyxrogted1n"]
+
+[ext_resource type="Script" uid="uid://cqkcryyop5j7b" path="res://data/items/materials/MaterialItemData.gd" id="1_5rp7i"]
+[ext_resource type="Texture2D" uid="uid://dbnl8pdv4q0rl" path="res://media/graphics/items/bone_shard.png" id="1_snb57"]
+
+[resource]
+script = ExtResource("1_5rp7i")
+NAME = "Bone Shard"
+TEXTURE = ExtResource("1_snb57")
+TYPE = 2
+stackable = true
+AMOUNT = 1
+metadata/_custom_type_script = "uid://cqkcryyop5j7b"

@@ -1,0 +1,240 @@
+[gd_scene load_steps=31 format=3 uid="uid://cjk8e3prxjt1m"]
+
+[ext_resource type="PackedScene" uid="uid://bsrjcx3nqkj6t" path="res://scenes/entities/root/entity.tscn" id="1_1hmtu"]
+[ext_resource type="Script" uid="uid://beprpbb4cg8v7" path="res://scenes/entities/player/player.gd" id="2_635qg"]
+[ext_resource type="Texture2D" uid="uid://cltsd6nxal7ms" path="res://scenes/entities/player/sprites/animals/birb.png" id="3_58kc7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_58kc7"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="Animation" id="Animation_bjvvg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1murt"]
+resource_name = "animals_crouch"
+length = 0.0333367
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+
+[sub_resource type="Animation" id="Animation_58kc7"]
+resource_name = "animals_damage"
+length = 0.900003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 14, 15, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_nh4ur"]
+resource_name = "animals_idle"
+length = 0.800003
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_5sj0x"]
+resource_name = "animals_jump"
+length = 0.26667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [18, 19, 20]
+}
+
+[sub_resource type="Animation" id="Animation_bj7e2"]
+resource_name = "animals_run"
+length = 0.600003
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [30, 31, 32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_8akj5"]
+resource_name = "animals_walk"
+length = 0.600003
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0987993, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bj7e2"]
+_data = {
+&"RESET": SubResource("Animation_bjvvg"),
+&"animals_crouch": SubResource("Animation_1murt"),
+&"animals_damage": SubResource("Animation_58kc7"),
+&"animals_idle": SubResource("Animation_nh4ur"),
+&"animals_jump": SubResource("Animation_5sj0x"),
+&"animals_run": SubResource("Animation_bj7e2"),
+&"animals_walk": SubResource("Animation_8akj5")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_58kc7"]
+animation = &"animals_crouch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nh4ur"]
+animation = &"animals_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bjvvg"]
+animation = &"animals_run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8akj5"]
+animation = &"animals_walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bj7e2"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1murt"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5sj0x"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ovg4i"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7wli1"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j0oqr"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xy2vv"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nh4ur"]
+advance_mode = 2
+advance_condition = &"crouch"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bjvvg"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8akj5"]
+advance_mode = 2
+advance_condition = &"crouch"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r4dfn"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_70kwc"]
+advance_mode = 2
+advance_condition = &"crouch"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yywfu"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r4dfn"]
+states/animals_crouch/node = SubResource("AnimationNodeAnimation_58kc7")
+states/animals_crouch/position = Vector2(462, 194)
+states/animals_idle/node = SubResource("AnimationNodeAnimation_nh4ur")
+states/animals_idle/position = Vector2(341, 100)
+states/animals_run/node = SubResource("AnimationNodeAnimation_bjvvg")
+states/animals_run/position = Vector2(588, 100)
+states/animals_walk/node = SubResource("AnimationNodeAnimation_8akj5")
+states/animals_walk/position = Vector2(462, 9)
+transitions = ["Start", "animals_idle", SubResource("AnimationNodeStateMachineTransition_bj7e2"), "animals_idle", "animals_walk", SubResource("AnimationNodeStateMachineTransition_1murt"), "animals_walk", "animals_idle", SubResource("AnimationNodeStateMachineTransition_5sj0x"), "animals_walk", "animals_run", SubResource("AnimationNodeStateMachineTransition_ovg4i"), "animals_run", "animals_walk", SubResource("AnimationNodeStateMachineTransition_7wli1"), "animals_idle", "animals_run", SubResource("AnimationNodeStateMachineTransition_j0oqr"), "animals_run", "animals_idle", SubResource("AnimationNodeStateMachineTransition_xy2vv"), "animals_idle", "animals_crouch", SubResource("AnimationNodeStateMachineTransition_nh4ur"), "animals_crouch", "animals_idle", SubResource("AnimationNodeStateMachineTransition_bjvvg"), "animals_run", "animals_crouch", SubResource("AnimationNodeStateMachineTransition_8akj5"), "animals_crouch", "animals_run", SubResource("AnimationNodeStateMachineTransition_r4dfn"), "animals_walk", "animals_crouch", SubResource("AnimationNodeStateMachineTransition_70kwc"), "animals_crouch", "animals_walk", SubResource("AnimationNodeStateMachineTransition_yywfu")]
+graph_offset = Vector2(-144, -27)
+
+[node name="Player" instance=ExtResource("1_1hmtu")]
+script = ExtResource("2_635qg")
+my_char = 0
+
+[node name="Hitbox" parent="." index="0"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_58kc7")
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("3_58kc7")
+hframes = 6
+vframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_bj7e2")
+}
+autoplay = "animals_idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource("AnimationNodeStateMachine_r4dfn")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/crouch = false
+parameters/conditions/idle = true
+parameters/conditions/run = false
+parameters/conditions/walk = false
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true

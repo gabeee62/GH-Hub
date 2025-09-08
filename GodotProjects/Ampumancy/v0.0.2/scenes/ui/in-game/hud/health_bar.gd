@@ -19,7 +19,7 @@ func _process(_delta: float) -> void:
 func update_all() -> void:
 	update_normal_health()
 	update_gold_health()
-	update_health_value()
+	update_health_text()
 
 
 func update_normal_health() -> void:
@@ -33,5 +33,5 @@ func update_gold_health() -> void:
 	# $GoldHealthFrame.value = Globals.PLAYER.DATA.STATS.MAX_GOLD_HEALTH
 
 
-func update_health_value() -> void:
+func update_health_text() -> void:
 	$GoldHealth/HealthValue.text = str(Globals.PLAYER.DATA.STATS.HEALTH + Globals.PLAYER.DATA.STATS.GOLD_HEALTH) + " / " + str(Globals.PLAYER.DATA.STATS.MAX_HEALTH + Globals.PLAYER.DATA.STATS.MAX_GOLD_HEALTH)

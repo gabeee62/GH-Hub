@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhj66rldy5mr7"]
+
+[ext_resource type="Script" uid="uid://c0uc4p1kai80t" path="res://scenes/entities/hitboxes/HitBox.gd" id="1_8wbqf"]
+
+[node name="HitBox" type="Area2D"]
+script = ExtResource("1_8wbqf")
+show_kb_guide = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="KnockBackGuide" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cm0gxa31vhyw6"]
+[gd_scene load_steps=60 format=3 uid="uid://cm0gxa31vhyw6"]
 
 [ext_resource type="Script" uid="uid://gwcniw64uuf8" path="res://scenes/levels/template/Level.gd" id="1_mn00y"]
 [ext_resource type="TileSet" uid="uid://cytgnmfs1qgnf" path="res://media/graphics/tilemaps/tilesets/main_tileset.tres" id="2_k3rtj"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://ddgowqwkcm06t" path="res://scenes/ui/in-game/hud/hotbar.gd" id="23_lnwog"]
 [ext_resource type="PackedScene" uid="uid://be3u0fxqmknt4" path="res://scenes/ui/menus/label_button.tscn" id="23_qq6lv"]
 [ext_resource type="LabelSettings" uid="uid://byylp3l60xu8" path="res://media/graphics/fonts/settings/health_label_settings_large.tres" id="24_2hp3y"]
+[ext_resource type="LabelSettings" uid="uid://c1024byiuyosp" path="res://media/graphics/fonts/settings/pixel_font_label_format.tres" id="25_5fw03"]
 [ext_resource type="Script" uid="uid://cfvc3v8i2srli" path="res://scenes/ui/in-game/hud/jump_boost.gd" id="25_qq6lv"]
 [ext_resource type="Texture2D" uid="uid://dqd4cy0vjifn5" path="res://media/graphics/ui/hud/boost/boost_frame.png" id="26_2323g"]
 [ext_resource type="Texture2D" uid="uid://cypmq6r0j4k41" path="res://media/graphics/ui/hud/boost/boost_fill.png" id="27_2323g"]
@@ -48,6 +49,113 @@ font = ExtResource("20_x722l")
 font_size = 20
 shadow_size = 5
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_vhjc6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/JumpBoostBar3:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p04e5"]
+resource_name = "bar1_flash"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/JumpBoostBar1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/JumpBoostBar2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/JumpBoostBar3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ic6h7"]
+resource_name = "bar2_flash"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/JumpBoostBar2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-2.6077e-08, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/JumpBoostBar3:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5fw03"]
+resource_name = "bar3_flash"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/JumpBoostBar3:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1), Color(1, 0.474262, 0.43882, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ic6h7"]
+_data = {
+&"RESET": SubResource("Animation_vhjc6"),
+&"bar1_flash": SubResource("Animation_p04e5"),
+&"bar2_flash": SubResource("Animation_ic6h7"),
+&"bar3_flash": SubResource("Animation_5fw03")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_qq6lv"]
 font = ExtResource("20_x722l")
@@ -74,6 +182,24 @@ shadow_size = 14
 shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ic6h7"]
+font = ExtResource("20_x722l")
+font_size = 24
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_chrnd"]
+font = ExtResource("20_x722l")
+font_size = 24
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tg17r"]
+font = ExtResource("20_x722l")
+font_size = 24
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0lhxj"]
 font = ExtResource("20_x722l")
 font_size = 24
 shadow_size = 14
@@ -611,6 +737,11 @@ stretch_margin_bottom = 4
 texture_over = ExtResource("26_2323g")
 texture_progress = ExtResource("27_2323g")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayers/HUDCanvas/HUD/JumpBoost"]
+libraries = {
+&"": SubResource("AnimationLibrary_ic6h7")
+}
+
 [node name="MouseLight" type="PointLight2D" parent="CanvasLayers/HUDCanvas"]
 scale = Vector2(2, 2)
 texture = ExtResource("3_6gw7h")
@@ -701,26 +832,31 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Back" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons" instance=ExtResource("23_qq6lv")]
+custom_minimum_size = Vector2(96, 24)
 layout_mode = 2
 label_text = "Back"
 label_settings = SubResource("LabelSettings_qq6lv")
 
 [node name="Settings" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons" instance=ExtResource("23_qq6lv")]
+custom_minimum_size = Vector2(192, 24)
 layout_mode = 2
 label_text = "Settings"
 label_settings = SubResource("LabelSettings_2323g")
 
 [node name="Outfit" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons" instance=ExtResource("23_qq6lv")]
+custom_minimum_size = Vector2(144, 24)
 layout_mode = 2
 label_text = "Outfit"
 label_settings = SubResource("LabelSettings_5fw03")
 
 [node name="Save" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons" instance=ExtResource("23_qq6lv")]
+custom_minimum_size = Vector2(216, 24)
 layout_mode = 2
 label_text = "Save Game"
 label_settings = SubResource("LabelSettings_vhjc6")
 
 [node name="Quit" parent="CanvasLayers/MenuCanvas/PauseMenu/Buttons" instance=ExtResource("23_qq6lv")]
+custom_minimum_size = Vector2(216, 24)
 layout_mode = 2
 label_text = "Quit Game"
 label_settings = SubResource("LabelSettings_ic6h7")
@@ -743,28 +879,36 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -37.0
-offset_top = -68.0
-offset_right = 37.0
-offset_bottom = 68.0
+offset_left = -180.0
+offset_top = -90.0
+offset_right = 180.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Video" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons"]
+[node name="Video" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons" instance=ExtResource("23_qq6lv")]
+custom_minimum_size = Vector2(120, 24)
 layout_mode = 2
-text = "Video"
+label_text = "Video"
+label_settings = ExtResource("25_5fw03")
 
-[node name="Audio" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons"]
+[node name="Audio" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons" instance=ExtResource("23_qq6lv")]
+custom_minimum_size = Vector2(120, 24)
 layout_mode = 2
-text = "Audio"
+label_text = "Audio"
+label_settings = SubResource("LabelSettings_chrnd")
 
-[node name="Controls" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons"]
+[node name="Controls" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons" instance=ExtResource("23_qq6lv")]
+custom_minimum_size = Vector2(192, 24)
 layout_mode = 2
-text = "Controls"
+label_text = "Controls"
+label_settings = SubResource("LabelSettings_tg17r")
 
-[node name="Back" type="Button" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons"]
+[node name="Back" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons" instance=ExtResource("23_qq6lv")]
+custom_minimum_size = Vector2(96, 24)
 layout_mode = 2
-text = "Back"
+label_text = "Back"
+label_settings = SubResource("LabelSettings_0lhxj")
 
 [node name="Video" type="Control" parent="CanvasLayers/MenuCanvas/PauseMenu/Settings"]
 visible = false
@@ -1179,19 +1323,22 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[node name="MenuQuit" parent="CanvasLayers/MenuCanvas/PauseMenu/QuitConfirm/VBoxContainer/HBoxContainer" instance=ExtResource("23_qq6lv")]
+[node name="Title" parent="CanvasLayers/MenuCanvas/PauseMenu/QuitConfirm/VBoxContainer/HBoxContainer" instance=ExtResource("23_qq6lv")]
+custom_minimum_size = Vector2(120, 24)
 layout_mode = 2
 size_flags_horizontal = 2
-label_text = "Menu"
+label_text = "Title"
 label_settings = SubResource("LabelSettings_aer8d")
 
 [node name="DeskQuit" parent="CanvasLayers/MenuCanvas/PauseMenu/QuitConfirm/VBoxContainer/HBoxContainer" instance=ExtResource("23_qq6lv")]
+custom_minimum_size = Vector2(168, 24)
 layout_mode = 2
 size_flags_horizontal = 10
 label_text = "Desktop"
 label_settings = SubResource("LabelSettings_l35dp")
 
 [node name="Back" parent="CanvasLayers/MenuCanvas/PauseMenu/QuitConfirm/VBoxContainer" instance=ExtResource("23_qq6lv")]
+custom_minimum_size = Vector2(96, 24)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
@@ -1203,9 +1350,9 @@ label_settings = SubResource("LabelSettings_lq5bw")
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Outfit" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_outfit_pressed"]
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Save" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Buttons/Quit" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_quit_pressed"]
-[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons/Video" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_video_pressed"]
-[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons/Audio" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_audio_pressed"]
-[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons/Controls" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_controls_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons/Video" to="CanvasLayers/MenuCanvas/PauseMenu/Settings" method="_on_video_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons/Audio" to="CanvasLayers/MenuCanvas/PauseMenu/Settings" method="_on_audio_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons/Controls" to="CanvasLayers/MenuCanvas/PauseMenu/Settings" method="_on_controls_pressed"]
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Buttons/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_settings_back_pressed"]
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Video/Settings/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_video_back_pressed"]
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Settings/Audio/Settings/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_audio_back_pressed"]
@@ -1224,6 +1371,6 @@ label_settings = SubResource("LabelSettings_lq5bw")
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Outfit/PanelContainer/OutfitMenu/HBoxContainer2/Confirm" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_outfit_back_pressed"]
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Outfit/PanelContainer/OutfitMenu/HBoxContainer2/Confirm" to="CanvasLayers/MenuCanvas/PauseMenu/Outfit" method="_on_confirm_pressed"]
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/Outfit/PanelContainer/OutfitMenu/HBoxContainer2/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_outfit_back_pressed"]
-[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/QuitConfirm/VBoxContainer/HBoxContainer/MenuQuit" to="CanvasLayers/MenuCanvas/PauseMenu/QuitConfirm" method="_on_menu_quit_pressed"]
+[connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/QuitConfirm/VBoxContainer/HBoxContainer/Title" to="CanvasLayers/MenuCanvas/PauseMenu/QuitConfirm" method="_on_title_quit_pressed"]
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/QuitConfirm/VBoxContainer/HBoxContainer/DeskQuit" to="CanvasLayers/MenuCanvas/PauseMenu/QuitConfirm" method="_on_desk_quit_pressed"]
 [connection signal="pressed" from="CanvasLayers/MenuCanvas/PauseMenu/QuitConfirm/VBoxContainer/Back" to="CanvasLayers/MenuCanvas/PauseMenu" method="_on_quit_back_pressed"]

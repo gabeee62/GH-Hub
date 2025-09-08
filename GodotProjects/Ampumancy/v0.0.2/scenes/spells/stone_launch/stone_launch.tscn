@@ -6,6 +6,8 @@
 
 [node name="StoneLaunch" instance=ExtResource("1_rvo4s")]
 script = ExtResource("2_bgx2b")
-DAMAGE = 0
+HOLDTOCAST = true
+MAKEBUSY = true
 
 [node name="GolemstoneBoulder" parent="TransformBuffer" index="0" instance=ExtResource("3_r0raw")]
+DAMAGE = 40

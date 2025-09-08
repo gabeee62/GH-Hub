@@ -17,8 +17,7 @@ func custom_process() -> void:
 
 
 func _process(_delta: float) -> void:
-	if shape:
-		$CollisionShape2D.shape = shape
+	$CollisionShape2D.shape = shape
 	custom_process()
 	if not Engine.is_editor_hint():
 		match trigger:

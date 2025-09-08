@@ -2,7 +2,7 @@ extends Node
 
 var saves: DirAccess
 var sys_saves_path: String = "res://data/saves/"
-var level_data: DirAccess = DirAccess.open("res://data/saves/default/level_data/")
+var level_data: DirAccess = DirAccess.open("res://data/saves/templates/default/level_data/")
 
 
 func _ready() -> void:
@@ -14,9 +14,9 @@ func _ready() -> void:
 
 
 func create_new_save(save_name: String, player_name: String) -> void:
-	var save_being_copied: String = sys_saves_path + "default/"
-	if OS.is_debug_build() and player_name == "MAX_SAVE":
-		save_being_copied = sys_saves_path + "max_save/"
+	var save_being_copied: String = sys_saves_path + "templates/default/"
+	if OS.is_debug_build() and player_name.to_lower() == "max_save":
+		save_being_copied = sys_saves_path + "templates/max_save/"
 		level_data = DirAccess.open(save_being_copied + "level_data/")
 	
 	var new_save: SaveData = load(save_being_copied + "save.tres")

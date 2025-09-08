@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c54d3bu6bcp36"]
+[gd_scene load_steps=16 format=3 uid="uid://c54d3bu6bcp36"]
 
 [ext_resource type="PackedScene" uid="uid://dkf7vr6kyqcjl" path="res://scenes/spells/Spell.tscn" id="1_un155"]
 [ext_resource type="Script" uid="uid://b6kelnkhgdo6d" path="res://scenes/spells/ice_flurry/ice_flurry.gd" id="2_nux8w"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxdf5jyrj0wee" path="res://media/graphics/lighting/point_light_1.tres" id="3_nux8w"]
 [ext_resource type="Texture2D" uid="uid://dmfklmffn0wb2" path="res://media/graphics/particles/snow_particle.png" id="4_8wma7"]
 [ext_resource type="Texture2D" uid="uid://c750rt2djeivq" path="res://media/graphics/spells/ice_flurry/ice_flurry_dart_r.png" id="5_kesdd"]
+[ext_resource type="PackedScene" uid="uid://bhj66rldy5mr7" path="res://scenes/entities/hitboxes/HitBox.tscn" id="7_5p2cf"]
 [ext_resource type="PackedScene" uid="uid://ykn7uook1sma" path="res://scenes/miscellaneous/player_reference.tscn" id="7_sak1q"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t545f"]
@@ -39,7 +40,7 @@ scale_max = 5.0
 collision_mode = 2
 collision_use_scale = true
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_io8k8"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5p2cf"]
 radius = 28.0
 
 [sub_resource type="Animation" id="Animation_8nkun"]
@@ -67,18 +68,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Hitbox/CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(66, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_vx2v2"]
@@ -112,7 +101,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitbox/CollisionShape2D:position")
+tracks/2/path = NodePath("RotationBuffer/HitBox:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -129,11 +118,14 @@ _data = {
 }
 
 [node name="IceFlurry" instance=ExtResource("1_un155")]
+visible = true
 script = ExtResource("2_nux8w")
 DAMAGE = 30
+HOLDTOCAST = true
 MAKEBUSY = true
 
 [node name="HandCastSprite" type="Sprite2D" parent="." index="0"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.67451)
 scale = Vector2(5, 5)
 texture = ExtResource("2_pwflg")
@@ -157,13 +149,12 @@ texture = ExtResource("5_kesdd")
 lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_7unbs")
 
-[node name="Hitbox" type="Area2D" parent="." index="2"]
-collision_layer = 8
+[node name="RotationBuffer" type="Node2D" parent="." index="2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+[node name="HitBox" parent="RotationBuffer" index="0" instance=ExtResource("7_5p2cf")]
 position = Vector2(66, 0)
-rotation = -1.5708
-shape = SubResource("CircleShape2D_io8k8")
+DAMAGE = 20
+SHAPE = SubResource("CircleShape2D_5p2cf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 libraries = {
@@ -172,6 +163,7 @@ libraries = {
 autoplay = "cast"
 
 [node name="PlayerReference" parent="." index="4" instance=ExtResource("7_sak1q")]
+texture = null
 
 [node name="ManaConsumeTimer" type="Timer" parent="Timers" index="1"]
 
@@ -180,6 +172,5 @@ wait_time = 2.0
 one_shot = true
 autostart = true
 
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="Timers/ManaConsumeTimer" to="." method="_on_mana_consume_timer_timeout"]
 [connection signal="timeout" from="Timers/InitialManaConsumeTimer" to="." method="_on_initial_mana_consume_timer_timeout"]

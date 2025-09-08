@@ -6,6 +6,8 @@ signal slot_freed(slot: PanelContainer)
 signal level_ready()
 signal player_ready()
 
+signal npc_interact(npc: Entity)
+
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
