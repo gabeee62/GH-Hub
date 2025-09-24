@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://b00s47cxpvlen"]
+
+[ext_resource type="Script" uid="uid://di0s0cubwae8p" path="res://Menus/Title/TitleScreen.gd" id="1_3wfxf"]
+[ext_resource type="PackedScene" uid="uid://disigip4fpd2g" path="res://Menus/Title/Saves/Saves.tscn" id="2_0qonu"]
+[ext_resource type="Script" uid="uid://2notol570cd7" path="res://Menus/Title/Saves/Saves.gd" id="3_fo626"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3wfxf")
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+text = "Play"
+
+[node name="Options" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+text = "Quit"
+
+[node name="Saves" parent="." instance=ExtResource("2_0qonu")]
+layout_mode = 0
+anchors_preset = 0
+script = ExtResource("3_fo626")
+
+[node name="Options" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]

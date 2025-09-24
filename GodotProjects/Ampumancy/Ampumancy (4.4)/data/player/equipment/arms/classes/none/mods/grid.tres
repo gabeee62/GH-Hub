@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ModGrid" load_steps=4 format=3 uid="uid://dsoahxwsbnepf"]
+
+[ext_resource type="Script" uid="uid://ccsayua5hckwb" path="res://data/player/equipment/arms/mods/ArmMod.gd" id="1_21g28"]
+[ext_resource type="Resource" uid="uid://dpit8hjogcn03" path="res://data/player/equipment/arms/mods/none.tres" id="2_6wdne"]
+[ext_resource type="Script" uid="uid://14qsyt1bdbxv" path="res://data/player/equipment/arms/mods/ModGrid.gd" id="2_nyhyj"]
+
+[resource]
+script = ExtResource("2_nyhyj")
+row1 = Array[ExtResource("1_21g28")]([ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne")])
+row2 = Array[ExtResource("1_21g28")]([ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne")])
+row3 = Array[ExtResource("1_21g28")]([ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne")])
+row4 = Array[ExtResource("1_21g28")]([ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne")])
+row5 = Array[ExtResource("1_21g28")]([ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne"), ExtResource("2_6wdne")])
+metadata/_custom_type_script = "uid://14qsyt1bdbxv"

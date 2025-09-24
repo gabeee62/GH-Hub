@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://won0bmbufct4"]
+
+[ext_resource type="Texture2D" uid="uid://deqjfbey06jq0" path="res://media/graphics/entities/NPCs/dialogue/speech_bubble.png" id="1_3ovm7"]
+[ext_resource type="Script" uid="uid://fe4f5xjhiigt" path="res://scenes/entities/entities/NPCs/dialogue/speech_bubble.gd" id="2_b3via"]
+[ext_resource type="FontFile" uid="uid://beqa5ltlcend0" path="res://media/graphics/fonts/HealthFont.ttf" id="3_1iftf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_th6qo"]
+font = ExtResource("3_1iftf")
+font_size = 6
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="SpeechBubble" type="NinePatchRect"]
+offset_right = 48.0
+offset_bottom = 48.0
+texture = ExtResource("1_3ovm7")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+script = ExtResource("2_b3via")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 1
+text = " "
+label_settings = SubResource("LabelSettings_th6qo")
+autowrap_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

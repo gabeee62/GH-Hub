@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjrasareab3p6"]
+
+[ext_resource type="PackedScene" uid="uid://jsgbjfg3fgap" path="res://scenes/entities/entities/NPCs/npcs/template/npc.tscn" id="1_ogbfu"]
+[ext_resource type="Script" uid="uid://cab44hw5650nt" path="res://scenes/entities/entities/NPCs/npcs/player/player_npc.gd" id="2_em7xp"]
+[ext_resource type="Texture2D" uid="uid://dxtywsb4ybx2y" path="res://media/graphics/entities/player/player.png" id="2_fap2p"]
+[ext_resource type="Script" uid="uid://cje6mr1b7fqyv" path="res://data/entity/EntityData.gd" id="3_ac6v3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ogbfu"]
+light_mode = 1
+
+[sub_resource type="Resource" id="Resource_qqkuc"]
+script = ExtResource("3_ac6v3")
+NAME = "Player NPC"
+TEAM = 0
+MOTION_MODE = 1
+HEALTH = 100
+metadata/_custom_type_script = "uid://cje6mr1b7fqyv"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_em7xp"]
+radius = 32.5
+height = 106.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogbfu"]
+size = Vector2(200, 100)
+
+[node name="PlayerNPC" instance=ExtResource("1_ogbfu")]
+material = SubResource("CanvasItemMaterial_ogbfu")
+script = ExtResource("2_em7xp")
+DATA = SubResource("Resource_qqkuc")
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite" index="0"]
+texture = ExtResource("2_fap2p")
+hframes = 4
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_em7xp")
+
+[node name="InteractBox" parent="." index="2"]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ogbfu")

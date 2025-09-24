@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxi1gjdr5sdgr"]
+
+[ext_resource type="Script" uid="uid://ukrl3k47audf" path="res://Levels/Root/Level.gd" id="1_acdnu"]
+[ext_resource type="PackedScene" uid="uid://ci4dcfwkc3hs3" path="res://Entities/Player/Player.tscn" id="2_q1cbv"]
+[ext_resource type="TileSet" uid="uid://ca6d4unkg4iy1" path="res://Levels/Tilesets/terrain_1.tres" id="2_wbw1h"]
+[ext_resource type="TileSet" uid="uid://bnwbay634i3ep" path="res://Levels/Tilesets/effect_terrain.tres" id="3_286st"]
+[ext_resource type="PackedScene" uid="uid://bbwtymoe6f70h" path="res://Menus/Game/Pause/PauseMenu.tscn" id="5_286st"]
+[ext_resource type="Script" uid="uid://ckyo33gcxgwek" path="res://Levels/Root/UI.gd" id="5_q1ycg"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_acdnu")
+
+[node name="SkyBG" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_wbw1h")
+
+[node name="EffectTerrain" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_286st")
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_q1cbv")]
+position = Vector2(0, -3)
+
+[node name="Terrain" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_wbw1h")
+
+[node name="Foreground" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_wbw1h")
+
+[node name="UI" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("5_q1ycg")
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("5_286st")]
+process_mode = 2
+visible = false

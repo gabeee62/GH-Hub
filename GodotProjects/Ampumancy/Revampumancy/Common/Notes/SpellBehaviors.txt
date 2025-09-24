@@ -1,0 +1,17 @@
+Different ways spells are cast:
+	- Charge and release
+	- Instant cast
+	- Persistent cast
+
+Different things spells can do:
+	- Summon a projectile
+	- Move the player/enemies
+	- Apply effects to the player/enemies
+	- Summon familiars
+	- Move world objects
+	- Apply effects to certain world objects
+
+Different ways spells must be prepared to use:
+	- Supplying the corresponding mana and materials yourself
+	- Crafting a catalyst to cover materials
+	- 

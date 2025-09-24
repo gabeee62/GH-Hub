@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ArmMod" load_steps=3 format=3 uid="uid://dpit8hjogcn03"]
+
+[ext_resource type="Script" uid="uid://n6fbpoqpxwim" path="res://data/player/equipment/arms/mods/ModEffect.gd" id="1_xvg0s"]
+[ext_resource type="Script" uid="uid://ccsayua5hckwb" path="res://data/player/equipment/arms/mods/ArmMod.gd" id="2_an3om"]
+
+[resource]
+script = ExtResource("2_an3om")
+EFFECTS = Array[ExtResource("1_xvg0s")]([])
+metadata/_custom_type_script = "uid://ccsayua5hckwb"

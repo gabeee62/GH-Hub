@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SaveData" load_steps=7 format=3 uid="uid://bl64w6jojsn6g"]
+
+[ext_resource type="Resource" uid="uid://cubyco5vbdudl" path="res://Levels/Academy's Underbelly/level_data.tres" id="1_5ayn1"]
+[ext_resource type="Script" uid="uid://drcsx0qe5p15k" path="res://Config/Saves/SaveData.gd" id="1_8rv22"]
+[ext_resource type="Resource" uid="uid://5diabyslkix3" path="res://Entities/Player/Data/Equipment/NewEquipment.tres" id="2_gvmmv"]
+[ext_resource type="Resource" uid="uid://bpsxdniedwuun" path="res://Entities/Player/Data/Inventory/NewInventory.tres" id="3_t64te"]
+[ext_resource type="Resource" uid="uid://chucpcytfqsei" path="res://Entities/Player/Data/Outfit/DefaultOutfit.tres" id="4_gvmmv"]
+[ext_resource type="Resource" uid="uid://bp1jtwx4ipaw3" path="res://Entities/Player/Data/Stats/NewStats.tres" id="5_1wsoa"]
+
+[resource]
+script = ExtResource("1_8rv22")
+current_level = ExtResource("1_5ayn1")
+outfit = ExtResource("4_gvmmv")
+stats = ExtResource("5_1wsoa")
+equipment = ExtResource("2_gvmmv")
+inventory = ExtResource("3_t64te")
+metadata/_custom_type_script = "uid://drcsx0qe5p15k"

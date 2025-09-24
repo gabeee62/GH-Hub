@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ModGrid" load_steps=3 format=3 uid="uid://cbj4cgk061kpi"]
+
+[ext_resource type="Script" uid="uid://ccsayua5hckwb" path="res://data/player/equipment/arms/mods/ArmMod.gd" id="1_1px2r"]
+[ext_resource type="Script" uid="uid://14qsyt1bdbxv" path="res://data/player/equipment/arms/mods/ModGrid.gd" id="2_1hv3e"]
+
+[resource]
+script = ExtResource("2_1hv3e")
+row1 = Array[ExtResource("1_1px2r")]([])
+row2 = Array[ExtResource("1_1px2r")]([])
+row3 = Array[ExtResource("1_1px2r")]([])
+row4 = Array[ExtResource("1_1px2r")]([])
+row5 = Array[ExtResource("1_1px2r")]([])
+metadata/_custom_type_script = "uid://14qsyt1bdbxv"

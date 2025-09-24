@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ykn7uook1sma"]
+
+[ext_resource type="Texture2D" uid="uid://dxtywsb4ybx2y" path="res://media/graphics/entities/player/player.png" id="1_0aexn"]
+
+[node name="PlayerReference" type="Sprite2D"]
+visible = false
+scale = Vector2(5, 5)
+texture = ExtResource("1_0aexn")
+hframes = 4

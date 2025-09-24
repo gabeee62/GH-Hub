@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbwtymoe6f70h"]
+
+[ext_resource type="Script" uid="uid://do4x1tj3cx34a" path="res://Menus/Game/Pause/PauseMenu.gd" id="1_8ctg1"]
+[ext_resource type="PackedScene" uid="uid://iuoknlrb4ndk" path="res://Menus/Game/Pause/Outfit/Outfit.tscn" id="2_s0mis"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ctg1")
+
+[node name="PauseBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5803922)
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Outfits" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+text = "Outfits"
+
+[node name="Options" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+text = "Quit"
+
+[node name="Options" type="VBoxContainer" parent="."]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Video" type="Button" parent="Options"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+text = "Video"
+
+[node name="Audio" type="Button" parent="Options"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+text = "Audio"
+
+[node name="Controls" type="Button" parent="Options"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+text = "Controls"
+
+[node name="Back" type="Button" parent="Options"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+text = "Back"
+
+[node name="Outfit" parent="." instance=ExtResource("2_s0mis")]
+visible = false
+layout_mode = 1
+offset_left = -500.0
+offset_top = -300.0
+offset_right = 500.0
+offset_bottom = 300.0
+
+[connection signal="pressed" from="Buttons/Outfits" to="." method="_on_outfits_pressed"]
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Options/Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="Options/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Options/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_options_back_pressed"]
+[connection signal="back" from="Outfit" to="." method="_on_outfit_back_pressed"]

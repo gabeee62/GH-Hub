@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ArmData" load_steps=3 format=3 uid="uid://b56x6sioe03b6"]
+
+[ext_resource type="Script" uid="uid://b2p03ajvrmmo3" path="res://Entities/Items/Equipment/Arms/ArmData.gd" id="1_ndeu4"]
+[ext_resource type="Texture2D" uid="uid://0o0nkmpbp5kg" path="res://Entities/Player/Assets/Sprite/Arms/grapplevine_arm.png" id="2_s5u8m"]
+
+[resource]
+script = ExtResource("1_ndeu4")
+name = "Grapplevine Arm"
+texture = ExtResource("2_s5u8m")
+type = 2
+max_stack = 1
+metadata/_custom_type_script = "uid://b2p03ajvrmmo3"

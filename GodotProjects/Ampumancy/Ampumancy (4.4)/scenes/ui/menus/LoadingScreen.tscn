@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjye23pdyw06v"]
+
+[ext_resource type="Script" uid="uid://cq4pc7d2t78p3" path="res://scenes/ui/menus/loading_screen.gd" id="1_pv8e3"]
+[ext_resource type="Texture2D" uid="uid://c6q1ix6xlclxg" path="res://media/graphics/backgrounds/parallax_loading_screen.png" id="1_snq2r"]
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pv8e3")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ChibiLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="TextureRect" parent="ParallaxBackground/ChibiLayer"]
+offset_right = 768.0
+offset_bottom = 192.0
+scale = Vector2(5, 5)
+texture = ExtResource("1_snq2r")
+stretch_mode = 1

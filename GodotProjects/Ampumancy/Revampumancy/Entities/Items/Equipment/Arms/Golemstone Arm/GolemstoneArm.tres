@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ArmData" load_steps=3 format=3 uid="uid://cqlv0t0qnxy6n"]
+
+[ext_resource type="Script" uid="uid://b2p03ajvrmmo3" path="res://Entities/Items/Equipment/Arms/ArmData.gd" id="1_kp2ca"]
+[ext_resource type="Texture2D" uid="uid://b6676j00ebds1" path="res://Entities/Player/Assets/Sprite/Arms/golemstone_arm.png" id="2_dnrjt"]
+
+[resource]
+script = ExtResource("1_kp2ca")
+name = "Golemstone Arm"
+texture = ExtResource("2_dnrjt")
+type = 2
+max_stack = 1
+metadata/_custom_type_script = "uid://b2p03ajvrmmo3"

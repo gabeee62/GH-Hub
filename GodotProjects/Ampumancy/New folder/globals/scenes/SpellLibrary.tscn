@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4jf5a68cojlo"]
-
-[ext_resource type="Script" uid="uid://cvppjqe57h2um" path="res://globals/scripts/SpellLibrary.gd" id="1_rbxv2"]
-
-[node name="SpellLibrary" type="Node"]
-script = ExtResource("1_rbxv2")

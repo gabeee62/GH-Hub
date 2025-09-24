@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ArmItemData" load_steps=4 format=3 uid="uid://w2gc52hwyur3"]
+
+[ext_resource type="Texture2D" uid="uid://b8tmmkw6qflx8" path="res://media/graphics/ui/hud/arms/firelob_arm_ui.png" id="1_bpqw1"]
+[ext_resource type="Resource" uid="uid://f47fwito8pm1" path="res://data/player/equipment/arms/classes/firelob/firelob.tres" id="1_p0bvw"]
+[ext_resource type="Script" uid="uid://dvw48xshhvs4f" path="res://data/items/equipment/arms/ArmItemData.gd" id="3_de4mr"]
+
+[resource]
+script = ExtResource("3_de4mr")
+Arm = ExtResource("1_p0bvw")
+NAME = "Firelob Arm"
+TEXTURE = ExtResource("1_bpqw1")
+TYPE = 3
+stackable = false
+AMOUNT = 1
+metadata/_custom_type_script = "uid://decg6rymqo6ga"

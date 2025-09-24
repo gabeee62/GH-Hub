@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlayerEquipment" load_steps=3 format=3 uid="uid://5diabyslkix3"]
+
+[ext_resource type="Script" uid="uid://cjbexr5ru6kqy" path="res://Entities/Player/Data/Equipment/Equipment.gd" id="1_krbav"]
+[ext_resource type="Resource" uid="uid://dhb5jfqppsmgm" path="res://Entities/Items/Equipment/Arms/No Arm/NoArm.tres" id="1_nwaaq"]
+
+[resource]
+script = ExtResource("1_krbav")
+LArm1 = ExtResource("1_nwaaq")
+LArm2 = ExtResource("1_nwaaq")
+RArm1 = ExtResource("1_nwaaq")
+RArm2 = ExtResource("1_nwaaq")
+metadata/_custom_type_script = "uid://cjbexr5ru6kqy"

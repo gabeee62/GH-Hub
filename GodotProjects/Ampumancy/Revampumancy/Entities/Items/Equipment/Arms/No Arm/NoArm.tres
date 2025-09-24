@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ArmData" load_steps=2 format=3 uid="uid://dhb5jfqppsmgm"]
+
+[ext_resource type="Script" uid="uid://b2p03ajvrmmo3" path="res://Entities/Items/Equipment/Arms/ArmData.gd" id="1_tvcae"]
+
+[resource]
+script = ExtResource("1_tvcae")
+name = "None"
+type = 2
+max_stack = 1
+metadata/_custom_type_script = "uid://b2p03ajvrmmo3"

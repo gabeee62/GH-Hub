@@ -1,0 +1,247 @@
+[gd_scene load_steps=24 format=3 uid="uid://8uc8jip51fq4"]
+
+[ext_resource type="Script" uid="uid://dj1nh5divcbd6" path="res://scenes/spells/flame_hurl/subscenes/fireball.gd" id="1_au3pi"]
+[ext_resource type="Texture2D" uid="uid://cpydro5ju43oa" path="res://media/graphics/spells/fireball/fire_particle.png" id="2_8tgcx"]
+[ext_resource type="Texture2D" uid="uid://bmbaon66iurcv" path="res://media/graphics/spells/fireball/fireball.png" id="2_u7od8"]
+[ext_resource type="Texture2D" uid="uid://dxdf5jyrj0wee" path="res://media/graphics/lighting/point_light_1.tres" id="3_0qr13"]
+[ext_resource type="PackedScene" uid="uid://bhj66rldy5mr7" path="res://scenes/entities/hitboxes/HitBox.tscn" id="5_inqdt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0qr13"]
+radius = 20.025
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0qr13"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_0qr13"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0qr13"]
+curve = SubResource("Curve_0qr13")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bvkrl"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 8.0
+angle_min = -45.0
+angle_max = 45.0
+spread = 180.0
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
+alpha_curve = SubResource("CurveTexture_0qr13")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bvkrl"]
+light_mode = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_bvkrl"]
+curve = SubResource("Curve_0qr13")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0qr13"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 8.0
+angle_min = -45.0
+angle_max = 45.0
+spread = 180.0
+initial_velocity_min = 150.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
+alpha_curve = SubResource("CurveTexture_bvkrl")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u7oa0"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_inqdt"]
+radius = 100.0
+
+[sub_resource type="Animation" id="Animation_bvkrl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_spvsu"]
+resource_name = "explode"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8tgcx"]
+resource_name = "fireball_spin_l"
+length = 0.25
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_0qr13"]
+resource_name = "fireball_spin_r"
+length = 0.25
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_spvsu"]
+_data = {
+&"RESET": SubResource("Animation_bvkrl"),
+&"explode": SubResource("Animation_spvsu"),
+&"fireball_spin_l": SubResource("Animation_8tgcx"),
+&"fireball_spin_r": SubResource("Animation_0qr13")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nih1a"]
+animation = &"fireball_spin_l"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4war8"]
+animation = &"fireball_spin_r"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_mm52j"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_nih1a")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_4war8")
+blend_point_1/pos = 1.0
+blend_mode = 1
+
+[node name="Fireball" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_au3pi")
+MOVESPEED = 1300.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0qr13")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+scale = Vector2(5, 5)
+texture = ExtResource("2_u7od8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Visuals"]
+scale = Vector2(0.60547, 0.60547)
+color = Color(1, 0.376471, 0.286275, 1)
+energy = 2.5
+texture = ExtResource("3_0qr13")
+
+[node name="ParticleHandlers" type="Node2D" parent="."]
+
+[node name="TrailParticles" type="GPUParticles2D" parent="ParticleHandlers"]
+light_mask = 0
+material = SubResource("CanvasItemMaterial_0qr13")
+amount = 100
+texture = ExtResource("2_8tgcx")
+lifetime = 0.13
+process_material = SubResource("ParticleProcessMaterial_bvkrl")
+
+[node name="ExplodeParticles" type="GPUParticles2D" parent="ParticleHandlers"]
+material = SubResource("CanvasItemMaterial_bvkrl")
+emitting = false
+amount = 500
+texture = ExtResource("2_8tgcx")
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_0qr13")
+
+[node name="Hitboxes" type="Node2D" parent="."]
+
+[node name="FireballHitBox" parent="Hitboxes" instance=ExtResource("5_inqdt")]
+KBSTRENGTH = 100.0
+KBVECTOR = Vector2(-1, -1)
+DAMAGE = 30
+SHAPE = SubResource("CircleShape2D_u7oa0")
+
+[node name="ExplodeHitBox" parent="Hitboxes" instance=ExtResource("5_inqdt")]
+KBSTRENGTH = 150.0
+KBVECTOR = Vector2(0, -1)
+DAMAGE = 50
+SHAPE = SubResource("CircleShape2D_inqdt")
+
+[node name="AnimationHandlers" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationHandlers"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_spvsu")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="AnimationHandlers"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeBlendSpace1D_mm52j")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blend_position = -0.00149256
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

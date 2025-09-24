@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PlayerOutfit" load_steps=2 format=3 uid="uid://chucpcytfqsei"]
+
+[ext_resource type="Script" uid="uid://ci4gmk4bqbjna" path="res://Entities/Player/Data/Outfit/PlayerOutfit.gd" id="1_8swdx"]
+
+[resource]
+script = ExtResource("1_8swdx")
+metadata/_custom_type_script = "uid://ci4gmk4bqbjna"

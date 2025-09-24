@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://xd3kmmup65i8"]
+
+[ext_resource type="PackedScene" uid="uid://s888ayg4ovep" path="res://scenes/miscellaneous/player_detect.tscn" id="1_cmfcl"]
+[ext_resource type="Script" uid="uid://ck00gqn3xr6km" path="res://scenes/miscellaneous/fog_of_war.gd" id="2_5iky4"]
+
+[node name="FogOfWar" instance=ExtResource("1_cmfcl")]
+scale = Vector2(5, 5)
+script = ExtResource("2_5iky4")
+fog_color = Color(0, 0, 0, 1)
+clear_color = Color(0, 0, 0, 0)
+oneshot = true
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(10, 10)
+
+[node name="ColorRect" type="ColorRect" parent="." index="2"]
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)

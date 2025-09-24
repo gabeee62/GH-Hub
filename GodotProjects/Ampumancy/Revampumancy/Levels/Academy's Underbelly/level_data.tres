@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://cubyco5vbdudl"]
+
+[ext_resource type="Script" uid="uid://bgnwvxxw33d53" path="res://Levels/Root/LevelData.gd" id="1_o0khj"]
+
+[resource]
+script = ExtResource("1_o0khj")
+name = "The Academy's Underbelly"
+metadata/_custom_type_script = "uid://bgnwvxxw33d53"

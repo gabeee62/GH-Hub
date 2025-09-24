@@ -1,0 +1,4 @@
+In-Game Equipment: Catalyst
+
+DESC: The catalyst is an equipment item that supplies the player with the materials needed to cast their spells,
+at the cost of its energy reserves.

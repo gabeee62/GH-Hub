@@ -1,0 +1,176 @@
+[gd_scene load_steps=16 format=3 uid="uid://c54d3bu6bcp36"]
+
+[ext_resource type="PackedScene" uid="uid://dkf7vr6kyqcjl" path="res://scenes/spells/Spell.tscn" id="1_un155"]
+[ext_resource type="Script" uid="uid://b6kelnkhgdo6d" path="res://scenes/spells/ice_flurry/ice_flurry.gd" id="2_nux8w"]
+[ext_resource type="Texture2D" uid="uid://dqiftwgrrpjh1" path="res://media/graphics/spells/ice_flurry/ice_flurry_hand_cast.png" id="2_pwflg"]
+[ext_resource type="Texture2D" uid="uid://dxdf5jyrj0wee" path="res://media/graphics/lighting/point_light_1.tres" id="3_nux8w"]
+[ext_resource type="Texture2D" uid="uid://dmfklmffn0wb2" path="res://media/graphics/particles/snow_particle.png" id="4_8wma7"]
+[ext_resource type="Texture2D" uid="uid://c750rt2djeivq" path="res://media/graphics/spells/ice_flurry/ice_flurry_dart_r.png" id="5_kesdd"]
+[ext_resource type="PackedScene" uid="uid://bhj66rldy5mr7" path="res://scenes/entities/hitboxes/HitBox.tscn" id="7_5p2cf"]
+[ext_resource type="PackedScene" uid="uid://ykn7uook1sma" path="res://scenes/miscellaneous/player_reference.tscn" id="7_sak1q"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t545f"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 1.0
+angle_min = -45.0
+angle_max = 45.0
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q3q25"]
+light_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7unbs"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 50.0
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 3200.0
+linear_accel_max = 3200.0
+scale_min = 5.0
+scale_max = 5.0
+collision_mode = 2
+collision_use_scale = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5p2cf"]
+radius = 28.0
+
+[sub_resource type="Animation" id="Animation_8nkun"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandCastSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HandCastSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vx2v2"]
+resource_name = "cast"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandCastSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HandCastSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 12.5664]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RotationBuffer/HitBox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(66, 0), Vector2(416, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_umoll"]
+_data = {
+&"RESET": SubResource("Animation_8nkun"),
+&"cast": SubResource("Animation_vx2v2")
+}
+
+[node name="IceFlurry" instance=ExtResource("1_un155")]
+visible = true
+script = ExtResource("2_nux8w")
+DAMAGE = 30
+HOLDTOCAST = true
+MAKEBUSY = true
+
+[node name="HandCastSprite" type="Sprite2D" parent="." index="0"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.67451)
+scale = Vector2(5, 5)
+texture = ExtResource("2_pwflg")
+hframes = 3
+
+[node name="PointLight2D" type="PointLight2D" parent="HandCastSprite" index="0"]
+scale = Vector2(0.25, 0.25)
+energy = 1.5
+texture = ExtResource("3_nux8w")
+
+[node name="CastParticles" type="GPUParticles2D" parent="HandCastSprite" index="1"]
+show_behind_parent = true
+amount = 10
+texture = ExtResource("4_8wma7")
+process_material = SubResource("ParticleProcessMaterial_t545f")
+
+[node name="DartParticles" type="GPUParticles2D" parent="." index="1"]
+material = SubResource("CanvasItemMaterial_q3q25")
+amount = 1
+texture = ExtResource("5_kesdd")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_7unbs")
+
+[node name="RotationBuffer" type="Node2D" parent="." index="2"]
+
+[node name="HitBox" parent="RotationBuffer" index="0" instance=ExtResource("7_5p2cf")]
+position = Vector2(66, 0)
+DAMAGE = 20
+SHAPE = SubResource("CircleShape2D_5p2cf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_umoll")
+}
+autoplay = "cast"
+
+[node name="PlayerReference" parent="." index="4" instance=ExtResource("7_sak1q")]
+texture = null
+
+[node name="ManaConsumeTimer" type="Timer" parent="Timers" index="1"]
+
+[node name="InitialManaConsumeTimer" type="Timer" parent="Timers" index="2"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timers/ManaConsumeTimer" to="." method="_on_mana_consume_timer_timeout"]
+[connection signal="timeout" from="Timers/InitialManaConsumeTimer" to="." method="_on_initial_mana_consume_timer_timeout"]

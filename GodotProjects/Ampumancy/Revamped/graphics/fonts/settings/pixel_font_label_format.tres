@@ -1,9 +1,0 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c1024byiuyosp"]
-
-[ext_resource type="FontFile" uid="uid://beqa5ltlcend0" path="res://media/graphics/fonts/HealthFont.ttf" id="1_2kcrw"]
-
-[resource]
-font = ExtResource("1_2kcrw")
-font_size = 24
-shadow_size = 14
-shadow_color = Color(0, 0, 0, 1)

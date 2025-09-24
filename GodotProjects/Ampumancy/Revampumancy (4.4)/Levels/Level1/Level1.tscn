@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=4 uid="uid://dsbu78dp47mae"]
+
+[ext_resource type="PackedScene" uid="uid://dxi1gjdr5sdgr" path="res://Levels/Level.tscn" id="1_q6mxn"]
+[ext_resource type="Script" uid="uid://duo4w515rburt" path="res://Levels/Level1/Level1.gd" id="2_n7uxk"]
+
+[node name="Level1" instance=ExtResource("1_q6mxn")]
+script = ExtResource("2_n7uxk")
+
+[node name="Terrain" parent="." index="5"]
+tile_map_data = PackedByteArray("AAD8/wIAAAABAAMAAAD9/wIAAAAFAAIAAAD+/wIAAAACAAAAAAD//wIAAAACAAAAAAAAAAIAAAACAAAAAAABAAIAAAAEAAIAAAACAAIAAAADAAMAAAD9/wMAAAABAAIAAAD+/wMAAAAHAAEAAAD//wMAAAAGAAEAAAAAAAMAAAACAAIAAAABAAMAAAADAAIAAAD//wQAAAADAAIAAAD+/wQAAAAEAAAAAAD+/wUAAAAAAAIAAAA=")

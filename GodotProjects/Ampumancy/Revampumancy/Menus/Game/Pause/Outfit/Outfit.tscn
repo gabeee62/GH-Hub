@@ -1,0 +1,371 @@
+[gd_scene load_steps=13 format=3 uid="uid://iuoknlrb4ndk"]
+
+[ext_resource type="Script" uid="uid://cd53u303v7pjm" path="res://Menus/Game/Pause/Outfit/Outfit.gd" id="1_jhnkm"]
+[ext_resource type="Texture2D" uid="uid://d34gv8ew15afk" path="res://Menus/Assets/menu_directional.png" id="2_ig4y4"]
+[ext_resource type="Texture2D" uid="uid://b5kneaucpfkk1" path="res://Entities/Player/Assets/Sprite/Hat/hat.png" id="2_r86vc"]
+[ext_resource type="Texture2D" uid="uid://dvgqxexi8ryfy" path="res://Menus/Assets/menu_directional_pressed.png" id="3_7qpq2"]
+[ext_resource type="Texture2D" uid="uid://brond8g8mvrnh" path="res://Entities/Player/Assets/Sprite/Head/head.png" id="3_isbij"]
+[ext_resource type="Texture2D" uid="uid://dvuisqt270v0a" path="res://Menus/Assets/menu_directional_hover.png" id="4_ams87"]
+[ext_resource type="Texture2D" uid="uid://blxbitqaca7an" path="res://Entities/Player/Assets/Sprite/Eyes/eyes.png" id="4_g2m4d"]
+[ext_resource type="Texture2D" uid="uid://cqxlgux7mtl4" path="res://Entities/Player/Assets/Sprite/Cloak/cloak.png" id="5_nkkv2"]
+[ext_resource type="Texture2D" uid="uid://dmb17bc30d10v" path="res://Entities/Player/Assets/Sprite/Body/body.png" id="6_7uqgi"]
+[ext_resource type="Script" uid="uid://buybn1rv8y8bn" path="res://Menus/Game/Pause/Outfit/OutfitPicker.gd" id="7_42pyi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhnkm"]
+font_size = 24
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhd5e"]
+font_size = 48
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Outfit" type="PanelContainer" node_paths=PackedStringArray("hat_picker", "face_picker", "eyes_picker", "cloak_picker", "robes_picker")]
+custom_minimum_size = Vector2(1000, 600)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jhnkm")
+last_outfit = Array[int]([1, 1, 1, 1, 1, 1])
+hat_picker = NodePath("HBoxContainer/OutfitPicker/VBoxContainer/Hat")
+face_picker = NodePath("HBoxContainer/OutfitPicker/VBoxContainer/Face")
+eyes_picker = NodePath("HBoxContainer/OutfitPicker/VBoxContainer/Eyes")
+cloak_picker = NodePath("HBoxContainer/OutfitPicker/VBoxContainer/Cloak")
+robes_picker = NodePath("HBoxContainer/OutfitPicker/VBoxContainer/Robes")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="OutfitPreview" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/OutfitPreview"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PreviewSprite" type="Panel" parent="HBoxContainer/OutfitPreview/VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="CanvasGroup" type="CanvasGroup" parent="HBoxContainer/OutfitPreview/VBoxContainer/PreviewSprite"]
+position = Vector2(200, 300.00006)
+scale = Vector2(10, 10)
+
+[node name="Hat" type="Sprite2D" parent="HBoxContainer/OutfitPreview/VBoxContainer/PreviewSprite/CanvasGroup"]
+texture = ExtResource("2_r86vc")
+hframes = 4
+
+[node name="Face" type="Sprite2D" parent="HBoxContainer/OutfitPreview/VBoxContainer/PreviewSprite/CanvasGroup"]
+texture = ExtResource("3_isbij")
+hframes = 4
+
+[node name="Eyes" type="Sprite2D" parent="HBoxContainer/OutfitPreview/VBoxContainer/PreviewSprite/CanvasGroup"]
+texture = ExtResource("4_g2m4d")
+hframes = 4
+
+[node name="Cloak" type="Sprite2D" parent="HBoxContainer/OutfitPreview/VBoxContainer/PreviewSprite/CanvasGroup"]
+texture = ExtResource("5_nkkv2")
+hframes = 4
+
+[node name="Robes" type="Sprite2D" parent="HBoxContainer/OutfitPreview/VBoxContainer/PreviewSprite/CanvasGroup"]
+texture = ExtResource("6_7uqgi")
+hframes = 4
+
+[node name="ConfirmCancel" type="HBoxContainer" parent="HBoxContainer/OutfitPreview/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Confirm" type="Button" parent="HBoxContainer/OutfitPreview/VBoxContainer/ConfirmCancel"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
+theme_override_font_sizes/font_size = 36
+text = "Confirm"
+
+[node name="Cancel" type="Button" parent="HBoxContainer/OutfitPreview/VBoxContainer/ConfirmCancel"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
+theme_override_font_sizes/font_size = 36
+text = "Cancel"
+
+[node name="OutfitPicker" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/OutfitPicker"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Hat" type="HBoxContainer" parent="HBoxContainer/OutfitPicker/VBoxContainer" node_paths=PackedStringArray("value", "preview_sprite")]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("7_42pyi")
+value = NodePath("VBoxContainer/Value")
+preview_sprite = NodePath("../../../OutfitPreview/VBoxContainer/PreviewSprite/CanvasGroup/Hat")
+
+[node name="CycleDown" type="TextureButton" parent="HBoxContainer/OutfitPicker/VBoxContainer/Hat"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ig4y4")
+texture_pressed = ExtResource("3_7qpq2")
+texture_hover = ExtResource("4_ams87")
+stretch_mode = 4
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/OutfitPicker/VBoxContainer/Hat"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="OutfitName" type="Label" parent="HBoxContainer/OutfitPicker/VBoxContainer/Hat/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Hat"
+label_settings = SubResource("LabelSettings_jhnkm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="HBoxContainer/OutfitPicker/VBoxContainer/Hat/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "1"
+label_settings = SubResource("LabelSettings_bhd5e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CycleUp" type="TextureButton" parent="HBoxContainer/OutfitPicker/VBoxContainer/Hat"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ig4y4")
+texture_pressed = ExtResource("3_7qpq2")
+texture_hover = ExtResource("4_ams87")
+stretch_mode = 4
+
+[node name="Face" type="HBoxContainer" parent="HBoxContainer/OutfitPicker/VBoxContainer" node_paths=PackedStringArray("value", "preview_sprite")]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("7_42pyi")
+part = 1
+value = NodePath("VBoxContainer/Value")
+preview_sprite = NodePath("../../../OutfitPreview/VBoxContainer/PreviewSprite/CanvasGroup/Face")
+
+[node name="CycleDown" type="TextureButton" parent="HBoxContainer/OutfitPicker/VBoxContainer/Face"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ig4y4")
+texture_pressed = ExtResource("3_7qpq2")
+texture_hover = ExtResource("4_ams87")
+stretch_mode = 4
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/OutfitPicker/VBoxContainer/Face"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="OutfitName" type="Label" parent="HBoxContainer/OutfitPicker/VBoxContainer/Face/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Face"
+label_settings = SubResource("LabelSettings_jhnkm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="HBoxContainer/OutfitPicker/VBoxContainer/Face/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "1"
+label_settings = SubResource("LabelSettings_bhd5e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CycleUp" type="TextureButton" parent="HBoxContainer/OutfitPicker/VBoxContainer/Face"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ig4y4")
+texture_pressed = ExtResource("3_7qpq2")
+texture_hover = ExtResource("4_ams87")
+stretch_mode = 4
+
+[node name="Eyes" type="HBoxContainer" parent="HBoxContainer/OutfitPicker/VBoxContainer" node_paths=PackedStringArray("value", "preview_sprite")]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("7_42pyi")
+part = 2
+value = NodePath("VBoxContainer/Value")
+preview_sprite = NodePath("../../../OutfitPreview/VBoxContainer/PreviewSprite/CanvasGroup/Eyes")
+
+[node name="CycleDown" type="TextureButton" parent="HBoxContainer/OutfitPicker/VBoxContainer/Eyes"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ig4y4")
+texture_pressed = ExtResource("3_7qpq2")
+texture_hover = ExtResource("4_ams87")
+stretch_mode = 4
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/OutfitPicker/VBoxContainer/Eyes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="OutfitName" type="Label" parent="HBoxContainer/OutfitPicker/VBoxContainer/Eyes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Eyes"
+label_settings = SubResource("LabelSettings_jhnkm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="HBoxContainer/OutfitPicker/VBoxContainer/Eyes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "1"
+label_settings = SubResource("LabelSettings_bhd5e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CycleUp" type="TextureButton" parent="HBoxContainer/OutfitPicker/VBoxContainer/Eyes"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ig4y4")
+texture_pressed = ExtResource("3_7qpq2")
+texture_hover = ExtResource("4_ams87")
+stretch_mode = 4
+
+[node name="Cloak" type="HBoxContainer" parent="HBoxContainer/OutfitPicker/VBoxContainer" node_paths=PackedStringArray("value", "preview_sprite")]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("7_42pyi")
+part = 3
+value = NodePath("VBoxContainer/Value")
+preview_sprite = NodePath("../../../OutfitPreview/VBoxContainer/PreviewSprite/CanvasGroup/Cloak")
+
+[node name="CycleDown" type="TextureButton" parent="HBoxContainer/OutfitPicker/VBoxContainer/Cloak"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ig4y4")
+texture_pressed = ExtResource("3_7qpq2")
+texture_hover = ExtResource("4_ams87")
+stretch_mode = 4
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/OutfitPicker/VBoxContainer/Cloak"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="OutfitName" type="Label" parent="HBoxContainer/OutfitPicker/VBoxContainer/Cloak/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Cloak"
+label_settings = SubResource("LabelSettings_jhnkm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="HBoxContainer/OutfitPicker/VBoxContainer/Cloak/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "1"
+label_settings = SubResource("LabelSettings_bhd5e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CycleUp" type="TextureButton" parent="HBoxContainer/OutfitPicker/VBoxContainer/Cloak"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ig4y4")
+texture_pressed = ExtResource("3_7qpq2")
+texture_hover = ExtResource("4_ams87")
+stretch_mode = 4
+
+[node name="Robes" type="HBoxContainer" parent="HBoxContainer/OutfitPicker/VBoxContainer" node_paths=PackedStringArray("value", "preview_sprite")]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("7_42pyi")
+part = 4
+value = NodePath("VBoxContainer/Value")
+preview_sprite = NodePath("../../../OutfitPreview/VBoxContainer/PreviewSprite/CanvasGroup/Robes")
+
+[node name="CycleDown" type="TextureButton" parent="HBoxContainer/OutfitPicker/VBoxContainer/Robes"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ig4y4")
+texture_pressed = ExtResource("3_7qpq2")
+texture_hover = ExtResource("4_ams87")
+stretch_mode = 4
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/OutfitPicker/VBoxContainer/Robes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="OutfitName" type="Label" parent="HBoxContainer/OutfitPicker/VBoxContainer/Robes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Robes"
+label_settings = SubResource("LabelSettings_jhnkm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="HBoxContainer/OutfitPicker/VBoxContainer/Robes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "1"
+label_settings = SubResource("LabelSettings_bhd5e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CycleUp" type="TextureButton" parent="HBoxContainer/OutfitPicker/VBoxContainer/Robes"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ig4y4")
+texture_pressed = ExtResource("3_7qpq2")
+texture_hover = ExtResource("4_ams87")
+stretch_mode = 4
+
+[connection signal="pressed" from="HBoxContainer/OutfitPreview/VBoxContainer/ConfirmCancel/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="HBoxContainer/OutfitPreview/VBoxContainer/ConfirmCancel/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="HBoxContainer/OutfitPicker/VBoxContainer/Hat/CycleDown" to="HBoxContainer/OutfitPicker/VBoxContainer/Hat" method="_on_cycle_down_pressed"]
+[connection signal="pressed" from="HBoxContainer/OutfitPicker/VBoxContainer/Hat/CycleUp" to="HBoxContainer/OutfitPicker/VBoxContainer/Hat" method="_on_cycle_up_pressed"]
+[connection signal="pressed" from="HBoxContainer/OutfitPicker/VBoxContainer/Face/CycleDown" to="HBoxContainer/OutfitPicker/VBoxContainer/Face" method="_on_cycle_down_pressed"]
+[connection signal="pressed" from="HBoxContainer/OutfitPicker/VBoxContainer/Face/CycleUp" to="HBoxContainer/OutfitPicker/VBoxContainer/Face" method="_on_cycle_up_pressed"]
+[connection signal="pressed" from="HBoxContainer/OutfitPicker/VBoxContainer/Eyes/CycleDown" to="HBoxContainer/OutfitPicker/VBoxContainer/Eyes" method="_on_cycle_down_pressed"]
+[connection signal="pressed" from="HBoxContainer/OutfitPicker/VBoxContainer/Eyes/CycleUp" to="HBoxContainer/OutfitPicker/VBoxContainer/Eyes" method="_on_cycle_up_pressed"]
+[connection signal="pressed" from="HBoxContainer/OutfitPicker/VBoxContainer/Cloak/CycleDown" to="HBoxContainer/OutfitPicker/VBoxContainer/Cloak" method="_on_cycle_down_pressed"]
+[connection signal="pressed" from="HBoxContainer/OutfitPicker/VBoxContainer/Cloak/CycleUp" to="HBoxContainer/OutfitPicker/VBoxContainer/Cloak" method="_on_cycle_up_pressed"]
+[connection signal="pressed" from="HBoxContainer/OutfitPicker/VBoxContainer/Robes/CycleDown" to="HBoxContainer/OutfitPicker/VBoxContainer/Robes" method="_on_cycle_down_pressed"]
+[connection signal="pressed" from="HBoxContainer/OutfitPicker/VBoxContainer/Robes/CycleUp" to="HBoxContainer/OutfitPicker/VBoxContainer/Robes" method="_on_cycle_up_pressed"]

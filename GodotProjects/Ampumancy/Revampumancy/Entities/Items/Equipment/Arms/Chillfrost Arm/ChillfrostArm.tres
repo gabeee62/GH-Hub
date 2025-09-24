@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ArmData" load_steps=3 format=3 uid="uid://dvsdnmuvherai"]
+
+[ext_resource type="Script" uid="uid://b2p03ajvrmmo3" path="res://Entities/Items/Equipment/Arms/ArmData.gd" id="1_w7nr4"]
+[ext_resource type="Texture2D" uid="uid://chcihagqtonsy" path="res://Entities/Player/Assets/Sprite/Arms/chillfrost_arm.png" id="2_y4u68"]
+
+[resource]
+script = ExtResource("1_w7nr4")
+name = "Chillfrost Arm"
+texture = ExtResource("2_y4u68")
+type = 2
+max_stack = 1
+metadata/_custom_type_script = "uid://b2p03ajvrmmo3"

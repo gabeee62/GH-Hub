@@ -1,0 +1,77 @@
+[gd_scene load_steps=52 format=3 uid="uid://buhl7r7sbfbb1"]
+
+[ext_resource type="Script" uid="uid://b8mfjs72k75e0" path="res://globals/scripts/References.gd" id="1_ivwgl"]
+[ext_resource type="Texture2D" uid="uid://b5kneaucpfkk1" path="res://media/graphics/entities/player/hat/hat.png" id="2_ujkkc"]
+[ext_resource type="Texture2D" uid="uid://buo420et08eto" path="res://media/graphics/entities/player/hat/hat_2.png" id="3_b4xi8"]
+[ext_resource type="Texture2D" uid="uid://brond8g8mvrnh" path="res://media/graphics/entities/player/head/head.png" id="4_tqiil"]
+[ext_resource type="Texture2D" uid="uid://cg5sq7dwxojjo" path="res://media/graphics/entities/player/hat/hat_3.png" id="4_yrfkx"]
+[ext_resource type="Texture2D" uid="uid://blxbitqaca7an" path="res://media/graphics/entities/player/eyes/eyes.png" id="5_isjwn"]
+[ext_resource type="Texture2D" uid="uid://hoky6fsyiyem" path="res://media/graphics/entities/player/eyes/eyes_2.png" id="6_6h5j2"]
+[ext_resource type="Texture2D" uid="uid://dlw4q8qk03rqi" path="res://media/graphics/entities/player/eyes/eyes_3.png" id="7_dwc6c"]
+[ext_resource type="Texture2D" uid="uid://c84osu02nksj1" path="res://media/graphics/entities/player/eyes/eyes_4.png" id="8_yt0un"]
+[ext_resource type="Texture2D" uid="uid://pq38jb56igrk" path="res://media/graphics/entities/player/eyes/eyes_5.png" id="9_un7cr"]
+[ext_resource type="Texture2D" uid="uid://dim7yibfm2b4" path="res://media/graphics/entities/player/eyes/eyes_6.png" id="10_d8xfj"]
+[ext_resource type="Texture2D" uid="uid://cqxlgux7mtl4" path="res://media/graphics/entities/player/cloak/cloak.png" id="11_g54q6"]
+[ext_resource type="Texture2D" uid="uid://dmb17bc30d10v" path="res://media/graphics/entities/player/body/body.png" id="12_fmru7"]
+[ext_resource type="Texture2D" uid="uid://bf36fch8puo70" path="res://media/graphics/backgrounds/Clouds/Clouds 1/1.png" id="13_wjnx1"]
+[ext_resource type="Texture2D" uid="uid://b34vcjd4e886s" path="res://media/graphics/entities/player/cloak/cloak_2.png" id="13_yo8vw"]
+[ext_resource type="Texture2D" uid="uid://c4uglvrxi3ko1" path="res://media/graphics/backgrounds/Clouds/Clouds 1/2.png" id="14_yrfkx"]
+[ext_resource type="Texture2D" uid="uid://bdpufr8fx6w0g" path="res://media/graphics/backgrounds/Clouds/Clouds 1/3.png" id="15_yo8vw"]
+[ext_resource type="Texture2D" uid="uid://db47vq0burt1r" path="res://media/graphics/backgrounds/Clouds/Clouds 1/4.png" id="16_qrdm1"]
+[ext_resource type="Texture2D" uid="uid://ba0k8pqlqhu8d" path="res://media/graphics/backgrounds/Clouds/Clouds 2/1.png" id="17_kgt58"]
+[ext_resource type="Texture2D" uid="uid://bpilh2c8tq5td" path="res://media/graphics/backgrounds/Clouds/Clouds 2/2.png" id="18_kjglm"]
+[ext_resource type="Texture2D" uid="uid://c8n41pcur3qr2" path="res://media/graphics/backgrounds/Clouds/Clouds 2/3.png" id="19_c8d8u"]
+[ext_resource type="Texture2D" uid="uid://ctm8xd1qacr12" path="res://media/graphics/backgrounds/Clouds/Clouds 2/4.png" id="20_jadcd"]
+[ext_resource type="Texture2D" uid="uid://rsg87bq0wu5" path="res://media/graphics/backgrounds/Clouds/Clouds 3/1.png" id="21_3qwbv"]
+[ext_resource type="Texture2D" uid="uid://dywp0flhvcuoa" path="res://media/graphics/backgrounds/Clouds/Clouds 3/2.png" id="22_03k25"]
+[ext_resource type="Texture2D" uid="uid://dwjgswsqj75jc" path="res://media/graphics/backgrounds/Clouds/Clouds 3/3.png" id="23_2dytw"]
+[ext_resource type="Texture2D" uid="uid://k1yqal14qo20" path="res://media/graphics/backgrounds/Clouds/Clouds 3/4.png" id="24_k338a"]
+[ext_resource type="Texture2D" uid="uid://co0s1eu7rff2y" path="res://media/graphics/backgrounds/Clouds/Clouds 4/1.png" id="25_xhn16"]
+[ext_resource type="Texture2D" uid="uid://cdtw8dpju04ou" path="res://media/graphics/backgrounds/Clouds/Clouds 4/2.png" id="26_2ig41"]
+[ext_resource type="Texture2D" uid="uid://b335xjp60bbbj" path="res://media/graphics/backgrounds/Clouds/Clouds 4/3.png" id="27_5wqsn"]
+[ext_resource type="Texture2D" uid="uid://bv8eetpld3rtt" path="res://media/graphics/backgrounds/Clouds/Clouds 4/4.png" id="28_pg30v"]
+[ext_resource type="Texture2D" uid="uid://bb71dx4mw8lh2" path="res://media/graphics/backgrounds/Clouds/Clouds 5/1.png" id="29_qvtes"]
+[ext_resource type="Texture2D" uid="uid://dl0hjubc17h34" path="res://media/graphics/backgrounds/Clouds/Clouds 5/2.png" id="30_gehiv"]
+[ext_resource type="Texture2D" uid="uid://chsm1s61jvh4t" path="res://media/graphics/backgrounds/Clouds/Clouds 5/3.png" id="31_n10rx"]
+[ext_resource type="Texture2D" uid="uid://dj72bq5homjuo" path="res://media/graphics/backgrounds/Clouds/Clouds 5/4.png" id="32_ner1o"]
+[ext_resource type="Texture2D" uid="uid://cbbknk3rr07e0" path="res://media/graphics/backgrounds/Clouds/Clouds 5/5.png" id="33_ijacv"]
+[ext_resource type="Texture2D" uid="uid://nsb1u2kv2gnp" path="res://media/graphics/backgrounds/Clouds/Clouds 6/1.png" id="34_bn8ti"]
+[ext_resource type="Texture2D" uid="uid://d1mr1srtj10sa" path="res://media/graphics/backgrounds/Clouds/Clouds 6/2.png" id="35_4ifos"]
+[ext_resource type="Texture2D" uid="uid://cvj6g8kgiho6f" path="res://media/graphics/backgrounds/Clouds/Clouds 6/3.png" id="36_n7cg1"]
+[ext_resource type="Texture2D" uid="uid://is48fhsfya0" path="res://media/graphics/backgrounds/Clouds/Clouds 6/4.png" id="37_8p48q"]
+[ext_resource type="Texture2D" uid="uid://pjt7588fi5jh" path="res://media/graphics/backgrounds/Clouds/Clouds 6/5.png" id="38_ufdai"]
+[ext_resource type="Texture2D" uid="uid://bovxbo1hlrv6u" path="res://media/graphics/backgrounds/Clouds/Clouds 6/6.png" id="39_43tm0"]
+[ext_resource type="Texture2D" uid="uid://dfpej6rwys68g" path="res://media/graphics/backgrounds/Clouds/Clouds 7/1.png" id="40_47yxo"]
+[ext_resource type="Texture2D" uid="uid://bsvjcewkirihr" path="res://media/graphics/backgrounds/Clouds/Clouds 7/2.png" id="41_5tjcq"]
+[ext_resource type="Texture2D" uid="uid://r87j347jtina" path="res://media/graphics/backgrounds/Clouds/Clouds 7/3.png" id="42_uqnmg"]
+[ext_resource type="Texture2D" uid="uid://ckr1p3yk80qo0" path="res://media/graphics/backgrounds/Clouds/Clouds 7/4.png" id="43_f7na1"]
+[ext_resource type="Texture2D" uid="uid://dktyd84iac7q7" path="res://media/graphics/backgrounds/Clouds/Clouds 8/1.png" id="44_m84rl"]
+[ext_resource type="Texture2D" uid="uid://dbc7g2pxn0fho" path="res://media/graphics/backgrounds/Clouds/Clouds 8/3.png" id="45_s2weo"]
+[ext_resource type="Texture2D" uid="uid://u8403yhqphpw" path="res://media/graphics/backgrounds/Clouds/Clouds 8/4.png" id="46_1d6v4"]
+[ext_resource type="Texture2D" uid="uid://lvsn30eq668r" path="res://media/graphics/backgrounds/Clouds/Clouds 8/5.png" id="47_3lk20"]
+[ext_resource type="Texture2D" uid="uid://dcatw2j45c1f1" path="res://media/graphics/backgrounds/Clouds/Clouds 8/6.png" id="48_sidq0"]
+[ext_resource type="Texture2D" uid="uid://cwvv2m2xfn0m3" path="res://media/graphics/backgrounds/Clouds/Clouds 8/2.png" id="49_fabp8"]
+
+[node name="References" type="Node"]
+script = ExtResource("1_ivwgl")
+Hat = Array[Texture2D]([ExtResource("2_ujkkc"), ExtResource("3_b4xi8"), ExtResource("4_yrfkx"), ExtResource("2_ujkkc"), ExtResource("2_ujkkc"), ExtResource("2_ujkkc"), ExtResource("2_ujkkc"), ExtResource("2_ujkkc")])
+Head = Array[Texture2D]([ExtResource("4_tqiil"), ExtResource("4_tqiil"), ExtResource("4_tqiil"), ExtResource("4_tqiil"), ExtResource("4_tqiil"), ExtResource("4_tqiil"), ExtResource("4_tqiil"), ExtResource("4_tqiil")])
+Eyes = Array[Texture2D]([ExtResource("5_isjwn"), ExtResource("6_6h5j2"), ExtResource("7_dwc6c"), ExtResource("8_yt0un"), ExtResource("9_un7cr"), ExtResource("10_d8xfj"), ExtResource("5_isjwn"), ExtResource("5_isjwn")])
+Cloak = Array[Texture2D]([ExtResource("11_g54q6"), ExtResource("13_yo8vw"), ExtResource("11_g54q6"), ExtResource("11_g54q6"), ExtResource("11_g54q6"), ExtResource("11_g54q6"), ExtResource("11_g54q6"), ExtResource("11_g54q6")])
+Body = Array[Texture2D]([ExtResource("12_fmru7"), ExtResource("12_fmru7"), ExtResource("12_fmru7"), ExtResource("12_fmru7"), ExtResource("12_fmru7"), ExtResource("12_fmru7"), ExtResource("12_fmru7"), ExtResource("12_fmru7")])
+clouds1 = Array[Texture2D]([ExtResource("13_wjnx1"), ExtResource("14_yrfkx"), ExtResource("15_yo8vw"), ExtResource("16_qrdm1")])
+clouds1_auto = Array[float]([0.0, 20.0, 0.0, 50.0, 0.0, 0.0])
+clouds2 = Array[Texture2D]([ExtResource("17_kgt58"), ExtResource("18_kjglm"), ExtResource("19_c8d8u"), ExtResource("20_jadcd")])
+clouds2_auto = Array[float]([0.0, 0.0, 20.0, 40.0, 50.0, 60.0])
+clouds3 = Array[Texture2D]([ExtResource("21_3qwbv"), ExtResource("22_03k25"), ExtResource("23_2dytw"), ExtResource("24_k338a")])
+clouds3_auto = Array[float]([0.0, 0.0, 20.0, 40.0, 50.0, 60.0])
+clouds4 = Array[Texture2D]([ExtResource("25_xhn16"), ExtResource("26_2ig41"), ExtResource("27_5wqsn"), ExtResource("28_pg30v")])
+clouds4_auto = Array[float]([0.0, 0.0, 20.0, 40.0, 50.0, 60.0])
+clouds5 = Array[Texture2D]([ExtResource("29_qvtes"), ExtResource("30_gehiv"), ExtResource("31_n10rx"), ExtResource("32_ner1o"), ExtResource("33_ijacv")])
+clouds5_auto = Array[float]([0.0, 0.0, 20.0, 40.0, 50.0, 60.0])
+clouds6 = Array[Texture2D]([ExtResource("34_bn8ti"), ExtResource("35_4ifos"), ExtResource("36_n7cg1"), ExtResource("37_8p48q"), ExtResource("38_ufdai"), ExtResource("39_43tm0")])
+clouds6_auto = Array[float]([0.0, 0.0, 20.0, 40.0, 50.0, 60.0])
+clouds7 = Array[Texture2D]([ExtResource("40_47yxo"), ExtResource("41_5tjcq"), ExtResource("42_uqnmg"), ExtResource("43_f7na1")])
+clouds7_auto = Array[float]([0.0, 0.0, 20.0, 40.0, 50.0, 60.0])
+clouds8 = Array[Texture2D]([ExtResource("44_m84rl"), ExtResource("49_fabp8"), ExtResource("45_s2weo"), ExtResource("46_1d6v4"), ExtResource("47_3lk20"), ExtResource("48_sidq0")])
+clouds8_auto = Array[float]([0.0, 0.0, 20.0, 40.0, 50.0, 60.0])

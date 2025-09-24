@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="SettingsData" load_steps=6 format=3 uid="uid://cgc8wfj2e0gwn"]
+
+[ext_resource type="Script" uid="uid://cuxbarxnlhhn7" path="res://data/settings/AudioSettingsData.gd" id="1_ugkor"]
+[ext_resource type="Script" uid="uid://pc4pbca3x12w" path="res://data/settings/SettingsData.gd" id="1_ye855"]
+[ext_resource type="Script" uid="uid://h8wisthiykeg" path="res://data/settings/VideoSettingsData.gd" id="2_l3x6a"]
+
+[sub_resource type="Resource" id="Resource_l3x6a"]
+script = ExtResource("1_ugkor")
+game_master_vol = 100
+game_music_vol = 100
+game_sfx_vol = 100
+menu_master_vol = 100
+menu_music_vol = 100
+menu_sfx_vol = 100
+metadata/_custom_type_script = "uid://cuxbarxnlhhn7"
+
+[sub_resource type="Resource" id="Resource_67wnv"]
+script = ExtResource("2_l3x6a")
+metadata/_custom_type_script = "uid://h8wisthiykeg"
+
+[resource]
+script = ExtResource("1_ye855")
+DMG_MARK_MODE = 1
+VIDEO_SETTINGS = SubResource("Resource_67wnv")
+AUDIO_SETTINGS = SubResource("Resource_l3x6a")
+metadata/_custom_type_script = "uid://pc4pbca3x12w"

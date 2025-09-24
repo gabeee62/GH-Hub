@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnekgwflwo7bw"]
+
+[ext_resource type="Texture2D" uid="uid://d3ar0wy5dnulp" path="res://media/graphics/ui/hud/mana/mystic_point.png" id="1_xmpod"]
+
+[node name="MysticPoint" type="TextureRect"]
+texture = ExtResource("1_xmpod")
