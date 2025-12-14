@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=13 format=3 uid="uid://c3narnxmfcka3"]
+
+[ext_resource type="Script" uid="uid://bncxukbv041j7" path="res://Data/Items/Equipment/Weapons/AttachmentSlotData.gd" id="1_fgm0o"]
+[ext_resource type="Script" uid="uid://ceeif32g7itwk" path="res://Data/Items/Equipment/Weapons/AttributeData.gd" id="2_8xmi0"]
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="3_urjuf"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="4_3kp0n"]
+[ext_resource type="Script" uid="uid://btulbsbaxib8p" path="res://Data/Items/RecycleData.gd" id="5_gjsh3"]
+[ext_resource type="Script" uid="uid://cfy8chvrrkc36" path="res://Data/Items/Equipment/Weapons/WeaponData.gd" id="7_ie8cr"]
+
+[sub_resource type="Resource" id="Resource_stfkd"]
+script = ExtResource("1_fgm0o")
+slots = Array[int]([0, 2, 4])
+metadata/_custom_type_script = "uid://bncxukbv041j7"
+
+[sub_resource type="Resource" id="Resource_ehbae"]
+script = ExtResource("2_8xmi0")
+damage = 10.0
+fire_rate = 36.7
+max_range = 55.9
+stability = 78.9
+agility = 46.0
+stealth = 14.0
+metadata/_custom_type_script = "uid://ceeif32g7itwk"
+
+[sub_resource type="Resource" id="Resource_b2i8f"]
+script = ExtResource("4_3kp0n")
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[sub_resource type="Resource" id="Resource_m0jmp"]
+script = ExtResource("5_gjsh3")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="GDScript" id="GDScript_o54qd"]
+script/source = "extends Resource
+class_name SalvageData
+
+@export var items_salvaged: Array[ItemData]
+@export var amount_salvaged: Array[int]
+"
+
+[sub_resource type="Resource" id="Resource_4exfo"]
+script = SubResource("GDScript_o54qd")
+metadata/_custom_type_script = "uid://t4ramijccbx2"
+
+[resource]
+script = ExtResource("7_ie8cr")
+type = 1
+ammo = 2
+penetration = 2
+attributes = SubResource("Resource_ehbae")
+attachments = SubResource("Resource_stfkd")
+rarity = 3
+max_per_stack = 1
+sell_price = 13000
+weight = 11.0
+craftable = true
+recipe = SubResource("Resource_b2i8f")
+recyclable = true
+recycle = SubResource("Resource_m0jmp")
+salvage = SubResource("Resource_4exfo")
+metadata/_custom_type_script = "uid://cfy8chvrrkc36"

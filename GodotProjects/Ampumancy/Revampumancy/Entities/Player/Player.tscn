@@ -1,33 +1,38 @@
-[gd_scene load_steps=66 format=3 uid="uid://ci4dcfwkc3hs3"]
+[gd_scene load_steps=68 format=3 uid="uid://ci4dcfwkc3hs3"]
 
 [ext_resource type="Script" uid="uid://dacl38h5kq78p" path="res://Entities/Player/Player.gd" id="1_e5kic"]
 [ext_resource type="Resource" uid="uid://bp1jtwx4ipaw3" path="res://Entities/Player/Data/Stats/NewStats.tres" id="2_an6q6"]
-[ext_resource type="Script" uid="uid://btdix6dk0tuar" path="res://Entities/Player/Data/MovementData.gd" id="2_vweq0"]
 [ext_resource type="Script" uid="uid://bkknd182nilx6" path="res://Entities/Player/Children/Sprite/Sprite.gd" id="2_ww0jn"]
 [ext_resource type="Resource" uid="uid://5diabyslkix3" path="res://Entities/Player/Data/Equipment/NewEquipment.tres" id="3_lmeus"]
 [ext_resource type="Resource" uid="uid://bpsxdniedwuun" path="res://Entities/Player/Data/Inventory/NewInventory.tres" id="3_t38ms"]
 [ext_resource type="Resource" uid="uid://chucpcytfqsei" path="res://Entities/Player/Data/Outfit/DefaultOutfit.tres" id="5_5m37j"]
 [ext_resource type="Texture2D" uid="uid://b5kneaucpfkk1" path="res://Entities/Player/Assets/Sprite/Hat/hat.png" id="6_jynvv"]
 [ext_resource type="Script" uid="uid://dyxf0a7vhrvii" path="res://Entities/Player/Children/Sprite/LArmContainer.gd" id="6_t38ms"]
+[ext_resource type="Script" uid="uid://btdix6dk0tuar" path="res://Entities/Player/Data/MovementData.gd" id="6_uw7o4"]
+[ext_resource type="Script" uid="uid://d2cp5iobm0if7" path="res://Entities/Player/Data/CastConfiguration.gd" id="7_gallu"]
 [ext_resource type="Texture2D" uid="uid://brond8g8mvrnh" path="res://Entities/Player/Assets/Sprite/Head/head.png" id="7_lmeus"]
 [ext_resource type="Texture2D" uid="uid://blxbitqaca7an" path="res://Entities/Player/Assets/Sprite/Eyes/eyes.png" id="8_061yh"]
 [ext_resource type="Texture2D" uid="uid://cqxlgux7mtl4" path="res://Entities/Player/Assets/Sprite/Cloak/cloak.png" id="9_uw7o4"]
 [ext_resource type="Script" uid="uid://dxgwal2x2ue7t" path="res://Entities/Player/Children/Sprite/RArmContainer.gd" id="11_061yh"]
 [ext_resource type="Texture2D" uid="uid://dmb17bc30d10v" path="res://Entities/Player/Assets/Sprite/Body/body.png" id="11_gallu"]
 
-[sub_resource type="Resource" id="Resource_hl213"]
-script = ExtResource("2_vweq0")
+[sub_resource type="Resource" id="Resource_gallu"]
+script = ExtResource("6_uw7o4")
 movespeed = 50.0
 sprintspeed = 75.0
-accel = 35.0
+accel = 30.0
 decel = 25.0
 air_movespeed = 60.0
 air_accel = 30.0
 air_decel = 20.0
-jump_height = 30.0
+jump_height = 20.0
 time_to_peak = 0.3
-time_to_land = 0.3
+time_to_land = 0.2
 metadata/_custom_type_script = "uid://btdix6dk0tuar"
+
+[sub_resource type="Resource" id="Resource_samso"]
+script = ExtResource("7_gallu")
+metadata/_custom_type_script = "uid://d2cp5iobm0if7"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_samso"]
 radius = 5.0
@@ -2864,7 +2869,8 @@ stats = ExtResource("2_an6q6")
 equipment = ExtResource("3_lmeus")
 inventory = ExtResource("3_t38ms")
 outfit = ExtResource("5_5m37j")
-movedata = SubResource("Resource_hl213")
+move_data = SubResource("Resource_gallu")
+cast_config = SubResource("Resource_samso")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 position = Vector2(0, -50)
@@ -2881,26 +2887,29 @@ script = ExtResource("2_ww0jn")
 [node name="Hat" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("6_jynvv")
 hframes = 4
+frame = 1
 
 [node name="Face" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("7_lmeus")
 hframes = 4
+frame = 1
 
 [node name="Eyes" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("8_061yh")
 hframes = 4
+frame = 1
 
 [node name="CloakR" type="Sprite2D" parent="Sprite"]
 position = Vector2(12, 0)
 texture = ExtResource("9_uw7o4")
 hframes = 8
-frame = 1
+frame = 3
 
 [node name="RArms" type="Node2D" parent="Sprite"]
 script = ExtResource("11_061yh")
 
 [node name="RArm1" type="Sprite2D" parent="Sprite/RArms"]
-position = Vector2(1, -2)
+position = Vector2(2, -1)
 rotation = 0.7853982
 offset = Vector2(6, 0)
 
@@ -2910,7 +2919,7 @@ position = Vector2(12, 0)
 gizmo_extents = 3.0
 
 [node name="RArm2" type="Sprite2D" parent="Sprite/RArms"]
-position = Vector2(2, 1)
+position = Vector2(1, 2)
 rotation = 0.7853982
 offset = Vector2(6, 0)
 
@@ -2922,12 +2931,13 @@ gizmo_extents = 3.0
 [node name="Robes" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("11_gallu")
 hframes = 4
+frame = 1
 
 [node name="LArms" type="Node2D" parent="Sprite"]
 script = ExtResource("6_t38ms")
 
 [node name="LArm2" type="Sprite2D" parent="Sprite/LArms"]
-position = Vector2(-5, 1)
+position = Vector2(-5, 2)
 rotation = 0.7853982
 offset = Vector2(6, 0)
 
@@ -2937,7 +2947,7 @@ position = Vector2(12, 0)
 gizmo_extents = 3.0
 
 [node name="LArm1" type="Sprite2D" parent="Sprite/LArms"]
-position = Vector2(-4, -2)
+position = Vector2(-4, -1)
 rotation = 0.7853982
 offset = Vector2(6, 0)
 
@@ -2950,9 +2960,9 @@ gizmo_extents = 3.0
 position = Vector2(-12, 0)
 texture = ExtResource("9_uw7o4")
 hframes = 8
+frame = 2
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
 root_node = NodePath(".")
 tree_root = SubResource("AnimationNodeStateMachine_ow4hj")
 anim_player = NodePath("AnimationPlayer")

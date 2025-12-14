@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=13 format=3 uid="uid://n0kct5767ea7"]
+
+[ext_resource type="Script" uid="uid://bncxukbv041j7" path="res://Data/Items/Equipment/Weapons/AttachmentSlotData.gd" id="1_fifur"]
+[ext_resource type="Script" uid="uid://cfy8chvrrkc36" path="res://Data/Items/Equipment/Weapons/WeaponData.gd" id="1_inn8m"]
+[ext_resource type="Script" uid="uid://ceeif32g7itwk" path="res://Data/Items/Equipment/Weapons/AttributeData.gd" id="2_dxfww"]
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="3_1isl6"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="4_f8na8"]
+[ext_resource type="Script" uid="uid://btulbsbaxib8p" path="res://Data/Items/RecycleData.gd" id="5_wyu8r"]
+
+[sub_resource type="Resource" id="Resource_5ap4v"]
+script = ExtResource("1_fifur")
+slots = Array[int]([0, 3])
+metadata/_custom_type_script = "uid://bncxukbv041j7"
+
+[sub_resource type="Resource" id="Resource_mjs1a"]
+script = ExtResource("2_dxfww")
+metadata/_custom_type_script = "uid://ceeif32g7itwk"
+
+[sub_resource type="Resource" id="Resource_ddpl6"]
+script = ExtResource("4_f8na8")
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[sub_resource type="Resource" id="Resource_nmg80"]
+script = ExtResource("5_wyu8r")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="GDScript" id="GDScript_o54qd"]
+script/source = "extends Resource
+class_name SalvageData
+
+@export var items_salvaged: Array[ItemData]
+@export var amount_salvaged: Array[int]
+"
+
+[sub_resource type="Resource" id="Resource_dxguu"]
+script = SubResource("GDScript_o54qd")
+metadata/_custom_type_script = "uid://t4ramijccbx2"
+
+[resource]
+script = ExtResource("1_inn8m")
+attributes = SubResource("Resource_mjs1a")
+attachments = SubResource("Resource_5ap4v")
+rarity = 1
+max_per_stack = 1
+craftable = true
+recipe = SubResource("Resource_ddpl6")
+recyclable = true
+recycle = SubResource("Resource_nmg80")
+salvage = SubResource("Resource_dxguu")
+metadata/_custom_type_script = "uid://cfy8chvrrkc36"

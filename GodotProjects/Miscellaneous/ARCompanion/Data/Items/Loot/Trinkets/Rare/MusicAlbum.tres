@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://barjje1a88c5b"]
+
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="1_16w1b"]
+
+[resource]
+script = ExtResource("1_16w1b")
+rarity = 2
+sell_price = 3000
+max_per_stack = 3
+weight = 0.3
+metadata/_custom_type_script = "uid://bjnvqm6whs7fr"

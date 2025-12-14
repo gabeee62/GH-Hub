@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AttachmentData" load_steps=2 format=3 uid="uid://blywcblm0glgg"]
+
+[ext_resource type="Script" uid="uid://ifv6s3dkxwo7" path="res://Data/Items/Equipment/Weapon Mods/AttachmentData.gd" id="1_imej0"]
+
+[resource]
+script = ExtResource("1_imej0")
+mod_type = 2
+craftable = true
+recyclable = true
+metadata/_custom_type_script = "uid://ifv6s3dkxwo7"

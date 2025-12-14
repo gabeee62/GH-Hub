@@ -1,7 +1,7 @@
 @tool
 extends Node2D
 
-@onready var movedata: MovementData = $"../..".movedata
+@onready var move_data: MovementData = $"../..".move_data
 @onready var equipment: PlayerEquipment = $"../..".equipment
 
 var arms: Array[Node]
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 func rotate_arms() -> void:
 	active_arm.look_at(get_global_mouse_position())
-	inactive_arm.rotation_degrees = 90 - (45 * movedata.look_direction)
+	inactive_arm.rotation_degrees = 90 - (45 * move_data.look_direction)
 
 
 func update_arm_sprites() -> void:

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="KeyData" load_steps=7 format=3 uid="uid://cubxhlr46t3jm"]
+
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="1_tu0gd"]
+[ext_resource type="Resource" uid="uid://520iwnwpb5n5" path="res://Data/Items/Loot/Materials/Rare/AdvancedElectricalComponents.tres" id="2_x5gfs"]
+[ext_resource type="Resource" uid="uid://b4budabdbi1g5" path="res://Data/Items/Loot/Materials/Rare/Sensors.tres" id="3_wyahy"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="4_w58jk"]
+[ext_resource type="Script" uid="uid://cljixjv0fv2vf" path="res://Data/Items/Loot/Keys/KeyData.gd" id="5_wyahy"]
+
+[sub_resource type="Resource" id="Resource_5iy0q"]
+script = ExtResource("4_w58jk")
+items_needed = Array[ExtResource("1_tu0gd")]([ExtResource("2_x5gfs"), ExtResource("3_wyahy")])
+amount_needed = Array[int]([1, 3])
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[resource]
+script = ExtResource("5_wyahy")
+unlocks_in = 5
+craftable = true
+recipe = SubResource("Resource_5iy0q")
+rarity = 2
+sell_price = 1000
+max_per_stack = 1
+weight = 0.01
+metadata/_custom_type_script = "uid://bjnvqm6whs7fr"

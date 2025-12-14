@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=12 format=3 uid="uid://ye8u2wvs1erl"]
+
+[ext_resource type="Script" uid="uid://bncxukbv041j7" path="res://Data/Items/Equipment/Weapons/AttachmentSlotData.gd" id="1_2jlar"]
+[ext_resource type="Script" uid="uid://cfy8chvrrkc36" path="res://Data/Items/Equipment/Weapons/WeaponData.gd" id="1_kr05p"]
+[ext_resource type="Script" uid="uid://ceeif32g7itwk" path="res://Data/Items/Equipment/Weapons/AttributeData.gd" id="2_v75d5"]
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="3_182vs"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="4_i802y"]
+[ext_resource type="Script" uid="uid://btulbsbaxib8p" path="res://Data/Items/RecycleData.gd" id="5_8tvmm"]
+
+[sub_resource type="Resource" id="Resource_uhnjn"]
+script = ExtResource("1_2jlar")
+slots = Array[int]([0, 2, 3, 6])
+metadata/_custom_type_script = "uid://bncxukbv041j7"
+
+[sub_resource type="Resource" id="Resource_hqidx"]
+script = ExtResource("2_v75d5")
+damage = 7.0
+fire_rate = 45.3
+max_range = 42.1
+stability = 45.3
+agility = 73.8
+stealth = 19.0
+metadata/_custom_type_script = "uid://ceeif32g7itwk"
+
+[sub_resource type="Resource" id="Resource_lqwg8"]
+script = ExtResource("4_i802y")
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[sub_resource type="Resource" id="Resource_cgpg4"]
+script = ExtResource("5_8tvmm")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="Resource" id="Resource_j1ecx"]
+script = ExtResource("5_8tvmm")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[resource]
+script = ExtResource("1_kr05p")
+type = 1
+attributes = SubResource("Resource_hqidx")
+attachments = SubResource("Resource_uhnjn")
+max_per_stack = 1
+craftable = true
+recipe = SubResource("Resource_lqwg8")
+recyclable = true
+recycle = SubResource("Resource_cgpg4")
+salvage = SubResource("Resource_j1ecx")
+metadata/_custom_type_script = "uid://cfy8chvrrkc36"

@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=12 format=3 uid="uid://6xfkt27vkf55"]
+
+[ext_resource type="Script" uid="uid://cfy8chvrrkc36" path="res://Data/Items/Equipment/Weapons/WeaponData.gd" id="1_7i5tg"]
+[ext_resource type="Script" uid="uid://bncxukbv041j7" path="res://Data/Items/Equipment/Weapons/AttachmentSlotData.gd" id="1_ruoi4"]
+[ext_resource type="Script" uid="uid://ceeif32g7itwk" path="res://Data/Items/Equipment/Weapons/AttributeData.gd" id="2_qjmp4"]
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="3_84780"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="4_xy0k3"]
+[ext_resource type="Script" uid="uid://btulbsbaxib8p" path="res://Data/Items/RecycleData.gd" id="5_mok32"]
+
+[sub_resource type="Resource" id="Resource_8lc87"]
+script = ExtResource("1_ruoi4")
+slots = Array[int]([0, 2, 3, 6])
+metadata/_custom_type_script = "uid://bncxukbv041j7"
+
+[sub_resource type="Resource" id="Resource_gfbma"]
+script = ExtResource("2_qjmp4")
+damage = 6.0
+fire_rate = 66.7
+max_range = 44.0
+stability = 45.9
+agility = 45.1
+stealth = 21.0
+metadata/_custom_type_script = "uid://ceeif32g7itwk"
+
+[sub_resource type="Resource" id="Resource_pnvqk"]
+script = ExtResource("4_xy0k3")
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[sub_resource type="Resource" id="Resource_775es"]
+script = ExtResource("5_mok32")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="Resource" id="Resource_ad1jv"]
+script = ExtResource("5_mok32")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[resource]
+script = ExtResource("1_7i5tg")
+type = 1
+attributes = SubResource("Resource_gfbma")
+attachments = SubResource("Resource_8lc87")
+rarity = 3
+max_per_stack = 1
+craftable = true
+recipe = SubResource("Resource_pnvqk")
+recyclable = true
+recycle = SubResource("Resource_775es")
+salvage = SubResource("Resource_ad1jv")
+metadata/_custom_type_script = "uid://cfy8chvrrkc36"

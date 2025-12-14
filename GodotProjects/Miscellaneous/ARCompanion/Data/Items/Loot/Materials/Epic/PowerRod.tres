@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://bptu01g8un1bd"]
+
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="1_b0hy3"]
+[ext_resource type="Resource" uid="uid://520iwnwpb5n5" path="res://Data/Items/Loot/Materials/Rare/AdvancedElectricalComponents.tres" id="2_oqs7b"]
+[ext_resource type="Resource" uid="uid://blfddjprtuyyu" path="res://Data/Items/Loot/Materials/Rare/ARCCircuitry.tres" id="3_kq7dc"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="4_pvokc"]
+
+[sub_resource type="Resource" id="Resource_cgo81"]
+script = ExtResource("4_pvokc")
+items_needed = Array[ExtResource("1_b0hy3")]([ExtResource("2_oqs7b"), ExtResource("3_kq7dc")])
+amount_needed = Array[int]([2, 2])
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[resource]
+script = ExtResource("1_b0hy3")
+craftable = true
+recipe = SubResource("Resource_cgo81")
+recyclable = true
+rarity = 3
+sell_price = 5000
+max_per_stack = 3
+weight = 1.0
+metadata/_custom_type_script = "uid://bjnvqm6whs7fr"

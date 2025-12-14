@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://d0sn85nv5vohn"]
+
+[ext_resource type="Script" uid="uid://cckq57t7i5drx" path="res://Data/Characters/CharacterData.gd" id="1_v52ja"]
+
+[resource]
+script = ExtResource("1_v52ja")
+Name = null
+Level = null
+experience = null
+constitution = null
+strength = null
+dexterity = null
+intelligence = null
+charisma = null
+wisdom = null
+metadata/_custom_type_script = "uid://cckq57t7i5drx"

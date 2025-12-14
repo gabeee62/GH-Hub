@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dpm33toq2ufon"]
+
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="1_pbuq6"]
+[ext_resource type="Resource" uid="uid://wpygp5t4flgo" path="res://Data/Items/Loot/Materials/Uncommon/ARCAlloy.tres" id="2_ylohs"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="3_caoey"]
+
+[sub_resource type="Resource" id="Resource_exheh"]
+script = ExtResource("3_caoey")
+items_needed = Array[ExtResource("1_pbuq6")]([ExtResource("2_ylohs")])
+amount_needed = Array[int]([8])
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[resource]
+script = ExtResource("1_pbuq6")
+craftable = true
+recipe = SubResource("Resource_exheh")
+recyclable = true
+rarity = 2
+metadata/_custom_type_script = "uid://bjnvqm6whs7fr"

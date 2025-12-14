@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=12 format=3 uid="uid://dlcm5pwrf2k4m"]
+
+[ext_resource type="Script" uid="uid://bncxukbv041j7" path="res://Data/Items/Equipment/Weapons/AttachmentSlotData.gd" id="1_1ejil"]
+[ext_resource type="Script" uid="uid://cfy8chvrrkc36" path="res://Data/Items/Equipment/Weapons/WeaponData.gd" id="1_ct5r1"]
+[ext_resource type="Script" uid="uid://ceeif32g7itwk" path="res://Data/Items/Equipment/Weapons/AttributeData.gd" id="2_2vjop"]
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="3_leftd"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="4_nrikj"]
+[ext_resource type="Script" uid="uid://btulbsbaxib8p" path="res://Data/Items/RecycleData.gd" id="5_lt775"]
+
+[sub_resource type="Resource" id="Resource_mjkxd"]
+script = ExtResource("1_1ejil")
+metadata/_custom_type_script = "uid://bncxukbv041j7"
+
+[sub_resource type="Resource" id="Resource_leftd"]
+script = ExtResource("2_2vjop")
+metadata/_custom_type_script = "uid://ceeif32g7itwk"
+
+[sub_resource type="Resource" id="Resource_g21pf"]
+script = ExtResource("4_nrikj")
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[sub_resource type="Resource" id="Resource_sncr7"]
+script = ExtResource("5_lt775")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="Resource" id="Resource_2ja70"]
+script = ExtResource("5_lt775")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[resource]
+script = ExtResource("1_ct5r1")
+type = 1
+ammo = 4
+penetration = 3
+attributes = SubResource("Resource_leftd")
+attachments = SubResource("Resource_mjkxd")
+rarity = 4
+max_per_stack = 1
+craftable = true
+recipe = SubResource("Resource_g21pf")
+recyclable = true
+recycle = SubResource("Resource_sncr7")
+salvage = SubResource("Resource_2ja70")
+metadata/_custom_type_script = "uid://cfy8chvrrkc36"

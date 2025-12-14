@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ShieldData" load_steps=5 format=3 uid="uid://bre2sujx1ofug"]
+
+[ext_resource type="Script" uid="uid://dxq1cuj8gvgbj" path="res://Data/Items/Equipment/Shields/ShieldData.gd" id="1_p7ssd"]
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="1_u707k"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="2_5hlnq"]
+
+[sub_resource type="Resource" id="Resource_4n4dr"]
+script = ExtResource("2_5hlnq")
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[resource]
+script = ExtResource("1_p7ssd")
+charge = 40.0
+damage_reduction = 40.0
+craftable = true
+recipe = SubResource("Resource_4n4dr")
+metadata/_custom_type_script = "uid://dxq1cuj8gvgbj"

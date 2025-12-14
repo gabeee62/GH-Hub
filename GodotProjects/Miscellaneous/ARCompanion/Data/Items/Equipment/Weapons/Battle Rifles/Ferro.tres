@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=15 format=3 uid="uid://cnxpmqy4wd8bs"]
+
+[ext_resource type="Script" uid="uid://bncxukbv041j7" path="res://Data/Items/Equipment/Weapons/AttachmentSlotData.gd" id="1_e3l15"]
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="2_e3l15"]
+[ext_resource type="Script" uid="uid://ceeif32g7itwk" path="res://Data/Items/Equipment/Weapons/AttributeData.gd" id="2_ijk0m"]
+[ext_resource type="Resource" uid="uid://c4rxrndlyhfjj" path="res://Data/Items/Loot/Materials/Common/MetalParts.tres" id="3_ijk0m"]
+[ext_resource type="Resource" uid="uid://dodej8rcqvfmo" path="res://Data/Items/Loot/Materials/Common/RubberParts.tres" id="4_h5qj6"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="5_g5rjj"]
+[ext_resource type="Script" uid="uid://btulbsbaxib8p" path="res://Data/Items/RecycleData.gd" id="6_xvwkp"]
+[ext_resource type="Script" uid="uid://cfy8chvrrkc36" path="res://Data/Items/Equipment/Weapons/WeaponData.gd" id="8_ivk8e"]
+
+[sub_resource type="Resource" id="Resource_g5rjj"]
+script = ExtResource("1_e3l15")
+slots = Array[int]([0, 2, 6])
+metadata/_custom_type_script = "uid://bncxukbv041j7"
+
+[sub_resource type="Resource" id="Resource_fwams"]
+script = ExtResource("2_ijk0m")
+damage = 40.0
+fire_rate = 6.6
+max_range = 53.1
+stability = 78.1
+agility = 32.1
+stealth = 8.0
+metadata/_custom_type_script = "uid://ceeif32g7itwk"
+
+[sub_resource type="Resource" id="Resource_n8i5w"]
+script = ExtResource("5_g5rjj")
+items_needed = Array[ExtResource("2_e3l15")]([ExtResource("3_ijk0m"), ExtResource("4_h5qj6")])
+amount_needed = Array[int]([5, 2])
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[sub_resource type="Resource" id="Resource_x1jsl"]
+script = ExtResource("6_xvwkp")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="GDScript" id="GDScript_o54qd"]
+script/source = "extends Resource
+class_name SalvageData
+
+@export var items_salvaged: Array[ItemData]
+@export var amount_salvaged: Array[int]
+"
+
+[sub_resource type="Resource" id="Resource_4wio5"]
+script = SubResource("GDScript_o54qd")
+metadata/_custom_type_script = "uid://t4ramijccbx2"
+
+[resource]
+script = ExtResource("8_ivk8e")
+type = 5
+ammo = 3
+penetration = 3
+attributes = SubResource("Resource_fwams")
+attachments = SubResource("Resource_g5rjj")
+max_per_stack = 1
+craftable = true
+recipe = SubResource("Resource_n8i5w")
+recyclable = true
+recycle = SubResource("Resource_x1jsl")
+salvage = SubResource("Resource_4wio5")
+metadata/_custom_type_script = "uid://cfy8chvrrkc36"

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=9 format=3 uid="uid://b81w0ge77lcyv"]
+
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="1_04v33"]
+[ext_resource type="Resource" uid="uid://put3uyp4s7ui" path="res://Data/Items/Equipment/Quick Use Items/Consumables/Common/ARCPowercell.tres" id="2_q3avb"]
+[ext_resource type="Script" uid="uid://btulbsbaxib8p" path="res://Data/Items/RecycleData.gd" id="3_dqhtg"]
+[ext_resource type="Script" uid="uid://t4ramijccbx2" path="res://Data/Items/SalvageData.gd" id="4_n4pnu"]
+[ext_resource type="Script" uid="uid://bcn2y4o44tese" path="res://Data/Items/TagData.gd" id="5_q3avb"]
+
+[sub_resource type="Resource" id="Resource_16gte"]
+script = ExtResource("3_dqhtg")
+items_recycled = Array[ExtResource("1_04v33")]([ExtResource("2_q3avb")])
+amount_recycled = Array[int]([2])
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="Resource" id="Resource_xs1t5"]
+script = ExtResource("4_n4pnu")
+items_salvaged = Array[ExtResource("1_04v33")]([ExtResource("2_q3avb")])
+amount_salvaged = Array[int]([1])
+metadata/_custom_type_script = "uid://t4ramijccbx2"
+
+[sub_resource type="Resource" id="Resource_dqhtg"]
+script = ExtResource("5_q3avb")
+item_type = Array[int]([0])
+metadata/_custom_type_script = "uid://bcn2y4o44tese"
+
+[resource]
+script = ExtResource("1_04v33")
+tags = SubResource("Resource_dqhtg")
+recyclable = true
+recycle = SubResource("Resource_16gte")
+salvage = SubResource("Resource_xs1t5")
+rarity = 2
+sell_price = 640
+max_per_stack = 5
+weight = 0.5
+metadata/_custom_type_script = "uid://bjnvqm6whs7fr"

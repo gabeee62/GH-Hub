@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://bkc80n6xf1nhn"]
+
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="1_r5jd6"]
+[ext_resource type="Resource" uid="uid://dodej8rcqvfmo" path="res://Data/Items/Loot/Materials/Common/RubberParts.tres" id="2_qvqrk"]
+[ext_resource type="Resource" uid="uid://kal3tsnxaurb" path="res://Data/Items/Loot/Materials/Common/PlasticParts.tres" id="3_ej2g1"]
+[ext_resource type="Script" uid="uid://btulbsbaxib8p" path="res://Data/Items/RecycleData.gd" id="4_lok7j"]
+[ext_resource type="Script" uid="uid://t4ramijccbx2" path="res://Data/Items/SalvageData.gd" id="5_qr7s5"]
+
+[sub_resource type="Resource" id="Resource_1vh2t"]
+script = ExtResource("4_lok7j")
+items_recycled = Array[ExtResource("1_r5jd6")]([ExtResource("2_qvqrk"), ExtResource("3_ej2g1")])
+amount_recycled = Array[int]([2, 2])
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="Resource" id="Resource_draw6"]
+script = ExtResource("5_qr7s5")
+items_salvaged = Array[ExtResource("1_r5jd6")]([ExtResource("2_qvqrk"), ExtResource("3_ej2g1")])
+amount_salvaged = Array[int]([1, 1])
+metadata/_custom_type_script = "uid://t4ramijccbx2"
+
+[resource]
+script = ExtResource("1_r5jd6")
+recyclable = true
+recycle = SubResource("Resource_1vh2t")
+salvage = SubResource("Resource_draw6")
+sell_price = 270
+max_per_stack = 1
+weight = 3.0
+metadata/_custom_type_script = "uid://bjnvqm6whs7fr"

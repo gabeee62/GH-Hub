@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=12 format=3 uid="uid://ck3075qtqspt5"]
+
+[ext_resource type="Script" uid="uid://cfy8chvrrkc36" path="res://Data/Items/Equipment/Weapons/WeaponData.gd" id="1_jg3gy"]
+[ext_resource type="Script" uid="uid://bncxukbv041j7" path="res://Data/Items/Equipment/Weapons/AttachmentSlotData.gd" id="1_l3468"]
+[ext_resource type="Script" uid="uid://ceeif32g7itwk" path="res://Data/Items/Equipment/Weapons/AttributeData.gd" id="2_xsn0c"]
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="3_wkm3g"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="4_k5tkj"]
+[ext_resource type="Script" uid="uid://btulbsbaxib8p" path="res://Data/Items/RecycleData.gd" id="5_3hod8"]
+
+[sub_resource type="Resource" id="Resource_230by"]
+script = ExtResource("1_l3468")
+slots = Array[int]([1, 2, 5, 6])
+metadata/_custom_type_script = "uid://bncxukbv041j7"
+
+[sub_resource type="Resource" id="Resource_yxs8d"]
+script = ExtResource("2_xsn0c")
+damage = 49.5
+fire_rate = 26.3
+max_range = 26.0
+stability = 68.6
+agility = 70.3
+stealth = 15.0
+metadata/_custom_type_script = "uid://ceeif32g7itwk"
+
+[sub_resource type="Resource" id="Resource_2tvxy"]
+script = ExtResource("4_k5tkj")
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[sub_resource type="Resource" id="Resource_vj3gs"]
+script = ExtResource("5_3hod8")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="Resource" id="Resource_rgpqe"]
+script = ExtResource("5_3hod8")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[resource]
+script = ExtResource("1_jg3gy")
+ammo = 1
+penetration = 1
+attributes = SubResource("Resource_yxs8d")
+attachments = SubResource("Resource_230by")
+rarity = 3
+max_per_stack = 1
+craftable = true
+recipe = SubResource("Resource_2tvxy")
+recyclable = true
+recycle = SubResource("Resource_vj3gs")
+salvage = SubResource("Resource_rgpqe")
+metadata/_custom_type_script = "uid://cfy8chvrrkc36"

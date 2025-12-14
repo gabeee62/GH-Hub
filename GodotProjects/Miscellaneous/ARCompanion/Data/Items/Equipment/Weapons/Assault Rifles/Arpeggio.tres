@@ -1,0 +1,119 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=24 format=3 uid="uid://b3l7ib41bbeer"]
+
+[ext_resource type="Script" uid="uid://bncxukbv041j7" path="res://Data/Items/Equipment/Weapons/AttachmentSlotData.gd" id="1_o54qd"]
+[ext_resource type="Script" uid="uid://ceeif32g7itwk" path="res://Data/Items/Equipment/Weapons/AttributeData.gd" id="2_1xmva"]
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="3_cefmo"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="4_0lbxu"]
+[ext_resource type="Resource" uid="uid://nkmmn8tq5u63" path="res://Data/Items/Loot/Materials/Uncommon/MechanicalComponents.tres" id="4_1xmva"]
+[ext_resource type="Script" uid="uid://btulbsbaxib8p" path="res://Data/Items/RecycleData.gd" id="5_6qusq"]
+[ext_resource type="Resource" uid="uid://bumbth0nmbs1y" path="res://Data/Items/Loot/Materials/Uncommon/SimpleGunParts.tres" id="5_cefmo"]
+[ext_resource type="Script" uid="uid://cfy8chvrrkc36" path="res://Data/Items/Equipment/Weapons/WeaponData.gd" id="7_3gdbp"]
+
+[sub_resource type="Resource" id="Resource_asghq"]
+script = ExtResource("1_o54qd")
+slots = Array[int]([0, 2, 4, 6])
+metadata/_custom_type_script = "uid://bncxukbv041j7"
+
+[sub_resource type="Resource" id="Resource_0lbxu"]
+script = ExtResource("2_1xmva")
+damage = 9.5
+fire_rate = 18.3
+max_range = 55.9
+stability = 84.0
+agility = 57.3
+stealth = 14.0
+metadata/_custom_type_script = "uid://ceeif32g7itwk"
+
+[sub_resource type="Resource" id="Resource_6qusq"]
+script = ExtResource("4_0lbxu")
+items_needed = Array[ExtResource("3_cefmo")]([ExtResource("4_1xmva"), ExtResource("5_cefmo")])
+amount_needed = Array[int]([4, 1])
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[sub_resource type="Resource" id="Resource_aoa6v"]
+script = ExtResource("5_6qusq")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="GDScript" id="GDScript_o54qd"]
+script/source = "extends Resource
+class_name SalvageData
+
+@export var items_salvaged: Array[ItemData]
+@export var amount_salvaged: Array[int]
+"
+
+[sub_resource type="Resource" id="Resource_3gdbp"]
+script = SubResource("GDScript_o54qd")
+metadata/_custom_type_script = "uid://t4ramijccbx2"
+
+[sub_resource type="Resource" id="Resource_44s5u"]
+script = ExtResource("4_0lbxu")
+items_needed = Array[ExtResource("3_cefmo")]([ExtResource("4_1xmva"), ExtResource("5_cefmo")])
+amount_needed = Array[int]([5, 1])
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[sub_resource type="Resource" id="Resource_fp0y2"]
+script = ExtResource("5_6qusq")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="Resource" id="Resource_6clwy"]
+script = SubResource("GDScript_o54qd")
+metadata/_custom_type_script = "uid://t4ramijccbx2"
+
+[sub_resource type="Resource" id="Resource_diqrw"]
+script = ExtResource("4_0lbxu")
+items_needed = Array[ExtResource("3_cefmo")]([ExtResource("4_1xmva"), ExtResource("5_cefmo")])
+amount_needed = Array[int]([5, 1])
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[sub_resource type="Resource" id="Resource_26g5h"]
+script = ExtResource("5_6qusq")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="Resource" id="Resource_tvned"]
+script = SubResource("GDScript_o54qd")
+metadata/_custom_type_script = "uid://t4ramijccbx2"
+
+[sub_resource type="Resource" id="Resource_cj63y"]
+script = ExtResource("4_0lbxu")
+items_needed = Array[ExtResource("3_cefmo")]([ExtResource("4_1xmva"), ExtResource("5_cefmo")])
+amount_needed = Array[int]([6, 6])
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[sub_resource type="Resource" id="Resource_8v82d"]
+script = ExtResource("5_6qusq")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="Resource" id="Resource_lhemi"]
+script = SubResource("GDScript_o54qd")
+metadata/_custom_type_script = "uid://t4ramijccbx2"
+
+[resource]
+script = ExtResource("7_3gdbp")
+type = 3
+ammo = 2
+penetration = 2
+attributes = SubResource("Resource_0lbxu")
+attachments = SubResource("Resource_asghq")
+level_2_recipe = SubResource("Resource_6qusq")
+level_3_recipe = SubResource("Resource_44s5u")
+level_4_recipe = SubResource("Resource_diqrw")
+level_2_recycle = SubResource("Resource_aoa6v")
+level_3_recycle = SubResource("Resource_fp0y2")
+level_4_recycle = SubResource("Resource_26g5h")
+level_2_salvage = SubResource("Resource_3gdbp")
+level_3_salvage = SubResource("Resource_6clwy")
+level_4_salvage = SubResource("Resource_tvned")
+level_2_sell_price = 8000
+level_3_sell_price = 11500
+level_4_sell_price = 15000
+rarity = 1
+max_per_stack = 1
+sell_price = 5500
+weight = 7.0
+craftable = true
+recipe = SubResource("Resource_cj63y")
+recyclable = true
+recycle = SubResource("Resource_8v82d")
+salvage = SubResource("Resource_lhemi")
+metadata/_custom_type_script = "uid://cfy8chvrrkc36"

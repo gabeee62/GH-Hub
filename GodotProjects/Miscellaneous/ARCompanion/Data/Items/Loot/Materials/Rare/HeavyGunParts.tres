@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cylkhh6jbw114"]
+
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="1_188ab"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="2_k4asp"]
+
+[sub_resource type="Resource" id="Resource_743al"]
+script = ExtResource("2_k4asp")
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[resource]
+script = ExtResource("1_188ab")
+craftable = true
+recipe = SubResource("Resource_743al")
+recyclable = true
+rarity = 2
+metadata/_custom_type_script = "uid://bjnvqm6whs7fr"

@@ -21,7 +21,6 @@ tile_set = ExtResource("3_286st")
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_q1cbv")]
-position = Vector2(0, -3)
 
 [node name="Terrain" type="TileMapLayer" parent="."]
 tile_set = ExtResource("2_wbw1h")

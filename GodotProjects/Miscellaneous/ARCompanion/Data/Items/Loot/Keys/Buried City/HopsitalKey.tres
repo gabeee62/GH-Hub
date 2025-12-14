@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="KeyData" load_steps=2 format=3 uid="uid://bun2nok1ecreo"]
+
+[ext_resource type="Script" uid="uid://cljixjv0fv2vf" path="res://Data/Items/Loot/Keys/KeyData.gd" id="1_o36qk"]
+
+[resource]
+script = ExtResource("1_o36qk")
+unlocks_in = 1
+rarity = 2
+sell_price = 100
+max_per_stack = 1
+weight = 0.25
+metadata/_custom_type_script = "uid://bjnvqm6whs7fr"

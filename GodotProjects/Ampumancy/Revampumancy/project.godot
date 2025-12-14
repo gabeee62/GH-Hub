@@ -21,6 +21,10 @@ SignalBus="*res://Config/Globals/SignalBus.gd"
 Singletons="*res://Config/Globals/Singletons.gd"
 References="*res://Config/Globals/References.tscn"
 
+[debug]
+
+shader_language/warnings/unused_local_variable=false
+
 [diisis]
 
 project/file/path=""

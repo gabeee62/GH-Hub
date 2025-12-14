@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=13 format=3 uid="uid://domrrh25t7wat"]
+
+[ext_resource type="Script" uid="uid://bncxukbv041j7" path="res://Data/Items/Equipment/Weapons/AttachmentSlotData.gd" id="1_jjbib"]
+[ext_resource type="Script" uid="uid://cfy8chvrrkc36" path="res://Data/Items/Equipment/Weapons/WeaponData.gd" id="1_narx8"]
+[ext_resource type="Script" uid="uid://ceeif32g7itwk" path="res://Data/Items/Equipment/Weapons/AttributeData.gd" id="2_p7qfx"]
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="3_dto0n"]
+[ext_resource type="Script" uid="uid://dqyqno3xurobv" path="res://Data/Items/RecipeData.gd" id="4_shcov"]
+[ext_resource type="Script" uid="uid://btulbsbaxib8p" path="res://Data/Items/RecycleData.gd" id="5_6ymgo"]
+
+[sub_resource type="Resource" id="Resource_gw6r1"]
+script = ExtResource("1_jjbib")
+slots = Array[int]([0, 2, 3, 6])
+metadata/_custom_type_script = "uid://bncxukbv041j7"
+
+[sub_resource type="Resource" id="Resource_7qcww"]
+script = ExtResource("2_p7qfx")
+damage = 10.0
+fire_rate = 28.0
+max_range = 42.8
+stability = 69.8
+agility = 58.5
+stealth = 26.0
+metadata/_custom_type_script = "uid://ceeif32g7itwk"
+
+[sub_resource type="Resource" id="Resource_kdj5p"]
+script = ExtResource("4_shcov")
+metadata/_custom_type_script = "uid://dqyqno3xurobv"
+
+[sub_resource type="Resource" id="Resource_4yacu"]
+script = ExtResource("5_6ymgo")
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="GDScript" id="GDScript_o54qd"]
+script/source = "extends Resource
+class_name SalvageData
+
+@export var items_salvaged: Array[ItemData]
+@export var amount_salvaged: Array[int]
+"
+
+[sub_resource type="Resource" id="Resource_uiypk"]
+script = SubResource("GDScript_o54qd")
+metadata/_custom_type_script = "uid://t4ramijccbx2"
+
+[resource]
+script = ExtResource("1_narx8")
+attributes = SubResource("Resource_7qcww")
+attachments = SubResource("Resource_gw6r1")
+max_per_stack = 1
+sell_price = 840
+weight = 7.0
+craftable = true
+recipe = SubResource("Resource_kdj5p")
+recyclable = true
+recycle = SubResource("Resource_4yacu")
+salvage = SubResource("Resource_uiypk")
+metadata/_custom_type_script = "uid://cfy8chvrrkc36"

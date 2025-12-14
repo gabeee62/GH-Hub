@@ -12,7 +12,7 @@ var inactive_arm: Sprite2D
 
 func _ready() -> void:
 	arms = get_children()
-	movedata = $"../..".movedata
+	movedata = $"../..".move_data
 	equipment = $"../..".equipment
 	update_arm_sprites()
 	reset_active()

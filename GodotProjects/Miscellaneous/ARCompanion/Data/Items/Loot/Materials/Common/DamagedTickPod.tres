@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://dxtq58a52viq7"]
+
+[ext_resource type="Script" uid="uid://bjnvqm6whs7fr" path="res://Data/Items/ItemData.gd" id="1_wg8yi"]
+[ext_resource type="Resource" uid="uid://wpygp5t4flgo" path="res://Data/Items/Loot/Materials/Uncommon/ARCAlloy.tres" id="2_fn7k1"]
+[ext_resource type="Script" uid="uid://btulbsbaxib8p" path="res://Data/Items/RecycleData.gd" id="3_yhgxf"]
+[ext_resource type="Resource" uid="uid://c4rxrndlyhfjj" path="res://Data/Items/Loot/Materials/Common/MetalParts.tres" id="4_u6axq"]
+[ext_resource type="Script" uid="uid://t4ramijccbx2" path="res://Data/Items/SalvageData.gd" id="5_bk165"]
+
+[sub_resource type="Resource" id="Resource_kv1s7"]
+script = ExtResource("3_yhgxf")
+items_recycled = Array[ExtResource("1_wg8yi")]([ExtResource("2_fn7k1")])
+amount_recycled = Array[int]([1])
+metadata/_custom_type_script = "uid://btulbsbaxib8p"
+
+[sub_resource type="Resource" id="Resource_6elaa"]
+script = ExtResource("5_bk165")
+items_salvaged = Array[ExtResource("1_wg8yi")]([ExtResource("4_u6axq")])
+amount_salvaged = Array[int]([1])
+metadata/_custom_type_script = "uid://t4ramijccbx2"
+
+[resource]
+script = ExtResource("1_wg8yi")
+recyclable = true
+recycle = SubResource("Resource_kv1s7")
+salvage = SubResource("Resource_6elaa")
+sell_price = 270
+max_per_stack = 3
+weight = 0.25
+metadata/_custom_type_script = "uid://bjnvqm6whs7fr"
