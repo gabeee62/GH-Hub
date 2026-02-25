@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ArmItem" format=3 uid="uid://dqjypo6dhad6t"]
+
+[ext_resource type="Script" uid="uid://cw0f2a4kvq11g" path="res://Server/Item/Items/Item_Template.gd" id="1_iyka8"]
+[ext_resource type="Script" uid="uid://ierkbdw3tig0" path="res://Server/Item/Items/Equipment/Arm/Arm_Template.gd" id="2_qk6pn"]
+[ext_resource type="Texture2D" uid="uid://b6676j00ebds1" path="res://Common/Textures/Entity/Player/Arms/Golemstone.png" id="3_iyka8"]
+
+[resource]
+script = ExtResource("2_qk6pn")
+name = "Golemstone Arm"
+texture = ExtResource("3_iyka8")
+max_stack = 1
+categories = Array[StringName]([&"Equipment", &"Arm"])
+metadata/_custom_type_script = "uid://ierkbdw3tig0"

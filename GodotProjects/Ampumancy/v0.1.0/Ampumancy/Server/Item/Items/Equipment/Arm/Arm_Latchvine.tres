@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ArmItem" format=3 uid="uid://c3g4vpy5w1omw"]
+
+[ext_resource type="Script" uid="uid://cw0f2a4kvq11g" path="res://Server/Item/Items/Item_Template.gd" id="1_8wdbw"]
+[ext_resource type="Script" uid="uid://ierkbdw3tig0" path="res://Server/Item/Items/Equipment/Arm/Arm_Template.gd" id="2_sok25"]
+[ext_resource type="Texture2D" uid="uid://0o0nkmpbp5kg" path="res://Common/Textures/Entity/Player/Arms/Latchvine.png" id="3_sayth"]
+
+[resource]
+script = ExtResource("2_sok25")
+name = "Latchvine Arm"
+texture = ExtResource("3_sayth")
+max_stack = 1
+categories = Array[StringName]([&"Equipment", &"Arm"])
+metadata/_custom_type_script = "uid://ierkbdw3tig0"

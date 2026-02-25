@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dt81siwcy8sct"]
+
+[ext_resource type="Script" uid="uid://dn4q5kywnvlvr" path="res://Server/Zone/FunctionNodes/Menu/Pause/Script.gd" id="1_jd7ir"]
+
+[node name="PauseMenu" type="Control" unique_id=1334571678]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jd7ir")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1554898372]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.58431375)
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1780532385]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" type="Button" parent="Buttons" unique_id=2061946596]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+text = "Options"
+
+[node name="Mods" type="Button" parent="Buttons" unique_id=218532053]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+text = "Mods"
+
+[node name="MenuQuit" type="Button" parent="Buttons" unique_id=1975329082]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+text = "Quit to Main Menu"
+
+[node name="DesktopQuit" type="Button" parent="Buttons" unique_id=422504277]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+text = "Quit to Desktop"
+
+[node name="Back" type="Button" parent="Buttons" unique_id=2128795085]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/Mods" to="." method="_on_mods_pressed"]
+[connection signal="pressed" from="Buttons/MenuQuit" to="." method="_on_menu_quit_pressed"]
+[connection signal="pressed" from="Buttons/DesktopQuit" to="." method="_on_desktop_quit_pressed"]
+[connection signal="pressed" from="Buttons/Back" to="." method="_on_back_pressed"]

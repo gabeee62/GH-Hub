@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemSet" format=3 uid="uid://bsikgf5uxhf0n"]
+
+[ext_resource type="Script" uid="uid://d2rwjc4uwspfq" path="res://Server/Item/Sets/ItemSet.gd" id="1_hieed"]
+[ext_resource type="Script" uid="uid://cw0f2a4kvq11g" path="res://Server/Item/Items/Item_Template.gd" id="2_xkhoc"]
+
+[resource]
+script = ExtResource("1_hieed")
+name = "Developer Kit"
+metadata/_custom_type_script = "uid://d2rwjc4uwspfq"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="LegsItem" format=3 uid="uid://n7hb8cjobiuu"]
+
+[ext_resource type="Script" uid="uid://cw0f2a4kvq11g" path="res://Server/Item/Items/Item_Template.gd" id="1_yjr1q"]
+[ext_resource type="Script" uid="uid://kwxb4gh2p11y" path="res://Server/Item/Items/Equipment/Leg/Legs_Template.gd" id="2_2f4la"]
+
+[resource]
+script = ExtResource("2_2f4la")
+metadata/_custom_type_script = "uid://kwxb4gh2p11y"

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ZoneData" format=3 uid="uid://d1ocdiifydhwl"]
+
+[ext_resource type="Script" uid="uid://d0nfd7exm7q01" path="res://Server/Zone/Data/Zone_Data.gd" id="1_40yja"]
+
+[resource]
+script = ExtResource("1_40yja")
+metadata/_custom_type_script = "uid://d0nfd7exm7q01"

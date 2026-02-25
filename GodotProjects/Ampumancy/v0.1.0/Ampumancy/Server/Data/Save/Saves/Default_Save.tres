@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="SaveData" format=3 uid="uid://de1au1kvw32e8"]
+
+[ext_resource type="Script" uid="uid://b13ix0cq4moab" path="res://Server/Data/Save/Saves/Data_Save_Template.gd" id="1_c5f7f"]
+[ext_resource type="PackedScene" uid="uid://b7lid6lfi4ncu" path="res://Server/Zone/Zones/Overworld/Zone_Overworld.tscn" id="1_fjrxt"]
+[ext_resource type="Resource" uid="uid://bqs36vblxv84n" path="res://Server/Item/Items/Equipment/Leg/Legs_None.tres" id="1_xqgls"]
+[ext_resource type="Script" uid="uid://cw0f2a4kvq11g" path="res://Server/Item/Items/Item_Template.gd" id="1_y07ox"]
+[ext_resource type="Script" uid="uid://ierkbdw3tig0" path="res://Server/Item/Items/Equipment/Arm/Arm_Template.gd" id="3_d6at3"]
+[ext_resource type="Resource" uid="uid://beglc6urhf4qy" path="res://Server/Item/Items/Equipment/Arm/Arm_None.tres" id="4_3unqs"]
+[ext_resource type="Script" uid="uid://biky23f5hwo2k" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data_Equipment.gd" id="5_3unqs"]
+[ext_resource type="Script" uid="uid://d0108rm5mcd8m" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data_Inventory.gd" id="6_fc0w0"]
+[ext_resource type="Script" uid="uid://c66ykmt2kdg5i" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data.gd" id="7_ah4oh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ah4oh"]
+load_path = "res://.godot/imported/Flamelob.png-39aead1ff9fdbcaa7a184687cf15c8eb.ctex"
+
+[sub_resource type="Resource" id="Resource_u6bvi"]
+script = ExtResource("3_d6at3")
+name = "Flamelob Arm"
+texture = SubResource("CompressedTexture2D_ah4oh")
+max_stack = 1
+categories = Array[StringName]([&"Equipment", &"Arm"])
+metadata/_custom_type_script = "uid://ierkbdw3tig0"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1vqif"]
+load_path = "res://.godot/imported/Latchvine.png-c103a042f89ad91148741fbb02364bdd.ctex"
+
+[sub_resource type="Resource" id="Resource_cfiyf"]
+script = ExtResource("3_d6at3")
+name = "Latchvine Arm"
+texture = SubResource("CompressedTexture2D_1vqif")
+max_stack = 1
+categories = Array[StringName]([&"Equipment", &"Arm"])
+metadata/_custom_type_script = "uid://ierkbdw3tig0"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jqjm3"]
+load_path = "res://.godot/imported/Chillfrost.png-a14b29ac8460a49ed46d8ef0ac2f36bd.ctex"
+
+[sub_resource type="Resource" id="Resource_ih4oo"]
+script = ExtResource("3_d6at3")
+name = "Chillfrost Arm"
+texture = SubResource("CompressedTexture2D_jqjm3")
+max_stack = 1
+categories = Array[StringName]([&"Equipment", &"Arm"])
+metadata/_custom_type_script = "uid://ierkbdw3tig0"
+
+[sub_resource type="Resource" id="Resource_xptdg"]
+script = ExtResource("5_3unqs")
+PrimaryLeft = SubResource("Resource_u6bvi")
+PrimaryRight = SubResource("Resource_cfiyf")
+SecondaryLeft = SubResource("Resource_ih4oo")
+SecondaryRight = ExtResource("4_3unqs")
+EquippedLegs = ExtResource("1_xqgls")
+metadata/_custom_type_script = "uid://biky23f5hwo2k"
+
+[sub_resource type="Resource" id="Resource_h7njw"]
+script = ExtResource("6_fc0w0")
+metadata/_custom_type_script = "uid://d0108rm5mcd8m"
+
+[sub_resource type="Resource" id="Resource_tumgt"]
+script = ExtResource("7_ah4oh")
+CharacterName = "The Exiled"
+WardrobeSelection = Array[int]([0, 0, 0, 0, 0])
+Equipment = SubResource("Resource_xptdg")
+Inventory = SubResource("Resource_h7njw")
+MoveSpeed = 175.0
+Acceleration = 30.0
+Deceleration = 20.0
+AirSpeed = 175.0
+AirAcceleration = 30.0
+AirDeceleration = 30.0
+JumpHeight = 75.0
+TimeToPeak = 0.3
+TimeToLand = 0.3
+
+[resource]
+script = ExtResource("1_c5f7f")
+Data = SubResource("Resource_tumgt")
+metadata/_custom_type_script = "uid://b13ix0cq4moab"

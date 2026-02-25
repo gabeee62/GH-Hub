@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://duvmjet4tjapn"]
+
+[ext_resource type="Script" uid="uid://dbygqd2q3rn1i" path="res://GameAssets/Zone/Zones/Script.gd" id="1_kfix2"]
+[ext_resource type="PackedScene" uid="uid://bnwgfo0fhuy4f" path="res://GameAssets/Zone/FunctionNodes/PlayerSpawn/Zone_Node_Player_Spawn.tscn" id="2_0qxd6"]
+[ext_resource type="PackedScene" uid="uid://bkob2d4h2v3ho" path="res://GameAssets/Zone/FunctionNodes/TimeTracker/Zone_Node_Time_Tracker.tscn" id="3_nfmo8"]
+[ext_resource type="TileSet" uid="uid://m7k1o3awihs1" path="res://GameAssets/TileMap/Tilesets/Zone_1.tres" id="3_vvqar"]
+[ext_resource type="TileSet" uid="uid://cu47curgc03x2" path="res://GameAssets/TileMap/Tilesets/Effect_Tiles.tres" id="4_rd3rn"]
+
+[node name="Zone" type="Node2D" unique_id=1006520020]
+script = ExtResource("1_kfix2")
+
+[node name="FunctionNodes" type="Node2D" parent="." unique_id=1375807933]
+
+[node name="TimeTracker" parent="FunctionNodes" unique_id=1543444515 instance=ExtResource("3_nfmo8")]
+
+[node name="PlayerSpawns" type="Node2D" parent="FunctionNodes" unique_id=1699355451]
+
+[node name="Spawn1" parent="FunctionNodes/PlayerSpawns" unique_id=127802068 instance=ExtResource("2_0qxd6")]
+
+[node name="Level" type="Node2D" parent="." unique_id=759072482]
+
+[node name="Effects" type="TileMapLayer" parent="Level" unique_id=1419898101]
+tile_set = ExtResource("4_rd3rn")
+
+[node name="Background" type="TileMapLayer" parent="Level" unique_id=1702814951]
+tile_set = ExtResource("3_vvqar")
+
+[node name="Entities" type="Node2D" parent="Level" unique_id=625380708]
+
+[node name="Spells" type="Node2D" parent="Level" unique_id=1678228766]
+
+[node name="Terrain" type="TileMapLayer" parent="Level" unique_id=1753235760]
+tile_set = ExtResource("3_vvqar")
+
+[node name="Foreground" type="TileMapLayer" parent="Level" unique_id=978821852]
+tile_set = ExtResource("3_vvqar")
+
+[connection signal="PlayerSpawned" from="FunctionNodes/PlayerSpawns/Spawn1" to="." method="_on_player_spawned"]

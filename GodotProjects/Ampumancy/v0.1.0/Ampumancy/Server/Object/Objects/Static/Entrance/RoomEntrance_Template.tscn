@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://buolxik6dempj"]
+
+[ext_resource type="Script" uid="uid://ifqsq3xfmqc3" path="res://Server/Object/Objects/Static/Entrance/Script.gd" id="1_vqgv8"]
+[ext_resource type="Texture2D" uid="uid://dsqb0qmrnnxch" path="res://Common/Textures/Objects/Entrances/Entrance_Base.png" id="2_8actf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8actf"]
+size = Vector2(16, 20)
+
+[node name="RoomEntrance" type="Node2D" unique_id=1601574766]
+script = ExtResource("1_vqgv8")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=505124126]
+position = Vector2(10, -12)
+texture = ExtResource("2_8actf")
+
+[node name="InteractBox" type="Area2D" parent="." unique_id=1392725214]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox" unique_id=473885336]
+position = Vector2(10, -10)
+shape = SubResource("RectangleShape2D_8actf")

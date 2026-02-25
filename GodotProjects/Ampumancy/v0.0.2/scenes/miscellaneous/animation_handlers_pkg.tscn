@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://bd86vpci8cwf"]
-
-[node name="AnimationHandlers" type="Node"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-anim_player = NodePath("../AnimationPlayer")

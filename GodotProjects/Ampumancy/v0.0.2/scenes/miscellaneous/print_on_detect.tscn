@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://f0kumbwbeaan"]
-
-[ext_resource type="PackedScene" uid="uid://s888ayg4ovep" path="res://scenes/miscellaneous/player_detect.tscn" id="1_mlf08"]
-[ext_resource type="Script" uid="uid://edoigpgwiylo" path="res://scenes/miscellaneous/print_on_detect.gd" id="2_lges4"]
-
-[node name="PrintOnDetect" instance=ExtResource("1_mlf08")]
-scale = Vector2(5, 5)
-script = ExtResource("2_lges4")
-print_msg = "Player detected!"

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://vnrfjsavrxyy"]
+
+[ext_resource type="PackedScene" uid="uid://bw7ei8mrd5bux" path="res://Server/Entity/Entities/Entity_Template.tscn" id="1_nqew3"]
+[ext_resource type="Script" uid="uid://bohtcpujw7whs" path="res://Server/Entity/Entities/Player/Script.gd" id="2_p7ly1"]
+
+[node name="Player" unique_id=1751891405 instance=ExtResource("1_nqew3")]
+script = ExtResource("2_p7ly1")

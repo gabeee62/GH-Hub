@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bkob2d4h2v3ho"]
+
+[ext_resource type="Script" uid="uid://c77ebtfcf183o" path="res://Server/Zone/FunctionNodes/TimeTracker/Script.gd" id="1_8knnu"]
+
+[node name="ZoneNodeTimeTracker" type="Node" unique_id=1334540941]
+script = ExtResource("1_8knnu")
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=1944326921]
+wait_time = 15.0
+one_shot = true
+
+[node name="AutosaveTimer" type="Timer" parent="." unique_id=20306606]
+wait_time = 300.0
+autostart = true

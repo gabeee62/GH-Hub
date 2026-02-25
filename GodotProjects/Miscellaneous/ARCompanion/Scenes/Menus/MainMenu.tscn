@@ -1,0 +1,136 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs24cuukx4wu6"]
+
+[ext_resource type="Script" uid="uid://3x1ixb7ndb4g" path="res://Scenes/Menus/MainMenu.gd" id="1_v3fht"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v3fht")
+
+[node name="Options" type="VBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DamageCalculator" type="Button" parent="Options"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Damage Calculator"
+
+[node name="MaterialCalculator" type="Button" parent="Options"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Material Calculator"
+
+[node name="WeaponSmith" type="Button" parent="Options"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Weapon Smith"
+
+[node name="WeaponSmith" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Build A Weapon" type="MarginContainer" parent="WeaponSmith"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+metadata/_tab_index = 0
+
+[node name="HBox" type="HBoxContainer" parent="WeaponSmith/Build A Weapon"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="WeaponOption" type="OptionButton" parent="WeaponSmith/Build A Weapon/HBox"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+allow_reselect = true
+item_count = 21
+popup/item_0/text = "Arpeggio"
+popup/item_0/id = 0
+popup/item_1/text = "Bettina"
+popup/item_1/id = 1
+popup/item_2/text = "Kettle"
+popup/item_2/id = 2
+popup/item_3/text = "Rattler"
+popup/item_3/id = 3
+popup/item_4/text = "Tempest"
+popup/item_4/id = 4
+popup/item_5/text = "Aphelion"
+popup/item_5/id = 5
+popup/item_6/text = "Ferro"
+popup/item_6/id = 6
+popup/item_7/text = "Renegade"
+popup/item_7/id = 7
+popup/item_8/text = "Torrente"
+popup/item_8/id = 8
+popup/item_9/text = "Anvil"
+popup/item_9/id = 9
+popup/item_10/text = "Burletta"
+popup/item_10/id = 10
+popup/item_11/text = "Hairpin"
+popup/item_11/id = 11
+popup/item_12/text = "Venator"
+popup/item_12/id = 12
+popup/item_13/text = "IlToro"
+popup/item_13/id = 13
+popup/item_14/text = "Vulcano"
+popup/item_14/id = 14
+popup/item_15/text = "Jupiter"
+popup/item_15/id = 15
+popup/item_16/text = "Osprey"
+popup/item_16/id = 16
+popup/item_17/text = "Equalizer"
+popup/item_17/id = 17
+popup/item_18/text = "Hullcracker"
+popup/item_18/id = 18
+popup/item_19/text = "Bobcat"
+popup/item_19/id = 19
+popup/item_20/text = "Stitcher"
+popup/item_20/id = 20
+
+[node name="LevelOption" type="OptionButton" parent="WeaponSmith/Build A Weapon/HBox"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+popup/item_3/text = "4"
+popup/item_3/id = 3
