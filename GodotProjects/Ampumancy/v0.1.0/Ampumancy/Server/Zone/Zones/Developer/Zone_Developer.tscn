@@ -334,40 +334,14 @@ sources/1 = SubResource("TileSetAtlasSource_l82aj")
 [node name="DeveloperZone" unique_id=1006520020 instance=ExtResource("1_2phsq")]
 script = ExtResource("2_tagfq")
 Data = ExtResource("3_cfbjl")
-metadata/_edit_lock_ = true
+FilePath = "res://Server/Zone/Zones/Developer/Zone_Developer.tscn"
 
-[node name="FunctionNodes" parent="." index="0" unique_id=1375807933]
-metadata/_edit_lock_ = true
-
-[node name="PlayerSpawns" parent="FunctionNodes" index="1" unique_id=1699355451]
-metadata/_edit_lock_ = true
-
-[node name="Spawn_1" parent="FunctionNodes/PlayerSpawns" index="0" unique_id=127802068 instance=ExtResource("3_l82aj")]
+[node name="Spawn_1" parent="FunctionNodes/PlayerSpawns" parent_id_path=PackedInt32Array(1699355451) index="0" unique_id=127802068 instance=ExtResource("3_l82aj")]
 position = Vector2(0, 276)
 
-[node name="Level" parent="." index="1" unique_id=759072482]
-metadata/_edit_lock_ = true
-
-[node name="Effects" parent="Level" index="0" unique_id=1419898101]
-metadata/_edit_lock_ = true
-
-[node name="Background" parent="Level" index="1" unique_id=1702814951]
+[node name="Background" parent="Level" parent_id_path=PackedInt32Array(759072482) index="1" unique_id=1702814951]
 tile_map_data = PackedByteArray("AAAEAAcAAQABAAAAAAAFAAcAAQACAAAAAAAFAAgAAQACAAEAAAAGAAkAAQACAAEAAAAHAAkAAQACAAEAAAAIAAoAAQACAAEAAAAJAAoAAQACAAEAAAAKAAsAAQACAAEAAAALAAsAAQACAAEAAAALAAwAAQACAAIAAAAMAAwAAQADAAIAAAAKAAwAAQACAAIAAAAJAAwAAQACAAIAAAAIAAwAAQACAAIAAAAHAAsAAQACAAEAAAAMAAsAAQADAAEAAAAMAAoAAQADAAEAAAAMAAkAAQADAAEAAAAMAAgAAQADAAEAAAAMAAcAAQADAAAAAAALAAoAAQACAAEAAAALAAkAAQACAAEAAAALAAgAAQACAAEAAAALAAcAAQACAAAAAAAKAAoAAQACAAEAAAAKAAkAAQACAAEAAAAKAAgAAQACAAEAAAAKAAcAAQACAAAAAAAJAAsAAQACAAEAAAAJAAkAAQACAAEAAAAJAAgAAQACAAEAAAAJAAcAAQACAAAAAAAIAAsAAQACAAEAAAAIAAkAAQACAAEAAAAIAAgAAQACAAEAAAAIAAcAAQACAAAAAAAHAAwAAQACAAIAAAAHAAoAAQACAAEAAAAHAAgAAQACAAEAAAAHAAcAAQACAAAAAAAGAAwAAQACAAIAAAAGAAsAAQACAAEAAAAGAAoAAQACAAEAAAAGAAgAAQACAAEAAAAGAAcAAQACAAAAAAAFAAwAAQACAAIAAAAFAAsAAQACAAEAAAAFAAoAAQACAAEAAAAFAAkAAQACAAEAAAAEAAwAAQABAAIAAAAEAAsAAQABAAEAAAAEAAoAAQABAAEAAAAEAAkAAQABAAEAAAAEAAgAAQABAAEAAAA=")
 tile_set = SubResource("TileSet_cfbjl")
-metadata/_edit_lock_ = true
 
-[node name="Objects" parent="Level" index="2" unique_id=1209685846]
-metadata/_edit_lock_ = true
-
-[node name="Entities" parent="Level" index="3" unique_id=625380708]
-metadata/_edit_lock_ = true
-
-[node name="Spells" parent="Level" index="4" unique_id=1678228766]
-metadata/_edit_lock_ = true
-
-[node name="Terrain" parent="Level" index="5" unique_id=1753235760]
+[node name="Terrain" parent="Level" parent_id_path=PackedInt32Array(759072482) index="5" unique_id=1753235760]
 tile_map_data = PackedByteArray("AAAOAAsAAQADAAIAAAAOAAoAAQADAAAAAAANAAsAAQACAAIAAAANAAoAAQACAAAAAAAMAAsAAQACAAIAAAAMAAoAAQACAAAAAAALAAsAAQACAAIAAAAKAAoAAQACAAAAAAAJAAsAAQACAAIAAAAIAAoAAQACAAAAAAAHAAsAAQACAAIAAAAGAAoAAQACAAAAAAAFAAsAAQACAAIAAAAEAAoAAQACAAAAAAADAAsAAQACAAIAAAADAAoAAQACAAAAAAACAAsAAQACAAIAAAABAAsAAQACAAIAAAAAAAsAAQACAAIAAAAAAAoAAQACAAAAAAALAAoAAQACAAAAAAAKAAsAAQACAAIAAAAJAAoAAQACAAAAAAAIAAsAAQACAAIAAAAHAAoAAQACAAAAAAAGAAsAAQACAAIAAAAEAAsAAQACAAIAAAAFAAoAAQACAAAAAAD//wsAAQACAAIAAAD//woAAQACAAAAAAD+/wsAAQABAAIAAAD+/woAAQABAAAAAAACAAoAAQACAAAAAAABAAoAAQACAAAAAAA=")
-metadata/_edit_lock_ = true
-
-[node name="Foreground" parent="Level" index="6" unique_id=978821852]
-metadata/_edit_lock_ = true

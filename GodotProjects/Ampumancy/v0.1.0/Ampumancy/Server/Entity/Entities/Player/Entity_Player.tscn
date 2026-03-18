@@ -2,53 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://cmq2c8mbq2150" path="res://Server/Entity/Entities/Entity_Template.tscn" id="1_cksms"]
 [ext_resource type="Script" uid="uid://b7rdobpvcww4k" path="res://Server/Entity/Entities/Player/Script.gd" id="2_68t3p"]
-[ext_resource type="Script" uid="uid://c66ykmt2kdg5i" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data.gd" id="3_07hjp"]
-[ext_resource type="Resource" uid="uid://cim4v7s316quk" path="res://Server/Item/Items/Equipment/Arm/Arm_Flamelob.tres" id="3_eykhq"]
+[ext_resource type="Resource" uid="uid://c6iy4nxw2qdie" path="res://Server/Entity/Entities/Player/Data/Templates/Default.tres" id="3_k161g"]
 [ext_resource type="Script" uid="uid://bm6cjmipe2xbj" path="res://Server/Entity/Entities/Player/Nodes/Sprite/TheExiled/Script.gd" id="3_wvj1i"]
-[ext_resource type="Resource" uid="uid://c3g4vpy5w1omw" path="res://Server/Item/Items/Equipment/Arm/Arm_Latchvine.tres" id="4_fxddn"]
-[ext_resource type="Script" uid="uid://biky23f5hwo2k" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data_Equipment.gd" id="4_v0amh"]
-[ext_resource type="Resource" uid="uid://buum4r2ei3tvv" path="res://Server/Item/Items/Equipment/Arm/Arm_Chillfrost.tres" id="5_lpcle"]
-[ext_resource type="Script" uid="uid://d0108rm5mcd8m" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data_Inventory.gd" id="5_wij4r"]
 [ext_resource type="Script" uid="uid://fu6ft03spamb" path="res://Server/Entity/Entities/Player/Nodes/Input/Script.gd" id="6_07hjp"]
-[ext_resource type="Resource" uid="uid://dqjypo6dhad6t" path="res://Server/Item/Items/Equipment/Arm/Arm_Golemstone.tres" id="6_edfde"]
 [ext_resource type="Texture2D" uid="uid://b5kneaucpfkk1" path="res://Common/Textures/Entity/Player/Hat/Hat.png" id="7_t3ocv"]
 [ext_resource type="Texture2D" uid="uid://brond8g8mvrnh" path="res://Common/Textures/Entity/Player/Head/Head.png" id="8_07hjp"]
 [ext_resource type="Texture2D" uid="uid://blxbitqaca7an" path="res://Common/Textures/Entity/Player/Eyes/Eyes.png" id="9_v0amh"]
 [ext_resource type="Texture2D" uid="uid://cqxlgux7mtl4" path="res://Common/Textures/Entity/Player/Cloak/Cloak.png" id="10_wij4r"]
 [ext_resource type="Texture2D" uid="uid://dmb17bc30d10v" path="res://Common/Textures/Entity/Player/Robes/Robes.png" id="11_67pnx"]
 [ext_resource type="Script" uid="uid://bfmggr3hmnlm4" path="res://Server/Entity/Entities/Player/Nodes/Sprite/TheExiled/Arms/Script.gd" id="15_3g7nn"]
-[ext_resource type="Texture2D" uid="uid://0o0nkmpbp5kg" path="res://Common/Textures/Entity/Player/Arms/Latchvine.png" id="17_fdmlc"]
-[ext_resource type="Texture2D" uid="uid://b6676j00ebds1" path="res://Common/Textures/Entity/Player/Arms/Golemstone.png" id="18_r5gwu"]
-[ext_resource type="Texture2D" uid="uid://chcihagqtonsy" path="res://Common/Textures/Entity/Player/Arms/Chillfrost.png" id="20_3dftr"]
-[ext_resource type="Texture2D" uid="uid://dbeu5syupqwgg" path="res://Common/Textures/Entity/Player/Arms/Flamelob.png" id="21_asvss"]
-
-[sub_resource type="Resource" id="Resource_3g7nn"]
-script = ExtResource("4_v0amh")
-PrimaryLeft = ExtResource("3_eykhq")
-PrimaryRight = ExtResource("4_fxddn")
-SecondaryLeft = ExtResource("5_lpcle")
-SecondaryRight = ExtResource("6_edfde")
-metadata/_custom_type_script = "uid://biky23f5hwo2k"
-
-[sub_resource type="Resource" id="Resource_jfgjp"]
-script = ExtResource("5_wij4r")
-metadata/_custom_type_script = "uid://d0108rm5mcd8m"
-
-[sub_resource type="Resource" id="Resource_67pnx"]
-script = ExtResource("3_07hjp")
-CharacterName = "The Exiled"
-WardrobeSelection = Array[int]([0, 0, 0, 0, 0])
-Equipment = SubResource("Resource_3g7nn")
-Inventory = SubResource("Resource_jfgjp")
-MoveSpeed = 175.0
-Acceleration = 30.0
-Deceleration = 20.0
-AirSpeed = 175.0
-AirAcceleration = 30.0
-AirDeceleration = 30.0
-JumpHeight = 75.0
-TimeToPeak = 0.3
-TimeToLand = 0.25
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dq0nw"]
 radius = 6.5
@@ -2045,7 +2007,7 @@ _data = {
 collision_layer = 3
 collision_mask = 30
 script = ExtResource("2_68t3p")
-Data = SubResource("Resource_67pnx")
+Data = ExtResource("3_k161g")
 
 [node name="Nodes" type="Node2D" parent="." index="0" unique_id=1352075749]
 position = Vector2(0, -11)
@@ -2082,28 +2044,31 @@ script = ExtResource("3_wvj1i")
 [node name="Hat" type="Sprite2D" parent="Sprite" index="0" unique_id=1825560869]
 texture = ExtResource("7_t3ocv")
 hframes = 4
+frame = 2
 
 [node name="Head" type="Sprite2D" parent="Sprite" index="1" unique_id=1177225555]
 texture = ExtResource("8_07hjp")
 hframes = 4
+frame = 2
 
 [node name="Eyes" type="Sprite2D" parent="Sprite" index="2" unique_id=1002200746]
 texture = ExtResource("9_v0amh")
 hframes = 4
+frame = 2
 
 [node name="Right_Cloak" type="Sprite2D" parent="Sprite" index="3" unique_id=1704982842]
 position = Vector2(12, 0)
 texture = ExtResource("10_wij4r")
 hframes = 8
-frame = 1
+frame = 5
 
 [node name="Right_Arms" type="Node2D" parent="Sprite" index="4" unique_id=2074898225]
+position = Vector2(0, 1)
 script = ExtResource("15_3g7nn")
 
 [node name="Primary" type="Sprite2D" parent="Sprite/Right_Arms" index="0" unique_id=535046886]
 position = Vector2(0, -1)
 rotation = 0.7853982
-texture = ExtResource("17_fdmlc")
 offset = Vector2(6, 0)
 
 [node name="CastPoint" type="Marker2D" parent="Sprite/Right_Arms/Primary" index="0" unique_id=619186872]
@@ -2115,7 +2080,6 @@ metadata/_edit_lock_ = true
 [node name="Secondary" type="Sprite2D" parent="Sprite/Right_Arms" index="1" unique_id=329560071]
 position = Vector2(0, 5.9604645e-07)
 rotation = 0.87266463
-texture = ExtResource("18_r5gwu")
 offset = Vector2(6, 0)
 
 [node name="CastPoint" type="Marker2D" parent="Sprite/Right_Arms/Secondary" index="0" unique_id=481391660]
@@ -2127,14 +2091,15 @@ metadata/_edit_lock_ = true
 [node name="Robes" type="Sprite2D" parent="Sprite" index="5" unique_id=946270641]
 texture = ExtResource("11_67pnx")
 hframes = 4
+frame = 2
 
 [node name="Left_Arms" type="Node2D" parent="Sprite" index="6" unique_id=1777746132]
+position = Vector2(0, 1)
 script = ExtResource("15_3g7nn")
 
 [node name="Secondary" type="Sprite2D" parent="Sprite/Left_Arms" index="0" unique_id=1358095178]
 position = Vector2(-5, 0)
 rotation = 0.87266463
-texture = ExtResource("20_3dftr")
 offset = Vector2(6, 0)
 
 [node name="CastPoint" type="Marker2D" parent="Sprite/Left_Arms/Secondary" index="0" unique_id=1923404816]
@@ -2146,7 +2111,6 @@ metadata/_edit_lock_ = true
 [node name="Primary" type="Sprite2D" parent="Sprite/Left_Arms" index="1" unique_id=447837037]
 position = Vector2(-5.0000005, -1)
 rotation = 0.7853982
-texture = ExtResource("21_asvss")
 offset = Vector2(6, 0)
 
 [node name="CastPoint" type="Marker2D" parent="Sprite/Left_Arms/Primary" index="0" unique_id=588121699]
@@ -2159,6 +2123,7 @@ metadata/_edit_lock_ = true
 position = Vector2(-12, 0)
 texture = ExtResource("10_wij4r")
 hframes = 8
+frame = 4
 
 [node name="PlayerCamera" type="Camera2D" parent="." index="4" unique_id=76897489]
 position = Vector2(0, -11)

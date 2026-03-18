@@ -1,9 +1,75 @@
 [gd_resource type="Resource" script_class="WardrobeSet" format=3 uid="uid://ddtitcprvbe0e"]
 
+[ext_resource type="Texture2D" uid="uid://blxbitqaca7an" path="res://Common/Textures/Entity/Player/Eyes/Eyes.png" id="1_300gx"]
+[ext_resource type="Texture2D" uid="uid://cqxlgux7mtl4" path="res://Common/Textures/Entity/Player/Cloak/Cloak.png" id="1_qdqey"]
+[ext_resource type="Texture2D" uid="uid://b5kneaucpfkk1" path="res://Common/Textures/Entity/Player/Hat/Hat.png" id="1_s0w46"]
 [ext_resource type="Script" uid="uid://ccayxtntnnpl7" path="res://Common/Player/Characters/WardrobeSets/WardrobeSet.gd" id="1_s31t4"]
+[ext_resource type="Texture2D" uid="uid://hoky6fsyiyem" path="res://Common/Textures/Entity/Player/Eyes/Eyes_2.png" id="2_0cyyc"]
+[ext_resource type="Texture2D" uid="uid://buo420et08eto" path="res://Common/Textures/Entity/Player/Hat/Hat_2.png" id="2_ovvq7"]
+[ext_resource type="Texture2D" uid="uid://b34vcjd4e886s" path="res://Common/Textures/Entity/Player/Cloak/Cloak_2.png" id="2_yb4sd"]
+[ext_resource type="Texture2D" uid="uid://cg5sq7dwxojjo" path="res://Common/Textures/Entity/Player/Hat/Hat_3.png" id="3_h4xes"]
+[ext_resource type="Texture2D" uid="uid://dlw4q8qk03rqi" path="res://Common/Textures/Entity/Player/Eyes/Eyes_3.png" id="3_xurfw"]
+[ext_resource type="Texture2D" uid="uid://c84osu02nksj1" path="res://Common/Textures/Entity/Player/Eyes/Eyes_4.png" id="4_qdqey"]
+[ext_resource type="Texture2D" uid="uid://pq38jb56igrk" path="res://Common/Textures/Entity/Player/Eyes/Eyes_5.png" id="5_yb4sd"]
+[ext_resource type="Texture2D" uid="uid://dim7yibfm2b4" path="res://Common/Textures/Entity/Player/Eyes/Eyes_6.png" id="6_ts5lk"]
+[ext_resource type="Texture2D" uid="uid://dmb17bc30d10v" path="res://Common/Textures/Entity/Player/Robes/Robes.png" id="12_ts5lk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c6h6v"]
+load_path = "res://.godot/imported/Head.png-2bd3b18b4ace961e9f063e524dbca8f6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gc3kg"]
+load_path = "res://.godot/imported/Hat.png-7bd19179ac01bc55e434fb192995a6a0.ctex"
 
 [resource]
 script = ExtResource("1_s31t4")
-wardrobe_pieces = Array[Array]([["res://Common/Textures/Entity/Player/Hat/Hat.png", "res://Common/Textures/Entity/Player/Hat/Hat_2.png", "res://Common/Textures/Entity/Player/Hat/Hat_3.png", "res://Common/Textures/Entity/Player/Hat/Hat.png", "res://Common/Textures/Entity/Player/Hat/Hat.png", "res://Common/Textures/Entity/Player/Hat/Hat.png", "res://Common/Textures/Entity/Player/Hat/Hat.png", "res://Common/Textures/Entity/Player/Hat/Hat.png"], ["res://Common/Textures/Entity/Player/Head/Head.png", "res://Common/Textures/Entity/Player/Head/Head.png", "res://Common/Textures/Entity/Player/Head/Head.png", "res://Common/Textures/Entity/Player/Head/Head.png", "res://Common/Textures/Entity/Player/Head/Head.png", "res://Common/Textures/Entity/Player/Head/Head.png", "res://Common/Textures/Entity/Player/Head/Head.png", "res://Common/Textures/Entity/Player/Head/Head.png"], ["res://Common/Textures/Entity/Player/Eyes/Eyes.png", "res://Common/Textures/Entity/Player/Eyes/Eyes_2.png", "res://Common/Textures/Entity/Player/Eyes/Eyes_3.png", "res://Common/Textures/Entity/Player/Eyes/Eyes_4.png", "res://Common/Textures/Entity/Player/Eyes/Eyes_5.png", "res://Common/Textures/Entity/Player/Eyes/Eyes_6.png", "res://Common/Textures/Entity/Player/Eyes/Eyes.png", "res://Common/Textures/Entity/Player/Eyes/Eyes.png"], ["res://Common/Textures/Entity/Player/Cloak/Cloak.png", "res://Common/Textures/Entity/Player/Cloak/Cloak_2.png", "res://Common/Textures/Entity/Player/Cloak/Cloak.png", "res://Common/Textures/Entity/Player/Cloak/Cloak.png", "res://Common/Textures/Entity/Player/Cloak/Cloak.png", "res://Common/Textures/Entity/Player/Cloak/Cloak.png", "res://Common/Textures/Entity/Player/Cloak/Cloak.png", "res://Common/Textures/Entity/Player/Cloak/Cloak.png"], ["res://Common/Textures/Entity/Player/Robes/Robes.png", "res://Common/Textures/Entity/Player/Robes/Robes.png", "res://Common/Textures/Entity/Player/Robes/Robes.png", "res://Common/Textures/Entity/Player/Robes/Robes.png", "res://Common/Textures/Entity/Player/Robes/Robes.png", "res://Common/Textures/Entity/Player/Robes/Robes.png", "res://Common/Textures/Entity/Player/Robes/Robes.png", "res://Common/Textures/Entity/Player/Robes/Robes.png"]])
-piece_names = Array[String](["Hat", "Head", "Eyes", "Cloak", "Robes"])
+Hats = Dictionary[String, Texture2D]({
+"1": ExtResource("1_s0w46"),
+"2": ExtResource("2_ovvq7"),
+"3": ExtResource("3_h4xes"),
+"4": SubResource("CompressedTexture2D_gc3kg"),
+"5": SubResource("CompressedTexture2D_gc3kg"),
+"6": SubResource("CompressedTexture2D_gc3kg"),
+"7": SubResource("CompressedTexture2D_gc3kg"),
+"8": SubResource("CompressedTexture2D_gc3kg")
+})
+Faces = Dictionary[String, Texture2D]({
+"1": SubResource("CompressedTexture2D_c6h6v"),
+"2": SubResource("CompressedTexture2D_c6h6v"),
+"3": SubResource("CompressedTexture2D_c6h6v"),
+"4": SubResource("CompressedTexture2D_c6h6v"),
+"5": SubResource("CompressedTexture2D_c6h6v"),
+"6": SubResource("CompressedTexture2D_c6h6v"),
+"7": SubResource("CompressedTexture2D_c6h6v"),
+"8": SubResource("CompressedTexture2D_c6h6v")
+})
+Eyes = Dictionary[String, Texture2D]({
+"1": ExtResource("1_300gx"),
+"2": ExtResource("2_0cyyc"),
+"3": ExtResource("3_xurfw"),
+"4": ExtResource("4_qdqey"),
+"5": ExtResource("5_yb4sd"),
+"6": ExtResource("6_ts5lk"),
+"7": ExtResource("1_300gx"),
+"8": ExtResource("1_300gx")
+})
+Cloaks = Dictionary[String, Texture2D]({
+"1": ExtResource("1_qdqey"),
+"2": ExtResource("2_yb4sd"),
+"3": ExtResource("1_qdqey"),
+"4": ExtResource("1_qdqey"),
+"5": ExtResource("1_qdqey"),
+"6": ExtResource("1_qdqey"),
+"7": ExtResource("1_qdqey"),
+"8": ExtResource("1_qdqey")
+})
+Robes = Dictionary[String, Texture2D]({
+"1": ExtResource("12_ts5lk"),
+"2": ExtResource("12_ts5lk"),
+"3": ExtResource("12_ts5lk"),
+"4": ExtResource("12_ts5lk"),
+"5": ExtResource("12_ts5lk"),
+"6": ExtResource("12_ts5lk"),
+"7": ExtResource("12_ts5lk"),
+"8": ExtResource("12_ts5lk")
+})
 metadata/_custom_type_script = "uid://ccayxtntnnpl7"

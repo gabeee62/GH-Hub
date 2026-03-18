@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://dc7jwc1kj80hk" path="res://Server/Global/SaveHandler/Script.gd" id="1_rm4j1"]
 
 [node name="SaveHandler" type="Node" unique_id=431465509]
+process_mode = 3
 script = ExtResource("1_rm4j1")

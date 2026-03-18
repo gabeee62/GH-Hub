@@ -1365,7 +1365,6 @@ process_mode = 1
 process_mode = 1
 
 [node name="PauseCanvas" type="CanvasLayer" parent="." unique_id=414558806]
-process_mode = 2
 
 [node name="PauseMenu" parent="PauseCanvas" unique_id=1334571678 instance=ExtResource("8_67bw6")]
 visible = false

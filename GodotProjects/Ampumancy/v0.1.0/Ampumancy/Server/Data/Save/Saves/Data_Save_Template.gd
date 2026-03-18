@@ -1,11 +1,12 @@
 extends Resource
 class_name SaveData
 
+@export var SaveName: String
 @export var PlayTime: int
 
-@export var Data: PlayerData
+@export var Player_Data: PlayerData = PlayerData.new()
 
-@export var CurrentZone: PackedScene = preload("res://Server/Zone/Zones/Overworld/Zone_Overworld.tscn")
+@export var CurrentZone: String = "res://Server/Zone/Zones/Overworld/Zone_Overworld.tscn"
 @export var SpawnPoint: String = "GameStartSpawn"
 
 # TODO: Zone-specific save data needs to go here (preload) when done

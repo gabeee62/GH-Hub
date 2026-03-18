@@ -1,0 +1,4 @@
+**Command Help**
+**Requires**: None
+**Example**: !helpme <commandname>
+**Description**: Replies to the requester with an embed containing the help documentation for the specified command <commandname>.

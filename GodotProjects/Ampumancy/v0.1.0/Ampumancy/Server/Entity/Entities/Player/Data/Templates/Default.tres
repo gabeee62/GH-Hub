@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://c6iy4nxw2qdie"]
+
+[ext_resource type="Resource" uid="uid://bqs36vblxv84n" path="res://Server/Item/Items/Equipment/Leg/Legs_None.tres" id="1_77uig"]
+[ext_resource type="Resource" uid="uid://beglc6urhf4qy" path="res://Server/Item/Items/Equipment/Arm/Arm_None.tres" id="2_d8nab"]
+[ext_resource type="Script" uid="uid://biky23f5hwo2k" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data_Equipment.gd" id="5_0yu1u"]
+[ext_resource type="Script" uid="uid://d0108rm5mcd8m" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data_Inventory.gd" id="6_1eosp"]
+[ext_resource type="Script" uid="uid://c66ykmt2kdg5i" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data.gd" id="7_6qm7a"]
+
+[sub_resource type="Resource" id="Resource_3g7nn"]
+script = ExtResource("5_0yu1u")
+metadata/_custom_type_script = "uid://biky23f5hwo2k"
+
+[sub_resource type="Resource" id="Resource_jfgjp"]
+script = ExtResource("6_1eosp")
+metadata/_custom_type_script = "uid://d0108rm5mcd8m"
+
+[resource]
+script = ExtResource("7_6qm7a")
+Equipment = SubResource("Resource_3g7nn")
+Inventory = SubResource("Resource_jfgjp")
+MoveSpeed = 175.0
+Acceleration = 30.0
+Deceleration = 20.0
+AirSpeed = 175.0
+AirAcceleration = 30.0
+AirDeceleration = 30.0
+JumpHeight = 75.0
+TimeToPeak = 0.3
+TimeToLand = 0.25

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SaveData" format=3]
+
+[ext_resource type="Script" path="res://Server/Data/Save/Saves/Data_Save_Template.gd" id="1_ee1tf"]
+
+[resource]
+script = ExtResource("1_ee1tf")
+SaveName = "AAAAA"
+PlayTime = 48613

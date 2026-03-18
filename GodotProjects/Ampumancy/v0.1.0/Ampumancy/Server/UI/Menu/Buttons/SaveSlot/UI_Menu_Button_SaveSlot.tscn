@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cxl778jmnyefa"]
+
+[ext_resource type="Script" uid="uid://do3p30spo6wm7" path="res://Server/UI/Menu/Buttons/SaveSlot/Script.gd" id="1_6c51d"]
+[ext_resource type="FontFile" uid="uid://beqa5ltlcend0" path="res://Common/Textures/Fonts/HealthFont.ttf" id="2_mcm2t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qbwit"]
+font = ExtResource("2_mcm2t")
+font_size = 10
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="SaveSlotButton" type="Button" unique_id=2066110336]
+custom_minimum_size = Vector2(0, 60)
+offset_right = 8.0
+offset_bottom = 60.0
+button_mask = 3
+script = ExtResource("1_6c51d")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=791791974]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="SaveName" type="Label" parent="MarginContainer" unique_id=30640726]
+layout_mode = 2
+size_flags_horizontal = 0
+label_settings = SubResource("LabelSettings_qbwit")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeleteLabel" type="Label" parent="MarginContainer" unique_id=489118259]
+visible = false
+layout_mode = 2
+text = "RMB: Delete LMB: Cancel"
+label_settings = SubResource("LabelSettings_qbwit")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayTime" type="Label" parent="MarginContainer" unique_id=137046962]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "00 : 00 : 00"
+label_settings = SubResource("LabelSettings_qbwit")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

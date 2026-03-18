@@ -1,8 +1,19 @@
 [gd_scene format=3 uid="uid://dt81siwcy8sct"]
 
 [ext_resource type="Script" uid="uid://dn4q5kywnvlvr" path="res://Server/Zone/FunctionNodes/Menu/Pause/Script.gd" id="1_jd7ir"]
+[ext_resource type="PackedScene" uid="uid://dpp3gxd6btul6" path="res://Server/UI/Menu/Buttons/Default/UI_Menu_Button_Default.tscn" id="2_4522l"]
+[ext_resource type="FontFile" uid="uid://beqa5ltlcend0" path="res://Common/Textures/Fonts/HealthFont.ttf" id="3_bn8l1"]
+[ext_resource type="PackedScene" uid="uid://ox5umwcrxrtl" path="res://Server/UI/Menu/Buttons/WardrobeSelect/UI_Menu_Button_WardrobeSelect.tscn" id="3_jtdph"]
+[ext_resource type="PackedScene" uid="uid://ds1wigw556lnh" path="res://Server/Zone/FunctionNodes/Menu/Pause/Wardrobe/SelectionPreview/UI_Menu_Pause_Wardrobe_SelectionPreview.tscn" id="3_rreff"]
+[ext_resource type="LabelSettings" uid="uid://dciie4egebucv" path="res://Common/Textures/Fonts/Settings/NewPixelLabelSettings.tres" id="4_owivp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bn8l1"]
+font = ExtResource("3_bn8l1")
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" type="Control" unique_id=1334571678]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,33 +45,228 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Options" type="Button" parent="Buttons" unique_id=2061946596]
-custom_minimum_size = Vector2(200, 40)
+[node name="Options" parent="Buttons" unique_id=469761963 instance=ExtResource("2_4522l")]
 layout_mode = 2
 text = "Options"
+ButtonText = "Options"
 
-[node name="Mods" type="Button" parent="Buttons" unique_id=218532053]
-custom_minimum_size = Vector2(200, 40)
+[node name="Wardrobe" parent="Buttons" unique_id=1501863978 instance=ExtResource("2_4522l")]
+layout_mode = 2
+text = "Wardrobe"
+ButtonText = "Wardrobe"
+
+[node name="Mods" parent="Buttons" unique_id=2092229076 instance=ExtResource("2_4522l")]
 layout_mode = 2
 text = "Mods"
+ButtonText = "Mods"
 
-[node name="MenuQuit" type="Button" parent="Buttons" unique_id=1975329082]
-custom_minimum_size = Vector2(200, 40)
+[node name="MenuQuit" parent="Buttons" unique_id=1645139203 instance=ExtResource("2_4522l")]
 layout_mode = 2
 text = "Quit to Main Menu"
+ButtonText = "Quit to Main Menu"
 
-[node name="DesktopQuit" type="Button" parent="Buttons" unique_id=422504277]
-custom_minimum_size = Vector2(200, 40)
+[node name="DesktopQuit" parent="Buttons" unique_id=1278415446 instance=ExtResource("2_4522l")]
 layout_mode = 2
 text = "Quit to Desktop"
+ButtonText = "Quit to Desktop"
 
-[node name="Back" type="Button" parent="Buttons" unique_id=2128795085]
-custom_minimum_size = Vector2(200, 40)
+[node name="Back" parent="Buttons" unique_id=250517212 instance=ExtResource("2_4522l")]
 layout_mode = 2
 text = "Back"
+ButtonText = "Back"
+
+[node name="OptionsMenu" type="Control" parent="." unique_id=322633025]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WardrobeMenu" type="Control" parent="." unique_id=77347065]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="WardrobeMenu" unique_id=201202259]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.12156863)
+
+[node name="MarginContainer" type="MarginContainer" parent="WardrobeMenu/ColorRect" unique_id=1235920321]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WardrobeMenu/ColorRect/MarginContainer" unique_id=1463594111]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SelectionPreview" type="VBoxContainer" parent="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer" unique_id=831116498]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ColorRect" type="ColorRect" parent="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer/SelectionPreview" unique_id=666772192]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.23031491, 0.23031494, 0.23031494, 1)
+
+[node name="SelectionPreview" parent="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer/SelectionPreview/ColorRect" unique_id=1683987024 instance=ExtResource("3_rreff")]
+process_mode = 2
+position = Vector2(100, 147.99997)
+
+[node name="Confirm" parent="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer/SelectionPreview" unique_id=925259324 instance=ExtResource("2_4522l")]
+layout_mode = 2
+size_flags_vertical = 4
+ButtonText = "Confirm"
+
+[node name="Back" parent="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer/SelectionPreview" unique_id=1681155957 instance=ExtResource("2_4522l")]
+layout_mode = 2
+size_flags_vertical = 4
+ButtonText = "Back"
+TextSettings = SubResource("LabelSettings_bn8l1")
+
+[node name="Selections" type="VBoxContainer" parent="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer" unique_id=1790825717]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 17
+
+[node name="Hat" parent="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer/Selections" unique_id=13834173 instance=ExtResource("3_jtdph")]
+layout_mode = 2
+WardrobePartName = "Hat"
+
+[node name="Head" parent="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer/Selections" unique_id=394054970 instance=ExtResource("3_jtdph")]
+layout_mode = 2
+WardrobePartName = "Face"
+WardrobePartPosition = 1
+
+[node name="Eyes" parent="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer/Selections" unique_id=1840504911 instance=ExtResource("3_jtdph")]
+layout_mode = 2
+WardrobePartName = "Eyes"
+WardrobePartPosition = 2
+
+[node name="Cloak" parent="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer/Selections" unique_id=1631616989 instance=ExtResource("3_jtdph")]
+layout_mode = 2
+WardrobePartName = "Cloak"
+WardrobePartPosition = 3
+
+[node name="Robes" parent="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer/Selections" unique_id=6805281 instance=ExtResource("3_jtdph")]
+layout_mode = 2
+WardrobePartName = "Robes"
+WardrobePartPosition = 4
+
+[node name="ModsMenu" type="Control" parent="." unique_id=1209596729]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveMenu" type="Control" parent="." unique_id=1063344833]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SaveMenu" unique_id=1517004756]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SaveMenu/Panel" unique_id=2141514426]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_top = 80.0
+offset_right = 212.0
+offset_bottom = 96.0
+grow_horizontal = 2
+text = "Save before quitting?"
+label_settings = ExtResource("4_owivp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SaveMenu/Panel" unique_id=1934272508]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -52.0
+offset_right = 184.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SaveMenu/Panel/VBoxContainer" unique_id=18973768]
+layout_mode = 2
+theme_override_constants/separation = -32
+
+[node name="Yes" parent="SaveMenu/Panel/VBoxContainer/HBoxContainer" unique_id=981583280 instance=ExtResource("2_4522l")]
+layout_mode = 2
+ButtonText = "Yes"
+
+[node name="No" parent="SaveMenu/Panel/VBoxContainer/HBoxContainer" unique_id=1326569845 instance=ExtResource("2_4522l")]
+layout_mode = 2
+ButtonText = "No"
+
+[node name="Back" parent="SaveMenu/Panel/VBoxContainer" unique_id=400394325 instance=ExtResource("2_4522l")]
+layout_mode = 2
+ButtonText = "Back"
 
 [connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/Wardrobe" to="." method="_on_wardrobe_pressed"]
 [connection signal="pressed" from="Buttons/Mods" to="." method="_on_mods_pressed"]
 [connection signal="pressed" from="Buttons/MenuQuit" to="." method="_on_menu_quit_pressed"]
 [connection signal="pressed" from="Buttons/DesktopQuit" to="." method="_on_desktop_quit_pressed"]
 [connection signal="pressed" from="Buttons/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer/SelectionPreview/Confirm" to="." method="_on_wardrobe_confirm_pressed"]
+[connection signal="pressed" from="WardrobeMenu/ColorRect/MarginContainer/HBoxContainer/SelectionPreview/Back" to="." method="_on_wardrobe_back_pressed"]
+[connection signal="pressed" from="SaveMenu/Panel/VBoxContainer/HBoxContainer/Yes" to="." method="_on_save_yes_pressed"]
+[connection signal="pressed" from="SaveMenu/Panel/VBoxContainer/HBoxContainer/No" to="." method="_on_save_no_pressed"]
+[connection signal="pressed" from="SaveMenu/Panel/VBoxContainer/Back" to="." method="_on_save_back_pressed"]

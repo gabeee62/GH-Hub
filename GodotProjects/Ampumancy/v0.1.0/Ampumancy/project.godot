@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ampumancy"
-run/main_scene="uid://b7lid6lfi4ncu"
+run/main_scene="uid://qh63tentc17q"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Ampumancy"
 config/features=PackedStringArray("4.6", "GL Compatibility")
@@ -21,6 +21,11 @@ config/icon="res://icon.svg"
 
 Globals="*uid://c1v3dqiausw5g"
 SaveHandler="*uid://cmg4amnnl8m8g"
+SceneChanger="*uid://cmx186lekwt80"
+
+[display]
+
+window/size/mode=3
 
 [editor_plugins]
 

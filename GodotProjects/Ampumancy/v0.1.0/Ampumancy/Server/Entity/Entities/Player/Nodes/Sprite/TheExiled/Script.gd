@@ -4,13 +4,7 @@ extends CanvasGroup
 @onready var Parent: Player = $".."
 @onready var Equipment: PlayerEquipmentData = Parent.Data.Equipment
 
-@onready var Wardrobe: WardrobeSet = preload("res://Common/Player/Characters/WardrobeSets/TheExiled.tres")
 var LastSelection: Array[int]
-
-
-func _ready() -> void:
-	update_player_sprite(Parent.Data.WardrobeSelection)
-	update_arm_sprites()
 
 
 func _process(delta: float) -> void:
@@ -20,11 +14,13 @@ func _process(delta: float) -> void:
 
 
 func tool_process() -> void:
-	update_player_sprite(Parent.Data.WardrobeSelection)
+	#update_player_sprite(Parent.Data.Wardrobe.Selection) FIXME: Needs to grab from something that isn't the player
+	update_arm_sprites()
 
 
 func game_process(_delta: float) -> void:
 	rotate_arms()
+	update_player_sprite(Parent.Data.Wardrobe.Selection)
 	update_animation_parameters()
 	update_blend_positions()
 
@@ -58,12 +54,12 @@ func rotate_arms() -> void:
 func update_player_sprite(selections: Array[int]) -> void:
 	if selections != LastSelection:
 		LastSelection = selections
-		$Hat.texture = load(Wardrobe.wardrobe_pieces[0][selections[0]])
-		$Head.texture = load(Wardrobe.wardrobe_pieces[1][selections[1]])
-		$Eyes.texture = load(Wardrobe.wardrobe_pieces[2][selections[2]])
-		$Left_Cloak.texture = load(Wardrobe.wardrobe_pieces[3][selections[3]])
-		$Right_Cloak.texture = load(Wardrobe.wardrobe_pieces[3][selections[3]])
-		$Robes.texture = load(Wardrobe.wardrobe_pieces[4][selections[4]])
+		$Hat.texture = Parent.Data.Wardrobe.Set.Hats[str(selections[0] + 1)]
+		$Head.texture = Parent.Data.Wardrobe.Set.Faces[str(selections[1] + 1)]
+		$Eyes.texture = Parent.Data.Wardrobe.Set.Eyes[str(selections[2] + 1)]
+		$Left_Cloak.texture = Parent.Data.Wardrobe.Set.Cloaks[str(selections[3] + 1)]
+		$Right_Cloak.texture = Parent.Data.Wardrobe.Set.Cloaks[str(selections[3] + 1)]
+		$Robes.texture = Parent.Data.Wardrobe.Set.Robes[str(selections[4] + 1)]
 
 
 func update_arm_sprites() -> void:

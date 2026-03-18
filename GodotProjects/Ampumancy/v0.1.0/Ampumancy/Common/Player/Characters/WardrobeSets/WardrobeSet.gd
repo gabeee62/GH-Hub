@@ -1,5 +1,8 @@
 extends Resource
 class_name WardrobeSet
 
-@export var wardrobe_pieces: Array[Array]
-@export var piece_names: Array[String]
+@export var Hats: Dictionary[String, Texture2D]
+@export var Faces: Dictionary[String, Texture2D]
+@export var Eyes: Dictionary[String, Texture2D]
+@export var Cloaks: Dictionary[String, Texture2D]
+@export var Robes: Dictionary[String, Texture2D]

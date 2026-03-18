@@ -9,6 +9,8 @@ var WASDVector: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	Globals.CurrentPlayer = self
+	if Data != Globals.CurrentSave.Player_Data:
+		Data = Globals.CurrentSave.Player_Data
 	Data.JumpVelocity = ((2.0 * Data.JumpHeight) / Data.TimeToPeak) * -1.0
 	Data.JumpGravity = ((-2.0 * Data.JumpHeight) / (Data.TimeToPeak * Data.TimeToPeak)) * -1.0
 	Data.FallGravity = ((-2.0 * Data.JumpHeight) / (Data.TimeToLand * Data.TimeToLand)) * -1.0

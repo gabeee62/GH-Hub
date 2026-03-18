@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://bi1idmrdfmiff" path="res://Server/Global/GlobalVariants/Script.gd" id="1_45bgv"]
 
 [node name="GlobalVariants" type="Node2D" unique_id=1870776503]
+process_mode = 3
 script = ExtResource("1_45bgv")

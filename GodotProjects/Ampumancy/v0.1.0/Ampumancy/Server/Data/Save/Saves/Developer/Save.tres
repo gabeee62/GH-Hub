@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SaveData" format=3 uid="uid://bj0v5ye105evc"]
+
+[ext_resource type="PackedScene" uid="uid://b7lid6lfi4ncu" path="res://Server/Zone/Zones/Overworld/Zone_Overworld.tscn" id="1_3i5gn"]
+[ext_resource type="Script" uid="uid://b13ix0cq4moab" path="res://Server/Data/Save/Saves/Data_Save_Template.gd" id="2_06bp5"]
+
+[resource]
+script = ExtResource("2_06bp5")
+SaveName = "Developer"
+PlayTime = -1
+metadata/_custom_type_script = "uid://b13ix0cq4moab"

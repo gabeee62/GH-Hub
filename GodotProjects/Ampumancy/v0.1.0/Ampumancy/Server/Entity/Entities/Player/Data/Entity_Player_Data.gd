@@ -4,10 +4,10 @@ class_name PlayerData
 enum GroundStates {GROUNDED, AIRBORNE}
 
 @export_group("Character")
-@export var CharacterName: String
-@export var WardrobeSelection: Array[int]
-@export var Equipment: PlayerEquipmentData
-@export var Inventory: PlayerInventoryData
+@export var CharacterName: String = "The Exiled"
+@export var Wardrobe: PlayerWardrobeData = PlayerWardrobeData.new()
+@export var Equipment: PlayerEquipmentData = PlayerEquipmentData.new()
+@export var Inventory: PlayerInventoryData = PlayerInventoryData.new()
 
 @export_group("Movement")
 var ControlLocked: bool = false

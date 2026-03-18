@@ -74,5 +74,6 @@ TimeToLand = 0.3
 
 [resource]
 script = ExtResource("1_c5f7f")
+SaveName = "Default"
 Data = SubResource("Resource_tumgt")
 metadata/_custom_type_script = "uid://b13ix0cq4moab"

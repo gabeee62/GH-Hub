@@ -1,0 +1,4 @@
+**Assign Role to User**
+**Requires**: Admin
+**Example**: !assign <username> <rolename>
+**Description**: Gives the user <username> the specified role <rolename>.

@@ -1,0 +1,326 @@
+[gd_scene format=3 uid="uid://qh63tentc17q"]
+
+[ext_resource type="Script" uid="uid://730krb7h2mxs" path="res://Server/UI/Menu/Menus/Title Screen/Script.gd" id="1_ycx0m"]
+[ext_resource type="PackedScene" uid="uid://dpp3gxd6btul6" path="res://Server/UI/Menu/Buttons/Default/UI_Menu_Button_Default.tscn" id="2_xwoud"]
+[ext_resource type="FontFile" uid="uid://beqa5ltlcend0" path="res://Common/Textures/Fonts/HealthFont.ttf" id="3_xwoud"]
+[ext_resource type="LabelSettings" uid="uid://dciie4egebucv" path="res://Common/Textures/Fonts/Settings/NewPixelLabelSettings.tres" id="4_7fp1p"]
+
+[node name="MenuTitleScreen" type="Control" unique_id=1206161809]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ycx0m")
+
+[node name="MainMenu" type="Control" parent="." unique_id=873604257]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="MainMenu" unique_id=995005275]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" parent="MainMenu/Menu" unique_id=469761963 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Play"
+ButtonText = "Play"
+
+[node name="Options" parent="MainMenu/Menu" unique_id=1067343041 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Options"
+ButtonText = "Options"
+
+[node name="Mods" parent="MainMenu/Menu" unique_id=1860735460 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Mods"
+ButtonText = "Mods"
+
+[node name="Quit" parent="MainMenu/Menu" unique_id=722691751 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Quit"
+ButtonText = "Quit"
+
+[node name="PlayMenu" type="Control" parent="." unique_id=2139250412]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="PlayMenu" unique_id=238941950]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewGame" parent="PlayMenu/Menu" unique_id=1863430461 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "New Game"
+ButtonText = "New Game"
+
+[node name="LoadGame" parent="PlayMenu/Menu" unique_id=2040155646 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Load Game"
+ButtonText = "Load Game"
+
+[node name="Back" parent="PlayMenu/Menu" unique_id=1209519551 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Back"
+ButtonText = "Back"
+
+[node name="NewGameMenu" type="Control" parent="." unique_id=1061718548]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="NewGameMenu" unique_id=1202313732]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -61.5
+offset_right = 175.0
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveName" type="TextEdit" parent="NewGameMenu/Menu" unique_id=127718980]
+custom_minimum_size = Vector2(350, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_xwoud")
+theme_override_font_sizes/font_size = 11
+placeholder_text = "Enter a name for your new save:"
+emoji_menu_enabled = false
+
+[node name="Start" parent="NewGameMenu/Menu" unique_id=1687783888 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Start"
+ButtonText = "Start"
+
+[node name="Back" parent="NewGameMenu/Menu" unique_id=522184558 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Back"
+ButtonText = "Back"
+
+[node name="LoadGameMenu" type="Control" parent="." unique_id=61711235]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LoadGameMenu" unique_id=1058649886]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
+offset_top = 93.0
+offset_right = 70.0
+offset_bottom = 116.0
+grow_horizontal = 2
+text = "Choose your save:"
+label_settings = ExtResource("4_7fp1p")
+
+[node name="Panel" type="Panel" parent="LoadGameMenu" unique_id=1488357855]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="LoadGameMenu/Panel" unique_id=466239878]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LoadGameMenu/Panel/MarginContainer" unique_id=979805561]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadGameMenu/Panel/MarginContainer/ScrollContainer" unique_id=1224861592]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="Back" parent="LoadGameMenu" unique_id=1461142246 instance=ExtResource("2_xwoud")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -116.0
+offset_right = 100.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+ButtonText = "Back"
+
+[node name="OptionsMenu" type="Control" parent="." unique_id=115386741]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="OptionsMenu" unique_id=944021002]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -86.0
+offset_right = 100.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gameplay" parent="OptionsMenu/Menu" unique_id=395573908 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Gameplay"
+ButtonText = "Gameplay"
+
+[node name="Video" parent="OptionsMenu/Menu" unique_id=653830292 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Video"
+ButtonText = "Video"
+
+[node name="Audio" parent="OptionsMenu/Menu" unique_id=1465536359 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Audio"
+ButtonText = "Audio"
+
+[node name="Back" parent="OptionsMenu/Menu" unique_id=874317085 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Back"
+ButtonText = "Back"
+
+[node name="GameplayMenu" type="Control" parent="." unique_id=1633355033]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VideoMenu" type="Control" parent="." unique_id=1712112798]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioMenu" type="Control" parent="." unique_id=489805174]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ModsMenu" type="Control" parent="." unique_id=1677181446]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ModsMenu" unique_id=1642260381]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ManageMods" parent="ModsMenu/VBoxContainer" unique_id=1311344151 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Manage Mods"
+ButtonText = "Manage Mods"
+
+[node name="ManagePacks" parent="ModsMenu/VBoxContainer" unique_id=1247186692 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Manage Mod Packs"
+ButtonText = "Manage Mod Packs"
+
+[node name="Back" parent="ModsMenu/VBoxContainer" unique_id=1360093004 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Back"
+ButtonText = "Back"
+
+[connection signal="pressed" from="MainMenu/Menu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/Menu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainMenu/Menu/Mods" to="." method="_on_mods_pressed"]
+[connection signal="pressed" from="MainMenu/Menu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PlayMenu/Menu/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="PlayMenu/Menu/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="PlayMenu/Menu/Back" to="." method="_on_play_back_pressed"]
+[connection signal="pressed" from="NewGameMenu/Menu/Start" to="." method="_on_new_start_pressed"]
+[connection signal="pressed" from="NewGameMenu/Menu/Back" to="." method="_on_new_back_pressed"]
+[connection signal="pressed" from="LoadGameMenu/Back" to="." method="_on_load_back_pressed"]
+[connection signal="pressed" from="OptionsMenu/Menu/Gameplay" to="." method="_on_gameplay_pressed"]
+[connection signal="pressed" from="OptionsMenu/Menu/Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="OptionsMenu/Menu/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="OptionsMenu/Menu/Back" to="." method="_on_options_back_pressed"]
+[connection signal="pressed" from="ModsMenu/VBoxContainer/Back" to="." method="_on_mods_back_pressed"]
