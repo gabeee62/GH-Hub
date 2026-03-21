@@ -1,4 +1,0 @@
-**Hello!**
-**Requires**: None
-**Example**: !hello
-**Description**: Says hello!

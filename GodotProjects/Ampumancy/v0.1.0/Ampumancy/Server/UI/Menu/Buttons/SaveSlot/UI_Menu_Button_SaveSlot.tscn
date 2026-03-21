@@ -5,7 +5,6 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_qbwit"]
 font = ExtResource("2_mcm2t")
-font_size = 10
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
@@ -37,7 +36,7 @@ vertical_alignment = 1
 [node name="DeleteLabel" type="Label" parent="MarginContainer" unique_id=489118259]
 visible = false
 layout_mode = 2
-text = "RMB: Delete LMB: Cancel"
+text = "LMB: Delete RMB: Cancel"
 label_settings = SubResource("LabelSettings_qbwit")
 horizontal_alignment = 1
 vertical_alignment = 1

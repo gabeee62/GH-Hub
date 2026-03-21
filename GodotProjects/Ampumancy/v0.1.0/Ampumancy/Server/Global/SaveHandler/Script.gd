@@ -9,6 +9,10 @@ func save_game(SaveFile: SaveData) -> void:
 	ResourceSaver.save(SaveFile, SaveLocation + SaveFile.SaveName + "/" + "Save.tres")
 
 
+func convert_to_json() -> void:
+	pass
+
+
 func new_game(SaveName: String) -> SaveData:
 	var NewSave: SaveData = SaveData.new()
 	NewSave.SaveName = SaveName

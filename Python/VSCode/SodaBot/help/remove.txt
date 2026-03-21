@@ -1,4 +1,0 @@
-**Remove Role From User**
-**Requires**: Admin
-**Example**: !remove <username> <rolename>
-**Description**: Removes the specified role <rolename> from the user <username>.

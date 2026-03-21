@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cnj72bwveobsp"]
+
+[ext_resource type="Script" uid="uid://dckvc8ovn14rk" path="res://Server/Zone/FunctionNodes/HUD/Health/Script.gd" id="1_aigy8"]
+[ext_resource type="Texture2D" uid="uid://wwqqar7dao3c" path="res://Common/Textures/UI/HUD/Health/bar_bg.png" id="2_e0oe4"]
+[ext_resource type="Texture2D" uid="uid://8s5wkbxud6aw" path="res://Common/Textures/UI/HUD/Health/health_fill.png" id="3_240hf"]
+[ext_resource type="Texture2D" uid="uid://vce6g6albecp" path="res://Common/Textures/UI/HUD/Health/bar_frame.png" id="4_is4ey"]
+[ext_resource type="Texture2D" uid="uid://btwnjqaho6i7q" path="res://Common/Textures/UI/HUD/Health/gold_health_fill.png" id="5_urx8o"]
+
+[node name="HealthHUD" type="Control" unique_id=1398459580]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_aigy8")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2032581789]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 15.0
+scale = Vector2(4, 4)
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+
+[node name="HealthBar" type="TextureProgressBar" parent="MarginContainer" unique_id=998716774]
+custom_minimum_size = Vector2(60, 15)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+nine_patch_stretch = true
+stretch_margin_left = 5
+stretch_margin_top = 5
+stretch_margin_right = 5
+stretch_margin_bottom = 5
+texture_under = ExtResource("2_e0oe4")
+texture_progress = ExtResource("3_240hf")
+
+[node name="GoldHealthBar" type="TextureProgressBar" parent="MarginContainer" unique_id=1103973090]
+custom_minimum_size = Vector2(60, 15)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+nine_patch_stretch = true
+stretch_margin_left = 5
+stretch_margin_top = 5
+stretch_margin_right = 5
+stretch_margin_bottom = 5
+texture_over = ExtResource("4_is4ey")
+texture_progress = ExtResource("5_urx8o")

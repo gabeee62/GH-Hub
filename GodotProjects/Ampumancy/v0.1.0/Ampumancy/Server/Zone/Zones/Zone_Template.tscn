@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cxj12vinh8rv2" path="res://Common/Textures/TileMap/Grass/Grass.png" id="6_67bw6"]
 [ext_resource type="PackedScene" uid="uid://d22w8w2g6n7d8" path="res://Server/Zone/FunctionNodes/HUD/Arms/Zone_Node_HUD_Arms.tscn" id="7_67bw6"]
 [ext_resource type="PackedScene" uid="uid://dt81siwcy8sct" path="res://Server/Zone/FunctionNodes/Menu/Pause/Zone_Node_Menu_Pause.tscn" id="8_67bw6"]
+[ext_resource type="PackedScene" uid="uid://cnj72bwveobsp" path="res://Server/Zone/FunctionNodes/HUD/Health/Zone_Node_HUD_Health.tscn" id="8_g8kfp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g8kfp"]
 texture = ExtResource("5_57s15")
@@ -1360,6 +1361,8 @@ metadata/_edit_lock_ = true
 process_mode = 1
 
 [node name="ArmsHUD" parent="HUDCanvas" unique_id=1194301305 instance=ExtResource("7_67bw6")]
+
+[node name="HealthHUD" parent="HUDCanvas" unique_id=1398459580 instance=ExtResource("8_g8kfp")]
 
 [node name="InventoryCanvas" type="CanvasLayer" parent="." unique_id=524860629]
 process_mode = 1

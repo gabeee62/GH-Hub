@@ -6,6 +6,7 @@ enum GroundStates {GROUNDED, AIRBORNE}
 @export_group("Character")
 @export var CharacterName: String = "The Exiled"
 @export var Wardrobe: PlayerWardrobeData = PlayerWardrobeData.new()
+@export var Stats: PlayerStatsData = PlayerStatsData.new()
 @export var Equipment: PlayerEquipmentData = PlayerEquipmentData.new()
 @export var Inventory: PlayerInventoryData = PlayerInventoryData.new()
 

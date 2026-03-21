@@ -57,44 +57,6 @@ layout_mode = 2
 text = "Quit"
 ButtonText = "Quit"
 
-[node name="PlayMenu" type="Control" parent="." unique_id=2139250412]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Menu" type="VBoxContainer" parent="PlayMenu" unique_id=238941950]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -64.0
-offset_right = 100.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="NewGame" parent="PlayMenu/Menu" unique_id=1863430461 instance=ExtResource("2_xwoud")]
-layout_mode = 2
-text = "New Game"
-ButtonText = "New Game"
-
-[node name="LoadGame" parent="PlayMenu/Menu" unique_id=2040155646 instance=ExtResource("2_xwoud")]
-layout_mode = 2
-text = "Load Game"
-ButtonText = "Load Game"
-
-[node name="Back" parent="PlayMenu/Menu" unique_id=1209519551 instance=ExtResource("2_xwoud")]
-layout_mode = 2
-text = "Back"
-ButtonText = "Back"
-
 [node name="NewGameMenu" type="Control" parent="." unique_id=1061718548]
 visible = false
 layout_mode = 1
@@ -137,7 +99,6 @@ text = "Back"
 ButtonText = "Back"
 
 [node name="LoadGameMenu" type="Control" parent="." unique_id=61711235]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -145,35 +106,46 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="LoadGameMenu" unique_id=1058649886]
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadGameMenu" unique_id=1096768932]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LabelMargin" type="MarginContainer" parent="LoadGameMenu" unique_id=309045257]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -70.0
-offset_top = 93.0
-offset_right = 70.0
-offset_bottom = 116.0
+offset_left = -204.0
+offset_right = 204.0
+offset_bottom = 56.0
 grow_horizontal = 2
+theme_override_constants/margin_top = 32
+
+[node name="Label" type="Label" parent="LoadGameMenu/LabelMargin" unique_id=1058649886]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 text = "Choose your save:"
 label_settings = ExtResource("4_7fp1p")
 
-[node name="Panel" type="Panel" parent="LoadGameMenu" unique_id=1488357855]
-custom_minimum_size = Vector2(600, 400)
+[node name="PanelMargin" type="MarginContainer" parent="LoadGameMenu" unique_id=881515140]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -200.0
-offset_right = 300.0
-offset_bottom = 200.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 125
 
-[node name="MarginContainer" type="MarginContainer" parent="LoadGameMenu/Panel" unique_id=466239878]
+[node name="Panel" type="Panel" parent="LoadGameMenu/PanelMargin" unique_id=1488357855]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+
+[node name="ScrollBoxMargin" type="MarginContainer" parent="LoadGameMenu/PanelMargin/Panel" unique_id=466239878]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -185,16 +157,16 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="ScrollContainer" type="ScrollContainer" parent="LoadGameMenu/Panel/MarginContainer" unique_id=979805561]
+[node name="ScrollBox" type="ScrollContainer" parent="LoadGameMenu/PanelMargin/Panel/ScrollBoxMargin" unique_id=979805561]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LoadGameMenu/Panel/MarginContainer/ScrollContainer" unique_id=1224861592]
+[node name="SaveSlots" type="VBoxContainer" parent="LoadGameMenu/PanelMargin/Panel/ScrollBoxMargin/ScrollBox" unique_id=1224861592]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 4
 
-[node name="Back" parent="LoadGameMenu" unique_id=1461142246 instance=ExtResource("2_xwoud")]
+[node name="ButtonMargin" type="MarginContainer" parent="LoadGameMenu" unique_id=1881395567]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -202,11 +174,23 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -100.0
-offset_top = -116.0
+offset_top = -72.0
 offset_right = 100.0
-offset_bottom = -76.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="VBoxContainer" parent="LoadGameMenu/ButtonMargin" unique_id=670470105]
+layout_mode = 2
+
+[node name="NewGame" parent="LoadGameMenu/ButtonMargin/HBoxContainer" unique_id=1511103819 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+size_flags_vertical = 8
+ButtonText = "New Game"
+
+[node name="Back" parent="LoadGameMenu/ButtonMargin/HBoxContainer" unique_id=1461142246 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+size_flags_vertical = 8
 text = "Back"
 ButtonText = "Back"
 
@@ -313,12 +297,10 @@ ButtonText = "Back"
 [connection signal="pressed" from="MainMenu/Menu/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MainMenu/Menu/Mods" to="." method="_on_mods_pressed"]
 [connection signal="pressed" from="MainMenu/Menu/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="PlayMenu/Menu/NewGame" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="PlayMenu/Menu/LoadGame" to="." method="_on_load_game_pressed"]
-[connection signal="pressed" from="PlayMenu/Menu/Back" to="." method="_on_play_back_pressed"]
 [connection signal="pressed" from="NewGameMenu/Menu/Start" to="." method="_on_new_start_pressed"]
 [connection signal="pressed" from="NewGameMenu/Menu/Back" to="." method="_on_new_back_pressed"]
-[connection signal="pressed" from="LoadGameMenu/Back" to="." method="_on_load_back_pressed"]
+[connection signal="pressed" from="LoadGameMenu/ButtonMargin/HBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="LoadGameMenu/ButtonMargin/HBoxContainer/Back" to="." method="_on_load_back_pressed"]
 [connection signal="pressed" from="OptionsMenu/Menu/Gameplay" to="." method="_on_gameplay_pressed"]
 [connection signal="pressed" from="OptionsMenu/Menu/Video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="OptionsMenu/Menu/Audio" to="." method="_on_audio_pressed"]

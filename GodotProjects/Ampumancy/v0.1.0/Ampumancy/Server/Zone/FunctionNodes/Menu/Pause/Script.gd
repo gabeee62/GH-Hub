@@ -30,10 +30,11 @@ func _on_options_pressed() -> void:
 
 
 func _on_wardrobe_pressed() -> void:
-	for i: WardrobeSelectButton in Selections.get_children():
-		i.reset()
-	$Buttons.hide()
-	$WardrobeMenu.show()
+	#for i: WardrobeSelectButton in Selections.get_children():
+	#	i.reset()
+	#$Buttons.hide()
+	#$WardrobeMenu.show()
+	pass
 
 
 func _on_mods_pressed() -> void:
@@ -69,7 +70,7 @@ func _on_save_no_pressed() -> void:
 
 func menu_or_desk_quit() -> void:
 	if MenuOrDesk:
-		get_tree().change_scene_to_file(MainMenu)
+		SceneChanger.play_screen_transition("GameFadeToBlack")
 	else:
 		get_tree().quit()
 

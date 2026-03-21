@@ -13,16 +13,16 @@ func _gui_input(event: InputEvent) -> void:
 				if DeleteStatus == 0:                                           # SAVE QUEUED FOR DELETION
 					DeleteStatus += 1
 					$MarginContainer/DeleteLabel.show()
-				else:                                                           # SAVE DELETED
-					SaveHandler.delete_save(Data)
-					queue_free()
+				else:                                                           # SAVE DELETION CANCELLED
+					DeleteStatus -= 1
+					$MarginContainer/DeleteLabel.hide()    
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				if DeleteStatus == 0:                                           # GAME STARTED WITH CHOSEN SAVE
 					Globals.CurrentSave = Data
-					SceneChanger.play_screen_transition("TitleToGame")
-				elif DeleteStatus == 1:                                         # SAVE DELETION CANCELLED
-					DeleteStatus -= 1
-					$MarginContainer/DeleteLabel.hide()
+					SceneChanger.play_screen_transition("MenuFadeToBlack")
+				elif DeleteStatus == 1:                                         # SAVE DELETED
+					SaveHandler.delete_save(Data)
+					queue_free()
 
 
 func set_label_text(SaveName: String) -> void:

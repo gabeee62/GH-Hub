@@ -2,8 +2,6 @@
 extends Panel
 class_name WardrobeSelectButton
 
-# TODO: Add right click to delete functionality
-
 signal LeftPressed
 signal RightPressed
 
