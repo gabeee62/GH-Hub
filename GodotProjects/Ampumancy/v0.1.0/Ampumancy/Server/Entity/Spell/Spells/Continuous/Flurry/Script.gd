@@ -1,0 +1,2 @@
+extends ContinuousSpell
+class_name Flurry

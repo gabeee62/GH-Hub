@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cu35tog008nbp"]
+
+[ext_resource type="Script" uid="uid://c86elsf88xga5" path="res://Server/Globals/PlayerTracker/Script.gd" id="1_31ihw"]
+
+[node name="PlayerTracker" type="Node" unique_id=1180877314]
+script = ExtResource("1_31ihw")

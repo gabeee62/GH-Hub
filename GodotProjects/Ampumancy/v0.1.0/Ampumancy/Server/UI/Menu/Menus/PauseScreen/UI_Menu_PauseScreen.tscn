@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://dt81siwcy8sct"]
+
+[ext_resource type="Script" uid="uid://dn4q5kywnvlvr" path="res://Server/UI/Menu/Menus/PauseScreen/Script.gd" id="1_jd7ir"]
+[ext_resource type="PackedScene" uid="uid://dpp3gxd6btul6" path="res://Server/UI/Menu/Buttons/Default/UI_Menu_Button_Default.tscn" id="2_4522l"]
+[ext_resource type="LabelSettings" uid="uid://dciie4egebucv" path="res://Common/Textures/Fonts/Settings/NewPixelLabelSettings.tres" id="4_owivp"]
+
+[node name="PauseMenu" type="Control" unique_id=1334571678]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jd7ir")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1554898372]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.58431375)
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1780532385]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" parent="Buttons" unique_id=469761963 instance=ExtResource("2_4522l")]
+layout_mode = 2
+text = "Options"
+ButtonText = "Options"
+
+[node name="Mods" parent="Buttons" unique_id=2092229076 instance=ExtResource("2_4522l")]
+layout_mode = 2
+text = "Mods"
+ButtonText = "Mods"
+
+[node name="MenuQuit" parent="Buttons" unique_id=1645139203 instance=ExtResource("2_4522l")]
+layout_mode = 2
+text = "Quit to Main Menu"
+ButtonText = "Quit to Main Menu"
+
+[node name="DesktopQuit" parent="Buttons" unique_id=1278415446 instance=ExtResource("2_4522l")]
+layout_mode = 2
+text = "Quit to Desktop"
+ButtonText = "Quit to Desktop"
+
+[node name="Back" parent="Buttons" unique_id=250517212 instance=ExtResource("2_4522l")]
+layout_mode = 2
+text = "Back"
+ButtonText = "Back"
+
+[node name="OptionsMenu" type="Control" parent="." unique_id=322633025]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ModsMenu" type="Control" parent="." unique_id=1209596729]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveMenu" type="Control" parent="." unique_id=1063344833]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SaveMenu" unique_id=1517004756]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SaveMenu/Panel" unique_id=2141514426]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_top = 80.0
+offset_right = 212.0
+offset_bottom = 96.0
+grow_horizontal = 2
+text = "Save before quitting?"
+label_settings = ExtResource("4_owivp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SaveMenu/Panel" unique_id=1934272508]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -52.0
+offset_right = 184.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SaveMenu/Panel/VBoxContainer" unique_id=18973768]
+layout_mode = 2
+theme_override_constants/separation = -32
+
+[node name="Yes" parent="SaveMenu/Panel/VBoxContainer/HBoxContainer" unique_id=981583280 instance=ExtResource("2_4522l")]
+layout_mode = 2
+ButtonText = "Yes"
+
+[node name="No" parent="SaveMenu/Panel/VBoxContainer/HBoxContainer" unique_id=1326569845 instance=ExtResource("2_4522l")]
+layout_mode = 2
+ButtonText = "No"
+
+[node name="Back" parent="SaveMenu/Panel/VBoxContainer" unique_id=400394325 instance=ExtResource("2_4522l")]
+layout_mode = 2
+ButtonText = "Back"
+
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/Mods" to="." method="_on_mods_pressed"]
+[connection signal="pressed" from="Buttons/MenuQuit" to="." method="_on_menu_quit_pressed"]
+[connection signal="pressed" from="Buttons/DesktopQuit" to="." method="_on_desktop_quit_pressed"]
+[connection signal="pressed" from="Buttons/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="SaveMenu/Panel/VBoxContainer/HBoxContainer/Yes" to="." method="_on_save_yes_pressed"]
+[connection signal="pressed" from="SaveMenu/Panel/VBoxContainer/HBoxContainer/No" to="." method="_on_save_no_pressed"]
+[connection signal="pressed" from="SaveMenu/Panel/VBoxContainer/Back" to="." method="_on_save_back_pressed"]

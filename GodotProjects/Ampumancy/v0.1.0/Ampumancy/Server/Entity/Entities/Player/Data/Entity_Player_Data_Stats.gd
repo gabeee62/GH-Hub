@@ -1,9 +1,14 @@
 extends Resource
 class_name PlayerStatsData
 
+# Normal: The current value of the specified stat
+# Max: The current value cap that the player's specified stat can reach; can be increased through gameplay
+# HardCap: The highest value that the player's specified stat can be increased to
+
 @export_group("Health")
 @export var Health: int = 100
 @export var GoldHealth: int = 0
+@export var GoldAbsorption: float = 0.2
 
 @export_subgroup("Max Values")
 @export var MaxHealth: int = 100

@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d4nr2mjoasqop" path="res://Server/Entity/Spell/Spells/Script.gd" id="1_vrlvp"]
 
-[node name="SpellTemplate" type="Node2D" unique_id=546075401]
+[node name="Spell" type="Node2D" unique_id=546075401]
 script = ExtResource("1_vrlvp")
+
+[node name="Timers" type="Node" parent="." unique_id=1363916597]

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cpl64ead2hodc"
+path="res://.godot/imported/Hat.aseprite-ca4014ce2e2b86873c60ae89efe500a6.res"
+
+[deps]
+
+source_file="res://Common/Textures/Entities/Player/Old/Hat/Hat.aseprite"
+dest_files=["res://.godot/imported/Hat.aseprite-ca4014ce2e2b86873c60ae89efe500a6.res"]
+
+[params]
+

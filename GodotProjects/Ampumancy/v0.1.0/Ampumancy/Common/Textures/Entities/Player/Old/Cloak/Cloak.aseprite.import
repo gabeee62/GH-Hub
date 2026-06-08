@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://brq0m8cwfi3kx"
+path="res://.godot/imported/Cloak.aseprite-e2f8e3945fed035e9ad132c49805e0ed.res"
+
+[deps]
+
+source_file="res://Common/Textures/Entities/Player/Old/Cloak/Cloak.aseprite"
+dest_files=["res://.godot/imported/Cloak.aseprite-e2f8e3945fed035e9ad132c49805e0ed.res"]
+
+[params]
+

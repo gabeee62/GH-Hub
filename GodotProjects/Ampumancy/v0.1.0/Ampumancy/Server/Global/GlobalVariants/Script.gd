@@ -1,5 +1,7 @@
 extends Node2D
 
+var Settings: SettingsData
+
 var CurrentSave: SaveData
 var CurrentZone: Zone
 var CurrentPlayer: Player
@@ -10,8 +12,11 @@ var PauseTick: int
 
 
 func add_playtime() -> void:
-	CurrentSave.PlayTime += (Time.get_ticks_msec() - StartTick) - TimePaused
+	calculate_pausetime()
+	if CurrentSave.PlayTime != -1:
+		CurrentSave.PlayTime += (Time.get_ticks_msec() - StartTick) - TimePaused
 
 
 func calculate_pausetime() -> void:
-	TimePaused += Time.get_ticks_msec() - PauseTick
+	if CurrentSave.PlayTime != -1:
+		TimePaused += Time.get_ticks_msec() - PauseTick

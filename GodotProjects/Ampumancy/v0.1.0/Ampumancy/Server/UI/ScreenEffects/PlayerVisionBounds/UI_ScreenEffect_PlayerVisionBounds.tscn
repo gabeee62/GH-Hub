@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c4dp8y6dpywi2"]
+
+[ext_resource type="Script" uid="uid://bakb4fi35rhoy" path="res://Server/UI/ScreenEffects/PlayerVisionBounds/Script.gd" id="1_xoevr"]
+
+[sub_resource type="Gradient" id="Gradient_xoevr"]
+offsets = PackedFloat32Array(0.25, 0.3, 0.5, 0.7, 0.75)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_appkc"]
+gradient = SubResource("Gradient_xoevr")
+
+[node name="PlayerVisionBounds" type="Control" unique_id=669415205]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xoevr")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1579817129]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_top = -400.0
+offset_right = 1448.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+texture = SubResource("GradientTexture1D_appkc")

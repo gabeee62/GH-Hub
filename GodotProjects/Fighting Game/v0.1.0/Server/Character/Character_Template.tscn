@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://11u5ue3cdlhv"]
+
+[ext_resource type="Script" uid="uid://dhg2g82u1ivsf" path="res://Server/Character/Script.gd" id="1_y8qsk"]
+[ext_resource type="PackedScene" uid="uid://cof01nkwmf45g" path="res://Server/Character/Nodes/Input/Input.tscn" id="2_k1guu"]
+
+[node name="Character" type="CharacterBody2D" unique_id=1157950513]
+collision_mask = 5
+script = ExtResource("1_y8qsk")
+
+[node name="Input" parent="." unique_id=819492225 instance=ExtResource("2_k1guu")]
+
+[node name="PhysBox" type="CollisionShape2D" parent="." unique_id=949097729]
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=605934256]
+collision_mask = 2
+
+[node name="CollisionBox" type="CollisionShape2D" parent="Hurtbox" unique_id=1312174113]

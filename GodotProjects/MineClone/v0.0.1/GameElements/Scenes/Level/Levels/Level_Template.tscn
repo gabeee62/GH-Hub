@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cvskejyrxwwbs"]
+
+[ext_resource type="Script" uid="uid://bmpqhc28q7ed7" path="res://GameElements/Scenes/Level/Levels/Script.gd" id="1_sfn8v"]
+[ext_resource type="PackedScene" uid="uid://cuh1p0rfgx1vv" path="res://GameElements/Scenes/Level/Nodes/WorldGenerator/Level_Node_WorldGenerator.tscn" id="2_bmkog"]
+
+[sub_resource type="Environment" id="Environment_1lso0"]
+
+[node name="Level" type="Node3D" unique_id=120700217]
+script = ExtResource("1_sfn8v")
+
+[node name="WorldGenerator" parent="." unique_id=1704402987 instance=ExtResource("2_bmkog")]
+
+[node name="Environment" type="Node3D" parent="." unique_id=30802018]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1748956827]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=867792992]
+environment = SubResource("Environment_1lso0")
+
+[node name="GridMap" type="GridMap" parent="Environment" unique_id=1779771029]
+cell_size = Vector3(1, 1, 1)

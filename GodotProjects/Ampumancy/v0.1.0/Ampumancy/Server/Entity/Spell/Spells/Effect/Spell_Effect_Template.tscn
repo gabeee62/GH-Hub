@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://fcvw2xt21jbs"]
+
+[ext_resource type="PackedScene" uid="uid://clyvemvkxw0h5" path="res://Server/Entity/Spell/Spells/Spell_Template.tscn" id="1_j2bmt"]
+[ext_resource type="Script" uid="uid://cqvp5wroql8ws" path="res://Server/Entity/Spell/Spells/Effect/Script.gd" id="2_j3fpj"]
+
+[node name="EffectSpell" unique_id=546075401 instance=ExtResource("1_j2bmt")]
+script = ExtResource("2_j3fpj")
+PrimaryElement = null
+SecondaryElement = null
+ManaCost = null
+MysticCost = null
+SolarCost = null
+FollowsCaster = null
+Type = null
+EffectTime = null
+
+[node name="EffectTime" type="Timer" parent="Timers" parent_id_path=PackedInt32Array(1363916597) index="0" unique_id=1844122219]

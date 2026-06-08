@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://g21l56x4r7tg"]
+
+[ext_resource type="PackedScene" uid="uid://jk2v8urw82f4" path="res://Server/Entity/Spell/Spells/Continuous/Spell_Continuous_Template.tscn" id="1_qijns"]
+[ext_resource type="Script" uid="uid://c84ycbgcq6jye" path="res://Server/Entity/Spell/Spells/Continuous/Flurry/Script.gd" id="2_ujx75"]
+
+[node name="Flurry" unique_id=546075401 instance=ExtResource("1_qijns")]
+script = ExtResource("2_ujx75")

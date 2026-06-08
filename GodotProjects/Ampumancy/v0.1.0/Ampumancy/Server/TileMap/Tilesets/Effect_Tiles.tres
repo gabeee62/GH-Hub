@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://cu47curgc03x2"]
 
-[ext_resource type="Texture2D" uid="uid://c6666e1sjrhfj" path="res://Common/Textures/TileMap/Effect_Tiles.png" id="1_wti6d"]
+[ext_resource type="Texture2D" uid="uid://c6666e1sjrhfj" path="res://Common/Textures/TileMaps/Effect_Tiles.png" id="1_wti6d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qs5kk"]
 resource_name = "Effects"

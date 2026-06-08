@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bakufn1ovgaf5"]
+
+[ext_resource type="Script" uid="uid://dh75bwso8ppyl" path="res://GameElements/Scenes/Entity/Entities/Script.gd" id="1_ssmvs"]
+
+[node name="Entity" type="CharacterBody3D" unique_id=1629936200]
+script = ExtResource("1_ssmvs")

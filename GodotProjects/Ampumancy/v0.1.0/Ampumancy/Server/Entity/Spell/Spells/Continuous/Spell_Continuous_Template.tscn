@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://jk2v8urw82f4"]
+
+[ext_resource type="PackedScene" uid="uid://clyvemvkxw0h5" path="res://Server/Entity/Spell/Spells/Spell_Template.tscn" id="1_ye6ei"]
+[ext_resource type="Script" uid="uid://dspcy3nrst2ev" path="res://Server/Entity/Spell/Spells/Continuous/Script.gd" id="2_kjlr7"]
+
+[node name="ContinuousSpell" unique_id=546075401 instance=ExtResource("1_ye6ei")]
+script = ExtResource("2_kjlr7")
+CycleTime = 0.0
+FinishCycle = false
+NotBusy = 0.0
+NoCycle = false
+
+[node name="CycleTime" type="Timer" parent="Timers" parent_id_path=PackedInt32Array(1363916597) index="0" unique_id=1123431041]
+one_shot = true
+
+[node name="NotBusyCD" type="Timer" parent="Timers" parent_id_path=PackedInt32Array(1363916597) index="1" unique_id=1258396424]
+one_shot = true
+
+[connection signal="timeout" from="Timers/CycleTime" to="." method="_on_cycle_time_timeout"]
+[connection signal="timeout" from="Timers/NotBusyCD" to="." method="_on_not_busy_cd_timeout"]

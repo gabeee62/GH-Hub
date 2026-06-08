@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://drbvqqm37cmfe"]
+
+[ext_resource type="PackedScene" uid="uid://clyvemvkxw0h5" path="res://Server/Entity/Spell/Spells/Spell_Template.tscn" id="1_0pprr"]
+[ext_resource type="Script" uid="uid://dbrrjicx4g4qh" path="res://Server/Entity/Spell/Spells/Singular/Script.gd" id="2_8hxuq"]
+
+[node name="SingularSpell" unique_id=546075401 instance=ExtResource("1_0pprr")]
+script = ExtResource("2_8hxuq")
+AutoCast = false
+CastDelay = 0.0
+NotBusy = 0.0
+
+[node name="CastDelay" type="Timer" parent="Timers" parent_id_path=PackedInt32Array(1363916597) index="0" unique_id=1453548232]
+
+[connection signal="timeout" from="Timers/CastDelay" to="." method="_on_cast_delay_timeout"]

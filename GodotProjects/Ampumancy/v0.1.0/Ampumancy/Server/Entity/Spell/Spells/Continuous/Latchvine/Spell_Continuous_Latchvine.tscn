@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://daag1f2oev7ol"]
+
+[ext_resource type="PackedScene" uid="uid://jk2v8urw82f4" path="res://Server/Entity/Spell/Spells/Continuous/Spell_Continuous_Template.tscn" id="1_mj4d8"]
+[ext_resource type="Script" uid="uid://86qriu6xutue" path="res://Server/Entity/Spell/Spells/Continuous/Latchvine/Script.gd" id="2_mnkh5"]
+
+[node name="Latchvine" unique_id=546075401 instance=ExtResource("1_mj4d8")]
+script = ExtResource("2_mnkh5")

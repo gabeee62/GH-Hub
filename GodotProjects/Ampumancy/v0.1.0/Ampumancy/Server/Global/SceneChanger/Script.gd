@@ -5,9 +5,22 @@ func play_screen_transition(transition: StringName) -> void:
 	$AnimationPlayer.play(transition)
 
 
-func load_main_menu() -> void:
-	get_tree().change_scene_to_file("res://Server/UI/Menu/Menus/Title Screen/Menu_TitleScreen.tscn")
+func test_message() -> void:
+	print("TEST MESSAGE")
+
+
+func change_scene(path: String) -> void:
+	if FileAccess.file_exists(path):
+		get_tree().change_scene_to_file(path)
 
 
 func load_level() -> void:
-	SaveHandler.load_game()
+	change_scene(Globals.CurrentSave.CurrentZone)
+
+
+func pause_game() -> void:
+	get_tree().paused = true
+
+
+func unpause_game() -> void:
+	get_tree().paused = false

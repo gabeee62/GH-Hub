@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://cxf3v2n12v5u5"]
+
+[ext_resource type="PackedScene" uid="uid://bw10noa6fujwk" path="res://Server/Entity/Entities/Entity_Template.tscn" id="1_nqew3"]
+[ext_resource type="Script" uid="uid://dk4fyaoooc3b3" path="res://Server/Entity/Entities/Player/Script.gd" id="2_p7ly1"]
+[ext_resource type="Script" uid="uid://drm74bts04bwn" path="res://Server/Entity/Entities/Player/Children/InputHandler/Script.gd" id="3_ky7sw"]
+[ext_resource type="Script" uid="uid://bj53800gweg8y" path="res://Server/Entity/Entities/Player/Data/Player_Data.gd" id="3_p5yet"]
+[ext_resource type="Texture2D" uid="uid://by5li32ipv3y2" path="res://Common/Textures/Entities/Player/New/Body.png" id="4_ryiyi"]
+[ext_resource type="Texture2D" uid="uid://nj72cfmkl3ty" path="res://Common/Textures/Entities/Player/New/Robes.png" id="5_p5yet"]
+[ext_resource type="Texture2D" uid="uid://cv2fhl2c4q67v" path="res://Common/Textures/Entities/Player/New/Head.png" id="6_gg764"]
+[ext_resource type="Texture2D" uid="uid://doh8e082auafu" path="res://Common/Textures/Entities/Player/New/Hat.png" id="7_olhao"]
+[ext_resource type="Texture2D" uid="uid://nlahgdr6xd2w" path="res://Common/Textures/Entities/Player/New/Cloak.png" id="8_igc2n"]
+[ext_resource type="Texture2D" uid="uid://chcihagqtonsy" path="res://Common/Textures/Entities/Player/Old/Arms/Chillfrost.png" id="10_gg764"]
+
+[sub_resource type="Resource" id="Resource_p5yet"]
+script = ExtResource("3_p5yet")
+metadata/_custom_type_script = "uid://bj53800gweg8y"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5hd0a"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ky7sw"]
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_st062"]
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_c6rwr"]
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ithra"]
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_loiyb"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ryiyi"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p5yet"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gg764"]
+advance_mode = 2
+advance_condition = &"fall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_olhao"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_igc2n"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5hd0a"]
+advance_mode = 2
+advance_condition = &"fall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eykhq"]
+advance_mode = 2
+advance_condition = &"fall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k161g"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fxddn"]
+advance_mode = 2
+advance_condition = &"land"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lpcle"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_edfde"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u548b"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aux5n"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fdmlc"]
+states/End/position = Vector2(307, 100)
+states/Fall/node = SubResource("AnimationNodeBlendSpace1D_ky7sw")
+states/Fall/position = Vector2(216, 100)
+states/Idle/node = SubResource("AnimationNodeBlendSpace1D_st062")
+states/Idle/position = Vector2(-107, 100)
+states/Jump/node = SubResource("AnimationNodeBlendSpace1D_c6rwr")
+states/Jump/position = Vector2(59, 190)
+states/Land/node = SubResource("AnimationNodeBlendSpace1D_ithra")
+states/Land/position = Vector2(59, -118)
+states/Start/position = Vector2(-216, 100)
+states/Walk/node = SubResource("AnimationNodeBlendSpace1D_loiyb")
+states/Walk/position = Vector2(59, 8)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ryiyi"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_p5yet"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_gg764"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_olhao"), "Fall", "Idle", SubResource("AnimationNodeStateMachineTransition_igc2n"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_5hd0a"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_eykhq"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_k161g"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_fxddn"), "Land", "Idle", SubResource("AnimationNodeStateMachineTransition_lpcle"), "Land", "Walk", SubResource("AnimationNodeStateMachineTransition_edfde"), "Fall", "Walk", SubResource("AnimationNodeStateMachineTransition_u548b"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_aux5n")]
+graph_offset = Vector2(-559, -396)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_r5gwu"]
+nodes/output/position = Vector2(340, 140)
+"nodes/Normal Movement/node" = SubResource("AnimationNodeStateMachine_fdmlc")
+"nodes/Normal Movement/position" = Vector2(40, 140)
+node_connections = [&"output", 0, &"Normal Movement"]
+
+[node name="Player" unique_id=427231550 instance=ExtResource("1_nqew3")]
+script = ExtResource("2_p7ly1")
+Data = SubResource("Resource_p5yet")
+
+[node name="InputHandler" type="Node" parent="." index="0" unique_id=127213044]
+script = ExtResource("3_ky7sw")
+
+[node name="PhysBox" parent="." index="2" unique_id=349095121]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_5hd0a")
+
+[node name="Sprite" type="CanvasGroup" parent="." index="3" unique_id=1465901693]
+
+[node name="Body" type="Sprite2D" parent="Sprite" index="0" unique_id=832337700]
+texture = ExtResource("4_ryiyi")
+hframes = 5
+vframes = 2
+
+[node name="Robes" type="Sprite2D" parent="Sprite" index="1" unique_id=769485681]
+texture = ExtResource("5_p5yet")
+hframes = 5
+vframes = 2
+
+[node name="Head" type="Sprite2D" parent="Sprite" index="2" unique_id=2026627570]
+texture = ExtResource("6_gg764")
+hframes = 5
+vframes = 2
+
+[node name="Hat" type="Sprite2D" parent="Sprite" index="3" unique_id=1830949719]
+texture = ExtResource("7_olhao")
+hframes = 5
+vframes = 2
+
+[node name="Dynamics" type="Node2D" parent="Sprite" index="4" unique_id=1154052706]
+
+[node name="RCloak" type="Sprite2D" parent="Sprite/Dynamics" index="0" unique_id=2127416231]
+position = Vector2(6, 0)
+texture = ExtResource("8_igc2n")
+hframes = 10
+vframes = 2
+frame = 1
+
+[node name="RArms" type="Node2D" parent="Sprite/Dynamics" index="1" unique_id=391326278]
+
+[node name="Chillfrost" type="Sprite2D" parent="Sprite/Dynamics/RArms" index="0" unique_id=217406015]
+position = Vector2(7, 6)
+texture = ExtResource("10_gg764")
+
+[node name="LArms" type="Node2D" parent="Sprite/Dynamics" index="2" unique_id=582006181]
+
+[node name="LCloak" type="Sprite2D" parent="Sprite/Dynamics" index="3" unique_id=144268289]
+position = Vector2(-6, 0)
+texture = ExtResource("8_igc2n")
+hframes = 10
+vframes = 2
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="4" unique_id=87557984]
+root_node = NodePath(".")
+tree_root = SubResource("AnimationNodeBlendTree_r5gwu")
+anim_player = NodePath("AnimationPlayer")
+"parameters/Normal Movement/conditions/fall" = false
+"parameters/Normal Movement/conditions/idle" = false
+"parameters/Normal Movement/conditions/jump" = false
+"parameters/Normal Movement/conditions/land" = false
+"parameters/Normal Movement/conditions/walk" = false
+"parameters/Normal Movement/Fall/blend_position" = 0.0
+"parameters/Normal Movement/Idle/blend_position" = 0.0
+"parameters/Normal Movement/Jump/blend_position" = 0.0
+"parameters/Normal Movement/Land/blend_position" = 0.0
+"parameters/Normal Movement/Walk/blend_position" = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree" index="0" unique_id=1152279003]

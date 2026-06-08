@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://pb2xnrtcgfc0"]
+
+[ext_resource type="Script" uid="uid://dcam1wgv13aem" path="res://Server/Globals/SceneChanger/Script.gd" id="1_m8mbd"]
+
+[node name="SceneChanger" type="Node" unique_id=1884822620]
+script = ExtResource("1_m8mbd")

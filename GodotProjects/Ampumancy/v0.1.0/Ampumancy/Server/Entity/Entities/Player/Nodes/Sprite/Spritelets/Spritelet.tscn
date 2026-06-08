@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cxy5q0h76kng0"]
+
+[ext_resource type="Script" uid="uid://0o42wpfyypwm" path="res://Server/Entity/Entities/Player/Nodes/Sprite/Spritelets/Script.gd" id="1_is4ao"]
+
+[node name="Spritelet" type="Sprite2D" unique_id=901047468]
+script = ExtResource("1_is4ao")

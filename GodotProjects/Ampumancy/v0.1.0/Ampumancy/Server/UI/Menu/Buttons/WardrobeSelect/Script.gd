@@ -2,6 +2,9 @@
 extends Panel
 class_name WardrobeSelectButton
 
+enum WardrobePart {HAT, EYES, FACE, CLOAK, ROBES}
+@export var Part: WardrobePart
+
 signal LeftPressed
 signal RightPressed
 
@@ -22,6 +25,22 @@ func reset() -> void:
 	WardrobePartValue = Globals.CurrentPlayer.Data.Wardrobe.Selection[WardrobePartPosition]
 
 
+func get_part_array(set: WardrobeSet) -> Dictionary:
+	match Part:
+		WardrobePart.HAT:
+			return set.Hats
+		WardrobePart.EYES:
+			return set.Eyes
+		WardrobePart.FACE:
+			return set.Faces
+		WardrobePart.CLOAK:
+			return set.Cloaks
+		WardrobePart.ROBES:
+			return set.Robes
+	var empty_dict: Dictionary = {}
+	return empty_dict
+
+
 func _on_left_pressed() -> void:
 	if WardrobePartValue > 0:
 		WardrobePartValue -= 1
@@ -29,6 +48,7 @@ func _on_left_pressed() -> void:
 
 
 func _on_right_pressed() -> void:
-	if WardrobePartValue < len(Globals.CurrentPlayer.Data.Wardrobe.Set) - 1:
-		WardrobePartValue += 1
-	RightPressed.emit()
+	#if WardrobePartValue < len(References.) - 1:
+	#	WardrobePartValue += 1
+	#RightPressed.emit()
+	pass

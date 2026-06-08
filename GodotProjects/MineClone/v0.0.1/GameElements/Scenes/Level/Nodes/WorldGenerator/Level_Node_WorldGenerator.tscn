@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cuh1p0rfgx1vv"]
+
+[ext_resource type="Script" uid="uid://b2fx86mjo2a0l" path="res://GameElements/Scenes/Level/Nodes/WorldGenerator/Script.gd" id="1_4p4b5"]
+
+[node name="WorldGenerator" type="Node" unique_id=1545969479]
+script = ExtResource("1_4p4b5")

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bkneum0asvf71"]
+
+[ext_resource type="Script" uid="uid://dsnyy506lf3id" path="res://Server/Zone/FunctionNodes/Cameras/PlayerCamera/Script.gd" id="1_fev60"]
+
+[node name="PlayerCamera" type="Camera2D" unique_id=659671202]
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+script = ExtResource("1_fev60")

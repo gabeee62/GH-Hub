@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://dlffgdb4p78oo"]
-
-[ext_resource type="Script" uid="uid://c66ykmt2kdg5i" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data.gd" id="1_gmvpn"]
-
-[resource]
-script = ExtResource("1_gmvpn")
-CharacterName = "DEVELOPER"
-WardrobeSelection = Array[int]([0, 0, 0, 0, 0])
-metadata/_custom_type_script = "uid://c66ykmt2kdg5i"

@@ -12,3 +12,6 @@ class_name PlayerEquipmentData
 
 @export var ActiveLeft: int = 1
 @export var ActiveRight: int = 1
+
+var LeftBusy: bool = false
+var RightBusy: bool = false

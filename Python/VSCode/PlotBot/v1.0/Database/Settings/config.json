@@ -1,0 +1,15 @@
+{
+    "memberPlotConfig" : {
+        "maxPlotSize" : 100,
+        "minPlotSize" : 20,
+        "plotBoundaryBuffer" : 50,
+        "plotsPerMember": 3
+    },
+
+    "groupPlotConfig" : {
+        "maxPlotSize" : 200, 
+        "minPlotSize" : 75,
+        "plotBoundaryBuffer" : 100,
+        "plotsPerGroup": 5
+    }
+}

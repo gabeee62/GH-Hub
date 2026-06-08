@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://cxl778jmnyefa"]
 
 [ext_resource type="Script" uid="uid://do3p30spo6wm7" path="res://Server/UI/Menu/Buttons/SaveSlot/Script.gd" id="1_6c51d"]
-[ext_resource type="FontFile" uid="uid://beqa5ltlcend0" path="res://Common/Textures/Fonts/HealthFont.ttf" id="2_mcm2t"]
+[ext_resource type="FontFile" uid="uid://bdvppkjc7qjbg" path="res://Common/Textures/Fonts/quaver.ttf" id="2_mcm2t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qbwit"]
 font = ExtResource("2_mcm2t")
+font_size = 24
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 

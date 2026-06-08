@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bqh0dalh3gbcf"]
+
+[ext_resource type="Script" uid="uid://b8d2lmm2vqkcw" path="res://GameElements/Scenes/Entity/Entities/Player/Nodes/InputHandler/Script.gd" id="1_8sjio"]
+
+[node name="InputHandler" type="Node" unique_id=365038931]
+script = ExtResource("1_8sjio")

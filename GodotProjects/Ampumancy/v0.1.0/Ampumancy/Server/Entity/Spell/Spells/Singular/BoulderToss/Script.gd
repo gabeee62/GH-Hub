@@ -1,0 +1,2 @@
+extends SingularSpell
+class_name BoulderToss

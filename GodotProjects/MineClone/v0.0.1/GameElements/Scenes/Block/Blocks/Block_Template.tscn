@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cc4awjrh5yv8w"]
+
+[ext_resource type="Script" uid="uid://esjmqgd1mlei" path="res://GameElements/Scenes/Block/Blocks/Script.gd" id="1_vdgb5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vdgb5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wmclg"]
+
+[node name="Block" type="StaticBody3D" unique_id=1367121652]
+script = ExtResource("1_vdgb5")
+
+[node name="CollisionBox" type="CollisionShape3D" parent="." unique_id=1444020085]
+shape = SubResource("BoxShape3D_vdgb5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=64406858]
+mesh = SubResource("BoxMesh_wmclg")

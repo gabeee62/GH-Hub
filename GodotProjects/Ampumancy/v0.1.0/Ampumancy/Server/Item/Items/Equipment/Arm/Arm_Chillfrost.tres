@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cw0f2a4kvq11g" path="res://Server/Item/Items/Item_Template.gd" id="1_c16bc"]
 [ext_resource type="Script" uid="uid://ierkbdw3tig0" path="res://Server/Item/Items/Equipment/Arm/Arm_Template.gd" id="2_d50fn"]
-[ext_resource type="Texture2D" uid="uid://chcihagqtonsy" path="res://Common/Textures/Entity/Player/Arms/Chillfrost.png" id="3_ay1ms"]
+[ext_resource type="Texture2D" uid="uid://chcihagqtonsy" path="res://Common/Textures/Entities/Player/Old/Arms/Chillfrost.png" id="3_ay1ms"]
 
 [resource]
 script = ExtResource("2_d50fn")
+SpellID = 3
 name = "Chillfrost Arm"
 texture = ExtResource("3_ay1ms")
 max_stack = 1

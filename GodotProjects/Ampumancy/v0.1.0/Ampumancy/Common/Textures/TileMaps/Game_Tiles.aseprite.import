@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://0xa18m3vebb"
+path="res://.godot/imported/Game_Tiles.aseprite-a76550c6fb35f7ad44c8d232e03de858.res"
+
+[deps]
+
+source_file="res://Common/Textures/TileMaps/Game_Tiles.aseprite"
+dest_files=["res://.godot/imported/Game_Tiles.aseprite-a76550c6fb35f7ad44c8d232e03de858.res"]
+
+[params]
+

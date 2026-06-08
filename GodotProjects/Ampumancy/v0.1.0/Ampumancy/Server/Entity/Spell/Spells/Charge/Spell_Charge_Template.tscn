@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c4va4llelfs1i"]
+
+[ext_resource type="PackedScene" uid="uid://clyvemvkxw0h5" path="res://Server/Entity/Spell/Spells/Spell_Template.tscn" id="1_l0bd7"]
+[ext_resource type="Script" uid="uid://cr0gf13ip8ihq" path="res://Server/Entity/Spell/Spells/Charge/Script.gd" id="2_e62ar"]
+
+[node name="ChargeSpell" unique_id=546075401 instance=ExtResource("1_l0bd7")]
+script = ExtResource("2_e62ar")
+CanBeHeld = false
+CanCastUnfinished = false
+ChargeStages = Array[float]([])
+ChargeTime = 0.0
+CHRNotBusy = 0.0
+HoldTime = 0.0
+
+[node name="ChargeTime" type="Timer" parent="Timers" parent_id_path=PackedInt32Array(1363916597) index="0" unique_id=1874704397]
+
+[node name="HoldTime" type="Timer" parent="Timers" parent_id_path=PackedInt32Array(1363916597) index="1" unique_id=708219205]
+
+[node name="NotBusyCD" type="Timer" parent="Timers" parent_id_path=PackedInt32Array(1363916597) index="2" unique_id=1910097524]

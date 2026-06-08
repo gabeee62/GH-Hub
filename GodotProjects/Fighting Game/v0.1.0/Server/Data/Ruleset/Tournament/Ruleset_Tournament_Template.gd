@@ -1,0 +1,2 @@
+extends Ruleset
+class_name TournamentRuleset

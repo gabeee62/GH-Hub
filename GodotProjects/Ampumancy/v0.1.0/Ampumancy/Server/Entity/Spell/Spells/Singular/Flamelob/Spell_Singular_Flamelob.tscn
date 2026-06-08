@@ -1,0 +1,256 @@
+[gd_scene format=3 uid="uid://bdy1f86t13x3e"]
+
+[ext_resource type="PackedScene" uid="uid://drbvqqm37cmfe" path="res://Server/Entity/Spell/Spells/Singular/Spell_Singular_Template.tscn" id="1_trjuk"]
+[ext_resource type="Script" uid="uid://2lk5hoo6idgd" path="res://Server/Entity/Spell/Spells/Singular/Flamelob/Script.gd" id="2_f1rb7"]
+[ext_resource type="Texture2D" uid="uid://djjcp2pfo725y" path="res://Common/Textures/Spells/Fireball/Effect1/Spritesheet.png" id="3_5e1hf"]
+[ext_resource type="Texture2D" uid="uid://cpydro5ju43oa" path="res://Common/Textures/Particles/Particle_Fire.png" id="4_f1rb7"]
+[ext_resource type="Material" uid="uid://ruvwo4fohmwx" path="res://Server/Entity/Spell/Spells/Singular/Flamelob/Particles/Explosion.tres" id="5_5e1hf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yxd7f"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bm8yt"]
+radius = 40.0
+
+[sub_resource type="Animation" id="Animation_trjuk"]
+resource_name = "Explode"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FireballHitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ExplosionHitbox:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:Speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GPUParticles2D:one_shot")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0e3q0"]
+resource_name = "FireballSpinLeft"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.283185307179586]
+}
+
+[sub_resource type="Animation" id="Animation_cru3w"]
+resource_name = "FireballSpinRight"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="Animation" id="Animation_sug61"]
+resource_name = "FireballTravel"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 59]
+}
+
+[sub_resource type="Animation" id="Animation_154r2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FireballHitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ExplosionHitbox:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles2D:one_shot")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3d2tm"]
+_data = {
+&"Explode": SubResource("Animation_trjuk"),
+&"FireballSpinLeft": SubResource("Animation_0e3q0"),
+&"FireballSpinRight": SubResource("Animation_cru3w"),
+&"FireballTravel": SubResource("Animation_sug61"),
+&"RESET": SubResource("Animation_154r2")
+}
+
+[node name="Flamelob" unique_id=546075401 instance=ExtResource("1_trjuk")]
+script = ExtResource("2_f1rb7")
+FireballDamage = 0
+ExplosionDamage = 0
+Speed = 0.0
+CastDelay = 1.0
+PrimaryElement = 1
+ManaCost = 2
+MysticCost = 3
+
+[node name="FireballHitbox" type="Area2D" parent="." index="0" unique_id=1867547731]
+collision_layer = 4
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireballHitbox" index="0" unique_id=332826805]
+shape = SubResource("CircleShape2D_yxd7f")
+
+[node name="ExplosionHitbox" type="Area2D" parent="." index="1" unique_id=2119726614]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionHitbox" index="0" unique_id=2012014368]
+shape = SubResource("CircleShape2D_bm8yt")
+
+[node name="Sprite" type="Sprite2D" parent="." index="2" unique_id=2000499238]
+position = Vector2(-7, 0)
+texture = ExtResource("3_5e1hf")
+hframes = 10
+vframes = 6
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3" unique_id=149573521]
+emitting = false
+amount = 240
+texture = ExtResource("4_f1rb7")
+lifetime = 0.75
+process_material = ExtResource("5_5e1hf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=1945944878]
+libraries/ = SubResource("AnimationLibrary_3d2tm")
+autoplay = &"FireballTravel"
+
+[node name="CastDelay" parent="Timers" parent_id_path=PackedInt32Array(1363916597) index="0" unique_id=1453548232]
+one_shot = true
+
+[connection signal="body_entered" from="FireballHitbox" to="." method="_on_fireball_hitbox_body_entered"]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dur6bq7c1wsnv"]
+
+[ext_resource type="Script" uid="uid://dll0vq68swpom" path="res://Server/Stage/Script.gd" id="1_p1xo0"]
+[ext_resource type="PackedScene" uid="uid://c0517uwtgd7rx" path="res://Server/Stage/Nodes/Player Spawner/PlayerSpawner.tscn" id="2_sdhxb"]
+
+[node name="StageTemplate" type="Node2D" unique_id=1575549977]
+script = ExtResource("1_p1xo0")
+
+[node name="RoundTimer" type="Timer" parent="." unique_id=129193995]
+
+[node name="PlayerSpawners" type="Node2D" parent="." unique_id=1816242653]
+
+[node name="Team1_1" parent="PlayerSpawners" unique_id=2073077655 instance=ExtResource("2_sdhxb")]

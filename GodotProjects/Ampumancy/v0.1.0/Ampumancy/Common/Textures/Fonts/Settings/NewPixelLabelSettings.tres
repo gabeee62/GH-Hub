@@ -1,9 +1,9 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://dciie4egebucv"]
 
-[ext_resource type="FontFile" uid="uid://beqa5ltlcend0" path="res://Common/Textures/Fonts/HealthFont.ttf" id="1_3dwco"]
+[ext_resource type="FontFile" uid="uid://bdvppkjc7qjbg" path="res://Common/Textures/Fonts/quaver.ttf" id="1_ke7b8"]
 
 [resource]
-font = ExtResource("1_3dwco")
+font = ExtResource("1_ke7b8")
 font_size = 24
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)

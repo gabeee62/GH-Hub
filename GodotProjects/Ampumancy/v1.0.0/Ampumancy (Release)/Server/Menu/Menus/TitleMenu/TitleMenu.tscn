@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://b5pvkvqawgd2h"]
+
+[ext_resource type="Script" uid="uid://ctty4t8uiq5e2" path="res://Server/Menu/Menus/TitleMenu/Script.gd" id="1_aea16"]
+
+[node name="TitleMenu" type="Control" unique_id=696414611]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aea16")
+
+[node name="MainMenu" type="Control" parent="." unique_id=329014284]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="MarginContainer" parent="MainMenu" unique_id=643391867]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Buttons" unique_id=1812118077]
+layout_mode = 2
+
+[node name="LoadGameMenu" type="Control" parent="." unique_id=458376019]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Buttons" type="MarginContainer" parent="LoadGameMenu" unique_id=194665629]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadGameMenu/Buttons" unique_id=948384682]
+layout_mode = 2
+
+[node name="NewGameMenu" type="Control" parent="." unique_id=1292032503]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Buttons" type="MarginContainer" parent="NewGameMenu" unique_id=1349089893]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NewGameMenu/Buttons" unique_id=1831926662]
+layout_mode = 2
+
+[node name="OptionsMenu" type="Control" parent="." unique_id=1590523548]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="MarginContainer" parent="OptionsMenu" unique_id=1844544437]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/Buttons" unique_id=147629635]
+layout_mode = 2
+
+[node name="AudioMenu" type="Control" parent="." unique_id=881405069]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="MarginContainer" parent="AudioMenu" unique_id=916884509]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AudioMenu/Buttons" unique_id=47737842]
+layout_mode = 2
+
+[node name="VideoMenu" type="Control" parent="." unique_id=547696777]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="MarginContainer" parent="VideoMenu" unique_id=635120316]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VideoMenu/Buttons" unique_id=699664524]
+layout_mode = 2
+
+[node name="ModsMenu" type="Control" parent="." unique_id=321837349]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="MarginContainer" parent="ModsMenu" unique_id=53058085]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ModsMenu/Buttons" unique_id=520844207]
+layout_mode = 2

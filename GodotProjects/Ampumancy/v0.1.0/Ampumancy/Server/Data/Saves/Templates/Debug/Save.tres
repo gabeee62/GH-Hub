@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="SaveData" format=3 uid="uid://g0jp3hdtry65"]
+
+[ext_resource type="Resource" uid="uid://bqs36vblxv84n" path="res://Server/Item/Items/Equipment/Leg/Legs_None.tres" id="1_clm4u"]
+[ext_resource type="Resource" uid="uid://dqjypo6dhad6t" path="res://Server/Item/Items/Equipment/Arm/Arm_Golemstone.tres" id="2_3anur"]
+[ext_resource type="Resource" uid="uid://cim4v7s316quk" path="res://Server/Item/Items/Equipment/Arm/Arm_Flamelob.tres" id="2_vhpay"]
+[ext_resource type="Resource" uid="uid://buum4r2ei3tvv" path="res://Server/Item/Items/Equipment/Arm/Arm_Chillfrost.tres" id="3_j5ipf"]
+[ext_resource type="Resource" uid="uid://c3g4vpy5w1omw" path="res://Server/Item/Items/Equipment/Arm/Arm_Latchvine.tres" id="3_vhpay"]
+[ext_resource type="Script" uid="uid://biky23f5hwo2k" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data_Equipment.gd" id="5_1ln8g"]
+[ext_resource type="Script" uid="uid://d0108rm5mcd8m" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data_Inventory.gd" id="6_r3mjj"]
+[ext_resource type="Script" uid="uid://cacx8v2r67wvv" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data_Stats.gd" id="7_gnh8h"]
+[ext_resource type="Resource" uid="uid://ddtitcprvbe0e" path="res://Common/Player/Characters/WardrobeSets/TheExiled.tres" id="8_tj4wk"]
+[ext_resource type="Script" uid="uid://bc1hhg07pmd31" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data_Wardrobe.gd" id="9_sr1ka"]
+[ext_resource type="Script" uid="uid://c66ykmt2kdg5i" path="res://Server/Entity/Entities/Player/Data/Entity_Player_Data.gd" id="10_gycf0"]
+[ext_resource type="Resource" uid="uid://hn3hvqt5rmuh" path="res://Server/Zone/Data/Zone_Overworld_Data.tres" id="11_iirxq"]
+[ext_resource type="Script" uid="uid://b13ix0cq4moab" path="res://Server/Data/Saves/Data_Save_Template.gd" id="12_lwjkx"]
+
+[sub_resource type="Resource" id="Resource_0sl4n"]
+script = ExtResource("5_1ln8g")
+PrimaryLeft = ExtResource("2_vhpay")
+PrimaryRight = ExtResource("3_j5ipf")
+SecondaryLeft = ExtResource("3_vhpay")
+SecondaryRight = ExtResource("2_3anur")
+metadata/_custom_type_script = "uid://biky23f5hwo2k"
+
+[sub_resource type="Resource" id="Resource_euqip"]
+script = ExtResource("6_r3mjj")
+metadata/_custom_type_script = "uid://d0108rm5mcd8m"
+
+[sub_resource type="Resource" id="Resource_hoedb"]
+script = ExtResource("7_gnh8h")
+Health = 200
+GoldHealth = 100
+MaxHealth = 200
+MaxGoldHealth = 100
+ManaPoints = 16
+MysticPoints = 16
+SolarPoints = 8
+MaxManaPoints = 16
+MaxMysticPoints = 16
+MaxSolarPoints = 8
+metadata/_custom_type_script = "uid://cacx8v2r67wvv"
+
+[sub_resource type="Resource" id="Resource_7y60v"]
+script = ExtResource("9_sr1ka")
+Selection = Array[int]([1, 1, 1, 1, 0])
+metadata/_custom_type_script = "uid://bc1hhg07pmd31"
+
+[sub_resource type="Resource" id="Resource_v2shb"]
+script = ExtResource("10_gycf0")
+CharacterName = "The Debugger"
+Wardrobe = SubResource("Resource_7y60v")
+Stats = SubResource("Resource_hoedb")
+Equipment = SubResource("Resource_0sl4n")
+Inventory = SubResource("Resource_euqip")
+ManaUnlocked = true
+metadata/_custom_type_script = "uid://c66ykmt2kdg5i"
+
+[resource]
+script = ExtResource("12_lwjkx")
+SaveName = "Default"
+Developer = true
+PlayTime = 16
+Player_Data = SubResource("Resource_v2shb")
+Zone1 = ExtResource("11_iirxq")
+Zone2 = ExtResource("11_iirxq")
+Zone3 = ExtResource("11_iirxq")
+metadata/_custom_type_script = "uid://b13ix0cq4moab"

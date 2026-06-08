@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bdy1f86t13x3e"]
+
+[ext_resource type="PackedScene" uid="uid://drbvqqm37cmfe" path="res://Server/Entity/Spell/Spells/Singular/Spell_Singular_Template.tscn" id="1_trjuk"]
+[ext_resource type="Script" uid="uid://2lk5hoo6idgd" path="res://Server/Entity/Spell/Spells/Singular/Flamelob/Script.gd" id="2_f1rb7"]
+[ext_resource type="Texture2D" uid="uid://bmbaon66iurcv" path="res://Common/Textures/Spells/Fireball/Fireball.png" id="3_5e1hf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yxd7f"]
+radius = 16.03122
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bm8yt"]
+radius = 40.0
+
+[sub_resource type="Animation" id="Animation_0e3q0"]
+resource_name = "FireballSpinLeft"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.283185307179586]
+}
+
+[sub_resource type="Animation" id="Animation_cru3w"]
+resource_name = "FireballSpinRight"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="Animation" id="Animation_154r2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3d2tm"]
+_data = {
+&"FireballSpinLeft": SubResource("Animation_0e3q0"),
+&"FireballSpinRight": SubResource("Animation_cru3w"),
+&"RESET": SubResource("Animation_154r2")
+}
+
+[node name="Flamelob" unique_id=546075401 instance=ExtResource("1_trjuk")]
+script = ExtResource("2_f1rb7")
+FireballDamage = 0
+ExplosionDamage = 0
+Speed = 50.0
+CastDelay = 1.0
+PrimaryElement = 1
+
+[node name="FireballHitbox" type="Area2D" parent="." index="0" unique_id=1867547731]
+collision_layer = 4
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireballHitbox" index="0" unique_id=332826805]
+shape = SubResource("CircleShape2D_yxd7f")
+
+[node name="ExplosionHitbox" type="Area2D" parent="." index="1" unique_id=2119726614]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionHitbox" index="0" unique_id=2012014368]
+shape = SubResource("CircleShape2D_bm8yt")
+
+[node name="Sprite" type="Sprite2D" parent="." index="2" unique_id=2000499238]
+scale = Vector2(4, 4)
+texture = ExtResource("3_5e1hf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=1945944878]
+libraries/ = SubResource("AnimationLibrary_3d2tm")
+
+[connection signal="body_entered" from="FireballHitbox" to="." method="_on_fireball_hitbox_body_entered"]

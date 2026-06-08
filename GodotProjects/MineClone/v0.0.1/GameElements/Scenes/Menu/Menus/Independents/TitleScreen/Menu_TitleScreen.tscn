@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://brygjvghq80sv"]
+
+[ext_resource type="Script" uid="uid://c2fs7cxxujnx2" path="res://GameElements/Scenes/Menu/Menus/Independents/TitleScreen/Script.gd" id="1_g3y6u"]
+
+[node name="TitleScreen" type="Control" unique_id=1496496082]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g3y6u")

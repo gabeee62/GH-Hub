@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ModData" format=3 uid="uid://c563t0b81y5x7"]
+
+[ext_resource type="Script" uid="uid://3t06ycatjen4" path="res://Server/Data/Mods/Data_Mod_Template.gd" id="1_8xk6o"]
+
+[resource]
+script = ExtResource("1_8xk6o")
+metadata/_custom_type_script = "uid://3t06ycatjen4"

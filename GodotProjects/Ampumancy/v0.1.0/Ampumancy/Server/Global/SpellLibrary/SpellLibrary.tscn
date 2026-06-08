@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://8wppqb3d1jaw"]
+
+[ext_resource type="Script" uid="uid://yde3jvsq2mpn" path="res://Server/Global/SpellLibrary/Script.gd" id="1_w8086"]
+[ext_resource type="PackedScene" uid="uid://ba3oqj7ojr72s" path="res://Server/Entity/Spell/Spells/Singular/BoulderToss/Spell_Singular_BoulderToss.tscn" id="2_hlhyn"]
+[ext_resource type="PackedScene" uid="uid://bdy1f86t13x3e" path="res://Server/Entity/Spell/Spells/Singular/Flamelob/Spell_Singular_Flamelob.tscn" id="2_lp047"]
+[ext_resource type="PackedScene" uid="uid://g21l56x4r7tg" path="res://Server/Entity/Spell/Spells/Continuous/Flurry/Spell_Continuous_Flurry.tscn" id="4_uc0ns"]
+[ext_resource type="PackedScene" uid="uid://daag1f2oev7ol" path="res://Server/Entity/Spell/Spells/Continuous/Latchvine/Spell_Continuous_Latchvine.tscn" id="5_a7x3p"]
+
+[node name="SpellLibrary" type="Node" unique_id=620661242]
+script = ExtResource("1_w8086")
+SpellArray = Array[PackedScene]([null, ExtResource("2_hlhyn"), ExtResource("2_lp047"), ExtResource("4_uc0ns"), ExtResource("5_a7x3p")])

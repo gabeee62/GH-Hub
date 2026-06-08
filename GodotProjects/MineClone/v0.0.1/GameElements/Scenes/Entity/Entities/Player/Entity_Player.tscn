@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://btosestq135a0"]
+
+[ext_resource type="PackedScene" uid="uid://bakufn1ovgaf5" path="res://GameElements/Scenes/Entity/Entities/Entity_Template.tscn" id="1_j258i"]
+[ext_resource type="Script" uid="uid://bsyehg042dnjc" path="res://GameElements/Scenes/Entity/Entities/Player/Script.gd" id="2_ckpca"]
+[ext_resource type="PackedScene" uid="uid://bqh0dalh3gbcf" path="res://GameElements/Scenes/Entity/Entities/Player/Nodes/InputHandler/InputHandler.tscn" id="3_l1xw5"]
+[ext_resource type="Script" uid="uid://bbr4jbvkchd1s" path="res://GameElements/Scenes/Entity/Entities/Player/Data/Player_Data_Template.gd" id="3_u6n78"]
+
+[sub_resource type="Resource" id="Resource_0ck8f"]
+script = ExtResource("3_u6n78")
+metadata/_custom_type_script = "uid://bbr4jbvkchd1s"
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u6n78"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u6n78"]
+
+[node name="Player" unique_id=1629936200 instance=ExtResource("1_j258i")]
+script = ExtResource("2_ckpca")
+Data = SubResource("Resource_0ck8f")
+
+[node name="InputHandler" parent="." index="0" unique_id=365038931 instance=ExtResource("3_l1xw5")]
+
+[node name="Model" type="MeshInstance3D" parent="." index="1" unique_id=57957305]
+mesh = SubResource("CapsuleMesh_u6n78")
+
+[node name="PhysicsBox" type="CollisionShape3D" parent="." index="2" unique_id=1089904435]
+shape = SubResource("CapsuleShape3D_u6n78")
+
+[node name="Camera3D" type="Camera3D" parent="." index="3" unique_id=2140780681]

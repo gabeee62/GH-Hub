@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://3xw01npytv0k"
+path="res://.godot/imported/Grass_Dark_Frozen.aseprite-7ea25938c119b88b4fc9b2b75118553a.res"
+
+[deps]
+
+source_file="res://Common/Textures/TileMaps/Grass_Dark/Grass_Dark_Frozen.aseprite"
+dest_files=["res://.godot/imported/Grass_Dark_Frozen.aseprite-7ea25938c119b88b4fc9b2b75118553a.res"]
+
+[params]
+

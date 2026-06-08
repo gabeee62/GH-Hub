@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ba3oqj7ojr72s"]
+
+[ext_resource type="PackedScene" uid="uid://drbvqqm37cmfe" path="res://Server/Entity/Spell/Spells/Singular/Spell_Singular_Template.tscn" id="1_nm5ve"]
+[ext_resource type="Script" uid="uid://yu47ytrbe0jg" path="res://Server/Entity/Spell/Spells/Singular/BoulderToss/Script.gd" id="2_m41ey"]
+
+[node name="BoulderToss" unique_id=546075401 instance=ExtResource("1_nm5ve")]
+script = ExtResource("2_m41ey")

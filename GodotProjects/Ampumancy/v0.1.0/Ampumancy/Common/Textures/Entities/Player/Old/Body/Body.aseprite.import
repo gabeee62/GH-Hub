@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cl4y1siwksu6r"
+path="res://.godot/imported/Body.aseprite-0c8f5c6e5740d5d4a34e3a3844b02459.res"
+
+[deps]
+
+source_file="res://Common/Textures/Entities/Player/Old/Body/Body.aseprite"
+dest_files=["res://.godot/imported/Body.aseprite-0c8f5c6e5740d5d4a34e3a3844b02459.res"]
+
+[params]
+

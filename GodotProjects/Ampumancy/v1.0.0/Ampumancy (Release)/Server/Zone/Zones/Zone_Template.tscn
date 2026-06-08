@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d13xbe0hrbijy"]
+
+[ext_resource type="Script" uid="uid://b2nq7xblks0qs" path="res://Server/Zone/Zones/Script.gd" id="1_rc3j1"]
+
+[node name="Zone" type="Node2D" unique_id=1301070584]
+script = ExtResource("1_rc3j1")
+
+[node name="Nodes" type="Node2D" parent="." unique_id=1362974784]
+
+[node name="Cameras" type="Node2D" parent="Nodes" unique_id=1498244029]
+
+[node name="World" type="Node2D" parent="." unique_id=1148208708]
+
+[node name="Terrain" type="TileMapLayer" parent="World" unique_id=1236265750]

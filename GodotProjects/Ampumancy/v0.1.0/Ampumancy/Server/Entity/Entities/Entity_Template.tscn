@@ -2,5 +2,33 @@
 
 [ext_resource type="Script" uid="uid://boohpeb87emi" path="res://Server/Entity/Entities/Script.gd" id="1_is0bo"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_esmbq"]
+radius = 6.5
+height = 22.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i6stp"]
+radius = 5.5
+height = 22.0
+
 [node name="Entity" type="CharacterBody2D" unique_id=2145879260]
+collision_layer = 2
+collision_mask = 18
 script = ExtResource("1_is0bo")
+
+[node name="PhysBox" type="CollisionShape2D" parent="." unique_id=2015127952]
+position = Vector2(-0.5, -11)
+shape = SubResource("CapsuleShape2D_esmbq")
+
+[node name="Hitboxes" type="Node2D" parent="." unique_id=281249250]
+
+[node name="Hurtbox1" type="Area2D" parent="Hitboxes" unique_id=489839376]
+position = Vector2(-0.5, -11)
+collision_layer = 2
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/Hurtbox1" unique_id=2048182968]
+shape = SubResource("CapsuleShape2D_i6stp")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=621497920]
+
+[connection signal="body_entered" from="Hitboxes/Hurtbox1" to="." method="_on_hurtbox_body_entered"]

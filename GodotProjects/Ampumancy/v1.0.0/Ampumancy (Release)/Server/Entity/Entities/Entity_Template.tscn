@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bw10noa6fujwk"]
+
+[ext_resource type="Script" uid="uid://d2bnjxs0jpt3x" path="res://Server/Entity/Entities/Script.gd" id="1_u24k8"]
+
+[node name="Entity" type="CharacterBody2D" unique_id=427231550]
+script = ExtResource("1_u24k8")
+
+[node name="IsOnScreen" type="VisibleOnScreenNotifier2D" parent="." unique_id=916320880]
+
+[node name="PhysBox" type="CollisionShape2D" parent="." unique_id=349095121]

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b8p6ac6di52fh"]
+
+[ext_resource type="Script" uid="uid://dy2rgvqj6xlq4" path="res://Server/Globals/Ruleset Handler/Script.gd" id="1_6p82s"]
+
+[node name="RulesetHandler" type="Node" unique_id=604906004]
+script = ExtResource("1_6p82s")
+
+[node name="ClassicTimers" type="Node" parent="." unique_id=187055158]
+
+[node name="RoundTimer" type="Timer" parent="ClassicTimers" unique_id=186659787]
+
+[node name="TotalityTimers" type="Node" parent="." unique_id=1835827114]
+
+[node name="LastPointTimer" type="Timer" parent="TotalityTimers" unique_id=1145565959]
+
+[node name="SuddenDeathTimer" type="Timer" parent="TotalityTimers" unique_id=1697442952]
+
+[connection signal="timeout" from="ClassicTimers/RoundTimer" to="." method="_on_round_timer_timeout"]
+[connection signal="timeout" from="TotalityTimers/LastPointTimer" to="." method="_on_last_point_timer_timeout"]
+[connection signal="timeout" from="TotalityTimers/SuddenDeathTimer" to="." method="_on_sudden_death_timer_timeout"]

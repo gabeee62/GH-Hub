@@ -1,0 +1,382 @@
+[gd_scene format=3 uid="uid://qh63tentc17q"]
+
+[ext_resource type="Script" uid="uid://730krb7h2mxs" path="res://Server/UI/Menu/Menus/TitleScreen/Script.gd" id="1_ycx0m"]
+[ext_resource type="Texture2D" uid="uid://bf36fch8puo70" path="res://Common/Textures/Backgrounds/Clouds/1/1.png" id="2_a1vqg"]
+[ext_resource type="PackedScene" uid="uid://dpp3gxd6btul6" path="res://Server/UI/Menu/Buttons/Default/UI_Menu_Button_Default.tscn" id="2_xwoud"]
+[ext_resource type="Texture2D" uid="uid://c4uglvrxi3ko1" path="res://Common/Textures/Backgrounds/Clouds/1/2.png" id="3_a1csl"]
+[ext_resource type="LabelSettings" uid="uid://dciie4egebucv" path="res://Common/Textures/Fonts/Settings/NewPixelLabelSettings.tres" id="4_7fp1p"]
+[ext_resource type="PackedScene" uid="uid://1xps0tqumcxr" path="res://Server/UI/Menu/Menus/TitleScreen/TitleLettering/Menu_Node_Title.tscn" id="4_cnsh1"]
+[ext_resource type="FontFile" uid="uid://bdvppkjc7qjbg" path="res://Common/Textures/Fonts/quaver.ttf" id="6_k5ffr"]
+
+[node name="MenuTitleScreen" type="Control" unique_id=1206161809]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ycx0m")
+
+[node name="Background" type="ParallaxBackground" parent="." unique_id=996646714]
+process_mode = 1
+scale = Vector2(3.4, 3.4)
+transform = Transform2D(3.4, 0, 0, 3.4, 0, 0)
+scroll_ignore_camera_zoom = true
+
+[node name="Layer1" type="ParallaxLayer" parent="Background" unique_id=2106347689]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Layer1" unique_id=1151593193]
+texture = ExtResource("2_a1vqg")
+centered = false
+
+[node name="Layer2" type="ParallaxLayer" parent="Background" unique_id=632131760]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Layer2" unique_id=1819724650]
+texture = ExtResource("3_a1csl")
+centered = false
+
+[node name="Layer3" type="ParallaxLayer" parent="Background" unique_id=584863969]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Layer3" unique_id=1007700118]
+centered = false
+
+[node name="Layer4" type="ParallaxLayer" parent="Background" unique_id=436282320]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Layer4" unique_id=121173191]
+centered = false
+
+[node name="Layer5" type="ParallaxLayer" parent="Background" unique_id=1946280126]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Layer5" unique_id=1954239371]
+centered = false
+
+[node name="Layer6" type="ParallaxLayer" parent="Background" unique_id=979325042]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Layer6" unique_id=1522346631]
+centered = false
+
+[node name="MainMenu" type="Control" parent="." unique_id=873604257]
+process_mode = 1
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu" unique_id=244322710]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 100.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 128
+
+[node name="Title" parent="MainMenu/VBoxContainer" unique_id=1189065029 instance=ExtResource("4_cnsh1")]
+layout_mode = 2
+size_flags_horizontal = 4
+letter_scale = Vector2(2, 2)
+
+[node name="MainMenuMargin" type="MarginContainer" parent="MainMenu/VBoxContainer" unique_id=1072055851]
+layout_mode = 2
+
+[node name="Menu" type="VBoxContainer" parent="MainMenu/VBoxContainer/MainMenuMargin" unique_id=995005275]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Play" parent="MainMenu/VBoxContainer/MainMenuMargin/Menu" unique_id=469761963 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Play"
+ButtonText = "Play"
+
+[node name="Options" parent="MainMenu/VBoxContainer/MainMenuMargin/Menu" unique_id=1067343041 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Options"
+ButtonText = "Options"
+
+[node name="Mods" parent="MainMenu/VBoxContainer/MainMenuMargin/Menu" unique_id=1860735460 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Mods"
+ButtonText = "Mods"
+
+[node name="Quit" parent="MainMenu/VBoxContainer/MainMenuMargin/Menu" unique_id=722691751 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Quit"
+ButtonText = "Quit"
+
+[node name="NewGameMenu" type="Control" parent="." unique_id=1061718548]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="NewGameMenu" unique_id=1202313732]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -61.5
+offset_right = 175.0
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveName" type="TextEdit" parent="NewGameMenu/Menu" unique_id=127718980]
+custom_minimum_size = Vector2(350, 40)
+layout_mode = 2
+theme_override_colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
+theme_override_constants/outline_size = 0
+theme_override_constants/line_spacing = 8
+theme_override_constants/wrap_offset = 10
+theme_override_fonts/font = ExtResource("6_k5ffr")
+theme_override_font_sizes/font_size = 19
+placeholder_text = "Enter a name for your new save:"
+emoji_menu_enabled = false
+
+[node name="Start" parent="NewGameMenu/Menu" unique_id=1687783888 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Start"
+ButtonText = "Start"
+
+[node name="Back" parent="NewGameMenu/Menu" unique_id=522184558 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Back"
+ButtonText = "Back"
+
+[node name="LoadGameMenu" type="Control" parent="." unique_id=61711235]
+process_mode = 1
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadGameMenu" unique_id=1096768932]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LabelMargin" type="MarginContainer" parent="LoadGameMenu" unique_id=309045257]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.0
+offset_right = 204.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 32
+
+[node name="Label" type="Label" parent="LoadGameMenu/LabelMargin" unique_id=1058649886]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Choose your save:"
+label_settings = ExtResource("4_7fp1p")
+
+[node name="PanelMargin" type="MarginContainer" parent="LoadGameMenu" unique_id=881515140]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 275
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 275
+theme_override_constants/margin_bottom = 125
+
+[node name="Panel" type="Panel" parent="LoadGameMenu/PanelMargin" unique_id=1488357855]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+
+[node name="ScrollBoxMargin" type="MarginContainer" parent="LoadGameMenu/PanelMargin/Panel" unique_id=466239878]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollBox" type="ScrollContainer" parent="LoadGameMenu/PanelMargin/Panel/ScrollBoxMargin" unique_id=979805561]
+layout_mode = 2
+
+[node name="SaveSlots" type="VBoxContainer" parent="LoadGameMenu/PanelMargin/Panel/ScrollBoxMargin/ScrollBox" unique_id=1224861592]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="ButtonMargin" type="MarginContainer" parent="LoadGameMenu" unique_id=1881395567]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -72.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="VBoxContainer" parent="LoadGameMenu/ButtonMargin" unique_id=670470105]
+layout_mode = 2
+
+[node name="NewGame" parent="LoadGameMenu/ButtonMargin/HBoxContainer" unique_id=1511103819 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+size_flags_vertical = 8
+ButtonText = "New Game"
+
+[node name="Back" parent="LoadGameMenu/ButtonMargin/HBoxContainer" unique_id=1461142246 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Back"
+ButtonText = "Back"
+
+[node name="OptionsMenu" type="Control" parent="." unique_id=115386741]
+process_mode = 1
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="OptionsMenu" unique_id=944021002]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -62.0
+offset_right = 100.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gameplay" parent="OptionsMenu/Menu" unique_id=395573908 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Gameplay"
+ButtonText = "Gameplay"
+
+[node name="Video" parent="OptionsMenu/Menu" unique_id=653830292 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Video"
+ButtonText = "Video"
+
+[node name="Audio" parent="OptionsMenu/Menu" unique_id=1465536359 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Audio"
+ButtonText = "Audio"
+
+[node name="Back" parent="OptionsMenu/Menu" unique_id=874317085 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Back"
+ButtonText = "Back"
+
+[node name="GameplayMenu" type="Control" parent="." unique_id=1633355033]
+process_mode = 1
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VideoMenu" type="Control" parent="." unique_id=1712112798]
+process_mode = 1
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioMenu" type="Control" parent="." unique_id=489805174]
+process_mode = 1
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ModsMenu" type="Control" parent="." unique_id=1677181446]
+process_mode = 1
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ModsMenu" unique_id=1642260381]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ManageMods" parent="ModsMenu/VBoxContainer" unique_id=1311344151 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Manage Mods"
+ButtonText = "Manage Mods"
+
+[node name="ManagePacks" parent="ModsMenu/VBoxContainer" unique_id=1247186692 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Manage Mod Packs"
+ButtonText = "Manage Mod Packs"
+
+[node name="Back" parent="ModsMenu/VBoxContainer" unique_id=1360093004 instance=ExtResource("2_xwoud")]
+layout_mode = 2
+text = "Back"
+ButtonText = "Back"
+
+[connection signal="pressed" from="MainMenu/VBoxContainer/MainMenuMargin/Menu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/MainMenuMargin/Menu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/MainMenuMargin/Menu/Mods" to="." method="_on_mods_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/MainMenuMargin/Menu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="NewGameMenu/Menu/Start" to="." method="_on_new_start_pressed"]
+[connection signal="pressed" from="NewGameMenu/Menu/Back" to="." method="_on_new_back_pressed"]
+[connection signal="pressed" from="LoadGameMenu/ButtonMargin/HBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="LoadGameMenu/ButtonMargin/HBoxContainer/Back" to="." method="_on_load_back_pressed"]
+[connection signal="pressed" from="OptionsMenu/Menu/Gameplay" to="." method="_on_gameplay_pressed"]
+[connection signal="pressed" from="OptionsMenu/Menu/Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="OptionsMenu/Menu/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="OptionsMenu/Menu/Back" to="." method="_on_options_back_pressed"]
+[connection signal="pressed" from="ModsMenu/VBoxContainer/Back" to="." method="_on_mods_back_pressed"]

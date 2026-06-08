@@ -1,0 +1,12 @@
+{
+    "adminSettings" : {
+        "adminRole" : "Admin",
+        "moderatorRole" : "Moderator",
+        "modCanDelete" : false,
+        "modCanEdit" : false
+    },
+
+    "memberSettings" : {
+        "claimRequiresAdmin" : true
+    }
+}

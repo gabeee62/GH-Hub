@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://lkbl71ulf7ac"]
+
+[ext_resource type="Script" uid="uid://ckfa6r3s85u25" path="res://Server/UI/HUD/Mana/Script.gd" id="1_dsv27"]
+
+[node name="ManaHUD" type="Control" unique_id=474115217]
+custom_minimum_size = Vector2(71, 35)
+layout_mode = 3
+anchor_right = 0.062000003
+anchor_bottom = 0.054
+offset_right = -0.4240036
+offset_bottom = 0.00799942
+script = ExtResource("1_dsv27")
+
+[node name="ManaMargin" type="MarginContainer" parent="." unique_id=196386906]
+layout_mode = 1
+offset_right = 65.0
+offset_bottom = 17.0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 18
+
+[node name="EmptyPoints" type="GridContainer" parent="ManaMargin" unique_id=882087333]
+layout_mode = 2
+theme_override_constants/h_separation = -1
+theme_override_constants/v_separation = -1
+columns = 8
+
+[node name="ManaPoints" type="GridContainer" parent="ManaMargin" unique_id=74242766]
+layout_mode = 2
+theme_override_constants/h_separation = -1
+theme_override_constants/v_separation = -1
+columns = 8
+
+[node name="MysticPoints" type="GridContainer" parent="ManaMargin" unique_id=1450223149]
+layout_mode = 2
+theme_override_constants/h_separation = -1
+theme_override_constants/v_separation = -1
+columns = 8
+
+[node name="SolarPoints" type="GridContainer" parent="ManaMargin" unique_id=685648219]
+layout_mode = 2
+theme_override_constants/h_separation = -1
+theme_override_constants/v_separation = -1
+columns = 8

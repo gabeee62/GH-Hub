@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cerggvghnmely"
+path="res://.godot/imported/Head.aseprite-3656c032492d246eebbdf41f7af5ba6b.res"
+
+[deps]
+
+source_file="res://Common/Textures/Entities/Player/Old/Head/Head.aseprite"
+dest_files=["res://.godot/imported/Head.aseprite-3656c032492d246eebbdf41f7af5ba6b.res"]
+
+[params]
+
