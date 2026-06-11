@@ -1,0 +1,9 @@
+[
+    {
+        "owner" : "Server",
+        "name" : "Spawn",
+        "dateClaimed" : "N/A",
+        "dimension" : "Overworld",
+        "coordinates" : [[-256, -256], [256, 256]]
+    }
+]
