@@ -19,8 +19,12 @@
 
 ### INDIVIDUAL PLOTS
 
-Syntax: %plot claim -m <dimension: -o, -n, -e> <x1> <z1> <x2> <z2> <PLOT_NAME>
+Syntax: %plot claim <type: -m, -g> <dimension: -o, -n, -e> <x1> <z1> <x2> <z2> <PLOT_NAME>
 
+- Claim Type:
+    -m: Member/Individual
+    -g: Group
+        - To claim a plot for a group, you must be the group owner (see the group command).
 - Dimension: 
     -o: Overworld
     -n: Nether
