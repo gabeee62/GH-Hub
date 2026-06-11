@@ -22,13 +22,13 @@
 Syntax: %plot claim <type: -m, -g> <dimension: -o, -n, -e> <x1> <z1> <x2> <z2> <PLOT_NAME>
 
 - Claim Type:
-    -m: Member/Individual
-    -g: Group
+    - -m: Member/Individual
+    - -g: Group
         - To claim a plot for a group, you must be the group owner (see the group command).
 - Dimension: 
-    -o: Overworld
-    -n: Nether
-    -e: The End
+    - -o: Overworld
+    - -n: Nether
+    - -e: The End
 - Coordinates: 
     - x1, z1: Find the corner of your plot where your x and z coordinates are at their lowest (most negative).
     - x2, z2: Find the corner of your plot where your x and z coordinates are at their highest (most positive).
