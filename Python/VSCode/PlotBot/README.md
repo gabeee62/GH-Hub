@@ -11,6 +11,31 @@
 7. Return to the application's OAuth2 page and copy + paste the install link into your browser. You should now see a popup in your Discord client to allow the bot to join a server you own.
 8. Run the "PlotBot.py" file in the folder that matches the bot version you wish to run (currently only v1.0). The bot should now be fully operational on your server.
 
+# USER GUIDE
+
+## SETUP
+
+## CLAIMING PLOTS
+
+### INDIVIDUAL PLOTS
+
+Syntax: %plot claim -m <dimension: -o, -n, -e> <x1> <z1> <x2> <z2> <PLOT_NAME>
+
+- Dimension: 
+    -o: Overworld
+    -n: Nether
+    -e: The End
+- Coordinates: 
+    - x1, z1: Find the corner of your plot where your x and z coordinates are at their lowest (most negative).
+    - x2, z2: Find the corner of your plot where your x and z coordinates are at their highest (most positive).
+- Plot Name: Avoid using symbols or spaces. Numbers are permitted.
+
+### GROUP PLOTS
+
+
+
+## SEARCHING FOR PLOTS
+
 
 # LICENSING
 

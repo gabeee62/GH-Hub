@@ -5,9 +5,9 @@ import discord
 from Commands import plot as Plot, settings as Settings
 from Classes import plot as plotClass
 from discord.ext import commands
-from dotenv import load_dotenv
+from dotenv import load
 
-load_dotenv()
+load(filepath='../../../.env')
 token = os.getenv('DISCORD_TOKEN')
 
 handler = logging.FileHandler(
@@ -20,7 +20,8 @@ intents.members = True
 # TODO: Make settings and config variables and use json module to interpret them
 
 bot = commands.Bot(command_prefix=os.getenv('PREFIX'), intents=intents)
-settings: dict = json.loads(open(file="../../Database/Settings/settings.json"))
+settings: dict = json.loads(
+    open(file="../../Database/Settings/settings.json").read)
 config: dict = json.loads(open(file="../../Database/Settings/config.json"))
 
 
