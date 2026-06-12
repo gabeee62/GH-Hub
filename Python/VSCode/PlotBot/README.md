@@ -17,7 +17,7 @@
 
 ## CLAIMING PLOTS
 
-- <x1> <z1> <x2> <z2>
+- <x1>
 
 - **Syntax**: %plot claim <type: -m, -g> <dimension: -o, -n, -e> <PLOT_NAME>
 
