@@ -7,9 +7,10 @@
 3. In the application's OAuth2 page under the OAuth2 URL Generator, enable the "bot" scope.
 4. Under the UI that appears after completing Step 3, enable the "Send Messages" and "Embed Links" permissions.
 5. In the application's Bot page under Bot Permissions, enable the same permissions.
-6. Reset the bot's token and copy it. Go to the .env file and replace the "TOKEN_GOES_HERE" variable with the new token, then save the file.
-7. Return to the application's OAuth2 page and copy + paste the install link into your browser. You should now see a popup in your Discord client to allow the bot to join a server you own.
-8. Run the "PlotBot.py" file in the folder that matches the bot version you wish to run (currently only v1.0). The bot should now be fully operational on your server.
+6. Under Privileged Gateway Intents, enable the Message Content Intent.
+7. Reset the bot's token and copy it. Go to the .env file and replace the "TOKEN_GOES_HERE" variable with the new token, then save the file.
+8. Return to the application's OAuth2 page and copy + paste the install link into your browser. You should now see a popup in your Discord client to allow the bot to join a server you own.
+9. Run the "PlotBot.py" file in the folder that matches the bot version you wish to run (currently only v1.0). The bot should now be fully operational on your server.
 
 # USER GUIDE
 
