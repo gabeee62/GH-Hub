@@ -23,9 +23,6 @@
     - -m: Member/Individual Plot
     - -g: Group Plot
         - In order to claim a plot for a group, you must be the group's owner.
-
-### INDIVIDUAL PLOTS
-
 - **Dimension**: 
     - -o: Overworld
     - -n: Nether
@@ -34,8 +31,6 @@
     - x1, z1: Find the corner of your plot where your x and z coordinates are at their lowest (most negative).
     - x2, z2: Find the corner of your plot where your x and z coordinates are at their highest (most positive).
 - **Plot Name**: Avoid using symbols or spaces. Numbers are permitted.
-
-### GROUP PLOTS
 
 
 
