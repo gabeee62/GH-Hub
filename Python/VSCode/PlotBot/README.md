@@ -42,5 +42,4 @@
 
 - This bot is is freely available for personal and non-commercial use.
 - You may edit, add to, or remove parts of the bot as you see fit.
-- You may NOT redistribute this code or versions of it--modified or not--as your own.
 - You may NOT sell this code or versions of it, modified or not.
