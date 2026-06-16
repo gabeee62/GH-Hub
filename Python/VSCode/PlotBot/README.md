@@ -16,6 +16,8 @@
 
 ## SETUP
 
+Setup guide goes here >>>
+
 ## CLAIMING PLOTS
 
 - **Syntax**: %plot claim <type: -m, -g> <dimension: -o, -n, -e> \<x1\> \<z1\> \<x2\> \<z2\> <PLOT_NAME>
