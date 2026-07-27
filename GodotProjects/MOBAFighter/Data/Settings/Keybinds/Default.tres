@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="Keybinds" format=3 uid="uid://b5ijgnrs1ifnu"]
+
+[ext_resource type="Script" uid="uid://k8n7ewkw0602" path="res://Data/Settings/Keybinds/Keybinds.gd" id="1_3ryu8"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_3ryu8"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_8y11f"]
+device = -1
+keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_moae2"]
+device = -1
+keycode = 87
+unicode = 119
+
+[sub_resource type="InputEventKey" id="InputEventKey_pegt6"]
+device = -1
+keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_xlkkb"]
+device = -1
+keycode = 4194326
+
+[sub_resource type="InputEventKey" id="InputEventKey_xymhg"]
+device = -1
+keycode = 4194325
+
+[sub_resource type="InputEventKey" id="InputEventKey_ys5yd"]
+device = -1
+keycode = 67
+unicode = 99
+
+[sub_resource type="InputEventKey" id="InputEventKey_85bvx"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_qityo"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_pj8tu"]
+device = -1
+keycode = 70
+unicode = 102
+
+[resource]
+script = ExtResource("1_3ryu8")
+actions = Array[StringName]([&"move_left", &"move_right", &"move_up", &"move_down", &"run", &"dash", &"crouch", &"jump", &"interact1", &"interact2"])
+keys = Array[InputEvent]([SubResource("InputEventKey_3ryu8"), SubResource("InputEventKey_8y11f"), SubResource("InputEventKey_moae2"), SubResource("InputEventKey_pegt6"), SubResource("InputEventKey_xlkkb"), SubResource("InputEventKey_xymhg"), SubResource("InputEventKey_ys5yd"), SubResource("InputEventKey_85bvx"), SubResource("InputEventKey_qityo"), SubResource("InputEventKey_pj8tu")])
+metadata/_custom_type_script = "uid://k8n7ewkw0602"

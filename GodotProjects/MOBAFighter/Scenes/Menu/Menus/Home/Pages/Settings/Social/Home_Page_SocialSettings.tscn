@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://3qr0i0jkmgcx"]
+
+[ext_resource type="PackedScene" uid="uid://bixyfw6ksnjqm" path="res://Scenes/Menu/Pages/Menu_Page_Template.tscn" id="1_lw8xj"]
+
+[node name="Social" unique_id=470686333 instance=ExtResource("1_lw8xj")]

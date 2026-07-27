@@ -26,7 +26,7 @@ Setup guide goes here >>>
     - -m: Member/Individual Plot
     - -g: Group Plot
         - In order to claim a plot for a group, you must be the group's owner.
-- **Dimension**: 
+- **Dimension**:
     - -o: Overworld
     - -n: Nether
     - -e: The End

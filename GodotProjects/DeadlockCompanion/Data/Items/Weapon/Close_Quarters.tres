@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://ceqewbun8wguf"]
+
+[ext_resource type="Script" uid="uid://b8k0ho5gjjw0c" path="res://Data/Items/Item_Template.gd" id="1_02drc"]
+[ext_resource type="Texture2D" uid="uid://0klg3hnydfk6" path="res://Resources/Textures/Icons/Items/Weapon/CloseQuarters.png" id="1_n258r"]
+
+[resource]
+script = ExtResource("1_02drc")
+Icon = ExtResource("1_n258r")
+ItemName = "Close Quarters"
+type = 2
+metadata/_custom_type_script = "uid://b8k0ho5gjjw0c"

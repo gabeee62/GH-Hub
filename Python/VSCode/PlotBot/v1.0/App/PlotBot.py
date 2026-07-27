@@ -38,6 +38,11 @@ async def on_ready():
 
 
 @bot.command()
+async def hello(ctx):
+    await ctx.reply(f"Hello, {ctx.author.name}!")
+
+
+@bot.command()
 async def plot(ctx, subcommand: str, *args):
     match subcommand:
         # Syntax: %plot claim <-m, -g> <-o, -n, -e> <x1> <y1> <x2> <y2> <PLOT_NAME>

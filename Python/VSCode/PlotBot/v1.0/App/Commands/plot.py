@@ -1,11 +1,16 @@
 import json
 
-newBlankPlot: dict = {
+newMemberPlot: dict = {
     "owner": 0,
     "name": "N/A",
     "dateClaimed": "N/A",
     "dimension": "N/A",
     "coordinates": [(0, 0), (0, 0)]
+}
+
+newGroupPlot: dict = {
+    "owner": 0,
+
 }
 
 plots: list[dict] = json.loads(
@@ -14,15 +19,18 @@ plots: list[dict] = json.loads(
 
 def claim_check(newPlot: dict, config: dict) -> bool:
 
-    plots: list[dict] = json.loads(
-        open("v1.0\Database\Plots\Plots.json").read())
+    plots: list[dict]
+    with open("v1.0\Database\Plots\Plots.json") as file:
+        plots = file.read()
+
     for plot in plots:
-        if plots["dimension"] == newPlot["dimension"]:
+        if plot["dimension"] == newPlot["dimension"] and plot["owner"] != newPlot["owner"]:
             extendedBounds: list[tuple] = [(), ()]
+    return True
 
 
-def claim(plot: dict, config: dict):
-    if claim_check(plot):
+def claim(newPlot: dict, config: dict):
+    if claim_check(newPlot=newPlot, config=config):
         pass
 
 
@@ -31,7 +39,7 @@ def default():
 
 
 def delete(executor: str, plot: dict):
-    if executor == plot.owner:
+    if executor == plot["owner"]:
         pass
 
 
