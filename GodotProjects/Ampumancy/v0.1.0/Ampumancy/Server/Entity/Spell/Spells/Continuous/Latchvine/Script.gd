@@ -1,2 +1,0 @@
-extends ContinuousSpell
-class_name Latchvine

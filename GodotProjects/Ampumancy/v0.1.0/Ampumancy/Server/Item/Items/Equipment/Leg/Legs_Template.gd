@@ -1,2 +1,0 @@
-extends EquipmentItem
-class_name LegsItem
